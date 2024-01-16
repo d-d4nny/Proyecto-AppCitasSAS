@@ -12,7 +12,7 @@ public class PacienteDTO {
 	private String tlfPaciente;
 	private String emailPaciente;
 	private String contrasenaPaciente;
-	private Calendar fechaNacimiento;
+	private Calendar fchNacimientoPaciente;
 	private String generoPaciente;
 	private String direccionPaciente;
 	private String imgPaciente;
@@ -85,13 +85,13 @@ public class PacienteDTO {
 	}
 
 
-	public Calendar getFechaNacimiento() {
-		return fechaNacimiento;
+	public Calendar getFchNacimientoPaciente() {
+		return fchNacimientoPaciente;
 	}
 
 
-	public void setFechaNacimiento(Calendar fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+	public void setFchNacimientoPaciente(Calendar fchNacimientoPaciente) {
+		this.fchNacimientoPaciente = fchNacimientoPaciente;
 	}
 
 
@@ -174,7 +174,7 @@ public class PacienteDTO {
 	
 
 	public PacienteDTO(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
-			String emailPaciente, String contrasenaPaciente, Calendar fechaNacimiento, String generoPaciente,
+			String emailPaciente, String contrasenaPaciente, Calendar fchNacimientoPaciente, String generoPaciente,
 			String direccionPaciente, String imgPaciente) {
 		super();
 		this.idPaciente = idPaciente;
@@ -183,7 +183,7 @@ public class PacienteDTO {
 		this.tlfPaciente = tlfPaciente;
 		this.emailPaciente = emailPaciente;
 		this.contrasenaPaciente = contrasenaPaciente;
-		this.fechaNacimiento = fechaNacimiento;
+		this.fchNacimientoPaciente = fchNacimientoPaciente;
 		this.generoPaciente = generoPaciente;
 		this.direccionPaciente = direccionPaciente;
 		this.imgPaciente = imgPaciente;
@@ -191,7 +191,7 @@ public class PacienteDTO {
 
 
 	public PacienteDTO(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
-			String emailPaciente, String contrasenaPaciente, Calendar fechaNacimiento, String generoPaciente,
+			String emailPaciente, String contrasenaPaciente, Calendar fchNacimientoPaciente, String generoPaciente,
 			String direccionPaciente, String imgPaciente, String token, Calendar expiracionToken, String password,
 			String password2) {
 		super();
@@ -201,7 +201,7 @@ public class PacienteDTO {
 		this.tlfPaciente = tlfPaciente;
 		this.emailPaciente = emailPaciente;
 		this.contrasenaPaciente = contrasenaPaciente;
-		this.fechaNacimiento = fechaNacimiento;
+		this.fchNacimientoPaciente = fchNacimientoPaciente;
 		this.generoPaciente = generoPaciente;
 		this.direccionPaciente = direccionPaciente;
 		this.imgPaciente = imgPaciente;
@@ -218,7 +218,7 @@ public class PacienteDTO {
 	@Override
 	public int hashCode() {
 		return Objects.hash(contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente, expiracionToken,
-				fechaNacimiento, generoPaciente, idPaciente, imgPaciente, nombreCompletoPaciente, password, password2,
+				fchNacimientoPaciente, generoPaciente, idPaciente, imgPaciente, nombreCompletoPaciente, password, password2,
 				tlfPaciente, token);
 	}
 
@@ -236,7 +236,7 @@ public class PacienteDTO {
 				&& Objects.equals(direccionPaciente, other.direccionPaciente)
 				&& Objects.equals(dniPaciente, other.dniPaciente) && Objects.equals(emailPaciente, other.emailPaciente)
 				&& Objects.equals(expiracionToken, other.expiracionToken)
-				&& Objects.equals(fechaNacimiento, other.fechaNacimiento)
+				&& Objects.equals(fchNacimientoPaciente, other.fchNacimientoPaciente)
 				&& Objects.equals(generoPaciente, other.generoPaciente) && idPaciente == other.idPaciente
 				&& Objects.equals(imgPaciente, other.imgPaciente)
 				&& Objects.equals(nombreCompletoPaciente, other.nombreCompletoPaciente)
@@ -249,7 +249,7 @@ public class PacienteDTO {
 	public String toString() {
 		return "PacienteDTO [idPaciente=" + idPaciente + ", nombreCompletoPaciente=" + nombreCompletoPaciente
 				+ ", dniPaciente=" + dniPaciente + ", tlfPaciente=" + tlfPaciente + ", emailPaciente=" + emailPaciente
-				+ ", contrasenaPaciente=" + contrasenaPaciente + ", fechaNacimiento=" + fechaNacimiento
+				+ ", contrasenaPaciente=" + contrasenaPaciente + ", fchNacimientoPaciente=" + fchNacimientoPaciente
 				+ ", generoPaciente=" + generoPaciente + ", direccionPaciente=" + direccionPaciente + ", imgPaciente="
 				+ imgPaciente + ", token=" + token + ", expiracionToken=" + expiracionToken + ", password=" + password
 				+ ", password2=" + password2 + "]";
