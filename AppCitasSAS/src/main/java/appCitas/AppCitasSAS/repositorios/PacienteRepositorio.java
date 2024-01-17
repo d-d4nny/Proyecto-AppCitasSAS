@@ -1,9 +1,11 @@
 package appCitas.AppCitasSAS.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSAS.dao.Paciente;
 
+@Service
 public interface PacienteRepositorio extends JpaRepository<Paciente, Long> {
 
 	/**
@@ -34,5 +36,5 @@ public interface PacienteRepositorio extends JpaRepository<Paciente, Long> {
 	 * @param nombreUsuario El nombre de usuario del usuario a buscar.
 	 * @return true si existe un usuario con el nombre de usuario especificado, false en caso contrario.
 	 */
-	public boolean existsByNombrePaciente(String nombreCompletoPaciente);
+	public boolean existsByNombreCompletoPaciente(String nombreCompletoPaciente);
 }

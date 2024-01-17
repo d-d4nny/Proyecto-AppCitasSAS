@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "pacientes", schema = "sch_SAS")
+@Table(name = "pacientes", schema = "sch_sas")
 public class Paciente {
 
 	// ATRIBUTOS
@@ -47,8 +47,8 @@ public class Paciente {
 	@Column(name = "img_paciente", nullable = true, length = 100)
 	private String imgPaciente;
 	
-	@Column(name = "rol_paciente", nullable = false, length = 1)
-	private String rolPaciente = "4";
+	@Column(name = "rol_paciente", nullable = false, length = 12)
+	private String rolPaciente;
 
 	@Column(name = "token_recuperacion", nullable = true, length = 100)
 	private String token;

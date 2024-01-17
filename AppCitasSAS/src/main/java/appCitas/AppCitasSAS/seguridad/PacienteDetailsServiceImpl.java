@@ -18,7 +18,7 @@ import appCitas.AppCitasSAS.repositorios.PacienteRepositorio;
  * es necesario una clase en el proyecto que implemente la interfaz UserDetailsService y
  * sobre escribir el método loadUserByUsername de la misma.
  */
-@Service("userDetailsService")
+@Service("pacienteDetailsService")
 public class PacienteDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
@@ -33,7 +33,7 @@ public class PacienteDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-	    System.out.printf("\nIntento de inicio de sesión para el usuario: %s\n", username);
+	    System.out.printf("\nIntento de inicio de sesión para el paciente: %s\n", username);
 
 		//El nombre de usuario en la aplicación es el email
 		Paciente user = usuarioRepository.findFirstByEmailPaciente(username);
@@ -41,14 +41,14 @@ public class PacienteDetailsServiceImpl implements UserDetailsService {
 		//Construir la instancia de UserDetails con los datos del usuario
 		UserBuilder builder = null;
 		if (user != null) {
-	    	System.out.printf("\nUsuario encontrado en la base de datos: %s\n", user.getEmailPaciente());
+	    	System.out.printf("\nPaciente encontrado en la base de datos: %s\n", user.getEmailPaciente());
 
 			builder = User.withUsername(username);
 			builder.disabled(false);
 			builder.password(user.getContrasenaPaciente());
 			builder.authorities(user.getRolPaciente());
 		} else {
-	    	System.out.println("Usuario no encontrado en la base de datos");
+	    	System.out.println("Paciente no encontrado en la base de datos");
 			throw new UsernameNotFoundException("Paciente no encontrado");
 		}
 		return builder.build();

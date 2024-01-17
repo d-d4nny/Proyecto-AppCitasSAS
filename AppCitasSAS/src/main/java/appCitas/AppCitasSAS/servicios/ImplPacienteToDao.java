@@ -3,9 +3,12 @@ package appCitas.AppCitasSAS.servicios;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import appCitas.AppCitasSAS.dao.Paciente;
 import appCitas.AppCitasSAS.dto.PacienteDTO;
 
+@Service
 public class ImplPacienteToDao implements IntfPacienteToDao {
 
 	@Override
