@@ -28,23 +28,33 @@
     <br>
     <div class="imgBackground">
         <img src="../static/css/img/backgroundSFondo.png" alt="">
-        <p class="textLogin">Clientes</p>
+		<p class="textLogin">Clientes</p>
     </div>
+
     <div class="contenedor form-login">
 		<p class="titulo">Iniciar Sesion</p>
+		<br>
 		<form class="form" id="loginform" method="POST" th:action="@{/auth/login-post}" role="form">
 			<input id="login-username" type="email" class="input" name="username" placeholder="email" required>
 			<input id="login-password" type="password" class="input" name="password" placeholder="password" required>
-			<button type="submit" class="col-12 form-btn">Acceder</button>
+			
+			<button type="submit" class="button">Acceder</button>
 			
 		</form>
-		<form class="mb-3" method="GET" th:action="@{/auth/registrar}" >
-			<button type="submit" class="form-btn">Registrarse</button>
-		</form>
-		<form th:action="@{/auth/iniciarRecuperacion}" th:method="get">
-    		<button type="submit" class="form-btn negro">Recuperar contraseña</button>
-		</form>
+		<div class="button-container" style="display: flex; justify-content: space-between;">
+			<form class="form" style="margin-right: 2%;" method="GET" th:action="@{/auth/registrar}" >
+				<button type="submit" class="button2">Registrarse</button>
+			</form>
+			<form class="form" th:action="@{/auth/iniciarRecuperacion}" th:method="get">
+				<button type="submit" class="button2">Recuperar contraseña</button>
+			</form>
+		</div>
 	</div>
+
+	<div class="empleadosButton" style="text-align: center; padding-top: 20px;">
+		<button type="submit" class="button">Empleados</button>
+	</div>
+
 	<script th:if="${not #strings.isEmpty(mensajeRegistroExitoso)}">
 	    mostrarNotificacion("¡Registro exitoso!", "Ahora puede iniciar sesión", 'success');
 	</script>

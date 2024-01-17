@@ -2,6 +2,40 @@ body {
     background-color: #f8f9fa; /* Color de fondo */
 }
 
+.empleadosButton{
+    bottom: 0;
+    height: 34px;
+    padding: 13px 0 100px;
+    position: fixed;
+    width: 100%;
+}
+
+.button {
+    color: #fff; 
+    background: rgba(64,171,168,255);
+    padding: 8px 28px;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    border: none;
+    outline: none;
+}
+
+.button2 {
+    color: #fff; 
+    background: rgba(64,171,168,255);
+    padding: 8px 28px;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    border: none;
+    outline: none;
+}
+
 
 .imgBackground {
     text-align: center;
@@ -39,8 +73,8 @@ body {
 }
 
 .form-login { /*form-login*/
-    width: 350px;
-    height: 435px;
+    width: 600px;
+    height: 360px;
 }
 
 .form-restablecer { 
@@ -73,6 +107,7 @@ body {
     flex-direction: column;
     gap: 18px;
     margin-bottom: 15px;
+    
 }
 
 .input {
@@ -81,6 +116,7 @@ body {
     outline: 0 !important;
     box-sizing: border-box;
     padding: 12px 15px;
+    
 }
 
 .form-btn {
