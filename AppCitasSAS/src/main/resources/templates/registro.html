@@ -25,19 +25,17 @@
 	</nav>
 	<div class="contenedor form-registro">
 		<p class="titulo">Nuevo Usuario</p>
-		<form class="form" th:action="@{/auth/registrar}" enctype="multipart/form-data" method="post" th:object="${usuarioDTO}">
-			<input type="text" id="nombreUsuario" name="nombreUsuario" class="input" placeholder="Nombre"
-				required th:value="*{nombreUsuario}">
-			<input type="text" id="apellidosUsuario" name="apellidosUsuario" class="input" placeholder="Apellidos"
-				required th:value="*{apellidosUsuario}">
+		<form class="form" th:action="@{/auth/registrar}" enctype="multipart/form-data" method="post" th:object="${pacienteDTO}">
+			<input type="text" id="nombreCompletoPaciente" name="nombreCompletoPaciente" class="input" placeholder="Nombre"
+				 th:value="*{nombreCompletoPaciente}">
 			<input type="text" id="dniUsuario" name="dniUsuario" class="input" placeholder="DNI" required
-				th:value="*{dniUsuario}">
+				th:value="*{dniPaciente}">
 			<input type="text" id="tlfUsuario" name="tlfUsuario" class="input" placeholder="Telefono"
-				required th:value="*{tlfUsuario}">
+				required th:value="*{tlfPaciente}">
 			<input type="email" id="emailUsuario" name="emailUsuario" class="input" placeholder="Email"
-				required th:value="*{emailUsuario}">
+				required th:value="*{emailPaciente}">
 			<input type="password" id="claveUsuario" name="claveUsuario" class="input" placeholder="Contraseña"
-				required th:value="*{claveUsuario}" oninput="revisarContraseña()">
+				required th:value="*{contrasenaPaciente}" oninput="revisarContraseña()">
 			<input type="password" id="confirmarClaveUsuario" name="confirmarClaveUsuario" class="input"
 				placeholder="Confirmar Contraseña" required oninput="revisarContraseña()">
 			<button type="submit" id="btnRegistro" class="form-btn">Registrarse</button>

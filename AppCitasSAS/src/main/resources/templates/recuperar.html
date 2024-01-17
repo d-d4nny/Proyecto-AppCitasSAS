@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-sm-10 offset-1">
 				<p class="titulo">Restablecer contraseña</p>
-				<form th:action="@{/auth/recuperar}" th:object="${usuarioDTO}" method="post">
+				<form th:action="@{/auth/recuperar}" th:object="${PacienteDTO}" method="post">
 					<input type="hidden" th:field="*{token}"/>
 					<input type="password" th:field="*{password}" class="form-control" required 
 						   oninput="revisarContraseña()" id="claveUsuario" placeholder="Nueva Contraseña"/>
