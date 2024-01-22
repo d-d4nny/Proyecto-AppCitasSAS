@@ -1,6 +1,7 @@
 package appCitas.AppCitasSAS.dao;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -55,6 +57,9 @@ public class Paciente {
 
 	@Column(name = "expiracion_token", nullable = true, length = 100)
 	private Calendar expiracionToken;
+	
+	@OneToMany(mappedBy="paciente")
+    List<Informes> informesDePaciente; 
 	
 	
 	
@@ -188,11 +193,22 @@ public class Paciente {
 	public void setExpiracionToken(Calendar expiracionToken) {
 		this.expiracionToken = expiracionToken;
 	}
+	
+	
+	public List<Informes> getInformesDePaciente() {
+		return informesDePaciente;
+	}
+
+
+	public void setInformesDePaciente(List<Informes> informesDePaciente) {
+		this.informesDePaciente = informesDePaciente;
+	}
 
 
 	
 	// CONSTRUCTORES
 	
+
 	public Paciente() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -212,11 +228,12 @@ public class Paciente {
 		this.generoPaciente = generoPaciente;
 		this.direccionPaciente = direccionPaciente;
 	}
-	
 
+	
 	public Paciente(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
 			String emailPaciente, String contrasenaPaciente, Calendar fchNacimientoPaciente, String generoPaciente,
-			String direccionPaciente, String imgPaciente, String rolPaciente, String token, Calendar expiracionToken) {
+			String direccionPaciente, String imgPaciente, String rolPaciente, String token, Calendar expiracionToken,
+			List<Informes> informesDePaciente) {
 		super();
 		this.idPaciente = idPaciente;
 		this.nombreCompletoPaciente = nombreCompletoPaciente;
@@ -231,20 +248,22 @@ public class Paciente {
 		this.rolPaciente = rolPaciente;
 		this.token = token;
 		this.expiracionToken = expiracionToken;
+		this.informesDePaciente = informesDePaciente;
 	}
 
-
 	
+
 	// METODOS
+	
 	
 	@Override
 	public int hashCode() {
 		return Objects.hash(contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente, expiracionToken,
-				fchNacimientoPaciente, generoPaciente, idPaciente, imgPaciente, nombreCompletoPaciente, rolPaciente,
-				tlfPaciente, token);
+				fchNacimientoPaciente, generoPaciente, idPaciente, imgPaciente, informesDePaciente,
+				nombreCompletoPaciente, rolPaciente, tlfPaciente, token);
 	}
 
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -261,12 +280,13 @@ public class Paciente {
 				&& Objects.equals(fchNacimientoPaciente, other.fchNacimientoPaciente)
 				&& Objects.equals(generoPaciente, other.generoPaciente) && idPaciente == other.idPaciente
 				&& Objects.equals(imgPaciente, other.imgPaciente)
+				&& Objects.equals(informesDePaciente, other.informesDePaciente)
 				&& Objects.equals(nombreCompletoPaciente, other.nombreCompletoPaciente)
-				&& rolPaciente == other.rolPaciente && Objects.equals(tlfPaciente, other.tlfPaciente)
+				&& Objects.equals(rolPaciente, other.rolPaciente) && Objects.equals(tlfPaciente, other.tlfPaciente)
 				&& Objects.equals(token, other.token);
-	}	
+	}
 
-	
+
 	@Override
 	public String toString() {
 		return "Paciente [idPaciente=" + idPaciente + ", nombreCompletoPaciente=" + nombreCompletoPaciente
@@ -274,7 +294,7 @@ public class Paciente {
 				+ ", contrasenaPaciente=" + contrasenaPaciente + ", fchNacimientoPaciente=" + fchNacimientoPaciente
 				+ ", generoPaciente=" + generoPaciente + ", direccionPaciente=" + direccionPaciente + ", imgPaciente="
 				+ imgPaciente + ", rolPaciente=" + rolPaciente + ", token=" + token + ", expiracionToken="
-				+ expiracionToken + "]";
+				+ expiracionToken + ", informesDePaciente=" + informesDePaciente + "]";
 	}
 	
 }
