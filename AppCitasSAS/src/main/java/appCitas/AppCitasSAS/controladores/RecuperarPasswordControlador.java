@@ -38,7 +38,7 @@ public class RecuperarPasswordControlador {
 		
 		if(envioConExito) {
 	        model.addAttribute("mensajeExitoMail", "Proceso de recuperacion OK");
-	        return "login";
+	        return "loginPacientes";
 		} else {
 	        model.addAttribute("mensajeErrorMail", "Error en el proceso de recuperacion.");
 		}
@@ -78,7 +78,7 @@ public class RecuperarPasswordControlador {
 		
 		if(modificadaPassword) {
 			model.addAttribute("contraseñaModificadaExito", "Contraseña modificada OK");
-	        return "login";
+	        return "loginPacientes";
 		} else {
 			model.addAttribute("contraseñaModificadaError", "Error al cambiar de contraseña");
 			return "iniciarRecuperacion";

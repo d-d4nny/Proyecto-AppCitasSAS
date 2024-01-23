@@ -61,6 +61,9 @@ public class Paciente {
 	@OneToMany(mappedBy="paciente")
     List<Informes> informesDePaciente; 
 	
+	@OneToMany(mappedBy="paciente")
+    List<Citas> citasDePaciente; 
+	
 	
 	
 	// GETTER / SETTER

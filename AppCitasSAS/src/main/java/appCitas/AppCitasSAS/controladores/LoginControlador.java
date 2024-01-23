@@ -24,11 +24,11 @@ public class LoginControlador {
 	private IntfPacienteServicio pacienteServicio;
 
 
-	@GetMapping("/auth/login")
+	@GetMapping("/auth/loginPacientes")
 	public String login(Model model) {
 		// Se agrega un nuevo objeto UsuarioDTO al modelo para el formulario de login
 		model.addAttribute("pacienteDTO", new PacienteDTO());
-		return "login";
+		return "loginPacientes";
 	}
 
 	
@@ -47,7 +47,7 @@ public class LoginControlador {
 		if (nuevoUsuario != null && nuevoUsuario.getDniPaciente() != null) {
 			// Si el usuario y el DNI no son null es que el registro se completo correctamente
 			model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo paciente OK");
-			return "login";
+			return "loginPacientes";
 		} else {
 			// Se verifica si el DNI ya existe para mostrar error personalizado en la vista
 			if (pacienteDTO.getDniPaciente() == null) {

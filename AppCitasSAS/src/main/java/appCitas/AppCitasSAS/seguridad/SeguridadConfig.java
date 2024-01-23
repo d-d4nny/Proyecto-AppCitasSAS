@@ -77,7 +77,7 @@ public class SeguridadConfig {
             // Configura el proceso de inicio de sesión y la página de inicio de sesión.
             .formLogin(login ->
                 login
-                    .loginPage("/auth/login") // Establece la página de inicio de sesión personalizada.
+                    .loginPage("/auth/loginPacientes") // Establece la página de inicio de sesión personalizada.
                     .defaultSuccessUrl("/privada/home", true) // Establece la URL de redirección después de un inicio de sesión exitoso.
                     .loginProcessingUrl("/auth/login-post") // Establece la URL de procesamiento del formulario de inicio de sesión.
             )
