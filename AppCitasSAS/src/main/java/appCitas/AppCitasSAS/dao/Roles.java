@@ -1,6 +1,7 @@
 package appCitas.AppCitasSAS.dao;
 
 import java.util.List;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,5 +28,99 @@ public class Roles {
 	private String descTipoRol;
 	
 	@OneToMany(mappedBy="rol")
-    List<Empleados> empleadosConRol;     
+    List<Empleados> empleadosConRol;  
+	
+	
+	
+	// GETTER / SETTER
+	
+	
+	public long getIdRol() {
+		return idRol;
+	}
+
+	public void setIdRol(long idRol) {
+		this.idRol = idRol;
+	}
+
+	public String getCodigoRol() {
+		return codigoRol;
+	}
+
+	public void setCodigoRol(String codigoRol) {
+		this.codigoRol = codigoRol;
+	}
+
+	public String getDescTipoRol() {
+		return descTipoRol;
+	}
+
+	public void setDescTipoRol(String descTipoRol) {
+		this.descTipoRol = descTipoRol;
+	}
+
+	public List<Empleados> getEmpleadosConRol() {
+		return empleadosConRol;
+	}
+
+	public void setEmpleadosConRol(List<Empleados> empleadosConRol) {
+		this.empleadosConRol = empleadosConRol;
+	}
+
+
+	
+	// CONSTRUCTORES
+	
+	
+	public Roles() {
+		super();
+		// TODO Auto-generated constructor stub
+	}   
+	
+	
+	public Roles(String codigoRol, String descTipoRol) {
+		super();
+		this.codigoRol = codigoRol;
+		this.descTipoRol = descTipoRol;
+	}
+	
+	
+	public Roles(long idRol, String codigoRol, String descTipoRol, List<Empleados> empleadosConRol) {
+		super();
+		this.idRol = idRol;
+		this.codigoRol = codigoRol;
+		this.descTipoRol = descTipoRol;
+		this.empleadosConRol = empleadosConRol;
+	}
+
+	
+	
+	// METODOS
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigoRol, descTipoRol, empleadosConRol, idRol);
+	}
+
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Roles other = (Roles) obj;
+		return Objects.equals(codigoRol, other.codigoRol) && Objects.equals(descTipoRol, other.descTipoRol)
+				&& Objects.equals(empleadosConRol, other.empleadosConRol) && idRol == other.idRol;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Roles [idRol=" + idRol + ", codigoRol=" + codigoRol + ", descTipoRol=" + descTipoRol
+				+ ", empleadosConRol=" + empleadosConRol + "]";
+	}
 }

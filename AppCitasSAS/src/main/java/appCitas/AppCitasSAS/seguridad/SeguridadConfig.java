@@ -71,7 +71,7 @@ public class SeguridadConfig {
             .authorizeHttpRequests(auth -> 
                 auth
                 	// Permite el acceso público a ciertos recursos y direcciones de URL que no requieren autenticación.
-                    .requestMatchers("/", "/webjars/**", "/css/**", "/script/**", "/auth/**").permitAll()
+                    .requestMatchers("/auth/loginPacientes", "/webjars/**", "/css/**", "/script/**", "/auth/**").permitAll()
                     .anyRequest().authenticated()// Exige autenticación para cualquier otra solicitud.
             )
             // Configura el proceso de inicio de sesión y la página de inicio de sesión.
@@ -85,7 +85,7 @@ public class SeguridadConfig {
             .logout(logout ->
                 logout
                     .logoutUrl("/auth/logout") // Establece la URL de cierre de sesión personalizada.
-                    .logoutSuccessUrl("/") // Establece la URL de redirección después de un cierre de sesión exitoso.
+                    .logoutSuccessUrl("/auth/loginPacientes") // Establece la URL de redirección después de un cierre de sesión exitoso.
             );
         
         // Configura un proveedor de autenticación personalizado.

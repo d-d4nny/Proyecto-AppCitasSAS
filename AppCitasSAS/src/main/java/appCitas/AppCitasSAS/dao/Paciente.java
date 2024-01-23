@@ -206,11 +206,21 @@ public class Paciente {
 	public void setInformesDePaciente(List<Informes> informesDePaciente) {
 		this.informesDePaciente = informesDePaciente;
 	}
+	
+	
+	public List<Citas> getCitasDePaciente() {
+		return citasDePaciente;
+	}
+
+
+	public void setCitasDePaciente(List<Citas> citasDePaciente) {
+		this.citasDePaciente = citasDePaciente;
+	}
 
 
 	
 	// CONSTRUCTORES
-	
+
 
 	public Paciente() {
 		super();
@@ -232,11 +242,11 @@ public class Paciente {
 		this.direccionPaciente = direccionPaciente;
 	}
 
-	
+
 	public Paciente(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
 			String emailPaciente, String contrasenaPaciente, Calendar fchNacimientoPaciente, String generoPaciente,
 			String direccionPaciente, String imgPaciente, String rolPaciente, String token, Calendar expiracionToken,
-			List<Informes> informesDePaciente) {
+			List<Informes> informesDePaciente, List<Citas> citasDePaciente) {
 		super();
 		this.idPaciente = idPaciente;
 		this.nombreCompletoPaciente = nombreCompletoPaciente;
@@ -252,17 +262,18 @@ public class Paciente {
 		this.token = token;
 		this.expiracionToken = expiracionToken;
 		this.informesDePaciente = informesDePaciente;
+		this.citasDePaciente = citasDePaciente;
 	}
 
 	
-
-	// METODOS
 	
+	// METODOS
+
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente, expiracionToken,
-				fchNacimientoPaciente, generoPaciente, idPaciente, imgPaciente, informesDePaciente,
+		return Objects.hash(citasDePaciente, contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente,
+				expiracionToken, fchNacimientoPaciente, generoPaciente, idPaciente, imgPaciente, informesDePaciente,
 				nombreCompletoPaciente, rolPaciente, tlfPaciente, token);
 	}
 
@@ -276,7 +287,8 @@ public class Paciente {
 		if (getClass() != obj.getClass())
 			return false;
 		Paciente other = (Paciente) obj;
-		return Objects.equals(contrasenaPaciente, other.contrasenaPaciente)
+		return Objects.equals(citasDePaciente, other.citasDePaciente)
+				&& Objects.equals(contrasenaPaciente, other.contrasenaPaciente)
 				&& Objects.equals(direccionPaciente, other.direccionPaciente)
 				&& Objects.equals(dniPaciente, other.dniPaciente) && Objects.equals(emailPaciente, other.emailPaciente)
 				&& Objects.equals(expiracionToken, other.expiracionToken)
@@ -297,7 +309,7 @@ public class Paciente {
 				+ ", contrasenaPaciente=" + contrasenaPaciente + ", fchNacimientoPaciente=" + fchNacimientoPaciente
 				+ ", generoPaciente=" + generoPaciente + ", direccionPaciente=" + direccionPaciente + ", imgPaciente="
 				+ imgPaciente + ", rolPaciente=" + rolPaciente + ", token=" + token + ", expiracionToken="
-				+ expiracionToken + ", informesDePaciente=" + informesDePaciente + "]";
-	}
-	
+				+ expiracionToken + ", informesDePaciente=" + informesDePaciente + ", citasDePaciente="
+				+ citasDePaciente + "]";
+	}	
 }

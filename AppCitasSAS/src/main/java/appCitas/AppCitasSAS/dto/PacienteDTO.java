@@ -1,7 +1,11 @@
 package appCitas.AppCitasSAS.dto;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Objects;
+
+import appCitas.AppCitasSAS.dao.Citas;
+import appCitas.AppCitasSAS.dao.Informes;
 
 public class PacienteDTO {
 
@@ -16,14 +20,17 @@ public class PacienteDTO {
 	private String generoPaciente;
 	private String direccionPaciente;
 	private String imgPaciente;
+	private String rolPaciente;
 	private String token;
 	private Calendar expiracionToken;
+	private List<Informes> informesDePaciente;
+	private List<Citas> citasDePaciente;
 	private String password;
 	private String password2;
-	
 
 	
 	//GETTERS Y SETTERS
+	
 	
 	public long getIdPaciente() {
 		return idPaciente;
@@ -165,19 +172,50 @@ public class PacienteDTO {
 	}
 
 	
+	public String getRolPaciente() {
+		return rolPaciente;
+	}
 
+
+	public void setRolPaciente(String rolPaciente) {
+		this.rolPaciente = rolPaciente;
+	}
+
+
+	public List<Informes> getInformesDePaciente() {
+		return informesDePaciente;
+	}
+
+
+	public void setInformesDePaciente(List<Informes> informesDePaciente) {
+		this.informesDePaciente = informesDePaciente;
+	}
+
+
+	public List<Citas> getCitasDePaciente() {
+		return citasDePaciente;
+	}
+
+
+	public void setCitasDePaciente(List<Citas> citasDePaciente) {
+		this.citasDePaciente = citasDePaciente;
+	}
+	
+	
+	
 	//CONSTRUCTORES
 	
+
+
 	public PacienteDTO() {
 		
 	}
 	
 
-	public PacienteDTO(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
+	public PacienteDTO(String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
 			String emailPaciente, String contrasenaPaciente, Calendar fchNacimientoPaciente, String generoPaciente,
-			String direccionPaciente, String imgPaciente) {
+			String direccionPaciente) {
 		super();
-		this.idPaciente = idPaciente;
 		this.nombreCompletoPaciente = nombreCompletoPaciente;
 		this.dniPaciente = dniPaciente;
 		this.tlfPaciente = tlfPaciente;
@@ -186,14 +224,13 @@ public class PacienteDTO {
 		this.fchNacimientoPaciente = fchNacimientoPaciente;
 		this.generoPaciente = generoPaciente;
 		this.direccionPaciente = direccionPaciente;
-		this.imgPaciente = imgPaciente;
 	}
 
 
 	public PacienteDTO(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
 			String emailPaciente, String contrasenaPaciente, Calendar fchNacimientoPaciente, String generoPaciente,
-			String direccionPaciente, String imgPaciente, String token, Calendar expiracionToken, String password,
-			String password2) {
+			String direccionPaciente, String imgPaciente, String rolPaciente, String token, Calendar expiracionToken,
+			List<Informes> informesDePaciente, List<Citas> citasDePaciente, String password, String password2) {
 		super();
 		this.idPaciente = idPaciente;
 		this.nombreCompletoPaciente = nombreCompletoPaciente;
@@ -205,8 +242,11 @@ public class PacienteDTO {
 		this.generoPaciente = generoPaciente;
 		this.direccionPaciente = direccionPaciente;
 		this.imgPaciente = imgPaciente;
+		this.rolPaciente = rolPaciente;
 		this.token = token;
 		this.expiracionToken = expiracionToken;
+		this.informesDePaciente = informesDePaciente;
+		this.citasDePaciente = citasDePaciente;
 		this.password = password;
 		this.password2 = password2;
 	}
@@ -215,11 +255,12 @@ public class PacienteDTO {
 	
 	//METODOS
 
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente, expiracionToken,
-				fchNacimientoPaciente, generoPaciente, idPaciente, imgPaciente, nombreCompletoPaciente, password, password2,
-				tlfPaciente, token);
+		return Objects.hash(citasDePaciente, contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente,
+				expiracionToken, fchNacimientoPaciente, generoPaciente, idPaciente, imgPaciente, informesDePaciente,
+				nombreCompletoPaciente, password, password2, rolPaciente, tlfPaciente, token);
 	}
 
 
@@ -232,16 +273,19 @@ public class PacienteDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		PacienteDTO other = (PacienteDTO) obj;
-		return Objects.equals(contrasenaPaciente, other.contrasenaPaciente)
+		return Objects.equals(citasDePaciente, other.citasDePaciente)
+				&& Objects.equals(contrasenaPaciente, other.contrasenaPaciente)
 				&& Objects.equals(direccionPaciente, other.direccionPaciente)
 				&& Objects.equals(dniPaciente, other.dniPaciente) && Objects.equals(emailPaciente, other.emailPaciente)
 				&& Objects.equals(expiracionToken, other.expiracionToken)
 				&& Objects.equals(fchNacimientoPaciente, other.fchNacimientoPaciente)
 				&& Objects.equals(generoPaciente, other.generoPaciente) && idPaciente == other.idPaciente
 				&& Objects.equals(imgPaciente, other.imgPaciente)
+				&& Objects.equals(informesDePaciente, other.informesDePaciente)
 				&& Objects.equals(nombreCompletoPaciente, other.nombreCompletoPaciente)
 				&& Objects.equals(password, other.password) && Objects.equals(password2, other.password2)
-				&& Objects.equals(tlfPaciente, other.tlfPaciente) && Objects.equals(token, other.token);
+				&& Objects.equals(rolPaciente, other.rolPaciente) && Objects.equals(tlfPaciente, other.tlfPaciente)
+				&& Objects.equals(token, other.token);
 	}
 
 
@@ -251,7 +295,8 @@ public class PacienteDTO {
 				+ ", dniPaciente=" + dniPaciente + ", tlfPaciente=" + tlfPaciente + ", emailPaciente=" + emailPaciente
 				+ ", contrasenaPaciente=" + contrasenaPaciente + ", fchNacimientoPaciente=" + fchNacimientoPaciente
 				+ ", generoPaciente=" + generoPaciente + ", direccionPaciente=" + direccionPaciente + ", imgPaciente="
-				+ imgPaciente + ", token=" + token + ", expiracionToken=" + expiracionToken + ", password=" + password
-				+ ", password2=" + password2 + "]";
+				+ imgPaciente + ", rolPaciente=" + rolPaciente + ", token=" + token + ", expiracionToken="
+				+ expiracionToken + ", informesDePaciente=" + informesDePaciente + ", citasDePaciente="
+				+ citasDePaciente + ", password=" + password + ", password2=" + password2 + "]";
 	}
 }
