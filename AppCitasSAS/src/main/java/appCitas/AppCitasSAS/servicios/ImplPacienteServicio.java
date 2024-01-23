@@ -175,7 +175,6 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 		
 	}
 
-	// ESTOS METODO NO SE USAN DE MOMENTO
 	@Override
 	public boolean buscarPorDni(String dni) {
 		return repositorio.existsByDniPaciente(dni);
