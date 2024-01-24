@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import appCitas.AppCitasSAS.dao.Paciente;
-import appCitas.AppCitasSAS.dto.EmpleadoDTO;
 import appCitas.AppCitasSAS.dto.PacienteDTO;
 import appCitas.AppCitasSAS.servicios.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +19,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class LoginControlador {
-
+	
 	@Autowired
 	private IntfPacienteServicio pacienteServicio;
 
@@ -31,23 +30,16 @@ public class LoginControlador {
 		model.addAttribute("pacienteDTO", new PacienteDTO());
 		return "loginPacientes";
 	}
-	
-	
-	@GetMapping("/auth/loginEmpleados")
-	public String loginEmpleados(Model model) {
-		model.addAttribute("empleadoDTO", new EmpleadoDTO());
-		return "loginEmpleados";
-	}
 
 	
-	@GetMapping("/auth/registrar")
+	@GetMapping("/auth/registrarPaciente")
 	public String registrarGet(Model model) {
 		model.addAttribute("pacienteDTO", new PacienteDTO());
-		return "registro";
+		return "registroCliente";
 	}
 
 	
-	@PostMapping("/auth/registrar")
+	@PostMapping("/auth/registrarPaciente")
 	public String registrarPost(@ModelAttribute PacienteDTO pacienteDTO, Model model) {
 
 		PacienteDTO nuevoPaciente = pacienteServicio.registrar(pacienteDTO);
@@ -60,33 +52,33 @@ public class LoginControlador {
 			// Se verifica si el DNI ya existe para mostrar error personalizado en la vista
 			if (pacienteDTO.getDniPaciente() == null) {
 				model.addAttribute("mensajeErrorDni", "Ya existe un paciente con ese DNI");
-				return "registro";
+				return "registroCliente";
 			} else {
 				model.addAttribute("mensajeErrorMail", "Ya existe un paciente con ese email");
-				return "registro";
+				return "registroCliente";
 			}
 		}
 	}
 
 	
-	@GetMapping("/privada/home")
+	@GetMapping("/privada/homePaciente")
 	public String loginCorrecto(Model model, Authentication authentication) {
 		Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
 		String email = paciente.getEmailPaciente();
 		model.addAttribute("nombrePaciente", email);
 		System.out.println(authentication.getAuthorities());
-		return "home";
+		return "homePaciente";
 	}
-	
+
 	@GetMapping("/privada/listado")
 	public String listadoPacientes(Model model, HttpServletRequest request) {
 		List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
 		System.out.println(pacientes);
-		model.addAttribute("usuarios", pacientes);
+		model.addAttribute("pacientes", pacientes);
 		if(request.isUserInRole("ROLE_ADMIN")) {
 			return "listado";	
 		} 
-		return "home";
+		return "homePaciente";
 	}
 	
 	@GetMapping("/privada/eliminar/{id}")

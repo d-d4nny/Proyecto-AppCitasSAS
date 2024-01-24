@@ -35,6 +35,19 @@ body {
     outline: none;
 }
 
+.buttonIndex {
+    color: #fff; 
+    background: rgba(64,171,168,255);
+    padding: 50px 50px;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    border: none;
+    outline: none;
+}
+
 
 .imgBackground {
     text-align: center;

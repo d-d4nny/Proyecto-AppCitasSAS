@@ -77,15 +77,15 @@ public class SeguridadConfig {
             // Configura el proceso de inicio de sesión y la página de inicio de sesión.
             .formLogin(login ->
                 login
-                    .loginPage("/") // Establece la página de inicio de sesión personalizada.
-                    .defaultSuccessUrl("/privada/home", true) // Establece la URL de redirección después de un inicio de sesión exitoso.
-                    .loginProcessingUrl("/auth/login-post") // Establece la URL de procesamiento del formulario de inicio de sesión.
+                    .loginPage("/auth/loginPacientes") // Establece la página de inicio de sesión personalizada.
+                    .defaultSuccessUrl("/privada/homePaciente", true) // Establece la URL de redirección después de un inicio de sesión exitoso.
+                    .loginProcessingUrl("/auth/loginPaciente-post") // Establece la URL de procesamiento del formulario de inicio de sesión.
             )
             // Configura el proceso de cierre de sesión.
             .logout(logout ->
                 logout
                     .logoutUrl("/auth/logout") // Establece la URL de cierre de sesión personalizada.
-                    .logoutSuccessUrl("/auth/loginPacientes") // Establece la URL de redirección después de un cierre de sesión exitoso.
+                    .logoutSuccessUrl("/") // Establece la URL de redirección después de un cierre de sesión exitoso.
             );
         
         // Configura un proveedor de autenticación personalizado.
