@@ -30,7 +30,7 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	@Autowired
-	private IntfEmailPaciente emailServicio;
+	private IntfEmailRecuperacion emailServicio;
 
 	@Override
 	public PacienteDTO registrar(PacienteDTO pacienteDto) {
@@ -67,27 +67,6 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 			System.out.println("[Error ImplPacienteServicio - registrar() ]" + e.getMessage());
 		}
 		return null;
-	}
-
-
-	private void inicializarUsuarioAdmin() {
-		// Comprueba si ya existe un usuario admin
-		if (!repositorio.existsByNombreCompletoPaciente("admin")) {
-			// Si no existe, crea un nuevo usuario con rol de administrador
-			Paciente admin = new Paciente();
-			admin.setNombreCompletoPaciente("admin");
-			admin.setContrasenaPaciente(passwordEncoder.encode("admin"));
-			admin.setDniPaciente("-");
-			admin.setEmailPaciente("admin@admin.com");
-			admin.setRolPaciente("ROLE_ADMIN");
-
-			repositorio.save(admin);
-		}
-	}
-
-	@EventListener(ApplicationReadyEvent.class)
-	public void onApplicationReady() {
-		inicializarUsuarioAdmin();
 	}
 	
 	
@@ -129,7 +108,7 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	}
 
 	@Override
-	public boolean modificarContraseñaConToken(PacienteDTO paciente) {
+	public boolean modificarContrasenaConToken(PacienteDTO paciente) {
 
 		Paciente usuarioExistente = repositorio.findByToken(paciente.getToken());
 

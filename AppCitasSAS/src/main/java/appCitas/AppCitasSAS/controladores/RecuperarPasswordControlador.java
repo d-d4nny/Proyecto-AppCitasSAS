@@ -74,7 +74,7 @@ public class RecuperarPasswordControlador {
 	        return "iniciarRecuperacion";
 	    }
 	    
-		boolean modificadaPassword = pacienteServicio.modificarContraseñaConToken(pacienteDTO);
+		boolean modificadaPassword = pacienteServicio.modificarContrasenaConToken(pacienteDTO);
 		
 		if(modificadaPassword) {
 			model.addAttribute("contraseñaModificadaExito", "Contraseña modificada OK");

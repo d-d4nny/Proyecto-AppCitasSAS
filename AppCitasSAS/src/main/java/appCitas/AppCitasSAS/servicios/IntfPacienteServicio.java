@@ -14,7 +14,7 @@ public interface IntfPacienteServicio {
 	public Paciente buscarPorId(long id);
 	
 	
-	public Paciente buscarPorEmail(String email);
+	public Paciente buscarPorEmail(String emailPaciente);
 	
 	
 	public boolean buscarPorDni(String dni);
@@ -29,7 +29,7 @@ public interface IntfPacienteServicio {
 	public boolean iniciarResetPassConEmail(String emailPaciente);
 	
 	
-	public boolean modificarContraseñaConToken(PacienteDTO paciente);
+	public boolean modificarContrasenaConToken(PacienteDTO paciente);
 
 	
 	public Paciente eliminar(long id);

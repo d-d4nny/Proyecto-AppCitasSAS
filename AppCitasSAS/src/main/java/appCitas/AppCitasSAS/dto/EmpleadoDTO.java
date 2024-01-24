@@ -1,21 +1,22 @@
+
 package appCitas.AppCitasSAS.dto;
 
 import java.util.Calendar;
 import java.util.Objects;
 
 import appCitas.AppCitasSAS.dao.ConsultaTurno;
-import appCitas.AppCitasSAS.dao.Roles;
 
 public class EmpleadoDTO {
 
 	//ATRIBUTOS
 	private long idEmpleado;
 	private String nombreCompletoEmpleado;
-	private int identificadorEmpleado;
+	private String identificadorEmpleado;
+	private String emailEmpleado;
 	private String contrasenaEmpleado;
 	private String token;
 	private Calendar expiracionToken;
-	private Roles rol;
+	private String rolPaciente;
 	private ConsultaTurno consultaTurno;
 	private String password;
 	private String password2;
@@ -37,11 +38,17 @@ public class EmpleadoDTO {
 	public void setNombreCompletoEmpleado(String nombreCompletoEmpleado) {
 		this.nombreCompletoEmpleado = nombreCompletoEmpleado;
 	}
-	public int getIdentificadorEmpleado() {
+	public String getIdentificadorEmpleado() {
 		return identificadorEmpleado;
 	}
-	public void setIdentificadorEmpleado(int identificadorEmpleado) {
+	public void setIdentificadorEmpleado(String identificadorEmpleado) {
 		this.identificadorEmpleado = identificadorEmpleado;
+	}
+	public String getEmailEmpleado() {
+		return emailEmpleado;
+	}
+	public void setEmailEmpleado(String emailEmpleado) {
+		this.emailEmpleado = emailEmpleado;
 	}
 	public String getContrasenaEmpleado() {
 		return contrasenaEmpleado;
@@ -61,11 +68,11 @@ public class EmpleadoDTO {
 	public void setExpiracionToken(Calendar expiracionToken) {
 		this.expiracionToken = expiracionToken;
 	}
-	public Roles getRol() {
-		return rol;
+	public String getRolPaciente() {
+		return rolPaciente;
 	}
-	public void setRol(Roles rol) {
-		this.rol = rol;
+	public void setRolPaciente(String rolPaciente) {
+		this.rolPaciente = rolPaciente;
 	}
 	public ConsultaTurno getConsultaTurno() {
 		return consultaTurno;
@@ -97,28 +104,28 @@ public class EmpleadoDTO {
 	}	
 	
 	
-	public EmpleadoDTO(String nombreCompletoEmpleado, int identificadorEmpleado, String contrasenaEmpleado,
-			String token, Calendar expiracionToken) {
+	public EmpleadoDTO(String nombreCompletoEmpleado, String identificadorEmpleado, String emailEmpleado, 
+			String contrasenaEmpleado) {
 		super();
 		this.nombreCompletoEmpleado = nombreCompletoEmpleado;
 		this.identificadorEmpleado = identificadorEmpleado;
+		this.emailEmpleado = emailEmpleado;
 		this.contrasenaEmpleado = contrasenaEmpleado;
-		this.token = token;
-		this.expiracionToken = expiracionToken;
 	}
 	
-
-	public EmpleadoDTO(long idEmpleado, String nombreCompletoEmpleado, int identificadorEmpleado,
-			String contrasenaEmpleado, String token, Calendar expiracionToken, Roles rol, ConsultaTurno consultaTurno,
-			String password, String password2) {
+	
+	public EmpleadoDTO(long idEmpleado, String nombreCompletoEmpleado, String identificadorEmpleado,
+			String emailEmpleado, String contrasenaEmpleado, String token, Calendar expiracionToken, 
+			String rolPaciente, ConsultaTurno consultaTurno, String password, String password2) {
 		super();
 		this.idEmpleado = idEmpleado;
 		this.nombreCompletoEmpleado = nombreCompletoEmpleado;
 		this.identificadorEmpleado = identificadorEmpleado;
+		this.emailEmpleado = emailEmpleado;
 		this.contrasenaEmpleado = contrasenaEmpleado;
 		this.token = token;
 		this.expiracionToken = expiracionToken;
-		this.rol = rol;
+		this.rolPaciente = rolPaciente;
 		this.consultaTurno = consultaTurno;
 		this.password = password;
 		this.password2 = password2;
@@ -131,9 +138,11 @@ public class EmpleadoDTO {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(consultaTurno, contrasenaEmpleado, expiracionToken, idEmpleado, identificadorEmpleado,
-				nombreCompletoEmpleado, password, password2, rol, token);
+		return Objects.hash(consultaTurno, contrasenaEmpleado, emailEmpleado, expiracionToken, idEmpleado,
+				identificadorEmpleado, nombreCompletoEmpleado, password, password2, rolPaciente, token);
 	}
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -145,17 +154,21 @@ public class EmpleadoDTO {
 		EmpleadoDTO other = (EmpleadoDTO) obj;
 		return Objects.equals(consultaTurno, other.consultaTurno)
 				&& Objects.equals(contrasenaEmpleado, other.contrasenaEmpleado)
+				&& Objects.equals(emailEmpleado, other.emailEmpleado)
 				&& Objects.equals(expiracionToken, other.expiracionToken) && idEmpleado == other.idEmpleado
-				&& identificadorEmpleado == other.identificadorEmpleado
+				&& Objects.equals(identificadorEmpleado, other.identificadorEmpleado)
 				&& Objects.equals(nombreCompletoEmpleado, other.nombreCompletoEmpleado)
 				&& Objects.equals(password, other.password) && Objects.equals(password2, other.password2)
-				&& Objects.equals(rol, other.rol) && Objects.equals(token, other.token);
+				&& Objects.equals(rolPaciente, other.rolPaciente) && Objects.equals(token, other.token);
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "EmpleadoDTO [idEmpleado=" + idEmpleado + ", nombreCompletoEmpleado=" + nombreCompletoEmpleado
-				+ ", identificadorEmpleado=" + identificadorEmpleado + ", contrasenaEmpleado=" + contrasenaEmpleado
-				+ ", token=" + token + ", expiracionToken=" + expiracionToken + ", rol=" + rol + ", consultaTurno="
-				+ consultaTurno + ", password=" + password + ", password2=" + password2 + "]";
+				+ ", identificadorEmpleado=" + identificadorEmpleado + ", emailEmpleado=" + emailEmpleado
+				+ ", contrasenaEmpleado=" + contrasenaEmpleado + ", token=" + token + ", expiracionToken="
+				+ expiracionToken + ", rolPaciente=" + rolPaciente + ", consultaTurno=" + consultaTurno + ", password="
+				+ password + ", password2=" + password2 + "]";
 	}
 }

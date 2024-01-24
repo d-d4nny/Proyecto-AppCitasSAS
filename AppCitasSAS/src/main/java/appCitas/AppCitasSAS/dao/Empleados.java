@@ -30,20 +30,22 @@ public class Empleados {
 	private String nombreCompletoEmpleado;
 	
 	@Column(name = "identificador_empleado", nullable = false, unique = true, length = 9)
-	private int identificadorEmpleado;
+	private String identificadorEmpleado;
+	
+	@Column(name = "email_empleado", nullable = false, unique = true, length = 50)
+	private String emailEmpleado;
 	
 	@Column(name = "contraseña_empleado", nullable = false, length = 100)
 	private String contrasenaEmpleado;
+	
+	@Column(name = "rol_empleado", nullable = false, length = 12)
+	private String rolEmpleado;
 	
 	@Column(name = "token_recuperacion", nullable = true, length = 100)
 	private String token;
 
 	@Column(name = "expiracion_token", nullable = true, length = 100)
 	private Calendar expiracionToken;
-	
-	@ManyToOne
-    @JoinColumn(name="id_rol")
-    Roles rol;
 	
 	@ManyToOne
     @JoinColumn(name="id_consulta_turno")
@@ -70,12 +72,20 @@ public class Empleados {
 		this.nombreCompletoEmpleado = nombreCompletoEmpleado;
 	}
 
-	public int getIdentificadorEmpleado() {
+	public String getIdentificadorEmpleado() {
 		return identificadorEmpleado;
 	}
 
-	public void setIdentificadorEmpleado(int identificadorEmpleado) {
+	public void setIdentificadorEmpleado(String identificadorEmpleado) {
 		this.identificadorEmpleado = identificadorEmpleado;
+	}
+
+	public String getEmailEmpleado() {
+		return emailEmpleado;
+	}
+
+	public void setEmailEmpleado(String emailEmpleado) {
+		this.emailEmpleado = emailEmpleado;
 	}
 
 	public String getContrasenaEmpleado() {
@@ -84,6 +94,14 @@ public class Empleados {
 
 	public void setContrasenaEmpleado(String contrasenaEmpleado) {
 		this.contrasenaEmpleado = contrasenaEmpleado;
+	}
+	
+	public String getRolEmpleado() {
+		return rolEmpleado;
+	}
+
+	public void setRolEmpleado(String rolEmpleado) {
+		this.rolEmpleado = rolEmpleado;
 	}
 
 	public String getToken() {
@@ -102,14 +120,6 @@ public class Empleados {
 		this.expiracionToken = expiracionToken;
 	}
 
-	public Roles getRol() {
-		return rol;
-	}
-
-	public void setRol(Roles rol) {
-		this.rol = rol;
-	}
-
 	public ConsultaTurno getConsultaTurno() {
 		return consultaTurno;
 	}
@@ -121,47 +131,49 @@ public class Empleados {
 	
 
 	// CONSTRUCTORES
-
 	
+
 	public Empleados() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 
-	public Empleados(String nombreCompletoEmpleado, int identificadorEmpleado, String contrasenaEmpleado) {
+	public Empleados(String nombreCompletoEmpleado, String identificadorEmpleado, String emailEmpleado , String contrasenaEmpleado) {
 		super();
 		this.nombreCompletoEmpleado = nombreCompletoEmpleado;
 		this.identificadorEmpleado = identificadorEmpleado;
+		this.emailEmpleado = emailEmpleado;
 		this.contrasenaEmpleado = contrasenaEmpleado;
 	}
 	
 	
-	public Empleados(long idEmpleado, String nombreCompletoEmpleado, int identificadorEmpleado,
-			String contrasenaEmpleado, String token, Calendar expiracionToken, Roles rol, ConsultaTurno consultaTurno) {
+	public Empleados(long idEmpleado, String nombreCompletoEmpleado, String identificadorEmpleado,
+			String emailEmpleado, String contrasenaEmpleado, String rolEmpleado, String token, 
+			Calendar expiracionToken, ConsultaTurno consultaTurno) {
 		super();
 		this.idEmpleado = idEmpleado;
 		this.nombreCompletoEmpleado = nombreCompletoEmpleado;
 		this.identificadorEmpleado = identificadorEmpleado;
+		this.emailEmpleado = emailEmpleado;
 		this.contrasenaEmpleado = contrasenaEmpleado;
+		this.rolEmpleado = rolEmpleado;
 		this.token = token;
 		this.expiracionToken = expiracionToken;
-		this.rol = rol;
 		this.consultaTurno = consultaTurno;
 	}
 	
-	
 
+	
 	// METODOS
-	
-	
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(consultaTurno, contrasenaEmpleado, expiracionToken, idEmpleado, identificadorEmpleado,
-				nombreCompletoEmpleado, rol, token);
+		return Objects.hash(consultaTurno, contrasenaEmpleado, emailEmpleado, expiracionToken, idEmpleado,
+				identificadorEmpleado, nombreCompletoEmpleado, rolEmpleado, token);
 	}
 
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -173,18 +185,18 @@ public class Empleados {
 		Empleados other = (Empleados) obj;
 		return Objects.equals(consultaTurno, other.consultaTurno)
 				&& Objects.equals(contrasenaEmpleado, other.contrasenaEmpleado)
+				&& Objects.equals(emailEmpleado, other.emailEmpleado)
 				&& Objects.equals(expiracionToken, other.expiracionToken) && idEmpleado == other.idEmpleado
-				&& identificadorEmpleado == other.identificadorEmpleado
+				&& Objects.equals(identificadorEmpleado, other.identificadorEmpleado)
 				&& Objects.equals(nombreCompletoEmpleado, other.nombreCompletoEmpleado)
-				&& Objects.equals(rol, other.rol) && Objects.equals(token, other.token);
+				&& Objects.equals(rolEmpleado, other.rolEmpleado) && Objects.equals(token, other.token);
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Empleados [idEmpleado=" + idEmpleado + ", nombreCompletoEmpleado=" + nombreCompletoEmpleado
-				+ ", identificadorEmpleado=" + identificadorEmpleado + ", contrasenaEmpleado=" + contrasenaEmpleado
-				+ ", token=" + token + ", expiracionToken=" + expiracionToken + ", rol=" + rol + ", consultaTurno="
-				+ consultaTurno + "]";
+				+ ", identificadorEmpleado=" + identificadorEmpleado + ", emailEmpleado=" + emailEmpleado
+				+ ", contrasenaEmpleado=" + contrasenaEmpleado + ", rolEmpleado=" + rolEmpleado + ", token=" + token
+				+ ", expiracionToken=" + expiracionToken + ", consultaTurno=" + consultaTurno + "]";
 	}
 }

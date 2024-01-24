@@ -10,7 +10,7 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
 @Service
-public class ImplEmailPaciente implements IntfEmailPaciente {
+public class ImplEmailRecuperacion implements IntfEmailRecuperacion {
 	
 	@Autowired
 	private JavaMailSender javaMailSender;	

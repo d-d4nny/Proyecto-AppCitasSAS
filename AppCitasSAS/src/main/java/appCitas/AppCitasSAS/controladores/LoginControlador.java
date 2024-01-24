@@ -42,9 +42,9 @@ public class LoginControlador {
 	@PostMapping("/auth/registrar")
 	public String registrarPost(@ModelAttribute PacienteDTO pacienteDTO, Model model) {
 
-		PacienteDTO nuevoUsuario = pacienteServicio.registrar(pacienteDTO);
+		PacienteDTO nuevoPaciente = pacienteServicio.registrar(pacienteDTO);
 		
-		if (nuevoUsuario != null && nuevoUsuario.getDniPaciente() != null) {
+		if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null) {
 			// Si el usuario y el DNI no son null es que el registro se completo correctamente
 			model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo paciente OK");
 			return "loginPacientes";
