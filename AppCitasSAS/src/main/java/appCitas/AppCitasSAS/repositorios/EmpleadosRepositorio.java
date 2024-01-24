@@ -1,10 +1,11 @@
 package appCitas.AppCitasSAS.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSAS.dao.Empleados;
-import appCitas.AppCitasSAS.dao.Paciente;
 
+@Service
 public interface EmpleadosRepositorio extends JpaRepository<Empleados, Long> {
 	
 	/**
@@ -13,7 +14,7 @@ public interface EmpleadosRepositorio extends JpaRepository<Empleados, Long> {
 	 * @return El primer empleado encontrado con la dirección de correo electrónico
 	 *         especificada o null en caso contrario.
 	 */
-	public Empleados findFirstByEmailEmpleados(String emailEmpleado);
+	public Empleados findFirstByEmailEmpleado(String emailEmpleado);
 	
 	/**
 	 * Busca si un empleado tiene el IDENTIFICADOR especificado.
@@ -34,5 +35,5 @@ public interface EmpleadosRepositorio extends JpaRepository<Empleados, Long> {
 	 * @param nombreCompletoEmpleados El nombre de empleado del empleado a buscar.
 	 * @return true si existe un empleado con el nombre de empleado especificado, false en caso contrario.
 	 */
-	public boolean existsByNombreCompletoEmpleados(String nombreCompletoEmpleados);
+	public boolean existsByNombreCompletoEmpleado(String nombreCompletoEmpleado);
 }

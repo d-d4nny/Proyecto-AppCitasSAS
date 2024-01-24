@@ -37,7 +37,7 @@ public class ImplEmpleadoServicio implements IntfEmpleadoServicio {
 		
 		try {
 			// Comprueba si ya existe un usuario con el email que quiere registrar
-			Empleados empleadoDaoByEmail = repositorio.findFirstByEmailEmpleados(empleadoDto.getEmailEmpleado());
+			Empleados empleadoDaoByEmail = repositorio.findFirstByEmailEmpleado(empleadoDto.getEmailEmpleado());
 
 			if (empleadoDaoByEmail != null) {
 				return null; // Si no es null es que ya está registrado
@@ -72,7 +72,7 @@ public class ImplEmpleadoServicio implements IntfEmpleadoServicio {
 	
 	private void inicializarUsuarioAdminAdmin() {
 		// Comprueba si ya existe un usuario admin
-		if (!repositorio.existsByNombreCompletoEmpleados("admin")) {
+		if (!repositorio.existsByNombreCompletoEmpleado("admin")) {
 			// Si no existe, crea un nuevo usuario con rol de administrador
 			Empleados admin = new Empleados();
 			admin.setNombreCompletoEmpleado("admin");
@@ -95,7 +95,7 @@ public class ImplEmpleadoServicio implements IntfEmpleadoServicio {
 	@Override
 	public boolean iniciarResetPassConEmail(String emailEmpleado) {
 		try {
-			Empleados empleadoExistente = repositorio.findFirstByEmailEmpleados(emailEmpleado);
+			Empleados empleadoExistente = repositorio.findFirstByEmailEmpleado(emailEmpleado);
 
 			if (empleadoExistente != null) {
 				// Generar el token y establece la fecha de expiración
@@ -166,7 +166,7 @@ public class ImplEmpleadoServicio implements IntfEmpleadoServicio {
 	
 	@Override
 	public Empleados buscarPorEmail(String email) {
-		return repositorio.findFirstByEmailEmpleados(email);
+		return repositorio.findFirstByEmailEmpleado(email);
 	}
 	
 	

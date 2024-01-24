@@ -29,13 +29,13 @@
     <br>
     <div class="imgBackground">
         <img th:src="@{/css/img/backgroundSFondo.png}" alt="imagen fondo">
-		<p class="textLogin">Clientes</p>
+		<p class="textLogin">Empleados</p>
     </div>
 
     <div class="contenedor form-login">
 		<p class="titulo">Iniciar Sesion</p>
 		<br>
-		<form class="form" id="loginform" method="POST" th:action="@{/auth/login-post}" role="form">
+		<form class="form" id="loginform" method="POST" th:action="@{/auth/loginEmpleado-post}" role="form">
 			<input id="login-username" type="email" class="input" name="username" placeholder="email" required>
 			<input id="login-password" type="password" class="input" name="password" placeholder="password" required>
 			

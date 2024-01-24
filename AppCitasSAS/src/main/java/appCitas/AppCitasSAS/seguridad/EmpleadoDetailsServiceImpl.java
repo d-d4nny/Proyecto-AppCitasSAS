@@ -29,7 +29,7 @@ public class EmpleadoDetailsServiceImpl implements UserDetailsService {
 	    System.out.printf("\nIntento de inicio de sesión para el empleado: %s\n", username);
 
 		//El nombre de usuario en la aplicación es el identificador
-		Empleados user = usuarioRepository.findFirstByEmailEmpleados(username);
+		Empleados user = usuarioRepository.findFirstByEmailEmpleado(username);
 		
 		//Construir la instancia de UserDetails con los datos del usuario
 		UserBuilder builder = null;

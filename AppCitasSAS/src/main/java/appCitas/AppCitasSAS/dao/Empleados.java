@@ -38,7 +38,7 @@ public class Empleados {
 	@Column(name = "contraseña_empleado", nullable = false, length = 100)
 	private String contrasenaEmpleado;
 	
-	@Column(name = "rol_empleado", nullable = false, length = 12)
+	@Column(name = "rol_empleado", nullable = false, length = 16)
 	private String rolEmpleado;
 	
 	@Column(name = "token_recuperacion", nullable = true, length = 100)

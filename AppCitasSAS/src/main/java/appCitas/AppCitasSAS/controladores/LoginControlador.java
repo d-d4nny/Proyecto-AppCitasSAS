@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import appCitas.AppCitasSAS.dao.Paciente;
+import appCitas.AppCitasSAS.dto.EmpleadoDTO;
 import appCitas.AppCitasSAS.dto.PacienteDTO;
 import appCitas.AppCitasSAS.servicios.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,6 +30,13 @@ public class LoginControlador {
 		// Se agrega un nuevo objeto UsuarioDTO al modelo para el formulario de login
 		model.addAttribute("pacienteDTO", new PacienteDTO());
 		return "loginPacientes";
+	}
+	
+	
+	@GetMapping("/auth/loginEmpleados")
+	public String loginEmpleados(Model model) {
+		model.addAttribute("empleadoDTO", new EmpleadoDTO());
+		return "loginEmpleados";
 	}
 
 	

@@ -69,9 +69,9 @@ public class SeguridadEmpleadoConfig {
             // Configura el proceso de inicio de sesión y la página de inicio de sesión.
             .formLogin(login ->
                 login
-                    .loginPage("/auth/loginEmpleados") // Establece la página de inicio de sesión personalizada.
+                    .loginPage("/") // Establece la página de inicio de sesión personalizada.
                     .defaultSuccessUrl("/privada/home", true) // Establece la URL de redirección después de un inicio de sesión exitoso.
-                    .loginProcessingUrl("/auth/login-post") // Establece la URL de procesamiento del formulario de inicio de sesión.
+                    .loginProcessingUrl("/auth/loginEmpleado-post") // Establece la URL de procesamiento del formulario de inicio de sesión.
             )
             // Configura el proceso de cierre de sesión.
             .logout(logout ->

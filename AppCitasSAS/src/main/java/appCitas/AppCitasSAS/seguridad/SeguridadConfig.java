@@ -71,13 +71,13 @@ public class SeguridadConfig {
             .authorizeHttpRequests(auth -> 
                 auth
                 	// Permite el acceso público a ciertos recursos y direcciones de URL que no requieren autenticación.
-                    .requestMatchers("/auth/loginPacientes", "/webjars/**", "/css/**", "/script/**", "/auth/**").permitAll()
+                    .requestMatchers("/", "/webjars/**", "/css/**", "/script/**", "/auth/**").permitAll()
                     .anyRequest().authenticated()// Exige autenticación para cualquier otra solicitud.
             )
             // Configura el proceso de inicio de sesión y la página de inicio de sesión.
             .formLogin(login ->
                 login
-                    .loginPage("/auth/loginPacientes") // Establece la página de inicio de sesión personalizada.
+                    .loginPage("/") // Establece la página de inicio de sesión personalizada.
                     .defaultSuccessUrl("/privada/home", true) // Establece la URL de redirección después de un inicio de sesión exitoso.
                     .loginProcessingUrl("/auth/login-post") // Establece la URL de procesamiento del formulario de inicio de sesión.
             )

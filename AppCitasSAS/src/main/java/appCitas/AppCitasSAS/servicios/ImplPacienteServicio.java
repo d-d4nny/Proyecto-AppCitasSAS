@@ -10,6 +10,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import appCitas.AppCitasSAS.dao.Empleados;
 import appCitas.AppCitasSAS.dao.Paciente;
 import appCitas.AppCitasSAS.dto.PacienteDTO;
 import appCitas.AppCitasSAS.repositorios.PacienteRepositorio;
@@ -67,6 +68,28 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 			System.out.println("[Error ImplPacienteServicio - registrar() ]" + e.getMessage());
 		}
 		return null;
+	}
+	
+	
+	private void inicializarUsuario() {
+		// Comprueba si ya existe un usuario admin
+		if (!repositorio.existsByNombreCompletoPaciente("userDefault")) {
+			// Si no existe, crea un nuevo usuario con rol de administrador
+			Paciente user = new Paciente();
+			user.setNombreCompletoPaciente("userDefault");
+			user.setContrasenaPaciente(passwordEncoder.encode("1234"));
+			user.setDniPaciente("-");
+			user.setEmailPaciente("user@user.com");
+			user.setRolPaciente("ROLE_USER");
+
+			repositorio.save(user);
+		}
+	}
+	
+	
+	@EventListener(ApplicationReadyEvent.class)
+	public void onApplicationReady() {
+		inicializarUsuario();
 	}
 	
 	
