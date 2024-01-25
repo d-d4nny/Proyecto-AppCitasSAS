@@ -1,99 +1,119 @@
 package appCitas.AppCitasSAS.controladores;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import appCitas.AppCitasSAS.dao.Empleados;
 import appCitas.AppCitasSAS.dao.Paciente;
+import appCitas.AppCitasSAS.dto.EmpleadoDTO;
 import appCitas.AppCitasSAS.dto.PacienteDTO;
+import appCitas.AppCitasSAS.servicios.IntfEmpleadoServicio;
 import appCitas.AppCitasSAS.servicios.IntfPacienteServicio;
-import jakarta.servlet.http.HttpServletRequest;
 
 
 @Controller
 public class LoginControlador {
+
+	 @Autowired
+	    private IntfEmpleadoServicio empleadoServicio;
+
+	    @GetMapping("/auth/loginEmpleados")
+	    public String loginEmpleados(Model model) {
+	        model.addAttribute("empleadoDTO", new EmpleadoDTO());
+	        return "loginEmpleados";
+	    }
 	
-	@Autowired
-	private IntfPacienteServicio pacienteServicio;
+	    @GetMapping("/auth/registrarEmpleado")
+	    public String registrarEmpleadoGet(Model model) {
+	        model.addAttribute("empleadoDTO", new EmpleadoDTO());
+	        return "registroEmpleado";
+	    }
 
+	    @PostMapping("/auth/registrarEmpleado")
+	    public String registrarEmpleadoPost(@ModelAttribute EmpleadoDTO empleadoDTO, Model model) {
 
-	@GetMapping("/auth/loginPacientes")
-	public String login(Model model) {
-		// Se agrega un nuevo objeto UsuarioDTO al modelo para el formulario de login
-		model.addAttribute("pacienteDTO", new PacienteDTO());
-		return "loginPacientes";
-	}
+	        EmpleadoDTO nuevoEmpleado = empleadoServicio.registrar(empleadoDTO);
 
-	
-	@GetMapping("/auth/registrarPaciente")
-	public String registrarGet(Model model) {
-		model.addAttribute("pacienteDTO", new PacienteDTO());
-		return "registroCliente";
-	}
+	        if (nuevoEmpleado != null && nuevoEmpleado.getIdentificadorEmpleado() != null) {
+	            model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo empleado OK");
+	            return "loginEmpleados";
+	        } else {
+	            if (empleadoDTO.getIdentificadorEmpleado() == null) {
+	                model.addAttribute("mensajeErrorDni", "Ya existe un empleado con ese IDENTIFICADOR");
+	                return "registroEmpleado";
+	            } else {
+	                model.addAttribute("mensajeErrorMail", "Ya existe un empleado con ese email");
+	                return "registroEmpleado";
+	            }
+	        }
+	    }
 
-	
-	@PostMapping("/auth/registrarPaciente")
-	public String registrarPost(@ModelAttribute PacienteDTO pacienteDTO, Model model) {
+	    @GetMapping("/privada/homeEmpleado")
+	    public String loginCorrectoEmpleado(Model model, Authentication authentication) {
+	        Empleados empleado = empleadoServicio.buscarPorEmail(authentication.getName());
+	        String email = empleado.getEmailEmpleado();
+	        model.addAttribute("nombreEmpleado", email);
 
-		PacienteDTO nuevoPaciente = pacienteServicio.registrar(pacienteDTO);
-		
-		if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null) {
-			// Si el usuario y el DNI no son null es que el registro se completo correctamente
-			model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo paciente OK");
-			return "loginPacientes";
-		} else {
-			// Se verifica si el DNI ya existe para mostrar error personalizado en la vista
-			if (pacienteDTO.getDniPaciente() == null) {
-				model.addAttribute("mensajeErrorDni", "Ya existe un paciente con ese DNI");
-				return "registroCliente";
-			} else {
-				model.addAttribute("mensajeErrorMail", "Ya existe un paciente con ese email");
-				return "registroCliente";
-			}
-		}
-	}
+	        // Verifica los roles específicos y redirige según el rol
+	        if (authentication.getAuthorities().stream().anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN_ADMIN"))) {
+	            // Redirige a la página específica para el rol "ROLE_ADMIN_ADMIN"
+	            return "redirect:/privada/homeAdminAdmin";
+	            
+	        } else if (authentication.getAuthorities().stream().anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"))) {
+	            // Redirige a la página específica para el rol "ROLE_ADMIN"
+	            return "redirect:/privada/homeAdmin";
+	        } else if (authentication.getAuthorities().stream().anyMatch(r -> r.getAuthority().equals("ROLE_DOCTOR"))) {
+	            // Redirige a la página específica para el rol "ROLE_DOCTOR"
+	            return "redirect:/privada/homeDoctor";
+	        }
 
-	
-	@GetMapping("/privada/homePaciente")
-	public String loginCorrecto(Model model, Authentication authentication) {
-		Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
-		String email = paciente.getEmailPaciente();
-		model.addAttribute("nombrePaciente", email);
-		System.out.println(authentication.getAuthorities());
-		return "homePaciente";
-	}
+	        // Si no se encuentra un rol específico, redirige a una página por defecto
+	        return "redirect:/privada/homeEmpleado";
+	    }
+	    
+    @Autowired
+    private IntfPacienteServicio pacienteServicio;
 
-	@GetMapping("/privada/listado")
-	public String listadoPacientes(Model model, HttpServletRequest request) {
-		List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
-		System.out.println(pacientes);
-		model.addAttribute("pacientes", pacientes);
-		if(request.isUserInRole("ROLE_ADMIN")) {
-			return "listado";	
-		} 
-		return "homePaciente";
-	}
-	
-	@GetMapping("/privada/eliminar/{id}")
-	public String eliminarUsuario(@PathVariable Long id, Model model, HttpServletRequest request) {
-		Paciente paciente = pacienteServicio.buscarPorId(id);
-		List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
-		if(request.isUserInRole("ROLE_ADMIN") && paciente.getRolPaciente().equals("ROLE_ADMIN")) {
-			model.addAttribute("noSePuedeEliminar", "No se puede eliminar a un admin");
-			model.addAttribute("pacientes", pacientes);
-			return "listado";
-		}
-		pacienteServicio.eliminar(id);
-		return "redirect:/privada/listado";
-		
-	}
-	
+    @GetMapping("/auth/loginPacientes")
+    public String login(Model model) {
+        model.addAttribute("pacienteDTO", new PacienteDTO());
+        return "loginPacientes";
+    }
 
+    @GetMapping("/auth/registrarPaciente")
+    public String registrarGet(Model model) {
+        model.addAttribute("pacienteDTO", new PacienteDTO());
+        return "registroCliente";
+    }
+
+    @PostMapping("/auth/registrarPaciente")
+    public String registrarPost(@ModelAttribute PacienteDTO pacienteDTO, Model model) {
+        PacienteDTO nuevoPaciente = pacienteServicio.registrar(pacienteDTO);
+
+        if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null) {
+            model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo paciente OK");
+            return "loginPacientes";
+        } else {
+            if (pacienteDTO.getDniPaciente() == null) {
+                model.addAttribute("mensajeErrorDni", "Ya existe un paciente con ese DNI");
+                return "registroCliente";
+            } else {
+                model.addAttribute("mensajeErrorMail", "Ya existe un paciente con ese email");
+                return "registroCliente";
+            }
+        }
+    }
+
+    @GetMapping("/privada/homePaciente")
+    public String loginCorrecto(Model model, Authentication authentication) {
+        Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
+        String email = paciente.getEmailPaciente();
+        model.addAttribute("nombrePaciente", email);
+        return "homePaciente";
+    }
 }
