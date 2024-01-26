@@ -32,8 +32,8 @@
 	</nav>
 	<div class="contenedor form-olvidado">
 		<p class="titulo">Restablecer la contraseña</p>
-		<form class="form" th:action="@{/auth/iniciarRecuperacion}" enctype="multipart/form-data" th:object="${usuarioDTO}" method="post">
-			<input type="email" th:field="*{emailUsuario}" class="form-control" placeholder="Email"/>
+		<form class="form" th:action="@{/auth/iniciarRecuperacion}" enctype="multipart/form-data" th:object="${pacienteDTO}" method="post">
+			<input type="email" th:field="*{emailPaciente}" class="form-control" placeholder="Email"/>
 			<div class="text-right mt-1">
 				<button type="submit" class="form-btn">Recuperar</button>
 			</div>
