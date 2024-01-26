@@ -46,29 +46,21 @@ public class SeguridadConfig {
 	        .authorizeHttpRequests(auth ->
 	        auth
 	            .requestMatchers("/", "/webjars/**", "/css/**", "/script/**", "/auth/**").permitAll()
-	            .requestMatchers("/paciente/**").hasAnyAuthority("ROLE_USER")
-	            .requestMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN_ADMIN", "ROLE_ADMIN")
-	            .requestMatchers("/doctor/**").hasAnyAuthority("ROLE_DOCTOR")
 	            .anyRequest().authenticated()
 		    )
-		    .formLogin(login ->
-		        login
-		            .loginPage("/auth/loginEmpleados") // Página de inicio de sesión para empleados
-		            .defaultSuccessUrl("/privada/homeEmpleado", true)
-		            .loginProcessingUrl("/auth/loginEmpleado-post")
-		    )
-		    .formLogin(login ->
+	        .formLogin(login ->
 	        login
-	            .loginPage("/auth/loginPacientes") // Página de inicio de sesión para pacientes
-	            .defaultSuccessUrl("/privada/homePaciente", true)
-	            .loginProcessingUrl("/auth/loginPaciente-post")
-	    )
+	            .loginPage("/auth/login") // Página de inicio de sesión común
+	            .defaultSuccessUrl("/privada/home", true)
+	            .loginProcessingUrl("/auth/login-post")
+	        )
 		    .logout(logout ->
 		        logout
 		            .logoutUrl("/auth/logout")
 		            .logoutSuccessUrl("/")
 		    );
 	
+        
         return http.build();
    }
 }

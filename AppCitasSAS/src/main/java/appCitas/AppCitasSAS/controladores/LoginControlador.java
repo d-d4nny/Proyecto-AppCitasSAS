@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import appCitas.AppCitasSAS.dao.Empleados;
 import appCitas.AppCitasSAS.dao.Paciente;
 import appCitas.AppCitasSAS.dto.EmpleadoDTO;
+import appCitas.AppCitasSAS.dto.LoginEmpleadoPacienteDTO;
 import appCitas.AppCitasSAS.dto.PacienteDTO;
 import appCitas.AppCitasSAS.servicios.IntfEmpleadoServicio;
 import appCitas.AppCitasSAS.servicios.IntfPacienteServicio;
@@ -19,14 +20,54 @@ import appCitas.AppCitasSAS.servicios.IntfPacienteServicio;
 @Controller
 public class LoginControlador {
 
+	
 	 @Autowired
-	    private IntfEmpleadoServicio empleadoServicio;
-
-	    @GetMapping("/auth/loginEmpleados")
-	    public String loginEmpleados(Model model) {
-	        model.addAttribute("empleadoDTO", new EmpleadoDTO());
-	        return "loginEmpleados";
+	 private IntfEmpleadoServicio empleadoServicio; 
+	 
+	    
+	 @Autowired
+	 private IntfPacienteServicio pacienteServicio;
+	
+	
+	 	@GetMapping("/auth/login")
+		public String login(Model model) {
+			// Se agrega un nuevo objeto UsuarioDTO al modelo para el formulario de login
+			return "login";
+		} 
+	
+	 	@PostMapping("/auth/login")
+	    public String login(@ModelAttribute LoginEmpleadoPacienteDTO loginDTO, Model model) {
+	        if ("empleado".equals(loginDTO.getTipo())) {
+	            // Lógica de inicio de sesión para empleados
+	        	model.addAttribute("empleadoDTO", new EmpleadoDTO());
+	            // Utiliza empleadoDetailsService para la autenticación
+	            Empleados empleado = empleadoServicio.buscarPorEmail(loginDTO.getEmail());
+	            
+	            // Verifica los roles específicos y redirige según el rol
+	            if (empleado.getRolEmpleado().contains("ROLE_ADMIN_ADMIN")) {
+	                // Redirige a la página específica para el rol "ROLE_ADMIN_ADMIN"
+	                return "homeAdmin";
+	            } else if (empleado.getRolEmpleado().contains("ROLE_ADMIN")) {
+	                // Redirige a la página específica para el rol "ROLE_ADMIN"
+	                return "homeAdmin";
+	            } else if (empleado.getRolEmpleado().contains("ROLE_DOCTOR")) {
+	                // Redirige a la página específica para el rol "ROLE_DOCTOR"
+	                return "homeEmpleado";
+	            } else {
+	                // Otro rol, manejar según sea necesario
+	                return "homeEmpleado";
+	            }
+	        } else if ("paciente".equals(loginDTO.getTipo())) {
+	            // Lógica de inicio de sesión para pacientes
+	        	model.addAttribute("pacienteDTO", new PacienteDTO());
+	            // Utiliza pacienteDetailsService para la autenticación
+	            return "homePaciente";
+	        } else {
+	            // Tipo desconocido, manejar según sea necesario
+	            return "error";
+	        }
 	    }
+	
 	
 	    @GetMapping("/auth/registrarEmpleado")
 	    public String registrarEmpleadoGet(Model model) {
@@ -51,39 +92,9 @@ public class LoginControlador {
 	                return "registroEmpleado";
 	            }
 	        }
-	    }
-
-	    @GetMapping("/privada/homeEmpleado")
-	    public String loginCorrectoEmpleado(Model model, Authentication authentication) {
-	        Empleados empleado = empleadoServicio.buscarPorEmail(authentication.getName());
-	        String email = empleado.getEmailEmpleado();
-	        model.addAttribute("nombreEmpleado", email);
-
-	        // Verifica los roles específicos y redirige según el rol
-	        if (authentication.getAuthorities().stream().anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN_ADMIN"))) {
-	            // Redirige a la página específica para el rol "ROLE_ADMIN_ADMIN"
-	            return "redirect:/privada/homeAdminAdmin";
-	            
-	        } else if (authentication.getAuthorities().stream().anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"))) {
-	            // Redirige a la página específica para el rol "ROLE_ADMIN"
-	            return "redirect:/privada/homeAdmin";
-	        } else if (authentication.getAuthorities().stream().anyMatch(r -> r.getAuthority().equals("ROLE_DOCTOR"))) {
-	            // Redirige a la página específica para el rol "ROLE_DOCTOR"
-	            return "redirect:/privada/homeDoctor";
-	        }
-
-	        // Si no se encuentra un rol específico, redirige a una página por defecto
-	        return "redirect:/privada/homeEmpleado";
-	    }
+	    }    
 	    
-    @Autowired
-    private IntfPacienteServicio pacienteServicio;
-
-    @GetMapping("/auth/loginPacientes")
-    public String login(Model model) {
-        model.addAttribute("pacienteDTO", new PacienteDTO());
-        return "loginPacientes";
-    }
+	    
 
     @GetMapping("/auth/registrarPaciente")
     public String registrarGet(Model model) {
@@ -109,11 +120,4 @@ public class LoginControlador {
         }
     }
 
-    @GetMapping("/privada/homePaciente")
-    public String loginCorrecto(Model model, Authentication authentication) {
-        Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
-        String email = paciente.getEmailPaciente();
-        model.addAttribute("nombrePaciente", email);
-        return "homePaciente";
-    }
 }

@@ -21,8 +21,7 @@
             </div>
 			<ul class="nav-links" style="margin-top: 15px;">
                 <li><a style="color: white;" th:href="@{/}">Home</a></li>
-				<li><a style="color: white;" th:href="@{/auth/loginPacientes}">Clientes</a></li>
-				<li><a style="color: white;" th:href="@{/auth/loginEmpleados}">Empleados</a></li>
+				<li><a style="color: white;" th:href="@{/auth/login}">Login</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -32,11 +31,8 @@
     </div>
 	<br><br><br>
 	<div class="button-container" style="display: flex; justify-content: space-between;">
-		<form class="form" style="margin-right: 2.5%; margin-left: 5%;" th:action="@{/auth/loginPacientes}" th:method="get">
-			<button type="submit" class="buttonIndex">Login Cliente</button>
-		</form>
-		<form class="form" style="margin-right: 5%; margin-left: 2.5%;" th:action="@{/auth/loginEmpleados}" th:method="get">
-			<button type="submit" class="buttonIndex">Login Empleado</button>
+		<form class="form" style="margin-right: 2.5%; margin-left: 5%;" th:action="@{/auth/login}" th:method="get">
+			<button type="submit" class="buttonIndex">Login</button>
 		</form>
 	</div>
 

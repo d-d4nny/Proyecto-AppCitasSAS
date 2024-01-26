@@ -1,3 +1,39 @@
+// Función para ocultar/mostrar elementos según el tipo de usuario
+function toggleElements() {
+    var userType = document.getElementById("user-type").value;
+    var pacientesElements = document.querySelectorAll(".paciente");
+    var empleadosElements = document.querySelectorAll(".empleado");
+
+    // Oculta todos los elementos
+    pacientesElements.forEach(function(element) {
+        element.style.display = "none";
+    });
+
+    empleadosElements.forEach(function(element) {
+        element.style.display = "none";
+    });
+
+    // Muestra elementos específicos según el tipo de usuario
+    if (userType === "paciente") {
+        pacientesElements.forEach(function(element) {
+            element.style.display = "block";
+        });
+        document.getElementById("clientes").style.display = "block";
+        document.getElementById("empleados").style.display = "none";
+    } else if (userType === "empleado") {
+        empleadosElements.forEach(function(element) {
+            element.style.display = "block";
+        });
+        document.getElementById("clientes").style.display = "none";
+        document.getElementById("empleados").style.display = "block";
+    }
+}
+
+// Llama a la función al cargar la página y cada vez que cambia el tipo de usuario
+window.onload = toggleElements;
+document.getElementById("user-type").addEventListener("change", toggleElements);
+
+
 function revisarContraseña() {
 	var contraseña = document.getElementById('claveUsuario').value;
     var confContraseña = document.getElementById('confirmarClaveUsuario').value;

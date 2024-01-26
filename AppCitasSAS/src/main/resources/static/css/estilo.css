@@ -2,6 +2,37 @@ body {
     background-color: #f8f9fa; /* Color de fondo */
 }
 
+
+/* Agrega estilos según tus preferencias */
+.button-checkbox {
+    cursor: pointer;
+    
+    color: #fff; 
+    background: rgba(64,171,168,255);
+    padding: 8px 28px;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    border: none;
+    outline: none;
+}
+
+.button-checkbox.checked {
+	
+    background: rgb(106,220,212);
+    
+    color: #fff; 
+}
+
+/* Oculta el elemento de selección */
+#user-type {
+    display: none;
+}
+
+
+
 .empleadosButton{
     bottom: 0;
     height: 34px;
@@ -111,6 +142,14 @@ body {
     font-weight: bold;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-size: 28px;
+}
+
+
+.formButton{
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center; 
+	width: 100%;
 }
 
 .form {
