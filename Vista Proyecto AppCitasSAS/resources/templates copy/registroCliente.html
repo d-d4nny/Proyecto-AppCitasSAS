@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Registro</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css"
+		th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}">
+	<link rel="stylesheet" href="../static/css/menu.css" th:href="@{/css/menu.css}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script th:src="@{/script/script.js}"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<nav>
+		<div class="menu">
+			<div class="logo"><a>AppCitasSAS</a></div>
+			<ul class="nav-links">
+				<li><a th:href="@{/auth/login}" sec:authorize='!isAuthenticated()'>Volver</a></li>
+				<li><a th:href="@{/privada/listado}" sec:authorize='hasAnyRole("ROLE_ADMIN")'>Volver</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="contenedor form-registro">
+		<p class="titulo">Nuevo Usuario</p>
+		<form class="form" th:action="@{/auth/registrarPaciente}" enctype="multipart/form-data" method="post" th:object="${pacienteDTO}">
+			<input type="text" id="nombreCompletoPaciente" name="nombreCompletoPaciente" class="input" placeholder="Nombre"
+				 th:value="*{nombreCompletoPaciente}">
+			<input type="text" id="dniPaciente" name="dniPaciente" class="input" placeholder="DNI" required
+				th:value="*{dniPaciente}">
+			<input type="text" id="tlfPaciente" name="tlfPaciente" class="input" placeholder="Telefono"
+				required th:value="*{tlfPaciente}">
+			<input type="email" id="emailPaciente" name="emailPaciente" class="input" placeholder="Email"
+				required th:value="*{emailPaciente}">
+			<input type="password" id="contrasenaPaciente" name="contrasenaPaciente" class="input" placeholder="Contraseña"
+				required th:value="*{contrasenaPaciente}" oninput="revisarContraseña()">
+			<input type="password" id="confirmarClaveUsuario" name="confirmarClaveUsuario" class="input"
+				placeholder="Confirmar Contraseña" required oninput="revisarContraseña()">
+			<button type="submit" id="btnRegistro" class="form-btn">Registrarse</button>
+			<div class="mensajeContrasenya" id="mensajeContrasenya"></div>
+		</form>
+	</div>
+
+	<script th:if="${not #strings.isEmpty(mensajeErrorDni)}">
+	    mostrarNotificacion("¡Error!", "Ya se encuentra registrado un usuario con ese DNI", 'error');
+	</script>
+	<script th:if="${not #strings.isEmpty(mensajeErrorMail)}">
+	    mostrarNotificacion("¡Error!", "El email ya se encuentra registrado en el sistema", 'error');
+	</script>
+</body>
+
+</html>
