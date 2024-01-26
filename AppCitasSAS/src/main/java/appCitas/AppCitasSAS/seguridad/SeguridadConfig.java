@@ -59,7 +59,8 @@ public class SeguridadConfig {
 		            .logoutUrl("/auth/logout")
 		            .logoutSuccessUrl("/")
 		    );
-	
+        http.authenticationProvider(pacienteAuthenticationProvider());
+        http.authenticationProvider(empleadoAuthenticationProvider());
         
         return http.build();
    }
