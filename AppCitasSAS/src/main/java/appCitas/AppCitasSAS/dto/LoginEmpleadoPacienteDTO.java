@@ -5,6 +5,7 @@ import java.util.Objects;
 public class LoginEmpleadoPacienteDTO {
 
 	//ATRIBUTOS
+	private long idEmpleadoPaciente;
 	private String email;
     private String password;
     private String tipo; // Puede ser "empleado" o "paciente"
@@ -14,6 +15,12 @@ public class LoginEmpleadoPacienteDTO {
     // Getters y setters
 
     
+	public long getIdEmpleadoPaciente() {
+		return idEmpleadoPaciente;
+	}
+	public void setIdEmpleadoPaciente(long idEmpleadoPaciente) {
+		this.idEmpleadoPaciente = idEmpleadoPaciente;
+	}
     public String getEmail() {
 		return email;
 	}
@@ -44,8 +51,9 @@ public class LoginEmpleadoPacienteDTO {
 	}
 	
 	
-	public LoginEmpleadoPacienteDTO(String email, String password, String tipo) {
+	public LoginEmpleadoPacienteDTO(long idEmpleadoPaciente, String email, String password, String tipo) {
 		super();
+		this.idEmpleadoPaciente = idEmpleadoPaciente;
 		this.email = email;
 		this.password = password;
 		this.tipo = tipo;
@@ -58,7 +66,7 @@ public class LoginEmpleadoPacienteDTO {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, password, tipo);
+		return Objects.hash(email, idEmpleadoPaciente, password, tipo);
 	}
 	
 	
@@ -71,13 +79,14 @@ public class LoginEmpleadoPacienteDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		LoginEmpleadoPacienteDTO other = (LoginEmpleadoPacienteDTO) obj;
-		return Objects.equals(email, other.email) && Objects.equals(password, other.password)
-				&& Objects.equals(tipo, other.tipo);
+		return Objects.equals(email, other.email) && idEmpleadoPaciente == other.idEmpleadoPaciente
+				&& Objects.equals(password, other.password) && Objects.equals(tipo, other.tipo);
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "LoginEmpleadoPacienteDTO [email=" + email + ", password=" + password + ", tipo=" + tipo + "]";
+		return "LoginEmpleadoPacienteDTO [idEmpleadoPaciente=" + idEmpleadoPaciente + ", email=" + email + ", password="
+				+ password + ", tipo=" + tipo + "]";
 	}
 }

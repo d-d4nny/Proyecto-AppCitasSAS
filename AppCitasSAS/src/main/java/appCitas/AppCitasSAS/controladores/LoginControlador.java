@@ -14,7 +14,6 @@ import appCitas.AppCitasSAS.dao.Paciente;
 import appCitas.AppCitasSAS.dto.EmpleadoDTO;
 import appCitas.AppCitasSAS.dto.LoginEmpleadoPacienteDTO;
 import appCitas.AppCitasSAS.dto.PacienteDTO;
-import appCitas.AppCitasSAS.seguridad.EmpleadoPacienteDetailsService;
 import appCitas.AppCitasSAS.servicios.IntfEmpleadoServicio;
 import appCitas.AppCitasSAS.servicios.IntfPacienteServicio;
 
