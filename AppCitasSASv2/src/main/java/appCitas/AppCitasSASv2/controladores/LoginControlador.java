@@ -78,7 +78,10 @@ public class LoginControlador {
 	 
 	 @GetMapping("/privada/Pacientes")
 	 public String homeUser(Model model, Authentication authentication) {
-	     // Lógica específica para usuarios normales
+		 List<CitasDTO> citas = pacienteServicio.buscarTodos(); //tengo que hacer las implementaciones de citas
+		 System.out.println(citas);
+		 model.addAttribute("citas", citas);
+		 
 	     return "homePaciente";
 	 }
 
