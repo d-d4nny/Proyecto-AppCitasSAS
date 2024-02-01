@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
+import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
+import appCitas.AppCitasSASv2.servicios.IntfCitasServicio;
 import appCitas.AppCitasSASv2.servicios.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -20,6 +22,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 public class LoginControlador {
 
+	@Autowired
+	private IntfCitasServicio citasServicio;
 	    
 	 @Autowired
 	 private IntfPacienteServicio pacienteServicio;
@@ -78,9 +82,11 @@ public class LoginControlador {
 	 
 	 @GetMapping("/privada/Pacientes")
 	 public String homeUser(Model model, Authentication authentication) {
-		 List<CitasDTO> citas = pacienteServicio.buscarTodos(); //tengo que hacer las implementaciones de citas
+		 List<CitasDTO> citas = citasServicio.buscarTodos(); //tengo que hacer las implementaciones de citas
+		 Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
 		 System.out.println(citas);
-		 model.addAttribute("citas", citas);
+		 model.addAttribute("citas", pacienteServicio.buscarPorEmail(authentication.getName()).getCitasDePaciente());
+		 model.addAttribute("paciente", paciente);
 		 
 	     return "homePaciente";
 	 }

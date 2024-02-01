@@ -17,15 +17,15 @@
 	<style>
 		.parent {
 			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-			grid-template-rows: repeat(5, 1fr);
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(3, 1fr);
 			grid-column-gap: 0px;
 			grid-row-gap: 0px;
 		}
-		
-		.div1 { grid-area: 1 / 1 / 5 / 4; }
-		.div2 { grid-area: 1 / 4 / 6 / 6; }
-		.div3 { grid-area: 5 / 1 / 6 / 4; }
+			
+		.div1 { grid-area: 1 / 1 / 3 / 4; }
+		.div2 { grid-area: 1 / 4 / 4 / 5; }
+		.div3 { grid-area: 3 / 1 / 4 / 4; }
 	</style>
 </head>
 
@@ -51,49 +51,55 @@
 	</nav>
 
 	<div class="parent">
-		<div class="card bg-light">
-			<div class="card-header"><h3>Proximas Citas</h3></div>
-			<div class="card-body">
-
-				<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(cita)}">No hay citas pendientes</h5>
-
-				<h4 class="card-title">
-					<a sec:authorize="hasRole('ROLE_USER')" th:href="@{/auth/nuevaCita}" class="btn btn-dark" th:if="${not #lists.isEmpty(cita)}">
-						crear cita
-					</a>
-				</h4>
-				
-				<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(cita)}">
-					<thead class="thead-inverse">
-						<tr>
-							<th class="table-dark" sec:authorize="hasRole('ROLE_USER')">id</th>
-							<th class="table-dark">fecha cita</th>
-							<th class="table-dark">motivo</th>
-							<th class="table-dark">estado</th>
-							<th class="table-dark" sec:authorize="hasRole('ROLE_USER')">editar</th>
-							<th  class="table-dark"sec:authorize="hasRole('ROLE_USER')">eliminar</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="citas : ${cita}">
-							<td sec:authorize="hasRole('ROLE_USER')">
-								<a class="btn btn-dark" th:href="@{/privada/ver/} + ${citas.idCita}" th:text="${citas.idCita}"></a></td>
-							<td th:text="${citas.fechaCita}"></td>
-							<td th:text="${citas.motivoCita}"></td>
-							<td th:text="${citas.estadoCita}"></td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')">
-								<a class="btn btn-primary" th:href="@{/form/} + ${citas.idCita}" th:text="'editar'"></a>
-							</td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')">
-    							<a class="btn btn-danger" th:attr="data-id=${citas.idCita}" th:text="'eliminar'" onclick="confirmarEliminar(event)"></a>
-							</td>
-
-						</tr>
-					</tbody>
-				</table>
+		<div class="div1">
+			<div class="card bg-light">
+				<div class="card-header"><h3>Proximas Citas</h3></div>
+				<div class="card-body">
+	
+					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(citas)}">No hay citas pendientes</h5>
+	
+					<h4 class="card-title">
+						<a sec:authorize="hasRole('ROLE_USER')" th:href="@{/auth/nuevaCita}" class="btn btn-dark" th:if="${not #lists.isEmpty(citas)}">
+							crear cita
+						</a>
+					</h4>
+					
+					<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(citas)}">
+						<thead class="thead-inverse">
+							<tr>
+								<th class="table-dark" sec:authorize="hasRole('ROLE_USER')">id</th>
+								<th class="table-dark">fecha cita</th>
+								<th class="table-dark">motivo</th>
+								<th class="table-dark">estado</th>
+								<th class="table-dark" sec:authorize="hasRole('ROLE_USER')">editar</th>
+								<th class="table-dark"sec:authorize="hasRole('ROLE_USER')">eliminar</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="cita : ${citas}">
+								<td sec:authorize="hasRole('ROLE_USER')">
+									<a class="btn btn-dark" th:href="@{/privada/ver/} + ${cita.idCita}" th:text="${cita.idCita}"></a></td>
+								<td th:text="${cita.fechaCita}"></td>
+								<td th:text="${cita.motivoCita}"></td>
+								<td th:text="${cita.estadoCita}"></td>
+								<td sec:authorize="hasRole('ROLE_USER')">
+									<a class="btn btn-primary" th:href="@{/form/} + ${cita.idCita}" th:text="'editar'"></a>
+								</td>
+								<td sec:authorize="hasRole('ROLE_USER')">
+	    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'eliminar'" onclick="confirmarEliminar(event)"></a>
+								</td>
+	
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-		<div class="div2">DATOS PERSONALES </div>
+		<div class="div2">
+			<div class="card bg-light">
+				<div class="card-header"><h3>Datos Personales</h3></div>
+			</div>
+		</div>
 		<div class="div3">BOTONES </div>
 	</div>
 </body>

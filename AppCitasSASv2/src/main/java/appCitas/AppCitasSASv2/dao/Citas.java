@@ -1,6 +1,5 @@
 package appCitas.AppCitasSASv2.dao;
 
-import java.util.Calendar;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -27,7 +26,7 @@ public class Citas {
 	private long idCita;
 	
 	@Column(name = "fecha_cita", nullable = false)
-	private Calendar fechaCita;
+	private String fechaCita;
 	
 	@Column(name = "motivo_cita", nullable = false)
 	private String motivoCita;
@@ -56,11 +55,11 @@ public class Citas {
 		this.idCita = idCita;
 	}
 
-	public Calendar getFechaCita() {
+	public String getFechaCita() {
 		return fechaCita;
 	}
 
-	public void setFechaCita(Calendar fechaCita) {
+	public void setFechaCita(String fechaCita) {
 		this.fechaCita = fechaCita;
 	}
 
@@ -107,7 +106,7 @@ public class Citas {
 	}
 	
 
-	public Citas(Calendar fechaCita, String motivoCita, String estadoCita) {
+	public Citas(String fechaCita, String motivoCita, String estadoCita) {
 		super();
 		this.fechaCita = fechaCita;
 		this.motivoCita = motivoCita;
@@ -115,7 +114,7 @@ public class Citas {
 	}
 
 	
-	public Citas(long idCita, Calendar fechaCita, String motivoCita, String estadoCita, Paciente paciente,
+	public Citas(long idCita, String fechaCita, String motivoCita, String estadoCita, Paciente paciente,
 			Doctores doctor) {
 		super();
 		this.idCita = idCita;

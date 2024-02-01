@@ -42,7 +42,7 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 			if (pacienteDaoByEmail != null) {
 				return null; // Si no es null es que ya está registrado
 			}
-
+  
 			// Ahora se comprueba si hay un usuario por el DNI que quiere registrar
 			boolean yaExisteElDNI = repositorio.existsByDniPaciente(pacienteDto.getDniPaciente());
 

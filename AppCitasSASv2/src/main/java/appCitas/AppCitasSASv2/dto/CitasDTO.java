@@ -1,13 +1,12 @@
 package appCitas.AppCitasSASv2.dto;
 
-import java.util.Calendar;
 import java.util.Objects;
 
 public class CitasDTO {
 
 	//ATRIBUTOS
 	private long idCita;
-	private Calendar fechaCita;
+	private String fechaCita;
 	private String motivoCita;
 	private String estadoCita;
 	private PacienteDTO paciente;
@@ -24,10 +23,10 @@ public class CitasDTO {
 	public void setIdCita(long idCita) {
 		this.idCita = idCita;
 	}
-	public Calendar getFechaCita() {
+	public String getFechaCita() {
 		return fechaCita;
 	}
-	public void setFechaCita(Calendar fechaCita) {
+	public void setFechaCita(String fechaCita) {
 		this.fechaCita = fechaCita;
 	}
 	public String getMotivoCita() {
@@ -66,7 +65,7 @@ public class CitasDTO {
 	}
 	
 	
-	public CitasDTO(Calendar fechaCita, String motivoCita, String estadoCita) {
+	public CitasDTO(String fechaCita, String motivoCita, String estadoCita) {
 		super();
 		this.fechaCita = fechaCita;
 		this.motivoCita = motivoCita;
@@ -74,7 +73,7 @@ public class CitasDTO {
 	}
 	
 	
-	public CitasDTO(long idCita, Calendar fechaCita, String motivoCita, String estadoCita, PacienteDTO paciente,
+	public CitasDTO(long idCita, String fechaCita, String motivoCita, String estadoCita, PacienteDTO paciente,
 			DoctoresDTO doctor) {
 		super();
 		this.idCita = idCita;
