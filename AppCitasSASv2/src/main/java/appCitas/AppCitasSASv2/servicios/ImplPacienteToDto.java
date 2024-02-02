@@ -24,7 +24,7 @@ public class ImplPacienteToDto implements IntfPacienteToDto {
 			dto.setEmailPaciente(u.getEmailPaciente());
 			dto.setDireccionPaciente(u.getDireccionPaciente());
 			dto.setGeneroPaciente(u.getGeneroPaciente());
-			//dto.setImgPaciente(u.getImgPaciente());
+			dto.setImgPaciente(u.getImgPaciente());
 			dto.setContrasenaPaciente(u.getContrasenaPaciente());
 			dto.setToken(u.getToken());
 			dto.setExpiracionToken(u.getExpiracionToken());

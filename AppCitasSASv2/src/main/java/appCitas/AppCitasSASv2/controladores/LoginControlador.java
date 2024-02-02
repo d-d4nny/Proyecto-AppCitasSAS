@@ -1,7 +1,12 @@
 package appCitas.AppCitasSASv2.controladores;
 
+import java.awt.PageAttributes.MediaType;
+import java.net.http.HttpHeaders;
 import java.util.List;
 
+import java.util.Base64;
+
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -11,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import appCitas.AppCitasSASv2.dao.Citas;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
@@ -90,6 +96,8 @@ public class LoginControlador {
 		 
 	     return "homePaciente";
 	 }
+	 
+	
 
 	 @GetMapping("/privada/Administracion")
 	 public String homeAdmin(Model model, Authentication authentication) {
@@ -97,29 +105,26 @@ public class LoginControlador {
 	     return "homeEmpleado";
 	 }
 		
-		@GetMapping("/privada/listado")
-		public String listadoPacientes(Model model, HttpServletRequest request) {
-			List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
-			System.out.println(pacientes);
-			model.addAttribute("pacientes", pacientes);
-			if(request.isUserInRole("ROLE_ADMIN")) {
-				return "listado";	
-			} 
-			return "home";
-		}
 		
-		@GetMapping("/privada/eliminar/{id}")
-		public String eliminarPaciente(@PathVariable Long id, Model model, HttpServletRequest request) {
-			Paciente paciente = pacienteServicio.buscarPorId(id);
-			List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
-			if(request.isUserInRole("ROLE_ADMIN") && paciente.getRolPaciente().equals("ROLE_ADMIN")) {
-				model.addAttribute("noSePuedeEliminar", "No se puede eliminar a un admin");
-				model.addAttribute("usuarios", pacientes);
-				return "listado";
-			}
-			pacienteServicio.eliminar(id);
-			return "redirect:/privada/listado";
-			
+	
+	@GetMapping("/privada/eliminarCita/{id}")
+		public String eliminarCita(@PathVariable Long id, Model model, HttpServletRequest request) {
+			citasServicio.eliminar(id);
+			return "redirect:/privada/Pacientes";	
 		}
+	 
+	@GetMapping("/privada/eliminar/{id}")
+	public String eliminarPaciente(@PathVariable Long id, Model model, HttpServletRequest request) {
+		Paciente paciente = pacienteServicio.buscarPorId(id);
+		List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
+		if(request.isUserInRole("ROLE_ADMIN") && paciente.getRolPaciente().equals("ROLE_ADMIN")) {
+			model.addAttribute("noSePuedeEliminar", "No se puede eliminar a un admin");
+			model.addAttribute("usuarios", pacientes);
+			return "listado";
+		}
+		pacienteServicio.eliminar(id);
+		return "redirect:/privada/listado";
+		
+	}
 
 }

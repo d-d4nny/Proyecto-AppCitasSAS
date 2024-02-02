@@ -49,7 +49,7 @@
 			</ul>
 		</div>
 	</nav>
-
+<br>
 	<div class="parent">
 		<div class="div1">
 			<div class="card bg-light">
@@ -71,8 +71,7 @@
 								<th class="table-dark">fecha cita</th>
 								<th class="table-dark">motivo</th>
 								<th class="table-dark">estado</th>
-								<th class="table-dark" sec:authorize="hasRole('ROLE_USER')">editar</th>
-								<th class="table-dark"sec:authorize="hasRole('ROLE_USER')">eliminar</th>
+								<th class="table-dark" sec:authorize="hasRole('ROLE_USER')"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -83,10 +82,7 @@
 								<td th:text="${cita.motivoCita}"></td>
 								<td th:text="${cita.estadoCita}"></td>
 								<td sec:authorize="hasRole('ROLE_USER')">
-									<a class="btn btn-primary" th:href="@{/form/} + ${cita.idCita}" th:text="'editar'"></a>
-								</td>
-								<td sec:authorize="hasRole('ROLE_USER')">
-	    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'eliminar'" onclick="confirmarEliminar(event)"></a>
+	    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'Cancelar Cita'" onclick="confirmarEliminarCita(event)"></a>
 								</td>
 	
 							</tr>
@@ -97,7 +93,46 @@
 		</div>
 		<div class="div2">
 			<div class="card bg-light">
-				<div class="card-header"><h3>Datos Personales</h3></div>
+				<div class="card-header"><h3>Datos Personales</h3></div>	
+				<div class="card-body" >	
+						
+				<div class="user-card-container">
+				    <div class="user-card">
+				        <img class="user-image" src="/usuarios/{id}/imagen" alt="Imagen del usuario">
+				        <div class="user-details">
+							<br>
+				            <h5 class="card-title" th:text="${paciente.nombreCompletoPaciente}" style="text-align: center;"></h5>
+				            <br>
+				            <dl class="user-info">
+				                <dt>Email:</dt>
+				                <dd th:text="${paciente.emailPaciente}"></dd>
+				
+				                <dt>DNI:</dt>
+				                <dd th:text="${paciente.dniPaciente}"></dd>
+				
+				                <dt>Teléfono:</dt>
+				                <dd th:text="${paciente.tlfPaciente}"></dd>
+				
+				                <dt>Dirección:</dt>
+				                <dd th:text="${paciente.direccionPaciente}"></dd>
+				            </dl>
+				            <br>
+				            <div class="btn-container text-center">
+								<a class="btn btn-primary" th:href="@{/form/} + ${paciente.idPaciente}" th:text="'Modificar Datos'"></a>
+							</div>				       
+				        </div>
+				    </div>
+				</div>
+			</div>
+				
+				
+				
+				
+				<!-- Formulario para subir imagen -->
+				<form action="/usuarios/{id}/imagen" method="post" enctype="multipart/form-data">
+				    <input type="file" name="file" accept="image/*">
+				    <button type="submit">Subir imagen</button>
+				</form>
 			</div>
 		</div>
 		<div class="div3">BOTONES </div>
