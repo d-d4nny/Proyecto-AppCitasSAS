@@ -2,6 +2,9 @@ package appCitas.AppCitasSASv2.dto;
 
 import java.util.Objects;
 
+import appCitas.AppCitasSASv2.dao.Doctores;
+import appCitas.AppCitasSASv2.dao.Paciente;
+
 public class CitasDTO {
 
 	//ATRIBUTOS
@@ -9,8 +12,8 @@ public class CitasDTO {
 	private String fechaCita;
 	private String motivoCita;
 	private String estadoCita;
-	private PacienteDTO paciente;
-	private DoctoresDTO doctor;
+	private Paciente paciente;
+	private Doctores doctor;
 	
 	
 	
@@ -41,16 +44,16 @@ public class CitasDTO {
 	public void setEstadoCita(String estadoCita) {
 		this.estadoCita = estadoCita;
 	}
-	public PacienteDTO getPaciente() {
+	public Paciente getPaciente() {
 		return paciente;
 	}
-	public void setPaciente(PacienteDTO paciente) {
+	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-	public DoctoresDTO getDoctor() {
+	public Doctores getDoctor() {
 		return doctor;
 	}
-	public void setDoctor(DoctoresDTO doctor) {
+	public void setDoctor(Doctores doctor) {
 		this.doctor = doctor;
 	}
 	
@@ -73,8 +76,8 @@ public class CitasDTO {
 	}
 	
 	
-	public CitasDTO(long idCita, String fechaCita, String motivoCita, String estadoCita, PacienteDTO paciente,
-			DoctoresDTO doctor) {
+	public CitasDTO(long idCita, String fechaCita, String motivoCita, String estadoCita, Paciente paciente,
+			Doctores doctor) {
 		super();
 		this.idCita = idCita;
 		this.fechaCita = fechaCita;

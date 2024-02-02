@@ -33,7 +33,7 @@ public class Doctores {
 	
 	@ManyToOne
     @JoinColumn(name="id_consulta_turno")
-    ConsultaTurno consultaTurno;
+    private ConsultaTurno consultaTurno;
 	
 	
 

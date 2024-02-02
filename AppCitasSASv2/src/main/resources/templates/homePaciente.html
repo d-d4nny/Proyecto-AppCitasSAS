@@ -135,7 +135,31 @@
 				</form>
 			</div>
 		</div>
-		<div class="div3">BOTONES </div>
+		
+		<div class="div3">
+			<form th:action="@{/privada/crearCita}" method="get">
+		    <button type="submit">Ir a Crear Cita</button>
+		</form>
+		</div> 
+		<!-- <div class="div3">
+			<h2>Crear Nueva Cita</h2>
+		    <form class="form" th:action="@{/privada/crearCita}" enctype="multipart/form-data" method="post" th:object="${citasDTO}">
+			    <input type="text" id="fechaCita" name="fechaCita" class="input" placeholder="Fecha" 
+			        th:value="*{fechaCita}" required>
+			
+			    <input type="text" id="motivoCita" name="motivoCita" class="input" placeholder="Motivo" 
+			        required th:value="*{motivoCita}">	    
+			
+			    Agrega un campo select para el doctor con valor predeterminado
+			    <select id="doctor" name="doctor" class="input" required>
+			        <option value="" disabled selected>Seleccione un Doctor</option>
+			        Itera sobre la lista de doctores y muestra sus nombres
+			        <option th:each="doctor : ${doctores}" th:value="${doctor.idDoctor}" th:text="${doctor.nombreCompletoDoctor}"></option>
+			    </select>
+			
+			    <button type="submit">Crear Cita</button>
+			</form>
+		</div> -->
 	</div>
 </body>
 

@@ -2,6 +2,8 @@ package appCitas.AppCitasSASv2.dto;
 
 import java.util.Objects;
 
+import appCitas.AppCitasSASv2.dao.ConsultaTurno;
+
 public class DoctoresDTO {
 	
 	// ATRIBUTOS
@@ -10,7 +12,7 @@ public class DoctoresDTO {
 	private long idDoctor;
 	private String nombreCompletoDoctor;
 	private String especialidadDoctor;
-	private ConsultaTurnoDTO consultaTurno;
+	private ConsultaTurno consultaTurno;
 	
 	
 	
@@ -35,10 +37,10 @@ public class DoctoresDTO {
 	public void setEspecialidadDoctor(String especialidadDoctor) {
 		this.especialidadDoctor = especialidadDoctor;
 	}
-	public ConsultaTurnoDTO getConsultaTurno() {
+	public ConsultaTurno getConsultaTurno() {
 		return consultaTurno;
 	}
-	public void setConsultaTurno(ConsultaTurnoDTO consultaTurno) {
+	public void setConsultaTurno(ConsultaTurno consultaTurno) {
 		this.consultaTurno = consultaTurno;
 	}
 	
@@ -59,7 +61,7 @@ public class DoctoresDTO {
 	}
 	
 	public DoctoresDTO(long idDoctor, String nombreCompletoDoctor, String especialidadDoctor,
-			ConsultaTurnoDTO consultaTurno) {
+			ConsultaTurno consultaTurno) {
 		super();
 		this.idDoctor = idDoctor;
 		this.nombreCompletoDoctor = nombreCompletoDoctor;
