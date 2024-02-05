@@ -11,7 +11,7 @@ public interface IntfPacienteServicio {
 	public PacienteDTO registrar(PacienteDTO pacienteDTO);
 	
 	
-	public Paciente buscarPorId(long id);
+	public PacienteDTO buscarPorId(long id);
 	
 	
 	public Paciente buscarPorEmail(String emailPaciente);
@@ -23,6 +23,9 @@ public interface IntfPacienteServicio {
 	public List<PacienteDTO> buscarTodos();
 	
 
+	public void actualizarPaciente(PacienteDTO pacienteModificado);
+
+	
 	public PacienteDTO obtenerUsuarioPorToken(String token);
 	
 	

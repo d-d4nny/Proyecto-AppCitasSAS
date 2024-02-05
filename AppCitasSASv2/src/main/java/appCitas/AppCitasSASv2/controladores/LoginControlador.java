@@ -88,7 +88,7 @@ public class LoginControlador {
 	 
 	 @GetMapping("/privada/Pacientes")
 	 public String homeUser(Model model, Authentication authentication) {
-		 List<CitasDTO> citas = citasServicio.buscarTodos(); //tengo que hacer las implementaciones de citas
+		 List<CitasDTO> citas = citasServicio.buscarTodos();
 		 Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
 		 System.out.println(citas);
 		 model.addAttribute("citas", pacienteServicio.buscarPorEmail(authentication.getName()).getCitasDePaciente());
@@ -96,6 +96,38 @@ public class LoginControlador {
 		 
 	     return "homePaciente";
 	 }
+	 
+	 @GetMapping("/privada/editar-paciente/{id}")
+		public String mostrarFormularioEdicion(@PathVariable Long id, Model model, HttpServletRequest request) {
+			try {
+				
+				PacienteDTO pacienteDTO = pacienteServicio.buscarPorId(id);
+				if(pacienteDTO == null) {
+					return "homePaciente";
+				}
+				model.addAttribute("pacienteDTO", pacienteDTO);
+				return "editarPaciente";
+				
+			} catch (Exception e) {
+				model.addAttribute("Error", "Ocurrió un error al obtener el paciente para editar");
+				return "homePaciente";
+			}
+		}
+
+
+		@PostMapping("/privada/procesar-editar")
+		public String procesarFormularioEdicion(@ModelAttribute("pacienteDTO") PacienteDTO pacienteDTO, Model model) {
+			try {
+				pacienteServicio.actualizarPaciente(pacienteDTO);
+				model.addAttribute("edicionCorrecta", "El Usuario se ha editado correctamente");
+				model.addAttribute("usuarios", pacienteServicio.buscarTodos());
+				return "redirect:/privada/Pacientes";
+			} catch (Exception e) {
+				model.addAttribute("Error", "Ocurrió un error al editar el usuario");
+				return "redirect:/privada/Pacientes";
+			}
+		}
+		
 	 
 	 
 	 @GetMapping("/privada/crearCita")
@@ -157,7 +189,7 @@ public class LoginControlador {
 	 
 	@GetMapping("/privada/eliminar/{id}")
 	public String eliminarPaciente(@PathVariable Long id, Model model, HttpServletRequest request) {
-		Paciente paciente = pacienteServicio.buscarPorId(id);
+		PacienteDTO paciente = pacienteServicio.buscarPorId(id);
 		List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
 		if(request.isUserInRole("ROLE_ADMIN") && paciente.getRolPaciente().equals("ROLE_ADMIN")) {
 			model.addAttribute("noSePuedeEliminar", "No se puede eliminar a un admin");

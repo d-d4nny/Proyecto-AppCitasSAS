@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.repositorios.PacienteRepositorio;
+import jakarta.persistence.PersistenceException;
 
 @Service
 public class ImplPacienteServicio implements IntfPacienteServicio {
@@ -145,6 +146,25 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 
 		return false;
 	}
+	
+	
+	@Override
+	public void actualizarPaciente(PacienteDTO pacienteModificado) {
+
+		try {
+			Paciente pacienteActual = repositorio.findById(pacienteModificado.getIdPaciente()).orElse(null);
+
+			pacienteActual.setNombreCompletoPaciente(pacienteModificado.getNombreCompletoPaciente());
+			pacienteActual.setTlfPaciente(pacienteModificado.getTlfPaciente());
+
+			repositorio.save(pacienteActual);
+		} catch (PersistenceException pe) {
+			System.out.println("[Error UsuarioServicioImpl - actualizarUsuario()] Al modificar el usuario " + pe.getMessage());
+			
+		}
+		
+	}
+	
 
 	@Override
 	public PacienteDTO obtenerUsuarioPorToken(String token) {
@@ -181,9 +201,19 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	}
 
 	@Override
-	public Paciente buscarPorId(long id) {
-		return repositorio.findById(id).orElse(null);
+	public PacienteDTO buscarPorId(long id) {
+		try {
+			Paciente paciente = repositorio.findById(id).orElse(null);
+			if (paciente != null) {
+				return toDto.pacienteToDto(paciente);
+			}
+		} catch (IllegalArgumentException iae) {
+			System.out.println("[Error UsuarioServicioImpl - buscarPorId()] Al buscar el usuario por su id " + iae.getMessage());
+		}
+		return null;
 	}
+	
+	
 
 	@Override
 	public List<PacienteDTO> buscarTodos() {

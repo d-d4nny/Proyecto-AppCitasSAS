@@ -18,14 +18,15 @@
 		.parent {
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			grid-template-rows: repeat(3, 1fr);
+			grid-template-rows: repeat(4, 1fr);
 			grid-column-gap: 0px;
 			grid-row-gap: 0px;
 		}
 			
 		.div1 { grid-area: 1 / 1 / 3 / 4; }
-		.div2 { grid-area: 1 / 4 / 4 / 5; }
-		.div3 { grid-area: 3 / 1 / 4 / 4; }
+		.div2 { grid-area: 1 / 4 / 5 / 5; }
+		.div3 { grid-area: 3 / 1 / 5 / 3; }
+		.div4 { grid-area: 3 / 3 / 5 / 4; }
 	</style>
 </head>
 
@@ -81,13 +82,14 @@
 					</table>
 					<br>
 					<h4 class="card-title" style="text-align: center;">
-						<a sec:authorize="hasRole('ROLE_USER')" th:href="@{/privada/crearCita}" class="btn btn-dark" th:if="${not #lists.isEmpty(citas)}">
+						<a sec:authorize="hasRole('ROLE_USER')" th:href="@{/privada/crearCita}" class="btn btn-dark">
 							crear cita
 						</a>
 					</h4>
 				</div>
 			</div>
 		</div>
+		
 		<div class="div2">
 			<div class="card bg-light">
 				<div class="card-header"><h3>Datos Personales</h3></div>	
@@ -95,7 +97,7 @@
 						
 				<div class="user-card-container">
 				    <div class="user-card">
-				        <img class="user-image" src="/usuarios/{id}/imagen" alt="Imagen del usuario">
+				        <!--<img class="user-image" src="/usuarios/{idPaciente}/imagen" alt="Imagen del usuario">-->
 				        <div class="user-details">
 							<br>
 				            <h5 class="card-title" th:text="${paciente.nombreCompletoPaciente}" style="text-align: center;"></h5>
@@ -115,8 +117,8 @@
 				            </dl>
 				            <br>
 				            <div class="btn-container text-center">
-								<a class="btn btn-primary" th:href="@{/form/} + ${paciente.idPaciente}" th:text="'Modificar Datos'"></a>
-							</div>				       
+								<a class="btn btn-primary" th:href="@{/privada/editar-paciente/} + ${paciente.idPaciente}" th:text="'Modificar Datos'"></a>
+							</div>									       
 				        </div>
 				    </div>
 				</div>
@@ -130,6 +132,41 @@
 				    <input type="file" name="file" accept="image/*">
 				    <button type="submit">Subir imagen</button>
 				</form>
+			</div>
+		</div>
+		
+		<div class="div3"> 
+			<div class="card bg-light">
+				<div class="card-header"><h3>Ultimo Informe</h3></div>
+				<div class="card-body">
+	
+					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(informes)}">No hay Informes</h5>
+					
+					<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(informes)}">
+						<thead class="thead-inverse">
+							<tr>
+								<th class="table-dark">Nombre Informe</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="informe : ${informes}">
+								<td th:text="${informe.nombreInforme}"></td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</div>
+		<div class="div4"> 
+			<div class="card bg-light">
+				<div class="card-header"><h3>Informes</h3></div>
+				<div class="card-body">
+	
+					
+					
+					
+				</div>
 			</div>
 		</div>
 		<!-- <div class="div3">
