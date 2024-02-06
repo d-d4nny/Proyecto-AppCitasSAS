@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import appCitas.AppCitasSASv2.dao.Doctores;
+import appCitas.AppCitasSASv2.dao.Informes;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
+import appCitas.AppCitasSASv2.dto.InformeDTO;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.servicios.IntfCitasServicio;
 import appCitas.AppCitasSASv2.servicios.IntfDoctorServicio;
+import appCitas.AppCitasSASv2.servicios.IntfInformeServicio;
 import appCitas.AppCitasSASv2.servicios.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -27,6 +30,9 @@ public class LoginControlador {
 
 	@Autowired
 	private IntfCitasServicio citasServicio;
+	
+	@Autowired
+	private IntfInformeServicio informeServicio;
 	    
 	@Autowired
 	private IntfPacienteServicio pacienteServicio;
@@ -89,13 +95,30 @@ public class LoginControlador {
 	 @GetMapping("/privada/Pacientes")
 	 public String homeUser(Model model, Authentication authentication) {
 		 List<CitasDTO> citas = citasServicio.buscarTodos();
+		 List<InformeDTO> informes = informeServicio.buscarTodos(); 
 		 Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
 		 System.out.println(citas);
+		 System.out.println(informes);
 		 model.addAttribute("citas", pacienteServicio.buscarPorEmail(authentication.getName()).getCitasDePaciente());
+		 model.addAttribute("informes", pacienteServicio.buscarPorEmail(authentication.getName()).getInformesDePaciente());
 		 model.addAttribute("paciente", paciente);
 		 
 	     return "homePaciente";
 	 }
+	 
+	 
+	 @GetMapping("/privada/Pacientes/mostrarInforme/{informeId}")
+	 public String mostrarInforme(@PathVariable Long informeId, Model model) {
+	     // Lógica para obtener el informe con el informeId
+	     Informes informe = informeServicio.buscarPorId(informeId);
+
+	     // Agregar el informe al modelo
+	     model.addAttribute("informe", informe);
+
+	     // Devolver el nombre de la vista o el fragmento HTML que mostrará el informe
+	     return "informeFragment";
+	 }
+	
 	 
 	 @GetMapping("/privada/editar-paciente/{id}")
 		public String mostrarFormularioEdicion(@PathVariable Long id, Model model, HttpServletRequest request) {
@@ -129,6 +152,7 @@ public class LoginControlador {
 		}
 		
 	 
+		
 	 
 	 @GetMapping("/privada/crearCita")
 	    public String mostrarFormularioCita(Model model) {
