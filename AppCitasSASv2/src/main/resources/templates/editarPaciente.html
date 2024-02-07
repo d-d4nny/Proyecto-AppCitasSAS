@@ -91,9 +91,17 @@
               accept="image/*"
             />
           </div>
+          <div class="mb-3">
+	          <form enctype="multipart/form-data" method="post" th:action="@{privada/Pacientes/edit/picture}">
+			       Profile Picture:
+			       <input accept="image/*" name="profilePicture" type="file"/>
+			       <button type="submit">Update Profile Picture</button>
+			  </form>
+		  </div>
           <button type="submit" class="btn btn-primary mt-5">
             <i class="bi bi-person-fill-gear fs-5"> Guardar cambios</i>
           </button>
+          <a th:href="@{/privada/Pacientes}">Volver</a>
         </div>
       </form>
     </div>

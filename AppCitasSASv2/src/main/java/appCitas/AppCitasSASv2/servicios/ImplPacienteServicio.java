@@ -1,7 +1,9 @@
 package appCitas.AppCitasSASv2.servicios;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
@@ -163,6 +166,24 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 			
 		}
 		
+	}
+	
+	
+	@Override
+	public boolean updateProfilePicture(String emailPaciente, MultipartFile file) throws IOException {
+		if (file != null && !file.isEmpty()) {
+			Optional<Paciente> optionalPaciente = Optional.ofNullable(repositorio.findFirstByEmailPaciente(emailPaciente));
+			
+			if (optionalPaciente.isPresent()) {
+				Paciente paciente = optionalPaciente.get();
+
+				paciente.setProfilePicture(file.getBytes());
+
+				repositorio.save(paciente);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 

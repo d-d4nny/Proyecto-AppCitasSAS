@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -44,8 +45,8 @@ public class Paciente {
 	@Column(name = "direccion_paciente", nullable = true, length = 100)
 	private String direccionPaciente;
 	
-	@Column(name = "img_paciente", nullable = true, length = 100)
-	private String imgPaciente;
+	@Column(name = "profile_picture", nullable = true, length = 100)
+	private byte[] profilePicture;
 	
 	@Column(name = "rol_paciente", nullable = false, length = 12)
 	private String rolPaciente;
@@ -144,18 +145,18 @@ public class Paciente {
 	public void setDireccionPaciente(String direccionPaciente) {
 		this.direccionPaciente = direccionPaciente;
 	}
-
-
-	public String getImgPaciente() {
-		return imgPaciente;
+	
+	
+	public byte[] getProfilePicture() {
+		return profilePicture;
 	}
 
-
-	public void setImgPaciente(String imgPaciente) {
-		this.imgPaciente = imgPaciente;
+	
+	public void setProfilePicture(byte[] profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
-
+	
 	public String getRolPaciente() {
 		return rolPaciente;
 	}
@@ -232,7 +233,7 @@ public class Paciente {
 
 	public Paciente(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
 			String emailPaciente, String contrasenaPaciente, String generoPaciente,
-			String direccionPaciente, String imgPaciente, String rolPaciente, String token, Calendar expiracionToken,
+			String direccionPaciente, byte[] profilePicture, String rolPaciente, String token, Calendar expiracionToken,
 			List<Informes> informesDePaciente, List<Citas> citasDePaciente) {
 		super();
 		this.idPaciente = idPaciente;
@@ -243,7 +244,7 @@ public class Paciente {
 		this.contrasenaPaciente = contrasenaPaciente;
 		this.generoPaciente = generoPaciente;
 		this.direccionPaciente = direccionPaciente;
-		this.imgPaciente = imgPaciente;
+		this.profilePicture = profilePicture;
 		this.rolPaciente = rolPaciente;
 		this.token = token;
 		this.expiracionToken = expiracionToken;
@@ -259,7 +260,7 @@ public class Paciente {
 	@Override
 	public int hashCode() {
 		return Objects.hash(citasDePaciente, contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente,
-				expiracionToken, generoPaciente, idPaciente, imgPaciente, informesDePaciente,
+				expiracionToken, generoPaciente, idPaciente, profilePicture, informesDePaciente,
 				nombreCompletoPaciente, rolPaciente, tlfPaciente, token);
 	}
 
@@ -279,7 +280,7 @@ public class Paciente {
 				&& Objects.equals(dniPaciente, other.dniPaciente) && Objects.equals(emailPaciente, other.emailPaciente)
 				&& Objects.equals(expiracionToken, other.expiracionToken)
 				&& Objects.equals(generoPaciente, other.generoPaciente) && idPaciente == other.idPaciente
-				&& Objects.equals(imgPaciente, other.imgPaciente)
+				&& Objects.equals(profilePicture, other.profilePicture)
 				&& Objects.equals(informesDePaciente, other.informesDePaciente)
 				&& Objects.equals(nombreCompletoPaciente, other.nombreCompletoPaciente)
 				&& Objects.equals(rolPaciente, other.rolPaciente) && Objects.equals(tlfPaciente, other.tlfPaciente)
@@ -292,7 +293,7 @@ public class Paciente {
 		return "Paciente [idPaciente=" + idPaciente + ", nombreCompletoPaciente=" + nombreCompletoPaciente
 				+ ", dniPaciente=" + dniPaciente + ", tlfPaciente=" + tlfPaciente + ", emailPaciente=" + emailPaciente
 				+ ", contrasenaPaciente=" + contrasenaPaciente + ", generoPaciente=" + generoPaciente
-				+ ", direccionPaciente=" + direccionPaciente + ", imgPaciente=" + imgPaciente + ", rolPaciente="
+				+ ", direccionPaciente=" + direccionPaciente + ", imgPaciente=" + profilePicture + ", rolPaciente="
 				+ rolPaciente + ", token=" + token + ", expiracionToken=" + expiracionToken + ", informesDePaciente="
 				+ informesDePaciente + ", citasDePaciente=" + citasDePaciente + "]";
 	}	

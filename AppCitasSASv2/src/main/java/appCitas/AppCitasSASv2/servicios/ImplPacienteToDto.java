@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
+import appCitas.AppCitasSASv2.utils.ImageUtils;
 
 @Service
 public class ImplPacienteToDto implements IntfPacienteToDto {
@@ -24,10 +25,10 @@ public class ImplPacienteToDto implements IntfPacienteToDto {
 			dto.setEmailPaciente(u.getEmailPaciente());
 			dto.setDireccionPaciente(u.getDireccionPaciente());
 			dto.setGeneroPaciente(u.getGeneroPaciente());
-			dto.setImgPaciente(u.getImgPaciente());
 			dto.setContrasenaPaciente(u.getContrasenaPaciente());
 			dto.setToken(u.getToken());
 			dto.setExpiracionToken(u.getExpiracionToken());
+			dto.setProfilePicture(ImageUtils.convertToBase64(u.getProfilePicture()));
 			
 			return dto;
 		} catch (Exception e) {

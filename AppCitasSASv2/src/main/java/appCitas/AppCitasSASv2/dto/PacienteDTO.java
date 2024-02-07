@@ -19,7 +19,7 @@ public class PacienteDTO {
 	private String contrasenaPaciente;
 	private String generoPaciente;
 	private String direccionPaciente;
-	private String imgPaciente;
+	private String profilePicture;
 	private String rolPaciente;
 	private String token;
 	private Calendar expiracionToken;
@@ -112,14 +112,14 @@ public class PacienteDTO {
 	}
 
 
-	public String getImgPaciente() {
-		return imgPaciente;
-	}
+	public String getProfilePicture() {
+        return profilePicture;
+    }
 
-
-	public void setImgPaciente(String imgPaciente) {
-		this.imgPaciente = imgPaciente;
-	}
+	
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
 
 	public String getToken() {
@@ -218,7 +218,7 @@ public class PacienteDTO {
 
 	public PacienteDTO(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
 			String emailPaciente, String contrasenaPaciente, String generoPaciente,
-			String direccionPaciente, String imgPaciente, String rolPaciente, String token, Calendar expiracionToken,
+			String direccionPaciente, String profilePicture, String rolPaciente, String token, Calendar expiracionToken,
 			List<Informes> informesDePaciente, List<Citas> citasDePaciente, String password, String password2) {
 		super();
 		this.idPaciente = idPaciente;
@@ -229,7 +229,7 @@ public class PacienteDTO {
 		this.contrasenaPaciente = contrasenaPaciente;
 		this.generoPaciente = generoPaciente;
 		this.direccionPaciente = direccionPaciente;
-		this.imgPaciente = imgPaciente;
+		this.profilePicture = profilePicture;
 		this.rolPaciente = rolPaciente;
 		this.token = token;
 		this.expiracionToken = expiracionToken;
@@ -247,7 +247,7 @@ public class PacienteDTO {
 	@Override
 	public int hashCode() {
 		return Objects.hash(citasDePaciente, contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente,
-				expiracionToken, generoPaciente, idPaciente, imgPaciente, informesDePaciente,
+				expiracionToken, generoPaciente, profilePicture, idPaciente, informesDePaciente,
 				nombreCompletoPaciente, password, password2, rolPaciente, tlfPaciente, token);
 	}
 
@@ -267,8 +267,8 @@ public class PacienteDTO {
 				&& Objects.equals(dniPaciente, other.dniPaciente) && Objects.equals(emailPaciente, other.emailPaciente)
 				&& Objects.equals(expiracionToken, other.expiracionToken)
 				&& Objects.equals(generoPaciente, other.generoPaciente) && idPaciente == other.idPaciente
-				&& Objects.equals(imgPaciente, other.imgPaciente)
 				&& Objects.equals(informesDePaciente, other.informesDePaciente)
+				&& Objects.equals(profilePicture, other.profilePicture)
 				&& Objects.equals(nombreCompletoPaciente, other.nombreCompletoPaciente)
 				&& Objects.equals(password, other.password) && Objects.equals(password2, other.password2)
 				&& Objects.equals(rolPaciente, other.rolPaciente) && Objects.equals(tlfPaciente, other.tlfPaciente)
@@ -280,8 +280,8 @@ public class PacienteDTO {
 	public String toString() {
 		return "PacienteDTO [idPaciente=" + idPaciente + ", nombreCompletoPaciente=" + nombreCompletoPaciente
 				+ ", dniPaciente=" + dniPaciente + ", tlfPaciente=" + tlfPaciente + ", emailPaciente=" + emailPaciente
-				+ ", contrasenaPaciente=" + contrasenaPaciente + ", generoPaciente=" + generoPaciente + ", direccionPaciente=" + direccionPaciente + ", imgPaciente="
-				+ imgPaciente + ", rolPaciente=" + rolPaciente + ", token=" + token + ", expiracionToken="
+				+ ", contrasenaPaciente=" + contrasenaPaciente + ", generoPaciente=" + generoPaciente + ", direccionPaciente="
+				+  ", profilePicture=" + profilePicture + direccionPaciente  + ", rolPaciente=" + rolPaciente + ", token=" + token + ", expiracionToken="
 				+ expiracionToken + ", informesDePaciente=" + informesDePaciente + ", citasDePaciente="
 				+ citasDePaciente + ", password=" + password + ", password2=" + password2 + "]";
 	}
