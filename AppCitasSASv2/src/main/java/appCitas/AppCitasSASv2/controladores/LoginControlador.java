@@ -16,11 +16,13 @@ import org.springframework.web.multipart.MultipartFile;
 import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
+import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 import appCitas.AppCitasSASv2.dto.InformeDTO;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.servicios.ImplPacienteServicio;
 import appCitas.AppCitasSASv2.servicios.IntfCitasServicio;
+import appCitas.AppCitasSASv2.servicios.IntfConsultaTurnoServicio;
 import appCitas.AppCitasSASv2.servicios.IntfDoctorServicio;
 import appCitas.AppCitasSASv2.servicios.IntfInformeServicio;
 import appCitas.AppCitasSASv2.servicios.IntfPacienteServicio;
@@ -42,6 +44,9 @@ public class LoginControlador {
 	
 	@Autowired
 	private IntfDoctorServicio doctoresServicio;
+	
+	@Autowired
+	private IntfConsultaTurnoServicio consultaTurnoServicio;
 	
 	
 	 @GetMapping("/auth/login")
@@ -112,6 +117,24 @@ public class LoginControlador {
 		 
 	     return "homePaciente";
 	 }
+	 
+	 @GetMapping("/privada/Administracion")
+	 public String homeEmpleado(Model model, Authentication authentication) {
+		 List<CitasDTO> citas = citasServicio.buscarTodos();
+		 List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
+		 List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
+		 List<ConsultaTurnoDTO> turnos = consultaTurnoServicio.buscarTodos();
+		 System.out.println(citas);
+		 System.out.println(doctores);
+		 System.out.println(pacientes);
+		 System.out.println(turnos);
+		 model.addAttribute("citas", citas);
+		 model.addAttribute("doctores", doctores);
+		 model.addAttribute("pacientes", pacientes);
+		 model.addAttribute("turnos", turnos);
+		 
+	     return "homeEmpleado";
+	 }
 	
 	 
 	 @GetMapping("/privada/editar-paciente/{id}")
@@ -140,8 +163,7 @@ public class LoginControlador {
 
 				if (!imagen.isEmpty()) {
 
-					ImplPacienteServicio iPac = new ImplPacienteServicio();
-					String convertedImage = iPac.convertToBase64(imagen.getBytes());
+					String convertedImage = pacienteServicio.convertToBase64(imagen.getBytes());
 					pacienteDTO.setProfilePicture(convertedImage);
 
 				} else {
@@ -161,7 +183,6 @@ public class LoginControlador {
 			}
 		}
 	 
-		
 	 
 	 @GetMapping("/privada/crearCita")
 	    public String mostrarFormularioCita(Model model) {
@@ -202,14 +223,6 @@ public class LoginControlador {
 	         // Puedes agregar un mensaje de error en el modelo si es necesario
 	         return "redirect:/privada/Pacientes";
 	     }
-	 }
-
-	
-
-	 @GetMapping("/privada/Administracion")
-	 public String homeAdmin(Model model, Authentication authentication) {
-	     // Lógica específica para administradores
-	     return "homeEmpleado";
 	 }
 		
 		

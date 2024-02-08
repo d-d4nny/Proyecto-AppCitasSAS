@@ -1,5 +1,6 @@
 package appCitas.AppCitasSASv2.dao;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,8 +29,8 @@ public class ConsultaTurno {
 	@Column(name = "num_consulta", nullable = false, unique = true)
 	private int numConsulta;
 	
-	@Column(name = "tramo_hora_turno", nullable = false)
-	private String tramoHoraTurno;
+	@Column(name = "tramo_hora_turno", nullable = true)
+	private Calendar tramoHoraTurno;
 	
 	@OneToMany(mappedBy="consultaTurno")
     List<Doctores> doctoresConConsultaTurno;
@@ -55,11 +56,11 @@ public class ConsultaTurno {
 		this.numConsulta = numConsulta;
 	}
 
-	public String getTramoHoraTurno() {
+	public Calendar getTramoHoraTurno() {
 		return tramoHoraTurno;
 	}
 
-	public void setTramoHoraTurno(String tramoHoraTurno) {
+	public void setTramoHoraTurno(Calendar tramoHoraTurno) {
 		this.tramoHoraTurno = tramoHoraTurno;
 	}
 
@@ -82,14 +83,14 @@ public class ConsultaTurno {
 	}
 
 	
-	public ConsultaTurno(int numConsulta, String tramoHoraTurno) {
+	public ConsultaTurno(int numConsulta, Calendar tramoHoraTurno) {
 		super();
 		this.numConsulta = numConsulta;
 		this.tramoHoraTurno = tramoHoraTurno;
 	} 
 	
 	
-	public ConsultaTurno(long idConsultaTurno, int numConsulta, String tramoHoraTurno,
+	public ConsultaTurno(long idConsultaTurno, int numConsulta, Calendar tramoHoraTurno,
 			List<Doctores> doctoresConConsultaTurno) {
 		super();
 		this.idConsultaTurno = idConsultaTurno;
