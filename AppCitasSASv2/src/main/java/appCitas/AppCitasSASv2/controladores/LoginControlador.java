@@ -1,13 +1,8 @@
 package appCitas.AppCitasSASv2.controladores;
 
-import java.io.IOException;
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,31 +11,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import appCitas.AppCitasSASv2.dao.Doctores;
-import appCitas.AppCitasSASv2.dao.Informes;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 import appCitas.AppCitasSASv2.dto.InformeDTO;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
-import appCitas.AppCitasSASv2.repositorios.PacienteRepositorio;
+import appCitas.AppCitasSASv2.servicios.ImplPacienteServicio;
 import appCitas.AppCitasSASv2.servicios.IntfCitasServicio;
 import appCitas.AppCitasSASv2.servicios.IntfDoctorServicio;
 import appCitas.AppCitasSASv2.servicios.IntfInformeServicio;
 import appCitas.AppCitasSASv2.servicios.IntfPacienteServicio;
-import appCitas.AppCitasSASv2.utils.ImageUtils;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 
 
 @Controller
 public class LoginControlador {
 
-	@Autowired
-	private PacienteRepositorio pacienteRepositorio;
 	
 	@Autowired
 	private IntfCitasServicio citasServicio;
@@ -112,11 +101,13 @@ public class LoginControlador {
 		 List<InformeDTO> informes = informeServicio.buscarTodos(); 
 		 //Informes informe = informeServicio.buscarPorId(informes.get(0).getIdInforme());
 		 Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
+		 PacienteDTO pacienteDTO = pacienteServicio.buscarPorId(paciente.getIdPaciente());
 		 System.out.println(citas);
 		 System.out.println(informes);
 		 //model.addAttribute("informe", informe);
 		 model.addAttribute("citas", pacienteServicio.buscarPorEmail(authentication.getName()).getCitasDePaciente());
 		 model.addAttribute("informes", pacienteServicio.buscarPorEmail(authentication.getName()).getInformesDePaciente());
+		 model.addAttribute("pacienteDTO", pacienteDTO);
 		 model.addAttribute("paciente", paciente);
 		 
 	     return "homePaciente";
@@ -139,38 +130,36 @@ public class LoginControlador {
 				return "homePaciente";
 			}
 		}
-
-
+		
+		
 		@PostMapping("/privada/procesar-editar")
-		public String procesarFormularioEdicion(@ModelAttribute("pacienteDTO") PacienteDTO pacienteDTO, Model model) {
+		public String procesarFormularioEdicion(@ModelAttribute("usuarioDTO") PacienteDTO pacienteDTO, Model model,
+				@RequestParam("file") MultipartFile imagen) {
 			try {
+				// si sube una imagen la enviamos a la bbdd sino que actualice y ya esta
+
+				if (!imagen.isEmpty()) {
+
+					ImplPacienteServicio iPac = new ImplPacienteServicio();
+					String convertedImage = iPac.convertToBase64(imagen.getBytes());
+					pacienteDTO.setProfilePicture(convertedImage);
+
+				} else {
+		            // Si no se selecciona una nueva imagen, asegúrate de no sobrescribir el valor existente
+		            PacienteDTO pacienteExistente = pacienteServicio.buscarPorId(pacienteDTO.getIdPaciente());
+		            if (pacienteExistente != null) {
+		                pacienteDTO.setProfilePicture(pacienteExistente.getProfilePicture());
+		            }
+				}
 				pacienteServicio.actualizarPaciente(pacienteDTO);
-				model.addAttribute("edicionCorrecta", "El Usuario se ha editado correctamente");
-				model.addAttribute("usuarios", pacienteServicio.buscarTodos());
+				model.addAttribute("edicionCorrecta", "El Paciente se ha editado correctamente");
+				model.addAttribute("pacientes", pacienteServicio.buscarTodos());
 				return "redirect:/privada/Pacientes";
 			} catch (Exception e) {
-				model.addAttribute("Error", "Ocurrió un error al editar el usuario");
+				model.addAttribute("Error", "Ocurrió un error al editar el paciente" + e);
 				return "redirect:/privada/Pacientes";
 			}
 		}
-		
-		
-		@PostMapping("privada/Pacientes/edit/picture")
-		public String editPicture(HttpSession session, @RequestPart("profilePicture") MultipartFile file) {
-			try {
-				PacienteDTO user = (PacienteDTO) session.getAttribute("paciente");
-
-				if (pacienteServicio.updateProfilePicture(user.getEmailPaciente(), file)) {
-		            String convertedImage = ImageUtils.convertToBase64(file.getBytes());
-					user.setProfilePicture(convertedImage);
-					session.setAttribute("user", user);
-	            } 
-				return "redirect:/privada/Pacientes";
-	        } catch (Exception e) {
-	        	return "redirect:/privada/Pacientes";
-			}
-		} 
-		
 	 
 		
 	 

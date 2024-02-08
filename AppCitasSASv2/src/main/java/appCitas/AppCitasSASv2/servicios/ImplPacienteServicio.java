@@ -1,9 +1,8 @@
 package appCitas.AppCitasSASv2.servicios;
 
-import java.io.IOException;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
@@ -159,32 +157,32 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 
 			pacienteActual.setNombreCompletoPaciente(pacienteModificado.getNombreCompletoPaciente());
 			pacienteActual.setTlfPaciente(pacienteModificado.getTlfPaciente());
-
+			pacienteActual.setDniPaciente(pacienteModificado.getDniPaciente());
+			pacienteActual.setDireccionPaciente(pacienteModificado.getDireccionPaciente());
+			pacienteActual.setProfilePicture(convertToByteArray(pacienteModificado.getProfilePicture()));
 			repositorio.save(pacienteActual);
 		} catch (PersistenceException pe) {
-			System.out.println("[Error UsuarioServicioImpl - actualizarUsuario()] Al modificar el usuario " + pe.getMessage());
-			
+			System.out.println(
+					"[Error UsuarioServicioImpl - actualizarUsuario()] Al modificar el usuario " + pe.getMessage());
+
 		}
-		
+
 	}
 	
+	public   String convertToBase64(byte[] data) {
+        if (data != null && data.length > 0) {
+            return Base64.getEncoder().encodeToString(data);
+        }
+        return null;
+    }
 	
-	@Override
-	public boolean updateProfilePicture(String emailPaciente, MultipartFile file) throws IOException {
-		if (file != null && !file.isEmpty()) {
-			Optional<Paciente> optionalPaciente = Optional.ofNullable(repositorio.findFirstByEmailPaciente(emailPaciente));
-			
-			if (optionalPaciente.isPresent()) {
-				Paciente paciente = optionalPaciente.get();
 
-				paciente.setProfilePicture(file.getBytes());
-
-				repositorio.save(paciente);
-				return true;
-			}
-		}
-		return false;
-	}
+    public byte[] convertToByteArray(String base64String) {
+        if (base64String != null && !base64String.isEmpty()) {
+            return Base64.getDecoder().decode(base64String);
+        }
+        return null;
+    }
 	
 
 	@Override

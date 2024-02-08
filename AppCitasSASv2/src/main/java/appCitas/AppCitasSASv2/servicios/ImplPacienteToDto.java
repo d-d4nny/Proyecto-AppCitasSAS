@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
-import appCitas.AppCitasSASv2.utils.ImageUtils;
 
 @Service
 public class ImplPacienteToDto implements IntfPacienteToDto {
@@ -16,6 +15,7 @@ public class ImplPacienteToDto implements IntfPacienteToDto {
 	public PacienteDTO pacienteToDto(Paciente u) {
 		
 		try {
+			ImplPacienteServicio iPac = new ImplPacienteServicio();
 			PacienteDTO dto = new PacienteDTO();
 			
 			dto.setIdPaciente(u.getIdPaciente());
@@ -28,7 +28,7 @@ public class ImplPacienteToDto implements IntfPacienteToDto {
 			dto.setContrasenaPaciente(u.getContrasenaPaciente());
 			dto.setToken(u.getToken());
 			dto.setExpiracionToken(u.getExpiracionToken());
-			dto.setProfilePicture(ImageUtils.convertToBase64(u.getProfilePicture()));
+			dto.setProfilePicture(iPac.convertToBase64(u.getProfilePicture()));
 			
 			return dto;
 		} catch (Exception e) {

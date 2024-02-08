@@ -48,6 +48,14 @@
           <i class="bi bi-person-fill-gear" style="color: #1f3c85">Editar usuario</i>
         </h2>
         <input type="hidden" th:field="*{idPaciente}" />
+        <div>
+			<label for="fotoPerfil" class="form-label textoPrincipal">Foto de Perfil</label><br>
+			<img style="width: 200px; height: 200px;" alt="Image" class="profile-image" width="200px" th:if="${pacienteDTO.profilePicture!= null}"
+				th:src="'data:image/png;base64, ' + ${pacienteDTO.profilePicture}" />
+			<img  style="width: 200px; height: 200px;" alt="Default Image" width="200px" class="profile-image" th:src="@{/css/img/default.png}"
+				th:unless="${pacienteDTO.profilePicture!= null}"/>
+		</div>
+		<br>
         <div class="mb-3">
           <label for="email" class="form-label textoPrincipal">Correo Electrónico</label>
           <input
@@ -72,6 +80,18 @@
           />
         </div>
         <div class="mb-3">
+          <label for="dni" class="form-label textoPrincipal">DNI</label>
+          <input
+            th:field="*{dniPaciente}"
+            type="text"
+            id="dni"
+            name="dni"
+            class="form-control"
+            required
+          />
+        </div>
+         
+        <div class="mb-3">
           <label for="telefono" class="form-label textoPrincipal">Teléfono</label>
           <input
             th:field="*{tlfPaciente}"
@@ -81,28 +101,28 @@
             class="form-control"
             required
           />
-          <div class="mb-3">
-            <label for="foto" class="form-label textoPrincipal">Foto de Perfil</label>
-            <input
-              class="form-control"
-              type="file"
-              id="foto"
-              name="foto"
-              accept="image/*"
-            />
-          </div>
-          <div class="mb-3">
-	          <form enctype="multipart/form-data" method="post" th:action="@{privada/Pacientes/edit/picture}">
-			       Profile Picture:
-			       <input accept="image/*" name="profilePicture" type="file"/>
-			       <button type="submit">Update Profile Picture</button>
-			  </form>
-		  </div>
+        </div>
+        
+         <div class="mb-3">
+          <label for="direccion" class="form-label textoPrincipal">Direccion</label>
+          <input
+            th:field="*{direccionPaciente}"
+            type="text"
+            id="direccion"
+            name="direccion"
+            class="form-control"
+            required
+          />
+        </div>
+        
+        <div class="mb-3">
+		   <label for="foto" class="form-label textoPrincipal">Foto de Perfil</label>
+		   <input  class="form-control" type="file" id="profilePicture" name="file" accept="image/*"  />
+		</div>
           <button type="submit" class="btn btn-primary mt-5">
             <i class="bi bi-person-fill-gear fs-5"> Guardar cambios</i>
           </button>
           <a th:href="@{/privada/Pacientes}">Volver</a>
-        </div>
       </form>
     </div>
   </body>

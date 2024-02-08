@@ -45,7 +45,7 @@ public class Paciente {
 	@Column(name = "direccion_paciente", nullable = true, length = 100)
 	private String direccionPaciente;
 	
-	@Column(name = "profile_picture", nullable = true, length = 100)
+	@Column(name = "profile_picture")
 	private byte[] profilePicture;
 	
 	@Column(name = "rol_paciente", nullable = false, length = 12)

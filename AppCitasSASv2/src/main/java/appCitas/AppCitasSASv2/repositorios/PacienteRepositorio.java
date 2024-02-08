@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
+import appCitas.AppCitasSASv2.dto.PacienteDTO;
 
 @Service
 public interface PacienteRepositorio extends JpaRepository<Paciente, Long> {
@@ -15,6 +16,7 @@ public interface PacienteRepositorio extends JpaRepository<Paciente, Long> {
 	 *         especificada o null en caso contrario.
 	 */
 	public Paciente findFirstByEmailPaciente(String emailPaciente);
+	
 	
 	/**
 	 * Busca si un usuario tiene el DNI especificado.

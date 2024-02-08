@@ -1,9 +1,6 @@
 package appCitas.AppCitasSASv2.servicios;
 
-import java.io.IOException;
 import java.util.List;
-
-import org.springframework.web.multipart.MultipartFile;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
@@ -41,5 +38,8 @@ public interface IntfPacienteServicio {
 	public Paciente eliminar(long id);
 
 	
-	boolean updateProfilePicture(String emailPaciente, MultipartFile file) throws IOException;
+	public String convertToBase64(byte[] data);
+	
+	
+	public byte[] convertToByteArray(String base64String);
 }
