@@ -19,6 +19,7 @@ public class ImplCitasToDto implements IntfCitasToDto {
 			
 			dto.setIdCita(u.getIdCita());
 			dto.setFechaCita(u.getFechaCita());
+			dto.setHoraCita(u.getHoraCita());
 			dto.setMotivoCita(u.getMotivoCita());
 			dto.setEstadoCita(u.getEstadoCita());
 			//dto.setPaciente(u.getPaciente());

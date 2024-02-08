@@ -24,9 +24,9 @@ public class ImplCitasServicio implements IntfCitasServicio {
 	@Override
 	public CitasDTO registrar(CitasDTO citasDto) {
 		try {
-			Citas citasDaoByFecha = repositorio.findFirstByFechaCita(citasDto.getFechaCita());
+			Citas citasDaoById = repositorio.findFirstByIdCita(citasDto.getIdCita());
 			
-			if (citasDaoByFecha != null) {
+			if (citasDaoById != null) {
 				return null; // Si no es null es que ya está registrado
 			}
 			

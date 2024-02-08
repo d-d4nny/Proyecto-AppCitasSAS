@@ -9,7 +9,7 @@ import appCitas.AppCitasSASv2.dao.Citas;
 public interface CitasRepositorio extends JpaRepository<Citas, Long> {
 	
 	
-	public Citas findFirstByFechaCita(String fechaCita);
+	public Citas findFirstByIdCita(long idCita);
 	
 	
 	public boolean existsByIdCita(long idCita);

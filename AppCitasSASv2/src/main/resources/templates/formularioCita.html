@@ -37,8 +37,11 @@
 	<div class="div3">
 		<h2>Crear Nueva Cita</h2>
 	    <form class="form" th:action="@{/privada/crearCita}" enctype="multipart/form-data" method="post" th:object="${citasDTO}">
-		    <input type="text" id="fechaCita" name="fechaCita" class="input" placeholder="Fecha" 
+		    <input type="date" id="fechaCita" name="fechaCita" class="input" placeholder="Fecha" 
 		        th:value="*{fechaCita}" required>
+		        
+	        <input type="time" id="horaCita" name="horaCita" class="input" placeholder="Hora" 
+       			th:value="*{horaCita}" step="3600" required>
 		
 		    <input type="text" id="motivoCita" name="motivoCita" class="input" placeholder="Motivo" 
 		        required th:value="*{motivoCita}">	    
@@ -52,5 +55,17 @@
 		    <a th:href="@{/privada/Pacientes}">Volver</a>
 		</form>
 	</div>
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+		    var horaCitaInput = document.getElementById('horaCita');
+	
+		    horaCitaInput.addEventListener('input', function() {
+		        // Formatear el valor del input a "HH:00:00"
+		        var horaSeleccionada = horaCitaInput.value.split(":")[0];
+		        horaCitaInput.value = horaSeleccionada + ":00:00";
+		    });
+		});
+	</script>
 </body>
 </html>

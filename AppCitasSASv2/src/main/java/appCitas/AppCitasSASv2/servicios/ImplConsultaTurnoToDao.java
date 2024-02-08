@@ -19,7 +19,8 @@ public class ImplConsultaTurnoToDao implements IntfConsultaTurnoToDao {
 		
 		try {
 			consultaTurnoDao.setIdConsultaTurno(consultaTurnoDTO.getIdConsultaTurno());
-			consultaTurnoDao.setTramoHoraTurno(consultaTurnoDTO.getTramoHoraTurno());
+			consultaTurnoDao.setTramoHoraTurnoInicio(consultaTurnoDTO.getTramoHoraTurnoInicio());
+			consultaTurnoDao.setTramoHoraTurnoFin(consultaTurnoDTO.getTramoHoraTurnoFin());
 			consultaTurnoDao.setNumConsulta(consultaTurnoDTO.getNumConsulta());
 			
 			return consultaTurnoDao;

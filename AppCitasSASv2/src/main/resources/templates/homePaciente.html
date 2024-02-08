@@ -85,18 +85,20 @@
 						<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(citas)}">
 							<thead class="thead-inverse">
 								<tr>
-									<th class="table-dark" style="width: 35%;">Fecha y hora</th>
-									<th class="table-dark" style="width: 35%;">Motivo</th>
-									<th class="table-dark" style="width: 10%;">Estado</th>
+									<th class="table-dark" style="width: 20%;">Fecha</th>
+									<th class="table-dark" style="width: 20%;">Hora</th>
+									<th class="table-dark" style="width: 25%;">Motivo</th>
+									<th class="table-dark" style="width: 15%;">Estado</th>
 									<th class="table-dark" style="width: 15%;" sec:authorize="hasRole('ROLE_USER')"></th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="cita : ${citas}">
 									<td th:text="${cita.fechaCita}"></td>
+									<td th:text="${cita.horaCita}"></td>
 									<td th:text="${cita.motivoCita}"></td>
 									<td th:text="${cita.estadoCita}"></td>
-									<td sec:authorize="hasRole('ROLE_USER')">
+									<td sec:authorize="hasRole('ROLE_USER')"  style="text-align: center;">
 		    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'Cancelar Cita'" onclick="confirmarEliminarCita(event)"></a>
 									</td>
 		
@@ -132,7 +134,7 @@
 			                    <tr th:each="informe : ${informes}">
 			                        <td>
 			                            <div class="informe-item">
-											<span th:text="'Fecha del Informe: ' + ${informe.fchInforme}" class="informe-fecha"></span>
+											<span th:text="'Fecha del Informe: ' + ${#dates.format(informe.fchInforme, 'dd-MM-yyyy HH:mm:ss')}" class="informe-fecha"></span>
 											<br>
 			                                <span th:text="'Nombre del Informe: ' + ${informe.nombreInforme}" class="informe-nombre"></span>
 			                            </div>

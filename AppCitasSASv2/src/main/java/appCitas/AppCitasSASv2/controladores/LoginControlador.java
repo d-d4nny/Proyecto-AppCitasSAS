@@ -123,15 +123,11 @@ public class LoginControlador {
 		 List<CitasDTO> citas = citasServicio.buscarTodos();
 		 List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
 		 List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
-		 List<ConsultaTurnoDTO> turnos = consultaTurnoServicio.buscarTodos();
-		 System.out.println(citas);
-		 System.out.println(doctores);
-		 System.out.println(pacientes);
-		 System.out.println(turnos);
+		 List<ConsultaTurnoDTO> consultaTurnos = consultaTurnoServicio.buscarTodos();
 		 model.addAttribute("citas", citas);
 		 model.addAttribute("doctores", doctores);
 		 model.addAttribute("pacientes", pacientes);
-		 model.addAttribute("turnos", turnos);
+		 model.addAttribute("consultaTurnos", consultaTurnos);
 		 
 	     return "homeEmpleado";
 	 }

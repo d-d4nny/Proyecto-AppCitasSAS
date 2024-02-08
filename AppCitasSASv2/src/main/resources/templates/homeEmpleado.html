@@ -26,25 +26,29 @@
 		
 		.div1 { 
 			grid-area: 1 / 1 / 3 / 3; 
-			width: auto;
+			max-width: 630px;
+			min-width: 630px;
 			min-height: 350px;
 			max-height: 350px;
 			}
 		.div2 { 
 			grid-area: 1 / 3 / 3 / 5;
- 			width: auto;
+ 			max-width: 630px;
+			min-width: 630px;
 			min-height: 350px;
 			max-height: 350px;
 			}
 		.div3 { 
 			grid-area: 3 / 1 / 5 / 3; 
-			width: auto;
+			max-width: 630px;
+			min-width: 630px;
 			min-height: 350px;
 			max-height: 350px;
 			}
 		.div4 { 
 			grid-area: 3 / 3 / 5 / 5; 
-			width: auto;
+			max-width: 630px;
+			min-width: 630px;
 			min-height: 350px;
 			max-height: 350px;
 			}
@@ -77,50 +81,140 @@
 	<div class="parent">
 		<div class="div1"> 
 			<div class="card bg-light">
-					<div class="card-header"><h3>Administracion Doctores</h3></div>
-					<div class="card-body">
-		
-						<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(doctores)}">No hay doctores registrados</h5>
-						
-						<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(doctores)}">
-							<thead class="thead-inverse">
-								<tr>
-									<th class="table-dark" >Id</th>
-									<th class="table-dark" >Nombre</th>
-									<th class="table-dark" >Especialidad</th>
-									<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="doctor : ${doctores}">
-									<td th:text="${doctor.idDoctor}"></td>
-									<td th:text="${doctor.nombreCompletoDoctor}"></td>
-									<td th:text="${doctor.especialidadDoctor}"></td>
-									<td sec:authorize="hasRole('ROLE_ADMIN')">
-		    							<a class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" th:text="'Eliminar Doctor'" onclick="confirmarEliminarCita(event)"></a>
-		    							<a class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" th:text="'Editar Doctor'" onclick="confirmarEliminarCita(event)"></a>
-									</td>
-		
-								</tr>
-							</tbody>
-						</table>
-					</div>
+				<div class="card-header"><h3>Administracion Doctores</h3></div>
+				<div class="card-body" style="max-width: 630px;max-height: 350px;overflow: auto;">
+	
+					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(doctores)}">No hay doctores registrados</h5>
+					
+					<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(doctores)}">
+						<thead class="thead-inverse">
+							<tr>
+								<th class="table-dark" >Id</th>
+								<th class="table-dark" >Nombre</th>
+								<th class="table-dark" >Especialidad</th>
+								<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="doctor : ${doctores}">
+								<td th:text="${doctor.idDoctor}"></td>
+								<td th:text="${doctor.nombreCompletoDoctor}"></td>
+								<td th:text="${doctor.especialidadDoctor}"></td>
+								<td sec:authorize="hasRole('ROLE_ADMIN')">
+	    							<a class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" th:text="'Eliminar Doctor'" onclick="confirmarEliminarCita(event)"></a>
+	    							<a class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" th:text="'Editar Doctor'" onclick="confirmarEliminarCita(event)"></a>
+								</td>
+	
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 		<div class="div2"> 
 			<div class="card bg-light">
-					<div class="card-header"><h3>Administracion Pacientes</h3></div>
+				<div class="card-header"><h3>Administracion Pacientes</h3></div>
+				<div class="card-body" style="max-width: 630px;max-height: 350px;overflow: auto;">
+	
+					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(pacientes)}">No hay pacientes registrados</h5>
+					
+					<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(pacientes)}">
+						<thead class="thead-inverse">
+							<tr>
+								<th class="table-dark" >Id</th>
+								<th class="table-dark" >Nombre</th>
+								<th class="table-dark" >Dni</th>
+								<th class="table-dark" >Email</th>
+								<th class="table-dark" >Telefono</th>
+								<th class="table-dark" >Direccion</th>
+								<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="paciente : ${pacientes}">
+								<td th:text="${paciente.idPaciente}"></td>
+								<td th:text="${paciente.nombreCompletoPaciente}"></td>
+								<td th:text="${paciente.dniPaciente}"></td>
+								<td th:text="${paciente.emailPaciente}"></td>
+								<td th:text="${paciente.tlfPaciente}"></td>
+								<td th:text="${paciente.direccionPaciente}"></td>
+								<td sec:authorize="hasRole('ROLE_ADMIN')">
+	    							<a class="btn btn-danger" th:attr="data-id=${paciente.idPaciente}" th:text="'Eliminar Paciente'" onclick="confirmarEliminarCita(event)"></a>
+	    							<a class="btn btn-danger" th:attr="data-id=${paciente.idPaciente}" th:text="'Editar Paciente'" onclick="confirmarEliminarCita(event)"></a>
+								</td>
+	
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="div3"> 
 			<div class="card bg-light">
-					<div class="card-header"><h3>Administracion Citas</h3></div>
+				<div class="card-header"><h3>Administracion Citas</h3></div>
+				<div class="card-body" style="max-width: 630px;max-height: 350px;overflow: auto;">
+	
+					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(citas)}">No hay citas registradas</h5>
+					
+					<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(citas)}">
+						<thead class="thead-inverse">
+							<tr>
+								<th class="table-dark" >Id</th>
+								<th class="table-dark" >Fecha</th>
+								<th class="table-dark" >Hora</th>
+								<th class="table-dark" >Motivo</th>
+								<th class="table-dark" >Estado</th>
+								<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="cita : ${citas}">
+								<td th:text="${cita.idCita}"></td>
+								<td th:text="${cita.fechaCita}"></td>
+								<td th:text="${cita.horaCita}"></td>
+								<td th:text="${cita.motivoCita}"></td>
+								<td th:text="${cita.estadoCita}"></td>
+								
+								<td sec:authorize="hasRole('ROLE_ADMIN')">
+	    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'Eliminar Cita'" onclick="confirmarEliminarCita(event)"></a>
+	    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'Editar Cita'" onclick="confirmarEliminarCita(event)"></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="div4"> 
 			<div class="card bg-light">
-					<div class="card-header"><h3>Administracion Horarios</h3></div>
+				<div class="card-header"><h3>Administracion Horarios</h3></div>
+				<div class="card-body" style="max-width: 630px;max-height: 350px;overflow: auto;">
+	
+					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(consultaTurnos)}">No hay turnos registrados</h5>
+					
+					<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(consultaTurnos)}">
+						<thead class="thead-inverse">
+							<tr>
+								<th class="table-dark" >Id</th>
+								<th class="table-dark" >Consulta</th>
+								<th class="table-dark" >Hora Turno</th>
+								<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="consultaTurno : ${consultaTurnos}">
+								<td th:text="${consultaTurno.idConsultaTurno}"></td>
+								<td th:text="${consultaTurno.numConsulta}"></td>
+								<td th:text="${#dates.format(consultaTurno.tramoHoraTurnoInicio, 'HH:mm:ss')} + ' - ' + ${#dates.format(consultaTurno.tramoHoraTurnoFin, 'HH:mm:ss')}"></td>
+				
+								<td sec:authorize="hasRole('ROLE_ADMIN')">
+	    							<a class="btn btn-danger" th:attr="data-id=${consultaTurno.idConsultaTurno}" th:text="'Eliminar Turno'" onclick="confirmarEliminarCita(event)"></a>
+	    							<a class="btn btn-danger" th:attr="data-id=${consultaTurno.idConsultaTurno}" th:text="'Editar Turno'" onclick="confirmarEliminarCita(event)"></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

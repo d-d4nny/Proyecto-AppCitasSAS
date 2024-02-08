@@ -19,6 +19,7 @@ public class ImplCitasToDao implements IntfCitasToDao {
 		try {
 			citasDao.setIdCita(citasDTO.getIdCita());
 			citasDao.setFechaCita(citasDTO.getFechaCita());
+			citasDao.setHoraCita(citasDTO.getHoraCita());
 			citasDao.setMotivoCita(citasDTO.getMotivoCita());
 			citasDao.setEstadoCita(citasDTO.getEstadoCita());
 			citasDao.setPaciente(citasDTO.getPaciente());

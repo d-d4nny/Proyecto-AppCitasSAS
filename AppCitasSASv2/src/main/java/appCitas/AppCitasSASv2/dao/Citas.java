@@ -1,5 +1,8 @@
 package appCitas.AppCitasSASv2.dao;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.Calendar;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -26,7 +29,10 @@ public class Citas {
 	private long idCita;
 	
 	@Column(name = "fecha_cita", nullable = false)
-	private String fechaCita;
+	private Date fechaCita;
+	
+	@Column(name = "hora_cita", nullable = false)
+	private Time horaCita;
 	
 	@Column(name = "motivo_cita", nullable = false)
 	private String motivoCita;
@@ -55,12 +61,20 @@ public class Citas {
 		this.idCita = idCita;
 	}
 
-	public String getFechaCita() {
+	public Date getFechaCita() {
 		return fechaCita;
 	}
 
-	public void setFechaCita(String fechaCita) {
+	public void setFechaCita(Date fechaCita) {
 		this.fechaCita = fechaCita;
+	}
+
+	public Time getHoraCita() {
+		return horaCita;
+	}
+
+	public void setHoraCita(Time horaCita) {
+		this.horaCita = horaCita;
 	}
 
 	public String getMotivoCita() {
@@ -106,19 +120,21 @@ public class Citas {
 	}
 	
 
-	public Citas(String fechaCita, String motivoCita, String estadoCita) {
+	public Citas(Date fechaCita, Time horaCita, String motivoCita, String estadoCita) {
 		super();
 		this.fechaCita = fechaCita;
+		this.horaCita = horaCita;
 		this.motivoCita = motivoCita;
 		this.estadoCita = estadoCita;
 	}
 
 	
-	public Citas(long idCita, String fechaCita, String motivoCita, String estadoCita, Paciente paciente,
+	public Citas(long idCita, Date fechaCita, Time horaCita, String motivoCita, String estadoCita, Paciente paciente,
 			Doctores doctor) {
 		super();
 		this.idCita = idCita;
 		this.fechaCita = fechaCita;
+		this.horaCita = horaCita;
 		this.motivoCita = motivoCita;
 		this.estadoCita = estadoCita;
 		this.paciente = paciente;
@@ -132,7 +148,7 @@ public class Citas {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(doctor, estadoCita, fechaCita, idCita, motivoCita, paciente);
+		return Objects.hash(doctor, estadoCita, fechaCita, horaCita, idCita, motivoCita, paciente);
 	}
 
 	
@@ -146,14 +162,14 @@ public class Citas {
 			return false;
 		Citas other = (Citas) obj;
 		return Objects.equals(doctor, other.doctor) && Objects.equals(estadoCita, other.estadoCita)
-				&& Objects.equals(fechaCita, other.fechaCita) && idCita == other.idCita
+				&& Objects.equals(fechaCita, other.fechaCita) && Objects.equals(horaCita, other.horaCita) && idCita == other.idCita 
 				&& Objects.equals(motivoCita, other.motivoCita) && Objects.equals(paciente, other.paciente);
 	}
 
 	
 	@Override
 	public String toString() {
-		return "Citas [idCita=" + idCita + ", fechaCita=" + fechaCita + ", motivoCita=" + motivoCita + ", estadoCita="
+		return "Citas [idCita=" + idCita + ", fechaCita=" + fechaCita + ", horaCita=" + horaCita + ", motivoCita=" + motivoCita + ", estadoCita="
 				+ estadoCita + ", paciente=" + paciente + ", doctor=" + doctor + "]";
 	}
 }

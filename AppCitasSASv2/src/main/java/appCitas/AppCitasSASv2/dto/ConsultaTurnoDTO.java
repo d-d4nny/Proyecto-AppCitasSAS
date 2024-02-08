@@ -1,5 +1,6 @@
 package appCitas.AppCitasSASv2.dto;
 
+import java.sql.Time;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +14,8 @@ public class ConsultaTurnoDTO {
 	
 	private long idConsultaTurno;
 	private int numConsulta;
-	private Calendar tramoHoraTurno;
+	private Time tramoHoraTurnoInicio;
+	private Time tramoHoraTurnoFin;
 	private List<DoctoresDTO> doctoresConConsultaTurno;
 	
 	
@@ -33,11 +35,17 @@ public class ConsultaTurnoDTO {
 	public void setNumConsulta(int numConsulta) {
 		this.numConsulta = numConsulta;
 	}
-	public Calendar getTramoHoraTurno() {
-		return tramoHoraTurno;
+	public Time getTramoHoraTurnoInicio() {
+		return tramoHoraTurnoInicio;
 	}
-	public void setTramoHoraTurno(Calendar tramoHoraTurno) {
-		this.tramoHoraTurno = tramoHoraTurno;
+	public void setTramoHoraTurnoInicio(Time tramoHoraTurnoInicio) {
+		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
+	}
+	public Time getTramoHoraTurnoFin() {
+		return tramoHoraTurnoFin;
+	}
+	public void setTramoHoraTurnoFin(Time tramoHoraTurnoFin) {
+		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
 	}
 	public List<DoctoresDTO> getDoctoresConConsultaTurno() {
 		return doctoresConConsultaTurno;
@@ -55,17 +63,21 @@ public class ConsultaTurnoDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ConsultaTurnoDTO(int numConsulta, Calendar tramoHoraTurno) {
+	
+	public ConsultaTurnoDTO(int numConsulta, Time tramoHoraTurnoInicio, Time tramoHoraTurnoFin) {
 		super();
 		this.numConsulta = numConsulta;
-		this.tramoHoraTurno = tramoHoraTurno;
+		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
+		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
 	}
-	public ConsultaTurnoDTO(long idConsultaTurno, int numConsulta, Calendar tramoHoraTurno,
-			List<DoctoresDTO> doctoresConConsultaTurno) {
+	
+	public ConsultaTurnoDTO(long idConsultaTurno, int numConsulta, Time tramoHoraTurnoInicio,
+			Time tramoHoraTurnoFin, List<DoctoresDTO> doctoresConConsultaTurno) {
 		super();
 		this.idConsultaTurno = idConsultaTurno;
 		this.numConsulta = numConsulta;
-		this.tramoHoraTurno = tramoHoraTurno;
+		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
+		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
 		this.doctoresConConsultaTurno = doctoresConConsultaTurno;
 	}
 	
@@ -76,7 +88,8 @@ public class ConsultaTurnoDTO {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(doctoresConConsultaTurno, idConsultaTurno, numConsulta, tramoHoraTurno);
+		return Objects.hash(doctoresConConsultaTurno, idConsultaTurno, numConsulta, tramoHoraTurnoFin,
+				tramoHoraTurnoInicio);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -89,12 +102,14 @@ public class ConsultaTurnoDTO {
 		ConsultaTurnoDTO other = (ConsultaTurnoDTO) obj;
 		return Objects.equals(doctoresConConsultaTurno, other.doctoresConConsultaTurno)
 				&& idConsultaTurno == other.idConsultaTurno && numConsulta == other.numConsulta
-				&& Objects.equals(tramoHoraTurno, other.tramoHoraTurno);
+				&& Objects.equals(tramoHoraTurnoFin, other.tramoHoraTurnoFin)
+				&& Objects.equals(tramoHoraTurnoInicio, other.tramoHoraTurnoInicio);
 	}
 	@Override
 	public String toString() {
 		return "ConsultaTurnoDTO [idConsultaTurno=" + idConsultaTurno + ", numConsulta=" + numConsulta
-				+ ", tramoHoraTurno=" + tramoHoraTurno + ", doctoresConConsultaTurno=" + doctoresConConsultaTurno + "]";
+				+ ", tramoHoraTurnoInicio=" + tramoHoraTurnoInicio + ", tramoHoraTurnoFin=" + tramoHoraTurnoFin
+				+ ", doctoresConConsultaTurno=" + doctoresConConsultaTurno + "]";
 	}
 }
 
