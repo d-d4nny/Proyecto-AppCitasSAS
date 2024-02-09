@@ -11,9 +11,6 @@ public interface IntfConsultaTurnoServicio {
 	public ConsultaTurnoDTO registrar(ConsultaTurnoDTO consultaTurnoDTO);
 	
 	
-	public Boolean crearConsultaTurno(ConsultaTurnoDTO consultaTurnoDTO);
-	
-	
 	public void actualizarConsultaTurno(ConsultaTurnoDTO consultaTurnoDTO);
 	
 	

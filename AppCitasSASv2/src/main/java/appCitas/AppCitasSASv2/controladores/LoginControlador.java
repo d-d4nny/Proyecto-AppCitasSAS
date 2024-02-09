@@ -237,28 +237,11 @@ public class LoginControlador {
 		
 		
 	
-	@GetMapping("/privada/eliminarCita/{id}")
-		public String eliminarCita(@PathVariable Long id, Model model, HttpServletRequest request, Authentication authentication) {
-			
-			Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
-			String email = paciente.getEmailPaciente();
-			model.addAttribute("nombrePaciente", email);
-			System.out.println(authentication.getAuthorities());
+	@GetMapping("/privada/eliminar-cita/{id}")
+		public String eliminarCita(@PathVariable Long id, Model model, HttpServletRequest request) {
 			citasServicio.eliminar(id);
-			
-			if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
-		        return "redirect:/privada/Administracion";
-		    } else {
-		        return "redirect:/privada/Pacientes";
-		    }
+		    return "redirect:/privada/Pacientes";	    
 		}
-	
-	@GetMapping("/privada/eliminarDoctor/{id}")
-	public String eliminarCita(@PathVariable Long id, Model model, HttpServletRequest request) {
-		doctoresServicio.eliminar(id);
-		return "redirect:/privada/Administracion";	
-	}
-
 	 
 	@GetMapping("/privada/eliminar/{id}")
 	public String eliminarPaciente(@PathVariable Long id, Model model, HttpServletRequest request) {

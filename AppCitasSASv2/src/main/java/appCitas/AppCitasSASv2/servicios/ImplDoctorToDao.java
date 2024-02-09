@@ -12,7 +12,7 @@ import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 public class ImplDoctorToDao implements IntfDoctorToDao {
 
 	@Override
-	public Doctores doctoresToDao(DoctoresDTO doctoresDTO, ConsultaTurno consultaTurno) {
+	public Doctores doctoresToDao(DoctoresDTO doctoresDTO) {
 
 		Doctores doctoresDao = new Doctores();
 
@@ -20,7 +20,7 @@ public class ImplDoctorToDao implements IntfDoctorToDao {
 			doctoresDao.setIdDoctor(doctoresDTO.getIdDoctor());
 			doctoresDao.setNombreCompletoDoctor(doctoresDTO.getNombreCompletoDoctor());
 			doctoresDao.setEspecialidadDoctor(doctoresDTO.getEspecialidadDoctor());
-			doctoresDao.setConsultaTurno(consultaTurno);
+			doctoresDao.setConsultaTurno(doctoresDTO.getConsultaTurno());
 			
 			return doctoresDao;
 		} catch (Exception e) {

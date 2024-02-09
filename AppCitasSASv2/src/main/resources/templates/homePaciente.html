@@ -99,7 +99,7 @@
 									<td th:text="${cita.motivoCita}"></td>
 									<td th:text="${cita.estadoCita}"></td>
 									<td sec:authorize="hasRole('ROLE_USER')"  style="text-align: center;">
-		    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'Cancelar Cita'" onclick="confirmarEliminarCita(event)"></a>
+		    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'Cancelar Cita'" onclick="cancelarCita(event)"></a>
 									</td>
 		
 								</tr>
@@ -203,6 +203,15 @@
 	        var descripcion = informeItem.querySelector('.informe-descripcion');
 	        descripcion.style.display = (descripcion.style.display === 'none' || descripcion.style.display === '') ? 'table-cell' : 'none';
 	    }
+	    
+	    function cancelarCita(event) {
+		    const idCita = event.currentTarget.getAttribute("data-id");
+		    confirmar().then(function (confirmado) {
+		        if (confirmado) {
+		            window.location.href = 'http://localhost:8080/privada/eliminar-cita/' + idCita;
+		        }
+		    });
+		}
 	</script>
 </body>
 

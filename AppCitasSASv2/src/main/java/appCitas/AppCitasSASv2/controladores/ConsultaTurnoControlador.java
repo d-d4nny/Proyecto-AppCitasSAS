@@ -41,7 +41,7 @@ public class ConsultaTurnoControlador {
 	
 	
 	@PostMapping("/privada/procesar-editarTurno")
-	public String procesarFormularioEdicionTurno(@ModelAttribute("usuarioDTO") ConsultaTurnoDTO consultaTurnoDTO, Model model) {		
+	public String procesarFormularioEdicionTurno(@ModelAttribute("consultaTurnoDTO") ConsultaTurnoDTO consultaTurnoDTO, Model model) {		
 		try {
 			consultaTurnoServicio.actualizarConsultaTurno(consultaTurnoDTO);
 			model.addAttribute("edicionCorrecta", "El turno se ha editado correctamente");
@@ -67,12 +67,12 @@ public class ConsultaTurnoControlador {
 		ConsultaTurnoDTO nuevaConsultaTurno = consultaTurnoServicio.registrar(consultaTurnoDTO);
 		
 		if (nuevaConsultaTurno != null) {
-			// Si el usuario y el DNI no son null es que el registro se completo correctamente
+			// Si el turno no es null es que el registro se completo correctamente
 			model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo turno OK");
 			return "redirect:/privada/Administracion";
 		} else {
-			// Se verifica si el DNI ya existe para mostrar error personalizado en la vista
-			model.addAttribute("mensajeErrorDni", "Ya existe ese turno");
+			// Se verifica si el turno ya existe para mostrar error personalizado en la vista
+			model.addAttribute("mensajeErrorTurno", "Ya existe ese turno");
 			return "redirect:/privada/Administracion";
 		}
 	}

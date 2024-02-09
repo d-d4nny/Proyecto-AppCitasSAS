@@ -9,7 +9,10 @@ import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 public interface IntfDoctorServicio {
 
 	
-	public DoctoresDTO registrar(DoctoresDTO doctoresDTO, ConsultaTurno consultaTurno);
+	public DoctoresDTO registrar(DoctoresDTO doctoresDTO);
+	
+	
+	public void actualizarDoctor(DoctoresDTO doctoresDTO);
 	
 	
 	public Doctores buscarPorId(long id);

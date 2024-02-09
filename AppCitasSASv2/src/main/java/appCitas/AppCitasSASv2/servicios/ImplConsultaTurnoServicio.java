@@ -22,6 +22,9 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
 	@Autowired
 	private ConsultaTurnoRepositorio repositorio;
 	
+	@Autowired
+	private ImplDoctorServicio doctoresServicio;
+	
 	
 	@Override
 	public ConsultaTurnoDTO registrar(ConsultaTurnoDTO consultaTurnoDto) {
@@ -32,18 +35,6 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
 		}catch (Exception e) {
 			System.out.println("\n[ERROR ImplConsultaTurnoServicio - registrar()] - Al registrar consultaTurno (return null): " + e);
 			return null;
-		}
-	}
-	
-	
-	@Override
-	public Boolean crearConsultaTurno(ConsultaTurnoDTO consultaTurnoDto) {
-		try {
-			repositorio.save(toDao.consultaTurnoToDao(consultaTurnoDto));
-			return true;
-		}catch (Exception e) {
-			System.out.println("\n[ERROR ImplConsultaTurnoServicio - crearConsultaTurno()] - Al crear consultaTurno (return false): " + e);
-			return false;
 		}
 	}
 	

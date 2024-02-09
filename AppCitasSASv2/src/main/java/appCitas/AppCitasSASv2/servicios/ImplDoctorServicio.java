@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dao.Doctores;
+import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 import appCitas.AppCitasSASv2.repositorios.DoctorRepositorio;
+import jakarta.persistence.PersistenceException;
 
 @Service
 public class ImplDoctorServicio implements IntfDoctorServicio {
@@ -25,7 +27,7 @@ public class ImplDoctorServicio implements IntfDoctorServicio {
 	
 	
 	@Override
-	public DoctoresDTO registrar(DoctoresDTO doctoresDto, ConsultaTurno consultaTurno) {
+	public DoctoresDTO registrar(DoctoresDTO doctoresDto) {
 		try {
 			Doctores doctorDaoByNombreCompleto = repositorio.findFirstByNombreCompletoDoctor(doctoresDto.getNombreCompletoDoctor());
 			
@@ -39,7 +41,7 @@ public class ImplDoctorServicio implements IntfDoctorServicio {
 				return doctoresDto;
 			}
 			
-			Doctores doctorDao = toDao.doctoresToDao(doctoresDto, consultaTurno);
+			Doctores doctorDao = toDao.doctoresToDao(doctoresDto);
 			repositorio.save(doctorDao);
 			
 			return doctoresDto;
@@ -51,6 +53,27 @@ public class ImplDoctorServicio implements IntfDoctorServicio {
 		}
 		return null;
 	}
+	
+	
+	@Override
+	public void actualizarDoctor(DoctoresDTO doctorModificado) {
+
+		try {
+			Doctores doctorActual = repositorio.findById(doctorModificado.getIdDoctor()).orElse(null);
+
+			doctorActual.setNombreCompletoDoctor(doctorModificado.getNombreCompletoDoctor());
+			doctorActual.setEspecialidadDoctor(doctorModificado.getEspecialidadDoctor());
+			doctorActual.setConsultaTurno(doctorModificado.getConsultaTurno());
+			
+			repositorio.save(doctorActual);
+		} catch (PersistenceException pe) {
+			System.out.println(
+					"[Error DoctorServicioImpl - actualizarDoctor()] Al modificar al doctor " + pe.getMessage());
+
+		}
+
+	}
+	
 	
 	@Override
 	public Doctores eliminar(long id) {

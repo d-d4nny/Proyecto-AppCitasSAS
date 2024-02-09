@@ -94,7 +94,7 @@
 			<div class="card bg-light">
 				<div class="card-header d-flex justify-content-between align-items-center">
 					<h3>Administracion Doctores</h3>
-				    <button class="btn btn-success" onclick="CrearDoctor">
+				    <button class="btn btn-success" onclick="CrearDoctor(event)">
 				        <i class="bi bi-plus-square"></i>
 				    </button>
 				</div>
@@ -118,12 +118,12 @@
 								<td th:text="${doctor.especialidadDoctor}"></td>
 								<td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">
 								    <!-- Botón para Eliminar Doctor -->
-								    <button class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" onclick="confirmarEliminarCita(event)">
+								    <button class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" onclick="EliminarDoctor(event)">
 								        <i class="bi bi-trash3-fill"></i> <!-- Icono de borrar -->
 								    </button>
 								
 								    <!-- Botón para Editar Doctor -->
-								    <button class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" onclick="confirmarEditarCita(event)">
+								    <button class="btn btn-danger" th:attr="data-id=${doctor.idDoctor}" onclick="EditarDoctor(event)">
 								        <i class="bi bi-pencil-square"></i> <!-- Icono de lápiz (editar) -->
 								    </button>
 								</td>
@@ -287,19 +287,20 @@
 		}
 		
 		
-		function confirmarEliminarDoctor(event) {
+		function CrearDoctor(event) {
+		    window.location.href = 'http://localhost:8080/privada/crear-doctor';
+		}
+		
+		function EditarDoctor(event) {
+		    const idDoctor = event.currentTarget.getAttribute("data-id");
+		    window.location.href = 'http://localhost:8080/privada/editar-doctor/' + idDoctor;
+		}
+		
+		function EliminarDoctor(event) {
 		    const idDoctor = event.currentTarget.getAttribute("data-id");
 		    confirmar().then(function (confirmado) {
 		        if (confirmado) {
-		            window.location.href = 'http://localhost:8080/privada/eliminarDoctor/' + idDoctor;
-		        }
-		    });
-		}
-		function confirmarEliminarCita(event) {
-		    const idCita = event.currentTarget.getAttribute("data-id");
-		    confirmar().then(function (confirmado) {
-		        if (confirmado) {
-		            window.location.href = 'http://localhost:8080/privada/eliminarCita/' + idCita;
+		            window.location.href = 'http://localhost:8080/privada/eliminar-doctor/' + idDoctor;
 		        }
 		    });
 		}

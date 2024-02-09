@@ -47,7 +47,7 @@
         </h2>
         <input type="hidden" th:field="*{idConsultaTurno}" />
         <div class="mb-3">
-          <label for="email" class="form-label textoPrincipal">Numero Consulta</label>
+          <label for="numConsulta" class="form-label textoPrincipal">Numero Consulta</label>
           <input
             th:field="*{numConsulta}"
             type="number"
@@ -58,7 +58,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label textoPrincipal">Hora Inicio</label>
+          <label for="tramoHoraTurnoInicio" class="form-label textoPrincipal">Hora Inicio</label>
           <input
             th:field="*{tramoHoraTurnoInicio}"
             type="time"
@@ -69,7 +69,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="dni" class="form-label textoPrincipal">Hora Fin</label>
+          <label for="tramoHoraTurnoFin" class="form-label textoPrincipal">Hora Fin</label>
           <input
             th:field="*{tramoHoraTurnoFin}"
             type="time"

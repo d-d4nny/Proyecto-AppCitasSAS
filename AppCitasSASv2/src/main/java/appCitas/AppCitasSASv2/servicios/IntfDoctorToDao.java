@@ -9,7 +9,7 @@ import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 public interface IntfDoctorToDao {
 
 	
-	public Doctores doctoresToDao(DoctoresDTO doctoresDTO, ConsultaTurno consultaTurno);
+	public Doctores doctoresToDao(DoctoresDTO doctoresDTO);
 	
 	
 	public List<Doctores> listDoctoresToDao(List<DoctoresDTO> listaDoctoresDTO);	

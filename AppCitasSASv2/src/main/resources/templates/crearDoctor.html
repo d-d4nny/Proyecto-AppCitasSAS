@@ -36,40 +36,21 @@
 	</nav>
 	<div class="container py-4">
 		<div class="contenedor form-registro">
-			<p class="titulo">Nuevo Turno</p>
-			<form class="form" th:action="@{/privada/crear-turno}" enctype="multipart/form-data" method="post" th:object="${consultaTurnoDTO}">
-				<input type="text" id="numConsulta" name="numConsulta" class="input" placeholder="Numero Consulta" 
-					th:value="*{numConsulta}" required>				
-			    <input type="time" id="tramoHoraTurnoInicio" name="tramoHoraTurnoInicio" class="input" placeholder="Hora Inicio" 
-					required th:value="*{tramoHoraTurnoInicio}">					
-			    <input type="time" id="tramoHoraTurnoFin" name="tramoHoraTurnoFin" class="input" placeholder="Hora Fin" 
-					required th:value="*{tramoHoraTurnoFin}">
+			<p class="titulo">Nuevo Doctor</p>
+			<form class="form" th:action="@{/privada/crear-doctor}" enctype="multipart/form-data" method="post" th:object="${doctoresDTO}">
+				<input type="text" id="nombreCompletoDoctor" name="nombreCompletoDoctor" class="input" placeholder="Nombre Completo Doctor" 
+					th:value="*{nombreCompletoDoctor}" required>				
+			    <input type="text" id="especialidadDoctor" name="especialidadDoctor" class="input" placeholder="Especialidad" 
+					required th:value="*{especialidadDoctor}">	
+									
+			    <select id="consultaTurno" name="consultaTurno" class="input" required>
+			        <option value="" disabled selected>Seleccione un turno</option>
+			        <option th:each="turno : ${consultaTurno}" th:value="${turno.idConsultaTurno}" th:text="${#dates.format(turno.tramoHoraTurnoInicio, 'HH:mm:ss')} + ' - ' + ${#dates.format(turno.tramoHoraTurnoFin, 'HH:mm:ss')}"></option>
+		    	</select>
+		    	
 				<button type="submit" id="btnRegistro" class="form-btn">Registrar</button>
 			</form>
 		</div>
 	</div>
-	
-	<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var horaInicioInput = document.getElementById('tramoHoraTurnoInicio');
-        var horaFinInput = document.getElementById('tramoHoraTurnoFin');
-
-        function ajustarHora(input) {
-            var partesHora = input.value.split(":");
-            var horas = partesHora[0];
-
-            // Establecer minutos y segundos a 0
-            input.value = horas + ":00:00";
-        }
-
-        horaInicioInput.addEventListener('input', function() {
-            ajustarHora(horaInicioInput);
-        });
-
-        horaFinInput.addEventListener('input', function() {
-            ajustarHora(horaFinInput);
-        });
-    });
-</script>
 </body>
 </html>
