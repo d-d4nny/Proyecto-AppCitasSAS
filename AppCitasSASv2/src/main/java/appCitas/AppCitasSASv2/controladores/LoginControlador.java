@@ -258,41 +258,6 @@ public class LoginControlador {
 		doctoresServicio.eliminar(id);
 		return "redirect:/privada/Administracion";	
 	}
-	
-	
-	
-	
-	@GetMapping("/privada/editar-turno/{id}")
-	public String mostrarFormularioEdicionTurno(@PathVariable Long id, Model model, HttpServletRequest request) {
-		try {
-			
-			ConsultaTurno consultaTurno = consultaTurnoServicio.buscarPorId(id);
-			if(consultaTurno == null) {
-				return "homeEmpleado";
-			}
-			model.addAttribute("consultaTurnoDTO", consultaTurno);
-			return "editarTurno";
-			
-		} catch (Exception e) {
-			model.addAttribute("Error", "Ocurrió un error al obtener el paciente para editar");
-			return "homeEmpleado";
-		}
-	}
-	
-	
-	@PostMapping("/privada/procesar-editarTurno")
-	public String procesarFormularioEdicionTurno(@ModelAttribute("usuarioDTO") ConsultaTurnoDTO consultaTurnoDTO, Model model) {		
-		try {
-			consultaTurnoServicio.actualizarConsultaTurno(consultaTurnoDTO);
-			model.addAttribute("edicionCorrecta", "El turno se ha editado correctamente");
-			model.addAttribute("turnos", consultaTurnoServicio.buscarTodos());
-		    return "redirect:/privada/Administracion";
-		} catch (Exception e) {
-			model.addAttribute("Error", "Ocurrió un error al editar el paciente" + e);
-		    return "redirect:/privada/Administracion";
-		}
-	}
-	
 
 	 
 	@GetMapping("/privada/eliminar/{id}")

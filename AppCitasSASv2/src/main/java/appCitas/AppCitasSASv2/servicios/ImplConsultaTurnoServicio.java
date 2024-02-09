@@ -24,6 +24,19 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
 	
 	
 	@Override
+	public ConsultaTurnoDTO registrar(ConsultaTurnoDTO consultaTurnoDto) {
+		
+		try {
+			repositorio.save(toDao.consultaTurnoToDao(consultaTurnoDto));
+			return consultaTurnoDto;
+		}catch (Exception e) {
+			System.out.println("\n[ERROR ImplConsultaTurnoServicio - registrar()] - Al registrar consultaTurno (return null): " + e);
+			return null;
+		}
+	}
+	
+	
+	@Override
 	public Boolean crearConsultaTurno(ConsultaTurnoDTO consultaTurnoDto) {
 		try {
 			repositorio.save(toDao.consultaTurnoToDao(consultaTurnoDto));

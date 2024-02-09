@@ -227,7 +227,7 @@
 			<div class="card bg-light">
 				<div class="card-header d-flex justify-content-between align-items-center">
 					<h3>Administracion Horarios</h3>
-				    <button class="btn btn-success" onclick="CrearTurno">
+				    <button class="btn btn-success" onclick="CrearTurno(event)">
 				        <i class="bi bi-plus-square"></i>
 				    </button>
 				</div>
@@ -276,6 +276,10 @@
 		    window.location.href = 'http://localhost:8080/privada/editar-paciente/' + idPaciente;
 		}
 		
+		
+		function CrearTurno(event) {
+		    window.location.href = 'http://localhost:8080/privada/crear-turno';
+		}
 		
 		function EditarTurno(event) {
 		    const idTurno = event.currentTarget.getAttribute("data-id");

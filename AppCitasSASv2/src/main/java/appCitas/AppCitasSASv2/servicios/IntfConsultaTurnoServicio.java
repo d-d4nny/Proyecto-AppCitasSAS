@@ -8,6 +8,9 @@ import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 public interface IntfConsultaTurnoServicio {
 
 	
+	public ConsultaTurnoDTO registrar(ConsultaTurnoDTO consultaTurnoDTO);
+	
+	
 	public Boolean crearConsultaTurno(ConsultaTurnoDTO consultaTurnoDTO);
 	
 	
