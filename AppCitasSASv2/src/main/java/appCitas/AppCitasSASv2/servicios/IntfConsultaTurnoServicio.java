@@ -11,6 +11,9 @@ public interface IntfConsultaTurnoServicio {
 	public Boolean crearConsultaTurno(ConsultaTurnoDTO consultaTurnoDTO);
 	
 	
+	public void actualizarConsultaTurno(ConsultaTurnoDTO consultaTurnoDTO);
+	
+	
 	public ConsultaTurno buscarPorId(long id);
 	
 	

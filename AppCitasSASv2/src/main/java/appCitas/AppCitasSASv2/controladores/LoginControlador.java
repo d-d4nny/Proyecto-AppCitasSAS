@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
@@ -152,8 +153,13 @@ public class LoginControlador {
 		
 		
 		@PostMapping("/privada/procesar-editar")
-		public String procesarFormularioEdicion(@ModelAttribute("usuarioDTO") PacienteDTO pacienteDTO, Model model,
+		public String procesarFormularioEdicion(@ModelAttribute("usuarioDTO") PacienteDTO pacienteDTO, Authentication authentication, Model model,
 				@RequestParam("file") MultipartFile imagen) {
+			Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
+			String email = paciente.getEmailPaciente();
+			model.addAttribute("nombrePaciente", email);
+			System.out.println(authentication.getAuthorities());
+			
 			try {
 				// si sube una imagen la enviamos a la bbdd sino que actualice y ya esta
 
@@ -172,10 +178,18 @@ public class LoginControlador {
 				pacienteServicio.actualizarPaciente(pacienteDTO);
 				model.addAttribute("edicionCorrecta", "El Paciente se ha editado correctamente");
 				model.addAttribute("pacientes", pacienteServicio.buscarTodos());
-				return "redirect:/privada/Pacientes";
+				if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
+			        return "redirect:/privada/Administracion";
+			    } else {
+			        return "redirect:/privada/Pacientes";
+			    }
 			} catch (Exception e) {
 				model.addAttribute("Error", "Ocurrió un error al editar el paciente" + e);
-				return "redirect:/privada/Pacientes";
+				if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
+			        return "redirect:/privada/Administracion";
+			    } else {
+			        return "redirect:/privada/Pacientes";
+			    }
 			}
 		}
 	 
@@ -224,10 +238,62 @@ public class LoginControlador {
 		
 	
 	@GetMapping("/privada/eliminarCita/{id}")
-		public String eliminarCita(@PathVariable Long id, Model model, HttpServletRequest request) {
+		public String eliminarCita(@PathVariable Long id, Model model, HttpServletRequest request, Authentication authentication) {
+			
+			Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
+			String email = paciente.getEmailPaciente();
+			model.addAttribute("nombrePaciente", email);
+			System.out.println(authentication.getAuthorities());
 			citasServicio.eliminar(id);
-			return "redirect:/privada/Pacientes";	
+			
+			if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
+		        return "redirect:/privada/Administracion";
+		    } else {
+		        return "redirect:/privada/Pacientes";
+		    }
 		}
+	
+	@GetMapping("/privada/eliminarDoctor/{id}")
+	public String eliminarCita(@PathVariable Long id, Model model, HttpServletRequest request) {
+		doctoresServicio.eliminar(id);
+		return "redirect:/privada/Administracion";	
+	}
+	
+	
+	
+	
+	@GetMapping("/privada/editar-turno/{id}")
+	public String mostrarFormularioEdicionTurno(@PathVariable Long id, Model model, HttpServletRequest request) {
+		try {
+			
+			ConsultaTurno consultaTurno = consultaTurnoServicio.buscarPorId(id);
+			if(consultaTurno == null) {
+				return "homeEmpleado";
+			}
+			model.addAttribute("consultaTurnoDTO", consultaTurno);
+			return "editarTurno";
+			
+		} catch (Exception e) {
+			model.addAttribute("Error", "Ocurrió un error al obtener el paciente para editar");
+			return "homeEmpleado";
+		}
+	}
+	
+	
+	@PostMapping("/privada/procesar-editarTurno")
+	public String procesarFormularioEdicionTurno(@ModelAttribute("usuarioDTO") ConsultaTurnoDTO consultaTurnoDTO, Model model) {		
+		try {
+			consultaTurnoServicio.actualizarConsultaTurno(consultaTurnoDTO);
+			model.addAttribute("edicionCorrecta", "El turno se ha editado correctamente");
+			model.addAttribute("turnos", consultaTurnoServicio.buscarTodos());
+		    return "redirect:/privada/Administracion";
+		} catch (Exception e) {
+			model.addAttribute("Error", "Ocurrió un error al editar el paciente" + e);
+		    return "redirect:/privada/Administracion";
+		}
+	}
+	
+
 	 
 	@GetMapping("/privada/eliminar/{id}")
 	public String eliminarPaciente(@PathVariable Long id, Model model, HttpServletRequest request) {
@@ -236,10 +302,10 @@ public class LoginControlador {
 		if(request.isUserInRole("ROLE_ADMIN") && paciente.getRolPaciente().equals("ROLE_ADMIN")) {
 			model.addAttribute("noSePuedeEliminar", "No se puede eliminar a un admin");
 			model.addAttribute("usuarios", pacientes);
-			return "listado";
+			return "redirect:/privada/Administracion";
 		}
 		pacienteServicio.eliminar(id);
-		return "redirect:/privada/listado";
+	    return "redirect:/privada/Administracion";
 		
 	}
 

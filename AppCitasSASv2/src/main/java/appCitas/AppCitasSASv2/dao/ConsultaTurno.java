@@ -27,7 +27,7 @@ public class ConsultaTurno {
 	@Column(name = "id_consulta_turno", nullable = false)
 	private long idConsultaTurno;
 	
-	@Column(name = "num_consulta", nullable = false, unique = true)
+	@Column(name = "num_consulta", nullable = false)
 	private int numConsulta;
 	
 	@Column(name = "tramo_hora_turno_inicio", nullable = true)

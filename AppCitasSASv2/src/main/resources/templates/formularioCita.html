@@ -41,7 +41,7 @@
 		        th:value="*{fechaCita}" required>
 		        
 	        <input type="time" id="horaCita" name="horaCita" class="input" placeholder="Hora" 
-       			th:value="*{horaCita}" step="3600" required>
+       			th:value="*{horaCita}" step="900" required>
 		
 		    <input type="text" id="motivoCita" name="motivoCita" class="input" placeholder="Motivo" 
 		        required th:value="*{motivoCita}">	    
@@ -59,11 +59,20 @@
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 		    var horaCitaInput = document.getElementById('horaCita');
-	
+		
 		    horaCitaInput.addEventListener('input', function() {
 		        // Formatear el valor del input a "HH:00:00"
-		        var horaSeleccionada = horaCitaInput.value.split(":")[0];
-		        horaCitaInput.value = horaSeleccionada + ":00:00";
+		        var partesHora = horaCitaInput.value.split(":");
+		        var horas = partesHora[0];
+		        var minutos = partesHora[1];
+		
+		        // Ajustar minutos a múltiplos de 15
+		        minutos = Math.floor(minutos / 15) * 15;
+		
+		        // Convertir minutos a dos dígitos
+		        minutos = minutos < 10 ? "0" + minutos : minutos;
+		
+		        horaCitaInput.value = horas + ":" + minutos + ":00";
 		    });
 		});
 	</script>

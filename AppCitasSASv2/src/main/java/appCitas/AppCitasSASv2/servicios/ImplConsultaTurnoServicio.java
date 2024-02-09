@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.repositorios.ConsultaTurnoRepositorio;
+import jakarta.persistence.PersistenceException;
 
 @Service
 public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
@@ -32,6 +33,28 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
 			return false;
 		}
 	}
+	
+	
+	@Override
+	public void actualizarConsultaTurno(ConsultaTurnoDTO consultaTurnoModificado) {
+
+		try {
+			ConsultaTurno consultaTurnoActual = repositorio.findById(consultaTurnoModificado.getIdConsultaTurno()).orElse(null);
+
+			consultaTurnoActual.setNumConsulta(consultaTurnoModificado.getNumConsulta());
+			consultaTurnoActual.setTramoHoraTurnoInicio(consultaTurnoModificado.getTramoHoraTurnoInicio());
+			consultaTurnoActual.setTramoHoraTurnoFin(consultaTurnoModificado.getTramoHoraTurnoFin());
+			
+			repositorio.save(consultaTurnoActual);
+		} catch (PersistenceException pe) {
+			System.out.println(
+					"[Error ConsultaTurnoServicioImpl - actualizarConsultaTurno()] Al modificar la consultaTurno " + pe.getMessage());
+
+		}
+
+	}
+	
+	
 	
 	
 	@Override
