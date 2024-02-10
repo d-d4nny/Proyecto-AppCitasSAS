@@ -136,9 +136,9 @@ public class Informes {
 				&& Objects.equals(paciente, other.paciente);
 	}
 
-	@Override
-	public String toString() {
-		return "Informes [idInforme=" + idInforme + ", nombreInforme=" + nombreInforme + ", descInforme=" + descInforme
-				+ ", fchInforme=" + fchInforme + ", paciente=" + paciente + "]";
-	}
+	//@Override
+	//public String toString() {
+	//	return "Informes [idInforme=" + idInforme + ", nombreInforme=" + nombreInforme + ", descInforme=" + descInforme
+	//			+ ", fchInforme=" + fchInforme + ", paciente=" + paciente + "]";
+	//}
 }

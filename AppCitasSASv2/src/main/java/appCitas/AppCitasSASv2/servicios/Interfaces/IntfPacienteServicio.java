@@ -42,4 +42,10 @@ public interface IntfPacienteServicio {
 	
 	
 	public byte[] convertToByteArray(String base64String);
+	
+	
+	boolean confirmarCuenta(String emailPaciente); 
+	
+
+	public boolean estaLaCuentaConfirmada(String email);
 }

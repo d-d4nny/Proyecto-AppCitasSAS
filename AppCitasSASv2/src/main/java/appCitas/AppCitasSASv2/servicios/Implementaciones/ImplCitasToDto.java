@@ -23,8 +23,8 @@ public class ImplCitasToDto implements IntfCitasToDto {
 			dto.setHoraCita(u.getHoraCita());
 			dto.setMotivoCita(u.getMotivoCita());
 			dto.setEstadoCita(u.getEstadoCita());
-			//dto.setPaciente(u.getPaciente());
-			//dto.setDoctor(u.getEmpleado());
+			dto.setPaciente(u.getPaciente());
+			dto.setDoctor(u.getEmpleado());
 			
 			return dto;
 		} catch (Exception e) {

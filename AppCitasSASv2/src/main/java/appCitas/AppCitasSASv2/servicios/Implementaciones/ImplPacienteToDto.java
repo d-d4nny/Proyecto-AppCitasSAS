@@ -31,6 +31,7 @@ public class ImplPacienteToDto implements IntfPacienteToDto {
 			dto.setToken(u.getToken());
 			dto.setExpiracionToken(u.getExpiracionToken());
 			dto.setProfilePicture(iPac.convertToBase64(u.getProfilePicture()));
+			dto.setCuentaConfirmada(u.isCuentaConfirmada());
 			
 			return dto;
 		} catch (Exception e) {

@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}">
 	<link rel="stylesheet" href="../static/css/menu.css" th:href="@{/css/menu.css}">
 	<link rel="icon" href="../static/css/img/icono.png" th:href="@{/css/img/icono.png}">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script th:src="@{/script/script.js}"></script>
@@ -76,9 +77,6 @@
                 <a style="color: white; margin-top: 5px;" >AppCitasSAS</a>
             </div>
 			<ul class="nav-links" style="margin-top: 15px;">
-				<li><a style="color: white;" th:href="@{/}">Listado Doctores</a></li>
-				<li><a style="color: white;" th:href="@{/}">Listado Pacientes</a></li>
-				<li><a style="color: white;" th:href="@{/}">Listado Horarios</a></li>
 				<li>
 					<form th:action="@{/auth/logout}" method="post" id="logoutForm">
 						<button type="button" class=""
@@ -140,7 +138,7 @@
 			<div class="card bg-light">
 				<div class="card-header d-flex justify-content-between align-items-center">
 					<h3>Administracion Pacientes</h3>
-				    <button class="btn btn-success" onclick="CrearPaciente">
+				    <button class="btn btn-success" onclick="CrearPaciente(event)">
 				        <i class="bi bi-plus-square"></i>
 				    </button>
 				</div>
@@ -157,6 +155,8 @@
 								<th class="table-dark" >Email</th>
 								<th class="table-dark" >Telefono</th>
 								<th class="table-dark" >Direccion</th>
+								<th class="table-dark" >Cuenta activa</th>
+								<th class="table-dark" >Rol</th>	
 								<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
 							</tr>
 						</thead>
@@ -168,6 +168,8 @@
 								<td th:text="${paciente.emailPaciente}"></td>
 								<td th:text="${paciente.tlfPaciente}"></td>
 								<td th:text="${paciente.direccionPaciente}"></td>
+								<td th:text="${paciente.cuentaConfirmada ? 'Sí' : 'No'}"></td>
+								<td th:text="${paciente.rolPaciente == 'ROLE_USER' ? 'USER' : 'ADMIN'}"></td>	
 								<td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">
 								    <!-- Botón para Eliminar paciente -->
 								    <button style="margin-bottom: 5px;" class="btn btn-danger" th:attr="data-id=${paciente.idPaciente}" onclick="confirmarEliminar(event)">
@@ -190,7 +192,7 @@
 		<div class="div3"> 
 			<div class="card bg-light">
 				<div class="card-header"><h3>Administracion Citas</h3></div>
-				<div class="card-body" style="max-width: 625px;max-height: 275px;overflow: auto;">
+				<div class="card-body" style="max-width: 625px;max-height: 275px;overflow-x: auto;">
 	
 					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(citas)}">No hay citas registradas</h5>
 					
@@ -202,6 +204,8 @@
 								<th class="table-dark" >Hora</th>
 								<th class="table-dark" >Motivo</th>
 								<th class="table-dark" >Estado</th>
+								<th class="table-dark" >Paciente</th>
+								<th class="table-dark" >Doctor</th>
 								<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
 							</tr>
 						</thead>
@@ -212,12 +216,18 @@
 								<td th:text="${cita.horaCita}"></td>
 								<td th:text="${cita.motivoCita}"></td>
 								<td th:text="${cita.estadoCita}"></td>
-								<td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">								
-								    <!-- Botón para Editar cita -->
-								    <button class="btn btn-danger" th:attr="data-id=${cita.idCita}" onclick="confirmarEditarCita(event)">
-								        <i class="bi bi-pencil-square"></i> <!-- Icono de lápiz (editar) -->
-								    </button>
-								</td>
+								<td th:text="${cita.paciente.nombreCompletoPaciente}"></td>
+						        <td th:text="${cita.doctor.nombreCompletoDoctor}"></td>
+								<td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">
+						            <!-- Botón para Cancelar cita -->
+						            <button class="btn btn-danger" th:attr="data-id=${cita.idCita}" onclick="confirmarCancelarCita(event)">
+						                <i class="bi bi-x-square"></i>
+						            </button>
+						            <!-- Botón para Completar cita -->
+						            <button class="btn btn-success" th:attr="data-id=${cita.idCita}" onclick="confirmarCompletarCita(event)">
+						                <i class="bi bi-check-square"></i>
+						            </button>
+						        </td>						      
 							</tr>
 						</tbody>
 					</table>
@@ -265,6 +275,9 @@
 		</div>
 	</div>
 	<script>
+		function CrearPaciente(event) {
+	    	window.location.href = 'http://localhost:8080/auth/registrar';
+		}
 		function confirmarEliminarUsuario(event) {
 		    const idUsuario = event.currentTarget.getAttribute("data-id");
 		    confirmar().then(function (confirmado) {
@@ -305,6 +318,18 @@
 		            window.location.href = 'http://localhost:8080/privada/eliminar-doctor/' + idDoctor;
 		        }
 		    });
+		}
+		
+		
+		
+		function confirmarCancelarCita(event) {
+		    const idCita = event.currentTarget.getAttribute("data-id");
+		    window.location.href = 'http://localhost:8080/privada/cancelar-cita/' + idCita;
+		}
+		
+		function confirmarCompletarCita(event) {
+		    const idCita = event.currentTarget.getAttribute("data-id");
+		    window.location.href = 'http://localhost:8080/privada/completar-cita/' + idCita;
 		}
 	</script>
 </body>

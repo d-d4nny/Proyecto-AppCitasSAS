@@ -104,4 +104,5 @@ public class InformeDTO {
 		return "InformeDTO [idInforme=" + idInforme + ", nombreInforme=" + nombreInforme + ", descInforme="
 				+ descInforme + ", fchInforme=" + fchInforme + ", paciente=" + paciente + "]";
 	}
+	
 }

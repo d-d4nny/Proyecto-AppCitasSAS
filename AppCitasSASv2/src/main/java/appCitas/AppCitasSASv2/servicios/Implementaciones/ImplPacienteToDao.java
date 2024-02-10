@@ -28,6 +28,8 @@ public class ImplPacienteToDao implements IntfPacienteToDao {
 			pacienteDao.setDireccionPaciente(pacienteDTO.getDireccionPaciente());
 			pacienteDao.setRolPaciente(pacienteDTO.getRolPaciente());		
 			pacienteDao.setProfilePicture(iPac.convertToByteArray(pacienteDTO.getProfilePicture()));
+			pacienteDao.setCuentaConfirmada(pacienteDTO.isCuentaConfirmada());
+			pacienteDao.setExpiracionToken(pacienteDTO.getExpiracionToken());
 			
 			return pacienteDao;
 			

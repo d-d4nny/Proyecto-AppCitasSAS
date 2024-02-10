@@ -71,4 +71,18 @@ public class ImplCitasServicio implements IntfCitasServicio {
 	public List<CitasDTO> buscarTodos() {
 		return toDto.listCitasToDto(repositorio.findAll());
 	}
+	
+	@Override
+	public void cancelarCita(Long idCita) {
+        Citas cita = repositorio.findById(idCita).orElseThrow(() -> new RuntimeException("Cita no encontrada"));
+        cita.setEstadoCita("Cancelada");
+        repositorio.save(cita);
+    }
+
+	@Override
+    public void completarCita(Long idCita) {
+        Citas cita = repositorio.findById(idCita).orElseThrow(() -> new RuntimeException("Cita no encontrada"));
+        cita.setEstadoCita("Completada");
+        repositorio.save(cita);
+    }
 }

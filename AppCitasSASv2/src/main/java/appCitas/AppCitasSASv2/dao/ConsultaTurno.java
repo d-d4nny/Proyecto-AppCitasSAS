@@ -137,10 +137,10 @@ public class ConsultaTurno {
 				&& Objects.equals(tramoHoraTurnoInicio, other.tramoHoraTurnoInicio);
 	}
 
-	@Override
-	public String toString() {
-		return "ConsultaTurno [idConsultaTurno=" + idConsultaTurno + ", numConsulta=" + numConsulta
-				+ ", tramoHoraTurnoInicio=" + tramoHoraTurnoInicio + ", tramoHoraTurnoFin=" + tramoHoraTurnoFin
-				+ ", doctoresConConsultaTurno=" + doctoresConConsultaTurno + "]";
-	}
+	//@Override
+	//public String toString() {
+	//	return "ConsultaTurno [idConsultaTurno=" + idConsultaTurno + ", numConsulta=" + numConsulta
+	//			+ ", tramoHoraTurnoInicio=" + tramoHoraTurnoInicio + ", tramoHoraTurnoFin=" + tramoHoraTurnoFin
+	//			+ ", doctoresConConsultaTurno=" + doctoresConConsultaTurno + "]";
+	//}
 }

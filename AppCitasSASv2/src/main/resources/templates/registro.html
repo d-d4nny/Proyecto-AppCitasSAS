@@ -19,7 +19,7 @@
 			<div class="logo"><a>AppCitasSAS</a></div>
 			<ul class="nav-links">
 				<li><a th:href="@{/auth/login}" sec:authorize='!isAuthenticated()'>Volver</a></li>
-				<li><a th:href="@{/privada/listado}" sec:authorize='hasAnyRole("ROLE_ADMIN")'>Volver</a></li>
+			 	<li sec:authorize="hasRole('ROLE_ADMIN')" ><a style="color: white;" th:href="@{/privada/Administracion}">Volver</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -47,6 +47,23 @@
 		    </select>
     		<input type="text" id="direccionPaciente" name="direccionPaciente" class="input" placeholder="Dirección" 
  				required th:value="*{direccionPaciente}">
+ 			<select id="rolPaciente" name="rolPaciente" class="input" 
+				required th:value="*{rolPaciente}">
+		        <option value="ROLE_USER" 
+ 					th:selected="${pacienteDTO.rolPaciente == 'ROLE_USER'}">User</option>
+		        <option sec:authorize="hasRole('ROLE_ADMIN')" value="ROLE_ADMIN" 
+ 					th:selected="${pacienteDTO.rolPaciente == 'ROLE_ADMIN'}">Admin</option>
+		    </select>
+		    <div sec:authorize="hasRole('ROLE_ADMIN')" class="mb-3">
+			    <label for="cuentaConfirmada" class="form-label textoPrincipal">Cuenta Confirmada</label>
+			    <input
+			       th:field="*{cuentaConfirmada}"
+			       type="checkbox"
+			       id="cuentaConfirmada"
+			       name="cuentaConfirmada"
+			       class="custom-checkbox" 
+			    />
+			  </div>
 			<button type="submit" id="btnRegistro" class="form-btn">Registrarse</button>
 			<div class="mensajeContrasenya" id="mensajeContrasenya"></div>
 		</form>

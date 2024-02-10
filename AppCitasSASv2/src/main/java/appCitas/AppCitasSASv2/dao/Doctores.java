@@ -121,9 +121,9 @@ public class Doctores {
 				&& Objects.equals(nombreCompletoDoctor, other.nombreCompletoDoctor);
 	}
 
-	@Override
-	public String toString() {
-		return "Doctores [idDoctor=" + idDoctor + ", nombreCompletoDoctor=" + nombreCompletoDoctor
-				+ ", especialidadDoctor=" + especialidadDoctor + ", consultaTurno=" + consultaTurno + "]";
-	}
+	//@Override
+	//public String toString() {
+	//	return "Doctores [idDoctor=" + idDoctor + ", nombreCompletoDoctor=" + nombreCompletoDoctor
+	//			+ ", especialidadDoctor=" + especialidadDoctor + ", consultaTurno=" + consultaTurno + "]";
+	//}
 }

@@ -45,10 +45,14 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 			// Comprueba si ya existe un usuario con el email que quiere registrar
 			Paciente pacienteDaoByEmail = repositorio.findFirstByEmailPaciente(pacienteDto.getEmailPaciente());
 
-			if (pacienteDaoByEmail != null) {
-				return null; // Si no es null es que ya está registrado
+			if (pacienteDaoByEmail != null && pacienteDaoByEmail.isCuentaConfirmada()) {
+				System.out.println("Usuario ya registrado y confirmado");
+				return pacienteDto;
 			}
-  
+			if (pacienteDaoByEmail != null ) { // El email se encuentra registrado sin confirmar
+				return null;
+			}
+			
 			// Ahora se comprueba si hay un usuario por el DNI que quiere registrar
 			boolean yaExisteElDNI = repositorio.existsByDniPaciente(pacienteDto.getDniPaciente());
 
@@ -63,8 +67,25 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 			// registrar
 			pacienteDto.setContrasenaPaciente(passwordEncoder.encode(pacienteDto.getContrasenaPaciente()));
 			Paciente pacienteDao = toDao.pacienteToDao(pacienteDto);
-			pacienteDao.setRolPaciente("ROLE_USER");
+			pacienteDao.setRolPaciente(pacienteDto.getRolPaciente());
 			repositorio.save(pacienteDao);
+			
+			if (pacienteDto.isCuentaConfirmada()) {
+				pacienteDao.setCuentaConfirmada(true);
+				repositorio.save(pacienteDao);
+			} else {
+				pacienteDao.setCuentaConfirmada(false);
+				// Generar token de confirmación
+				String token = passwordEncoder.encode(RandomStringUtils.random(30));
+				pacienteDao.setToken(token);
+
+				// Guardar el usuario en la base de datos
+				repositorio.save(pacienteDao);
+
+				// Enviar el correo de confirmación
+				String nombreUsuario = pacienteDao.getNombreCompletoPaciente();
+				emailServicio.enviarEmailConfirmacion(pacienteDto.getEmailPaciente(), nombreUsuario, token);
+			}
 
 			return pacienteDto;
 		} catch (IllegalArgumentException iae) {
@@ -85,6 +106,7 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 			admin.setDniPaciente("-");
 			admin.setEmailPaciente("admin@admin.com");
 			admin.setRolPaciente("ROLE_ADMIN");
+			admin.setCuentaConfirmada(true);
 
 			repositorio.save(admin);
 		}
@@ -172,6 +194,49 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 		}
 
 	}
+	
+	
+	
+	@Override
+	public boolean confirmarCuenta(String token) {
+		try {
+			Paciente pacienteExistente = repositorio.findByToken(token);
+
+			if (pacienteExistente != null && !pacienteExistente.isCuentaConfirmada()) {
+				// Entra en esta condición si el usuario existe y su cuenta no se ha confirmado
+				pacienteExistente.setCuentaConfirmada(true);
+				pacienteExistente.setToken(null);
+				repositorio.save(pacienteExistente);
+
+				return true;
+			} else {
+				System.out.println("La cuenta no existe o ya está confirmada");
+				return false;
+			}
+		} catch (IllegalArgumentException iae) {
+			System.out.println("[Error PacienteServicioImpl - confirmarCuenta()] Error al confirmar la cuenta " + iae.getMessage());
+			return false;
+		} catch (PersistenceException e) {
+			System.out.println("[Error PacienteServicioImpl - confirmarCuenta()] Error de persistencia al confirmar la cuenta" + e.getMessage());
+			return false;
+		}
+	}
+
+	@Override
+	public boolean estaLaCuentaConfirmada(String emailPaciente) {
+		try {
+			Paciente pacienteExistente = repositorio.findFirstByEmailPaciente(emailPaciente);
+			if (pacienteExistente != null && pacienteExistente.isCuentaConfirmada()) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("[Error PacienteServicioImpl - estaLaCuentaConfirmada()] Error al comprobar si la cuenta ya ha sido confirmada" + e.getMessage());
+		}	
+		return false;
+	}
+	
+	
+	
 	
 	public   String convertToBase64(byte[] data) {
         if (data != null && data.length > 0) {

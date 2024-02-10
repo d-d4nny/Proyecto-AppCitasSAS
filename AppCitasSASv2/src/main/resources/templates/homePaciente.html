@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css"
 		th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
@@ -93,13 +94,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="cita : ${citas}">
+								<tr th:each="cita : ${citas}" th:if="${cita.estadoCita == 'Pendiente' or cita.estadoCita == 'Completada'}">
 									<td th:text="${cita.fechaCita}"></td>
 									<td th:text="${cita.horaCita}"></td>
 									<td th:text="${cita.motivoCita}"></td>
 									<td th:text="${cita.estadoCita}"></td>
 									<td sec:authorize="hasRole('ROLE_USER')"  style="text-align: center;">
-		    							<a class="btn btn-danger" th:attr="data-id=${cita.idCita}" th:text="'Cancelar Cita'" onclick="cancelarCita(event)"></a>
+		    							<button class="btn btn-danger" th:attr="data-id=${cita.idCita}" onclick="cancelarCita(event)">
+						                	<i class="bi bi-x-square"></i>
+						            	</button>
 									</td>
 		
 								</tr>

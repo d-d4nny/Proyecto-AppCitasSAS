@@ -1,5 +1,6 @@
 package appCitas.AppCitasSASv2.dao;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -10,7 +11,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -56,6 +56,9 @@ public class Paciente {
 
 	@Column(name = "expiracion_token", nullable = true, length = 100)
 	private Calendar expiracionToken;
+	
+	@Column(name = "cuenta_confirmada", nullable = false, columnDefinition = "boolean default false")
+	private boolean cuentaConfirmada;
 	
 	@OneToMany(mappedBy="paciente")
     List<Informes> informesDePaciente; 
@@ -181,6 +184,16 @@ public class Paciente {
 		return expiracionToken;
 	}
 
+	
+	public boolean isCuentaConfirmada() {
+		return cuentaConfirmada;
+	}
+
+
+	public void setCuentaConfirmada(boolean cuentaConfirmada) {
+		this.cuentaConfirmada = cuentaConfirmada;
+	}
+
 
 	public void setExpiracionToken(Calendar expiracionToken) {
 		this.expiracionToken = expiracionToken;
@@ -233,7 +246,7 @@ public class Paciente {
 
 	public Paciente(long idPaciente, String nombreCompletoPaciente, String dniPaciente, String tlfPaciente,
 			String emailPaciente, String contrasenaPaciente, String generoPaciente,
-			String direccionPaciente, byte[] profilePicture, String rolPaciente, String token, Calendar expiracionToken,
+			String direccionPaciente, byte[] profilePicture, String rolPaciente, String token, Calendar expiracionToken, boolean cuentaConfirmada,
 			List<Informes> informesDePaciente, List<Citas> citasDePaciente) {
 		super();
 		this.idPaciente = idPaciente;
@@ -248,6 +261,7 @@ public class Paciente {
 		this.rolPaciente = rolPaciente;
 		this.token = token;
 		this.expiracionToken = expiracionToken;
+		this.cuentaConfirmada = cuentaConfirmada;
 		this.informesDePaciente = informesDePaciente;
 		this.citasDePaciente = citasDePaciente;
 	}
@@ -259,9 +273,13 @@ public class Paciente {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(citasDePaciente, contrasenaPaciente, direccionPaciente, dniPaciente, emailPaciente,
-				expiracionToken, generoPaciente, idPaciente, profilePicture, informesDePaciente,
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(profilePicture);
+		result = prime * result + Objects.hash(citasDePaciente, contrasenaPaciente, cuentaConfirmada, direccionPaciente,
+				dniPaciente, emailPaciente, expiracionToken, generoPaciente, idPaciente, informesDePaciente,
 				nombreCompletoPaciente, rolPaciente, tlfPaciente, token);
+		return result;
 	}
 
 
@@ -276,25 +294,26 @@ public class Paciente {
 		Paciente other = (Paciente) obj;
 		return Objects.equals(citasDePaciente, other.citasDePaciente)
 				&& Objects.equals(contrasenaPaciente, other.contrasenaPaciente)
+				&& cuentaConfirmada == other.cuentaConfirmada
 				&& Objects.equals(direccionPaciente, other.direccionPaciente)
 				&& Objects.equals(dniPaciente, other.dniPaciente) && Objects.equals(emailPaciente, other.emailPaciente)
 				&& Objects.equals(expiracionToken, other.expiracionToken)
 				&& Objects.equals(generoPaciente, other.generoPaciente) && idPaciente == other.idPaciente
-				&& Objects.equals(profilePicture, other.profilePicture)
 				&& Objects.equals(informesDePaciente, other.informesDePaciente)
 				&& Objects.equals(nombreCompletoPaciente, other.nombreCompletoPaciente)
-				&& Objects.equals(rolPaciente, other.rolPaciente) && Objects.equals(tlfPaciente, other.tlfPaciente)
-				&& Objects.equals(token, other.token);
+				&& Arrays.equals(profilePicture, other.profilePicture) && Objects.equals(rolPaciente, other.rolPaciente)
+				&& Objects.equals(tlfPaciente, other.tlfPaciente) && Objects.equals(token, other.token);
 	}
 
 
-	@Override
-	public String toString() {
-		return "Paciente [idPaciente=" + idPaciente + ", nombreCompletoPaciente=" + nombreCompletoPaciente
-				+ ", dniPaciente=" + dniPaciente + ", tlfPaciente=" + tlfPaciente + ", emailPaciente=" + emailPaciente
-				+ ", contrasenaPaciente=" + contrasenaPaciente + ", generoPaciente=" + generoPaciente
-				+ ", direccionPaciente=" + direccionPaciente + ", imgPaciente=" + profilePicture + ", rolPaciente="
-				+ rolPaciente + ", token=" + token + ", expiracionToken=" + expiracionToken + ", informesDePaciente="
-				+ informesDePaciente + ", citasDePaciente=" + citasDePaciente + "]";
-	}	
+	//@Override
+	//public String toString() {
+	//	return "Paciente [idPaciente=" + idPaciente + ", nombreCompletoPaciente=" + nombreCompletoPaciente
+	//			+ ", dniPaciente=" + dniPaciente + ", tlfPaciente=" + tlfPaciente + ", emailPaciente=" + emailPaciente
+	//			+ ", contrasenaPaciente=" + contrasenaPaciente + ", generoPaciente=" + generoPaciente
+	//			+ ", direccionPaciente=" + direccionPaciente + ", profilePicture=" + Arrays.toString(profilePicture)
+	//			+ ", rolPaciente=" + rolPaciente + ", token=" + token + ", expiracionToken=" + expiracionToken
+	//			+ ", cuentaConfirmada=" + cuentaConfirmada + ", informesDePaciente=" + informesDePaciente
+	//			+ ", citasDePaciente=" + citasDePaciente + "]";
+	//}
 }

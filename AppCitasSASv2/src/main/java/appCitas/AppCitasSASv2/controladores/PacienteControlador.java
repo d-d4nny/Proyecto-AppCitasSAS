@@ -49,19 +49,36 @@ public class PacienteControlador {
 	
 	 @GetMapping("/auth/registrar")
 		public String registrarGet(Model model) {
-			model.addAttribute("pacienteDTO", new PacienteDTO());
-			return "registro";
+		 try {
+				model.addAttribute("pacienteDTO", new PacienteDTO());
+				return "registro";
+			} catch (Exception e) {
+				model.addAttribute("error", "Error al procesar la solicitud. Por favor, inténtelo de nuevo.");
+				return "registro";
+			}
 		}
 
 	 
 	 @PostMapping("/auth/registrar")
-		public String registrarPost(@ModelAttribute PacienteDTO pacienteDTO, Model model) {
+		public String registrarPost(@ModelAttribute PacienteDTO pacienteDTO, Model model, Authentication authentication) {
 
 		 PacienteDTO nuevoPaciente = pacienteServicio.registrar(pacienteDTO);
 			
-			if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null) {
-				// Si el usuario y el DNI no son null es que el registro se completo correctamente
-				model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo usuario OK");
+		 String rolDelUsuario = "";
+		 
+		 if (authentication != null && authentication.isAuthenticated()) {
+	            rolDelUsuario = authentication.getAuthorities().iterator().next().getAuthority();
+	        }
+		 
+		 if (nuevoPaciente == null) {
+				model.addAttribute("pacienteRegistradoPeroNoConfirmado",
+						"Ya existe un paciente con ese email sin confirmar");
+				return "registro";
+			} else if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null && !rolDelUsuario.equals("ROLE_USER")) {
+				model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo paciente OK");
+				return "login";
+			} else if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null && !rolDelUsuario.equals("ROLE_ADMIN")) {
+				model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo usuario admin OK");
 				return "login";
 			} else {
 				// Se verifica si el DNI ya existe para mostrar error personalizado en la vista

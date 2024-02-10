@@ -167,9 +167,9 @@ public class Citas {
 	}
 
 	
-	@Override
-	public String toString() {
-		return "Citas [idCita=" + idCita + ", fechaCita=" + fechaCita + ", horaCita=" + horaCita + ", motivoCita=" + motivoCita + ", estadoCita="
-				+ estadoCita + ", paciente=" + paciente + ", doctor=" + doctor + "]";
-	}
+	//@Override
+	//public String toString() {
+	//	return "Citas [idCita=" + idCita + ", fechaCita=" + fechaCita + ", horaCita=" + horaCita + ", motivoCita=" + motivoCita + ", estadoCita="
+	//			+ estadoCita + ", paciente=" + paciente + ", doctor=" + doctor + "]";
+	//}
 }

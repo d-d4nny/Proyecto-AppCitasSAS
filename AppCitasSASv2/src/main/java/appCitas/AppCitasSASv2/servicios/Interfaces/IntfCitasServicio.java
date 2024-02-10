@@ -18,4 +18,10 @@ public interface IntfCitasServicio {
 	
 	
 	public Citas eliminar(long id);
+	
+	
+	public void cancelarCita(Long idCita);
+	
+	
+	public void completarCita(Long idCita);
 }
