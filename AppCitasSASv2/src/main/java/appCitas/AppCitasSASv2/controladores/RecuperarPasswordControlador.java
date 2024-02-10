@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
-import appCitas.AppCitasSASv2.servicios.IntfPacienteServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
 
 
 @Controller

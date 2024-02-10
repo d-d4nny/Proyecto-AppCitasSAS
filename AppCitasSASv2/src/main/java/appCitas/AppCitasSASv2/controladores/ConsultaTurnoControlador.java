@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
-import appCitas.AppCitasSASv2.dto.PacienteDTO;
-import appCitas.AppCitasSASv2.servicios.IntfConsultaTurnoServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller

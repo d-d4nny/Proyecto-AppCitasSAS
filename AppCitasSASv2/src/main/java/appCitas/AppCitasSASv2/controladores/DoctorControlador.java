@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
-import appCitas.AppCitasSASv2.servicios.IntfConsultaTurnoServicio;
-import appCitas.AppCitasSASv2.servicios.IntfDoctorServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -61,6 +60,9 @@ public class DoctorControlador {
 		try {
 			
 			Doctores doctor = doctoresServicio.buscarPorId(id);
+			
+			List<ConsultaTurnoDTO> consultaTurno = consultaTurnoServicio.buscarTodos();
+			model.addAttribute("consultaTurno", consultaTurno);
 			if(doctor == null) {
 				return "homeEmpleado";
 			}
