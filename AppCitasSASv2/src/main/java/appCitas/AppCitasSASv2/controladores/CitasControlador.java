@@ -3,7 +3,6 @@ package appCitas.AppCitasSASv2.controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,14 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
-import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfCitasServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
