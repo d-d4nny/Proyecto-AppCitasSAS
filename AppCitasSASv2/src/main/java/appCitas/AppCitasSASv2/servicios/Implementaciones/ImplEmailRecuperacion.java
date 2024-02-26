@@ -67,11 +67,11 @@ public class ImplEmailRecuperacion implements IntfEmailRecuperacion {
             String urlDeConfirmacion = String.format("%s/auth/confirmar-cuenta?token=%s", urlDominio, token);
 
             String cuerpoMensaje = String.format(
-                "﻿<!DOCTYPE html> <html lang='es'> <body> <div style='width: 600px; padding: 20px; border: 2px solid black; border-radius: 13px; background-color: #DEDEDE; font-family: Sans-serif'> <h1 style='color:#1f3c85'>Confirmar cuenta<b style='color:#5993d3'> BikerConnect</b></h1>"
+                "﻿<!DOCTYPE html> <html lang='es'> <body> <div style='width: 600px; padding: 20px; border: 2px solid black; border-radius: 13px; background-color: #DEDEDE; font-family: Sans-serif'> <h1 style='color:#1f3c85'>Confirmar cuenta<b style='color:#5993d3'> App Citas SAS</b></h1>"
                 + " <p style='margin-bottom:25px'>Estimado/a&nbsp;<b>%s</b>:</p> <p style='margin-bottom:25px'>"
-                + "Bienvenido/a a BikerConnect. Para confirmar tu cuenta, haz clic en el botón que aparece a continuación:</p>"
+                + "Bienvenido/a a App Citas SAS. Para confirmar tu cuenta, haz clic en el botón que aparece a continuación:</p>"
                 + " <a style='padding: 10px 15px; border-radius: 10px; background-color: #5993d3; color: white; text-decoration: none' href='%s' target='_blank'>Confirmar cuenta</a>"
-                + " <p style='margin-top:25px'>Gracias por unirte a BikerConnect.</p> </div> </body> </html>",
+                + " <p style='margin-top:25px'>Gracias por unirte a App Citas SAS.</p> </div> </body> </html>",
                 nombrePaciente, urlDeConfirmacion);
 
             helper.setText(cuerpoMensaje, true);

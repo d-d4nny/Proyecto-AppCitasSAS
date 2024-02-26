@@ -110,3 +110,889 @@
 2024-02-26T06:55:04.954+01:00  INFO 31428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
 2024-02-26T06:55:04.990+01:00  INFO 31428 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
 2024-02-26T06:55:04.990+01:00  INFO 31428 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:04:43.429+01:00  INFO 19428 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : Starting AppCitasSasApplication using Java 21.0.2 with PID 19428 (C:\Users\DaniT\Desktop\AppCitasSAS\AppCitasSASv2\target\classes started by DaniT in C:\Users\DaniT\Desktop\AppCitasSAS\AppCitasSASv2)
+2024-02-26T07:04:43.432+01:00  INFO 19428 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-02-26T07:04:44.279+01:00  INFO 19428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-26T07:04:44.365+01:00  INFO 19428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 5 JPA repository interfaces.
+2024-02-26T07:04:45.481+01:00  INFO 19428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-02-26T07:04:45.497+01:00  INFO 19428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-26T07:04:45.498+01:00  INFO 19428 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-26T07:04:45.593+01:00  INFO 19428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-26T07:04:45.594+01:00  INFO 19428 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2104 ms
+2024-02-26T07:04:46.043+01:00  INFO 19428 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-26T07:04:46.116+01:00  INFO 19428 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-26T07:04:46.167+01:00  INFO 19428 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-02-26T07:04:46.428+01:00  INFO 19428 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-26T07:04:46.454+01:00  INFO 19428 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-26T07:04:46.667+01:00  INFO 19428 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@194b9783
+2024-02-26T07:04:46.671+01:00  INFO 19428 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-26T07:04:46.706+01:00  WARN 19428 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-26T07:04:47.728+01:00  INFO 19428 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-26T07:04:47.842+01:00  INFO 19428 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26T07:04:48.803+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método passwordEncoder() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:48.806+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método passwordEncoder() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:49.011+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteAuthenticationProvider() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:49.050+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteAuthenticationProvider() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:49.081+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método authenticationManager() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:49.118+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método authenticationManager() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:49.172+01:00  WARN 19428 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-26T07:04:49.327+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método filterChain() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:50.303+01:00  INFO 19428 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d6c7152, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e6add8d, org.springframework.security.web.context.SecurityContextHolderFilter@18b88f7, org.springframework.security.web.header.HeaderWriterFilter@37c49a55, org.springframework.web.filter.CorsFilter@23974cac, org.springframework.security.web.csrf.CsrfFilter@669b8190, org.springframework.security.web.authentication.logout.LogoutFilter@23cfc9eb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7053a864, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34128fed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10efb806, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@85104d6, org.springframework.security.web.access.ExceptionTranslationFilter@530ee11a, org.springframework.security.web.access.intercept.AuthorizationFilter@7680beac]
+2024-02-26T07:04:50.305+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método filterChain() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:04:50.944+01:00  INFO 19428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-02-26T07:04:50.957+01:00  INFO 19428 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : Started AppCitasSasApplication in 8.019 seconds (process running for 8.458)
+2024-02-26T07:04:50.964+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método onApplicationReady() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:04:50.964+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método existsByNombreCompletoPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:04:51.174+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método existsByNombreCompletoPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:04:51.174+01:00  INFO 19428 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método onApplicationReady() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:04:57.852+01:00  INFO 19428 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-26T07:04:57.852+01:00  INFO 19428 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-26T07:04:57.854+01:00  INFO 19428 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-26T07:04:58.082+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:04:58.083+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:04:58.444+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:04:58.444+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:05:12.375+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método mostrarVistainiciarRecuperacion() de la clase appCitas.AppCitasSASv2.controladores.RecuperarPasswordControlador
+2024-02-26T07:05:12.375+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método mostrarVistainiciarRecuperacion() de la clase appCitas.AppCitasSASv2.controladores.RecuperarPasswordControlador
+2024-02-26T07:05:12.432+01:00  INFO 19428 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:05:12.433+01:00  INFO 19428 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:05:12.470+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:05:12.470+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:05:16.702+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método procesarInicioRecuperacion() de la clase appCitas.AppCitasSASv2.controladores.RecuperarPasswordControlador
+2024-02-26T07:05:16.702+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método iniciarResetPassConEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:05:16.704+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:05:16.735+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:05:16.813+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:05:16.872+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:05:16.872+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método enviarEmailRecuperacion() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplEmailRecuperacion
+2024-02-26T07:05:18.516+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método enviarEmailRecuperacion() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplEmailRecuperacion
+2024-02-26T07:05:18.516+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método iniciarResetPassConEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:05:18.516+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método procesarInicioRecuperacion() de la clase appCitas.AppCitasSASv2.controladores.RecuperarPasswordControlador
+2024-02-26T07:05:18.560+01:00  INFO 19428 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:05:18.560+01:00  INFO 19428 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:18.955+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método procesarInicioRecuperacion() de la clase appCitas.AppCitasSASv2.controladores.RecuperarPasswordControlador
+2024-02-26T07:08:18.955+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método iniciarResetPassConEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:08:18.955+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:08:18.958+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:08:18.958+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método iniciarResetPassConEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:08:18.958+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método procesarInicioRecuperacion() de la clase appCitas.AppCitasSASv2.controladores.RecuperarPasswordControlador
+2024-02-26T07:08:18.991+01:00  INFO 19428 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:18.992+01:00  INFO 19428 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:19.043+01:00  INFO 19428 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:19.043+01:00  INFO 19428 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:22.392+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:22.392+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:22.430+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:22.431+01:00  INFO 19428 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:24.573+01:00  INFO 19428 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:24.574+01:00  INFO 19428 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:24.619+01:00  INFO 19428 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:24.619+01:00  INFO 19428 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:25.644+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:25.645+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:25.684+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:25.684+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.114+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.115+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.156+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.156+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.290+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.290+01:00  INFO 19428 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.334+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:26.334+01:00  INFO 19428 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:32.476+01:00  INFO 17908 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : Starting AppCitasSasApplication using Java 21.0.2 with PID 17908 (C:\Users\DaniT\Desktop\AppCitasSAS\AppCitasSASv2\target\classes started by DaniT in C:\Users\DaniT\Desktop\AppCitasSAS\AppCitasSASv2)
+2024-02-26T07:08:32.478+01:00  INFO 17908 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-02-26T07:08:33.472+01:00  INFO 17908 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-26T07:08:33.556+01:00  INFO 17908 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 5 JPA repository interfaces.
+2024-02-26T07:08:34.731+01:00  INFO 17908 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-02-26T07:08:34.748+01:00  INFO 17908 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-26T07:08:34.748+01:00  INFO 17908 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-26T07:08:34.830+01:00  INFO 17908 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-26T07:08:34.832+01:00  INFO 17908 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2285 ms
+2024-02-26T07:08:35.253+01:00  INFO 17908 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-26T07:08:35.369+01:00  INFO 17908 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-26T07:08:35.434+01:00  INFO 17908 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-02-26T07:08:35.732+01:00  INFO 17908 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-26T07:08:35.757+01:00  INFO 17908 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-26T07:08:35.978+01:00  INFO 17908 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72324965
+2024-02-26T07:08:35.982+01:00  INFO 17908 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-26T07:08:36.034+01:00  WARN 17908 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-26T07:08:37.115+01:00  INFO 17908 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-26T07:08:37.229+01:00  INFO 17908 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26T07:08:38.078+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método passwordEncoder() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:38.081+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método passwordEncoder() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:38.292+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteAuthenticationProvider() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:38.317+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteAuthenticationProvider() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:38.345+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método authenticationManager() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:38.384+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método authenticationManager() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:38.424+01:00  WARN 17908 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-26T07:08:38.573+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método filterChain() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:39.598+01:00  INFO 17908 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7053a864, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@282079b9, org.springframework.security.web.context.SecurityContextHolderFilter@13e6ab86, org.springframework.security.web.header.HeaderWriterFilter@54d116d5, org.springframework.web.filter.CorsFilter@3d6c7152, org.springframework.security.web.csrf.CsrfFilter@5dfb078, org.springframework.security.web.authentication.logout.LogoutFilter@4a5eb613, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@713c8cbb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18b88f7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@128ebca1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e6add8d, org.springframework.security.web.access.ExceptionTranslationFilter@6418075c, org.springframework.security.web.access.intercept.AuthorizationFilter@f4aec23]
+2024-02-26T07:08:39.599+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método filterChain() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:08:40.351+01:00  INFO 17908 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-02-26T07:08:40.367+01:00  INFO 17908 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : Started AppCitasSasApplication in 8.39 seconds (process running for 8.864)
+2024-02-26T07:08:40.373+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método onApplicationReady() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:08:40.375+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método existsByNombreCompletoPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:08:40.567+01:00  INFO 17908 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-26T07:08:40.567+01:00  INFO 17908 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-26T07:08:40.569+01:00  INFO 17908 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-02-26T07:08:40.636+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método existsByNombreCompletoPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:08:40.636+01:00  INFO 17908 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método onApplicationReady() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:08:40.651+01:00  INFO 17908 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:40.652+01:00  INFO 17908 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:41.063+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:41.063+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:49.188+01:00  INFO 17908 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:08:49.188+01:00  INFO 17908 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:08:49.257+01:00  INFO 17908 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:49.257+01:00  INFO 17908 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:49.303+01:00  INFO 17908 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:49.303+01:00  INFO 17908 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:50.318+01:00  INFO 17908 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:50.318+01:00  INFO 17908 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:50.360+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:50.360+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:51.158+01:00  INFO 17908 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:08:51.158+01:00  INFO 17908 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:08:51.193+01:00  INFO 17908 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:51.194+01:00  INFO 17908 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:51.221+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:08:51.221+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:13.750+01:00  INFO 17908 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:13.750+01:00  INFO 17908 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:13.794+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:13.794+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:18.953+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:09:18.953+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:09:18.988+01:00  INFO 17908 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:18.988+01:00  INFO 17908 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:19.031+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:19.031+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:50.691+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrarPost() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:09:50.692+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:09:50.693+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.707+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.708+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método existsByDniPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.712+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método existsByDniPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.777+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDao
+2024-02-26T07:09:50.778+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDao
+2024-02-26T07:09:50.782+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.847+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.910+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.920+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:50.921+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método enviarEmailConfirmacion() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplEmailRecuperacion
+2024-02-26T07:09:52.045+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método enviarEmailConfirmacion() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplEmailRecuperacion
+2024-02-26T07:09:52.045+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:09:52.046+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrarPost() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:09:52.147+01:00  INFO 17908 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:52.149+01:00  INFO 17908 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:57.945+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:09:57.946+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:57.960+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:57.963+01:00  INFO 17908 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:09:58.065+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:09:58.065+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:09:58.065+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:58.069+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:09:58.069+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:09:58.069+01:00  INFO 17908 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:11:34.377+01:00  INFO 17092 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : Starting AppCitasSasApplication using Java 21.0.2 with PID 17092 (C:\Users\DaniT\Desktop\AppCitasSAS\AppCitasSASv2\target\classes started by DaniT in C:\Users\DaniT\Desktop\AppCitasSAS\AppCitasSASv2)
+2024-02-26T07:11:34.382+01:00  INFO 17092 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-02-26T07:11:35.341+01:00  INFO 17092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-26T07:11:35.448+01:00  INFO 17092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
+2024-02-26T07:11:36.796+01:00  INFO 17092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-02-26T07:11:36.814+01:00  INFO 17092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-26T07:11:36.815+01:00  INFO 17092 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-26T07:11:36.914+01:00  INFO 17092 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-26T07:11:36.914+01:00  INFO 17092 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2462 ms
+2024-02-26T07:11:37.404+01:00  INFO 17092 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-26T07:11:37.591+01:00  INFO 17092 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-26T07:11:37.662+01:00  INFO 17092 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-02-26T07:11:38.049+01:00  INFO 17092 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-26T07:11:38.077+01:00  INFO 17092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-26T07:11:38.312+01:00  INFO 17092 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72324965
+2024-02-26T07:11:38.315+01:00  INFO 17092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-26T07:11:38.355+01:00  WARN 17092 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-26T07:11:39.500+01:00  INFO 17092 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-26T07:11:39.622+01:00  INFO 17092 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26T07:11:40.657+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método passwordEncoder() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:40.659+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método passwordEncoder() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:40.885+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteAuthenticationProvider() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:40.920+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteAuthenticationProvider() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:40.954+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método authenticationManager() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:40.998+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método authenticationManager() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:41.044+01:00  WARN 17092 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-26T07:11:41.203+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método filterChain() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:42.564+01:00  INFO 17092 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@282079b9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d6c7152, org.springframework.security.web.context.SecurityContextHolderFilter@4f5d7091, org.springframework.security.web.header.HeaderWriterFilter@7057d9f4, org.springframework.web.filter.CorsFilter@4e6add8d, org.springframework.security.web.csrf.CsrfFilter@2d21d12b, org.springframework.security.web.authentication.logout.LogoutFilter@1eaf4e77, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7680beac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@128ebca1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34128fed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23974cac, org.springframework.security.web.access.ExceptionTranslationFilter@f9919a2, org.springframework.security.web.access.intercept.AuthorizationFilter@713c8cbb]
+2024-02-26T07:11:42.564+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método filterChain() de la clase appCitas.AppCitasSASv2.seguridad.SeguridadConfig$$SpringCGLIB$$0
+2024-02-26T07:11:43.366+01:00  INFO 17092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-02-26T07:11:43.384+01:00  INFO 17092 --- [main] a.AppCitasSASv2.AppCitasSasApplication   : Started AppCitasSasApplication in 9.523 seconds (process running for 10.08)
+2024-02-26T07:11:43.394+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método onApplicationReady() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:11:43.396+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método existsByNombreCompletoPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:11:43.595+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método existsByNombreCompletoPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:11:43.596+01:00  INFO 17092 --- [main] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método onApplicationReady() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:03.916+01:00  INFO 17092 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-26T07:12:03.917+01:00  INFO 17092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-26T07:12:03.918+01:00  INFO 17092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-02-26T07:12:03.962+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:03.963+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrarGet() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:04.336+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:04.336+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:04.386+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:04.387+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:19.394+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrarPost() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:19.394+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:19.395+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.409+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.409+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método existsByDniPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.412+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método existsByDniPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.476+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDao
+2024-02-26T07:12:19.476+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDao
+2024-02-26T07:12:19.479+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.537+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.599+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.614+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:19.614+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método enviarEmailConfirmacion() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplEmailRecuperacion
+2024-02-26T07:12:20.851+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método enviarEmailConfirmacion() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplEmailRecuperacion
+2024-02-26T07:12:20.851+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:20.851+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrarPost() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:20.899+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:20.900+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:24.155+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:12:24.156+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:24.172+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:24.175+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:12:24.241+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:24.241+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:24.242+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:24.246+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:24.246+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:24.246+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:33.428+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método confirmarCuenta() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:33.428+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método confirmarCuenta() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:33.429+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findByToken() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:33.432+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findByToken() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:33.433+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:33.440+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:33.440+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método confirmarCuenta() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:33.440+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método confirmarCuenta() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:37.745+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:12:37.746+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.750+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.751+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:12:37.814+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:37.814+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.814+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.818+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.818+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.818+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.818+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.821+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.821+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.822+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:12:37.876+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:37.876+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:12:37.878+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:12:37.905+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:12:37.906+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:12:37.907+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:12:37.907+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:12:37.907+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:12:37.908+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:12:37.913+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:12:37.914+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:12:37.914+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:12:37.914+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:12:37.914+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.914+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.916+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.916+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.917+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.919+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.924+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.925+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:37.925+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:37.925+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.926+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.926+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.930+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.930+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.930+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.930+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.933+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:37.933+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:37.933+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:43.003+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método mostrarFormularioEdicion() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:43.003+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:43.003+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:43.005+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:43.006+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:43.006+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:43.006+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:43.006+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método mostrarFormularioEdicion() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:57.909+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método procesarFormularioEdicion() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:57.909+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.909+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.913+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.913+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.915+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método convertToBase64() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.916+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método convertToBase64() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.916+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método actualizarPaciente() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.916+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.917+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.917+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.921+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.921+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método actualizarPaciente() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.922+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.922+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.929+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.930+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:57.930+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:57.930+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.931+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método procesarFormularioEdicion() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:57.937+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:12:57.937+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:12:57.937+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:12:57.946+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:12:57.946+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:12:57.946+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:12:57.946+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:12:57.946+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:12:57.946+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:12:57.950+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:12:57.950+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:12:57.950+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:12:57.950+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:12:57.950+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.950+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.952+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.953+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.953+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.953+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.953+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.953+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:57.954+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:12:57.954+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.954+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.954+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.957+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.958+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.958+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.958+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.963+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:12:57.964+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:12:57.964+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:13:08.357+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método mostrarFormularioCita() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:08.358+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:08.359+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:08.364+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:08.365+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:13:08.365+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:13:08.365+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:08.365+01:00  INFO 17092 --- [http-nio-8080-exec-5] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método mostrarFormularioCita() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:33.443+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:33.447+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:33.448+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método crearCitaPost() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:33.448+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.448+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.451+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.452+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.452+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:33.453+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:33.453+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:33.453+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:33.453+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:33.454+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByIdCita() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.458+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByIdCita() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.458+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método existsById() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.758+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método existsById() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.758+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método citasToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDao
+2024-02-26T07:13:33.758+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método citasToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDao
+2024-02-26T07:13:33.763+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.771+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.772+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:33.772+01:00  INFO 17092 --- [http-nio-8080-exec-3] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método crearCitaPost() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:33.780+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:13:33.780+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:33.780+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.794+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:33.795+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:13:33.795+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:13:33.795+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:33.795+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:13:33.795+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:13:33.799+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:13:33.799+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:13:33.799+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:13:33.799+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:13:33.799+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.799+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.803+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.803+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.803+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.803+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.803+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.803+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:13:33.804+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:13:33.804+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.804+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.804+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.807+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.807+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.807+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.807+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.811+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:33.812+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:33.812+01:00  INFO 17092 --- [http-nio-8080-exec-7] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:13:36.000+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método mostrarFormularioCita() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:36.000+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:36.000+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:36.007+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:36.007+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:13:36.007+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:13:36.007+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:36.007+01:00  INFO 17092 --- [http-nio-8080-exec-1] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método mostrarFormularioCita() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:56.107+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:56.109+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:56.109+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método crearCitaPost() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:56.111+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.111+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.113+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.113+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.113+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:56.113+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:56.113+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:13:56.114+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:13:56.114+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:56.114+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByIdCita() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.117+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByIdCita() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.117+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método existsById() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.119+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método existsById() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.120+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método citasToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDao
+2024-02-26T07:13:56.120+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método citasToDao() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDao
+2024-02-26T07:13:56.120+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.125+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.125+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método registrar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:56.126+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método crearCitaPost() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:56.131+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:13:56.132+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:56.132+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.143+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:56.144+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:13:56.144+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:13:56.144+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:56.144+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:13:56.144+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:13:56.147+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:13:56.148+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:13:56.148+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:13:56.148+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:13:56.148+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.148+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.152+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.152+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.152+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.152+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.153+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.153+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:13:56.154+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:13:56.154+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.154+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.154+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.157+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.157+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.158+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.158+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.160+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:56.160+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:56.160+01:00  INFO 17092 --- [http-nio-8080-exec-8] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:13:59.487+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método eliminarCita() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:59.487+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método eliminar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:59.488+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:59.496+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:59.497+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método delete() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:59.509+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método delete() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:59.510+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método eliminar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:59.510+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método eliminarCita() de la clase appCitas.AppCitasSASv2.controladores.CitasControlador
+2024-02-26T07:13:59.515+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:13:59.515+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:59.516+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:59.526+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:13:59.526+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:13:59.527+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:13:59.527+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:13:59.527+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:13:59.527+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:13:59.529+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy124
+2024-02-26T07:13:59.529+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:13:59.529+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listInformesToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeToDto
+2024-02-26T07:13:59.531+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplInformeServicio
+2024-02-26T07:13:59.531+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.531+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.532+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.533+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.533+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.533+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.533+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.534+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:13:59.534+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método pacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:13:59.534+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.534+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.534+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.537+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.537+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.537+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.537+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.541+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:13:59.541+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:13:59.541+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeUser() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:14:10.776+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:14:10.776+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:14:10.819+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:14:10.819+01:00  INFO 17092 --- [http-nio-8080-exec-2] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método login() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:14:16.150+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:14:16.150+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.153+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.154+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loadUserByUsername() de la clase appCitas.AppCitasSASv2.seguridad.PacienteDetailsServiceImpl
+2024-02-26T07:14:16.224+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:14:16.224+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:16.224+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.227+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.227+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método estaLaCuentaConfirmada() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:16.227+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:16.227+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.229+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findFirstByEmailPaciente() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.229+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorEmail() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:16.229+01:00  INFO 17092 --- [http-nio-8080-exec-9] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método loginCorrecto() de la clase appCitas.AppCitasSASv2.controladores.LoginControlador
+2024-02-26T07:14:16.274+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeEmpleado() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:14:16.274+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:14:16.274+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:14:16.281+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:14:16.281+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:14:16.281+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:14:16.281+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:14:16.281+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:16.281+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:16.283+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:16.284+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:16.284+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:16.284+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:16.284+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:16.284+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.288+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:16.288+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:14:16.289+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:14:16.289+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:16.289+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:16.290+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:16.293+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:16.293+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:16.294+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:16.294+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:16.294+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeEmpleado() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:14:24.709+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método mostrarFormularioEdicionDoctor() de la clase appCitas.AppCitasSASv2.controladores.DoctorControlador
+2024-02-26T07:14:24.709+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:24.709+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:24.713+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:24.714+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarPorId() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:24.714+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:24.714+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:24.717+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:24.717+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:24.717+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:24.717+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:24.717+01:00  INFO 17092 --- [http-nio-8080-exec-10] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método mostrarFormularioEdicionDoctor() de la clase appCitas.AppCitasSASv2.controladores.DoctorControlador
+2024-02-26T07:14:30.745+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:30.747+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:30.748+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método procesarFormularioEdicionDoctor() de la clase appCitas.AppCitasSASv2.controladores.DoctorControlador
+2024-02-26T07:14:30.748+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método actualizarDoctor() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:30.749+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.750+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.752+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método save() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.757+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método save() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.757+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método actualizarDoctor() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:30.757+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:30.757+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.759+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.760+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:30.760+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:30.760+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:30.760+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método procesarFormularioEdicionDoctor() de la clase appCitas.AppCitasSASv2.controladores.DoctorControlador
+2024-02-26T07:14:30.763+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeEmpleado() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:14:30.763+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:14:30.763+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:14:30.773+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:14:30.773+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:14:30.773+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:14:30.773+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:14:30.773+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:30.773+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.775+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:30.775+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:30.775+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:30.776+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:30.776+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:30.776+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:30.778+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:30.779+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:14:30.779+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:14:30.779+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:30.779+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:30.779+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:30.782+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:30.782+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:30.782+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:30.782+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:30.782+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeEmpleado() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:14:33.289+01:00  INFO 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método eliminarDoctor() de la clase appCitas.AppCitasSASv2.controladores.DoctorControlador
+2024-02-26T07:14:33.289+01:00  INFO 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método eliminar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:33.289+01:00  INFO 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:33.295+01:00  INFO 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findById() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:33.295+01:00  INFO 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método delete() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:33.300+01:00  WARN 17092 --- [http-nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23503
+2024-02-26T07:14:33.300+01:00 ERROR 17092 --- [http-nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: update o delete en «doctores» viola la llave foránea «fkehbckgw69ryt2otrfl2kand3q» en la tabla «citas»
+  Detail: La llave (id_doctor)=(8) todavía es referida desde la tabla «citas».
+2024-02-26T07:14:33.311+01:00 ERROR 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Error en el método delete() de la clase jdk.proxy2.$Proxy120: could not execute statement [ERROR: update o delete en «doctores» viola la llave foránea «fkehbckgw69ryt2otrfl2kand3q» en la tabla «citas»
+  Detail: La llave (id_doctor)=(8) todavía es referida desde la tabla «citas».] [delete from sch_sas.doctores where id_doctor=?]; SQL [delete from sch_sas.doctores where id_doctor=?]; constraint [null]
+[Ljava.lang.StackTraceElement;@580c2147
+2024-02-26T07:14:33.311+01:00 ERROR 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Error en el método eliminar() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio: could not execute statement [ERROR: update o delete en «doctores» viola la llave foránea «fkehbckgw69ryt2otrfl2kand3q» en la tabla «citas»
+  Detail: La llave (id_doctor)=(8) todavía es referida desde la tabla «citas».] [delete from sch_sas.doctores where id_doctor=?]; SQL [delete from sch_sas.doctores where id_doctor=?]; constraint [null]
+[Ljava.lang.StackTraceElement;@32946607
+2024-02-26T07:14:33.312+01:00 ERROR 17092 --- [http-nio-8080-exec-4] a.AppCitasSASv2.seguridad.LogAspecto     : Error en el método eliminarDoctor() de la clase appCitas.AppCitasSASv2.controladores.DoctorControlador: could not execute statement [ERROR: update o delete en «doctores» viola la llave foránea «fkehbckgw69ryt2otrfl2kand3q» en la tabla «citas»
+  Detail: La llave (id_doctor)=(8) todavía es referida desde la tabla «citas».] [delete from sch_sas.doctores where id_doctor=?]; SQL [delete from sch_sas.doctores where id_doctor=?]; constraint [null]
+[Ljava.lang.StackTraceElement;@57b5df4d
+2024-02-26T07:14:33.315+01:00 ERROR 17092 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: update o delete en «doctores» viola la llave foránea «fkehbckgw69ryt2otrfl2kand3q» en la tabla «citas»
+  Detail: La llave (id_doctor)=(8) todavía es referida desde la tabla «citas».] [delete from sch_sas.doctores where id_doctor=?]; SQL [delete from sch_sas.doctores where id_doctor=?]; constraint [null]] with root cause
+
+org.postgresql.util.PSQLException: ERROR: update o delete en «doctores» viola la llave foránea «fkehbckgw69ryt2otrfl2kand3q» en la tabla «citas»
+  Detail: La llave (id_doctor)=(8) todavía es referida desde la tabla «citas».
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:152) ~[postgresql-42.6.0.jar:42.6.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:107) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:40) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:52) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.doStaticDelete(AbstractDeleteCoordinator.java:279) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.coordinateDelete(AbstractDeleteCoordinator.java:87) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:2979) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.action.internal.EntityDeleteAction.execute(EntityDeleteAction.java:131) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1423) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:504) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2339) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1996) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:561) ~[spring-orm-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:794) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:669) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:419) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.1.jar:3.2.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249) ~[spring-aop-6.1.2.jar:6.1.2]
+	at jdk.proxy2/jdk.proxy2.$Proxy120.delete(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249) ~[spring-aop-6.1.2.jar:6.1.2]
+	at jdk.proxy2/jdk.proxy2.$Proxy120.delete(Unknown Source) ~[na:na]
+	at appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio.eliminar(ImplDoctorServicio.java:85) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.2.jar:6.1.2]
+	at appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio$$SpringCGLIB$$0.eliminar(<generated>) ~[classes/:na]
+	at appCitas.AppCitasSASv2.controladores.DoctorControlador.eliminarDoctor(DoctorControlador.java:95) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.2.jar:6.1.2]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.2.jar:6.1.2]
+	at appCitas.AppCitasSASv2.controladores.DoctorControlador$$SpringCGLIB$$0.eliminarDoctor(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.17.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.17.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:66) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.1.jar:6.2.1]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.2.jar:6.1.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225) ~[spring-security-config-6.2.1.jar:6.2.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.2.jar:6.1.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.17.jar:10.1.17]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-02-26T07:14:40.563+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método homeEmpleado() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
+2024-02-26T07:14:40.563+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:14:40.563+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:14:40.571+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy119
+2024-02-26T07:14:40.571+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:14:40.571+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listCitasToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasToDto
+2024-02-26T07:14:40.571+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplCitasServicio
+2024-02-26T07:14:40.571+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:40.571+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:40.574+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy120
+2024-02-26T07:14:40.574+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:40.574+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listDoctoresToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorToDto
+2024-02-26T07:14:40.574+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplDoctorServicio
+2024-02-26T07:14:40.574+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:40.574+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:40.578+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy122
+2024-02-26T07:14:40.578+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:14:40.579+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listPacienteToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteToDto
+2024-02-26T07:14:40.579+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplPacienteServicio
+2024-02-26T07:14:40.579+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:40.579+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:40.582+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método findAll() de la clase jdk.proxy2.$Proxy123
+2024-02-26T07:14:40.582+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Entrando en el método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:40.582+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método listConsultaTurnoToDto() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoToDto
+2024-02-26T07:14:40.582+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método buscarTodos() de la clase appCitas.AppCitasSASv2.servicios.Implementaciones.ImplConsultaTurnoServicio
+2024-02-26T07:14:40.582+01:00  INFO 17092 --- [http-nio-8080-exec-6] a.AppCitasSASv2.seguridad.LogAspecto     : Saliendo del método homeEmpleado() de la clase appCitas.AppCitasSASv2.controladores.PacienteControlador
