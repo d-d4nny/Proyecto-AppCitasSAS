@@ -38,8 +38,14 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	@Autowired
 	private IntfEmailRecuperacion emailServicio;
 
-	@Override
-	public PacienteDTO registrar(PacienteDTO pacienteDto) {
+	/**
+     * Registra a un nuevo paciente en el sistema.
+    *
+    * @param pacienteDto DTO del paciente a registrar.
+    * @return DTO del paciente registrado o null en caso de errores.
+    */
+   @Override
+   public PacienteDTO registrar(PacienteDTO pacienteDto) {
 
 		try {
 			// Comprueba si ya existe un usuario con el email que quiere registrar
@@ -96,7 +102,10 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 		return null;
 	}
 	
-	private void inicializarUsuarioAdmin() {
+   /**
+    * Inicializa un usuario administrador si no existe uno.
+    */
+   private void inicializarUsuarioAdmin() {
 		// Comprueba si ya existe un usuario admin
 		if (!repositorio.existsByNombreCompletoPaciente("admin")) {
 			// Si no existe, crea un nuevo usuario con rol de administrador
@@ -113,14 +122,23 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	}
 	
 	
-	@EventListener(ApplicationReadyEvent.class)
-	public void onApplicationReady() {
+   /**
+    * Manejador de eventos que se ejecuta cuando la aplicación está lista.
+    */
+   @EventListener(ApplicationReadyEvent.class)
+   public void onApplicationReady() {
 		inicializarUsuarioAdmin();
 	}
 	
 	
-	@Override
-	public boolean iniciarResetPassConEmail(String emailPaciente) {
+   /**
+    * Inicia el proceso de restablecimiento de contraseña a través del correo electrónico.
+    *
+    * @param emailPaciente Correo electrónico del paciente.
+    * @return true si la operación es exitosa, false si hay algún error.
+    */
+   @Override
+   public boolean iniciarResetPassConEmail(String emailPaciente) {
 		try {
 			Paciente pacienteExistente = repositorio.findFirstByEmailPaciente(emailPaciente);
 
@@ -156,7 +174,13 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 		}
 	}
 
-	@Override
+   /**
+    * Modifica la contraseña de un paciente utilizando un token.
+    *
+    * @param paciente DTO del paciente con la nueva contraseña y el token.
+    * @return true si la operación es exitosa, false si hay algún error.
+    */
+   @Override
 	public boolean modificarContrasenaConToken(PacienteDTO paciente) {
 
 		Paciente usuarioExistente = repositorio.findByToken(paciente.getToken());
@@ -175,7 +199,12 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	}
 	
 	
-	@Override
+   /**
+    * Actualiza la información del paciente en la base de datos.
+    *
+    * @param pacienteModificado DTO del paciente con la información actualizada.
+    */
+   @Override
 	public void actualizarPaciente(PacienteDTO pacienteModificado) {
 
 		try {
@@ -197,7 +226,13 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	
 	
 	
-	@Override
+   /**
+    * Confirma la cuenta de un paciente utilizando un token.
+    *
+    * @param token Token de confirmación.
+    * @return true si la operación es exitosa, false si hay algún error.
+    */
+   @Override
 	public boolean confirmarCuenta(String token) {
 		try {
 			Paciente pacienteExistente = repositorio.findByToken(token);
@@ -222,7 +257,13 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 		}
 	}
 
-	@Override
+   /**
+    * Verifica si la cuenta de un paciente está confirmada.
+    *
+    * @param emailPaciente Correo electrónico del paciente.
+    * @return true si la cuenta está confirmada, false si no lo está o hay algún error.
+    */
+   @Override
 	public boolean estaLaCuentaConfirmada(String emailPaciente) {
 		try {
 			Paciente pacienteExistente = repositorio.findFirstByEmailPaciente(emailPaciente);
@@ -237,7 +278,12 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	
 	
 	
-	
+   /**
+    * Convierte un array de bytes a una cadena Base64.
+    *
+    * @param data Array de bytes a convertir.
+    * @return Cadena Base64 resultante.
+    */
 	public   String convertToBase64(byte[] data) {
         if (data != null && data.length > 0) {
             return Base64.getEncoder().encodeToString(data);
@@ -246,6 +292,12 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
     }
 	
 
+	/**
+     * Convierte un array de bytes a una cadena Base64.
+     *
+     * @param data Array de bytes a convertir.
+     * @return Cadena Base64 resultante.
+     */
     public byte[] convertToByteArray(String base64String) {
         if (base64String != null && !base64String.isEmpty()) {
             return Base64.getDecoder().decode(base64String);
@@ -254,7 +306,13 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
     }
 	
 
-	@Override
+    /**
+     * Obtiene la información de un paciente a través de su token.
+     *
+     * @param token Token del paciente.
+     * @return DTO del paciente o null si no se encuentra.
+     */
+    @Override
 	public PacienteDTO obtenerUsuarioPorToken(String token) {
 		Paciente pacienteExistente = repositorio.findByToken(token);
 
@@ -268,12 +326,24 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 
 	}
 
-	@Override
+    /**
+     * Busca un paciente por su correo electrónico.
+     *
+     * @param email Correo electrónico del paciente.
+     * @return Objeto Paciente o null si no se encuentra.
+     */
+    @Override
 	public Paciente buscarPorEmail(String email) {
 		return repositorio.findFirstByEmailPaciente(email);
 	}
 	
-	@Override
+    /**
+     * Elimina un paciente por su ID.
+     *
+     * @param id ID del paciente a eliminar.
+     * @return Objeto Paciente eliminado o null si no se encuentra.
+     */
+    @Override
 	public Paciente eliminar(long id) {
 		Paciente paciente = repositorio.findById(id).orElse(null);
 		if (paciente != null) {
@@ -283,12 +353,24 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 		
 	}
 
-	@Override
+    /**
+     * Verifica si ya existe un paciente con un determinado DNI.
+     *
+     * @param dni DNI a verificar.
+     * @return true si existe un paciente con el DNI proporcionado, false de lo contrario.
+     */
+    @Override
 	public boolean buscarPorDni(String dni) {
 		return repositorio.existsByDniPaciente(dni);
 	}
 
-	@Override
+    /**
+     * Busca un paciente por su ID y devuelve su información en formato DTO.
+     *
+     * @param id ID del paciente a buscar.
+     * @return DTO del paciente encontrado o null si no se encuentra.
+     */
+    @Override
 	public PacienteDTO buscarPorId(long id) {
 		try {
 			Paciente paciente = repositorio.findById(id).orElse(null);
@@ -303,7 +385,12 @@ public class ImplPacienteServicio implements IntfPacienteServicio {
 	
 	
 
-	@Override
+    /**
+     * Obtiene la lista de todos los pacientes en formato DTO.
+     *
+     * @return Lista de DTOs de pacientes.
+     */
+    @Override
 	public List<PacienteDTO> buscarTodos() {
 		return toDto.listPacienteToDto(repositorio.findAll());
 	}

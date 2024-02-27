@@ -12,9 +12,14 @@ import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteToDto;
 @Service
 public class ImplPacienteToDto implements IntfPacienteToDto {
 	
+    /**
+     * Convierte un objeto Paciente a un objeto PacienteDTO.
+     *
+     * @param u Objeto Paciente a convertir.
+     * @return Objeto PacienteDTO convertido.
+     */
 	@Override
 	public PacienteDTO pacienteToDto(Paciente u) {
-		
 		try {
 			ImplPacienteServicio iPac = new ImplPacienteServicio();
 			PacienteDTO dto = new PacienteDTO();
@@ -42,6 +47,12 @@ public class ImplPacienteToDto implements IntfPacienteToDto {
 		}
 	}
 	
+    /**
+     * Convierte una lista de objetos Paciente a una lista de objetos PacienteDTO.
+     *
+     * @param listaPaciente Lista de objetos Paciente a convertir.
+     * @return Lista de objetos PacienteDTO convertidos.
+     */
 	@Override
 	public List<PacienteDTO> listPacienteToDto(List<Paciente> listaPaciente){
 		try {
@@ -54,11 +65,9 @@ public class ImplPacienteToDto implements IntfPacienteToDto {
 
 		} catch (Exception e) {
 			System.out.println(
-					"\n[ERROR PacienteToDtoImpl - listaPacienteToDto()] - Error al convertir lista de paciente DAO a lista de pacienteDTO (return null): "
+					"\n[ERROR PacienteToDtoImpl - listPacienteToDto()] - Error al convertir lista de paciente DAO a lista de pacienteDTO (return null): "
 							+ e);
 		}
 		return null;
 	}
-	
-
 }

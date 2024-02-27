@@ -7,21 +7,48 @@ import appCitas.AppCitasSASv2.dto.CitasDTO;
 
 public interface IntfCitasServicio {
 
-	
-	public CitasDTO registrar(CitasDTO citasDTO);
-	
-	
-	public Citas buscarPorId(long id);
-	
-	
-	public List<CitasDTO> buscarTodos();
-	
-	
-	public Citas eliminar(long id);
-	
-	
-	public void cancelarCita(Long idCita);
-	
-	
-	public void completarCita(Long idCita);
+    /**
+     * Registra una nueva cita.
+     *
+     * @param citasDTO Objeto CitasDTO que representa la información de la cita a registrar.
+     * @return Objeto CitasDTO de la cita registrada.
+     */
+    CitasDTO registrar(CitasDTO citasDTO);
+
+    /**
+     * Busca una cita por su identificador.
+     *
+     * @param id Identificador de la cita.
+     * @return Objeto Citas correspondiente al identificador proporcionado.
+     */
+    Citas buscarPorId(long id);
+
+    /**
+     * Obtiene una lista de todas las citas.
+     *
+     * @return Lista de objetos CitasDTO que representan todas las citas registradas.
+     */
+    List<CitasDTO> buscarTodos();
+
+    /**
+     * Elimina una cita por su identificador.
+     *
+     * @param id Identificador de la cita a eliminar.
+     * @return Objeto CitasDTO eliminado.
+     */
+    Citas eliminar(long id);
+
+    /**
+     * Cancela una cita por su identificador.
+     *
+     * @param idCita Identificador de la cita a cancelar.
+     */
+    void cancelarCita(Long idCita);
+
+    /**
+     * Marca una cita como completada.
+     *
+     * @param idCita Identificador de la cita a marcar como completada.
+     */
+    void completarCita(Long idCita);
 }

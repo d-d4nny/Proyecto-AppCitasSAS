@@ -18,12 +18,13 @@ public class SeguridadConfig {
     @Autowired
     private PacienteDetailsServiceImpl pacienteDetailsService;
 
-
+    // Configura el codificador de contraseñas BCrypt.
     @Bean
     BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    // Configura el proveedor de autenticación personalizado para los pacientes.
     @Bean
     DaoAuthenticationProvider pacienteAuthenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -32,21 +33,21 @@ public class SeguridadConfig {
         return authProvider;
     }
 
-    
+    // Configura el administrador de autenticación.
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-	    return authConfig.getAuthenticationManager();
-	}
-    
+        return authConfig.getAuthenticationManager();
+    }
 
+    // Configura la cadena de filtros de seguridad.
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             //.csrf(csrf -> csrf.disable())
             // Configura las reglas de autorización para las solicitudes HTTP.
-            .authorizeHttpRequests(auth -> 
+            .authorizeHttpRequests(auth ->
                 auth
-                	// Permite el acceso público a ciertos recursos y direcciones de URL que no requieren autenticación.
+                    // Permite el acceso público a ciertos recursos y direcciones de URL que no requieren autenticación.
                     .requestMatchers("/", "/webjars/**", "/css/**", "/script/**", "/auth/**").permitAll()
                     .anyRequest().authenticated()// Exige autenticación para cualquier otra solicitud.
             )
@@ -63,7 +64,7 @@ public class SeguridadConfig {
                     .logoutUrl("/auth/logout") // Establece la URL de cierre de sesión personalizada.
                     .logoutSuccessUrl("/") // Establece la URL de redirección después de un cierre de sesión exitoso.
             );
-        
+
         // Configura un proveedor de autenticación personalizado.
         http.authenticationProvider(pacienteAuthenticationProvider());
 
