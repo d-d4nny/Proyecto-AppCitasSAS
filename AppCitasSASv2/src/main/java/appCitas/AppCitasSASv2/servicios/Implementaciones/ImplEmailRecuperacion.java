@@ -38,8 +38,14 @@ public class ImplEmailRecuperacion implements IntfEmailRecuperacion {
             String urlDominio = "http://localhost:8080";
             String urlDeRecuperacion = String.format("%s/auth/recuperar?token=%s", urlDominio, token);
             String cuerpoMensaje = String.format(
-                "﻿<!DOCTYPE html> <!-- HTML del mensaje --> </html>",
-                nombrePaciente, urlDeRecuperacion);
+    				"﻿<!DOCTYPE html> <html lang='es'> <body> <div style='width: 600px; padding: 20px; border: 2px solid #ff9900; border-radius: 12px;"
+    				+ " font-family: Sans-serif'> <h1 style='color:#192255'>Restablecer contraseña<b style='color:#ff9900'> App Citas SAS</b></h1>"
+    				+ " <p style='margin-bottom:25px'>Estimado/a&nbsp;<b>%s</b>:</p> <p style='margin-bottom:25px'>"
+    				+ "Recibiste este correo porque se solicitó un restablecimiento de contraseña para tu cuenta. Haz clic en el botón que aparece a continuación para cambiar tu contraseña.</p>"
+    				+ " <a style='padding: 10px 15px; border-radius: 20px; background-color: #285845; color: white; text-decoration: none' href='%s' target='_blank'>Cambiar contraseña</a>"
+    				+ " <p style='margin-top:25px'>Si no solicitaste este restablecimiento de contraseña, puedes ignorar este correo de forma segura.</p>"
+    				+ " <p>Gracias por utilizar nuestros servicios.</p> </div> </body> </html>",
+    				nombrePaciente, urlDeRecuperacion);
 
             helper.setText(cuerpoMensaje, true);
 
@@ -75,8 +81,12 @@ public class ImplEmailRecuperacion implements IntfEmailRecuperacion {
             String urlDominio = "http://localhost:8080";
             String urlDeConfirmacion = String.format("%s/auth/confirmar-cuenta?token=%s", urlDominio, token);
             String cuerpoMensaje = String.format(
-                "﻿<!DOCTYPE html> <!-- HTML del mensaje --> </html>",
-                nombrePaciente, urlDeConfirmacion);
+                    "﻿<!DOCTYPE html> <html lang='es'> <body> <div style='width: 600px; padding: 20px; border: 2px solid black; border-radius: 13px; background-color: #DEDEDE; font-family: Sans-serif'> <h1 style='color:#1f3c85'>Confirmar cuenta<b style='color:#5993d3'> App Citas SAS</b></h1>"
+                    + " <p style='margin-bottom:25px'>Estimado/a&nbsp;<b>%s</b>:</p> <p style='margin-bottom:25px'>"
+                    + "Bienvenido/a a App Citas SAS. Para confirmar tu cuenta, haz clic en el botón que aparece a continuación:</p>"
+                    + " <a style='padding: 10px 15px; border-radius: 10px; background-color: #5993d3; color: white; text-decoration: none' href='%s' target='_blank'>Confirmar cuenta</a>"
+                    + " <p style='margin-top:25px'>Gracias por unirte a App Citas SAS.</p> </div> </body> </html>",
+                    nombrePaciente, urlDeConfirmacion);
 
             helper.setText(cuerpoMensaje, true);
 
