@@ -1,6 +1,7 @@
 package appCitas.AppCitasSASv2.dao;
 
 import java.sql.Time;
+import java.time.DayOfWeek;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -29,10 +30,9 @@ public class Horarios {
 	@Column(name = "id_horario", nullable = false)
 	private long idHorario;
 	
-	@ElementCollection(targetClass = DiaSemana.class)
-	@Enumerated(EnumType.STRING)
-	@Column(name = "dias_semana")
-	private Set<DiaSemana> diasSemana;
+	@Column(name = "dia_semana", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private DayOfWeek diaSemana;
 	
 	@Column(name = "tramo_horario_inicio", nullable = true)
 	private Time tramoHorarioInicio;
@@ -55,12 +55,12 @@ public class Horarios {
 		this.idHorario = idHorario;
 	}
 
-	public Set<DiaSemana> getDiasSemana() {
-		return diasSemana;
+	public DayOfWeek getDiaSemana() {
+		return diaSemana;
 	}
 
-	public void setDiasSemana(Set<DiaSemana> diasSemana) {
-		this.diasSemana = diasSemana;
+	public void setDiaSemana(DayOfWeek diaSemana) {
+		this.diaSemana = diaSemana;
 	}
 
 	public Time getTramoHorarioInicio() {
@@ -95,19 +95,19 @@ public class Horarios {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Horarios(Set<DiaSemana> diasSemana, Time tramoHorarioInicio, Time tramoHorarioFin) {
+	
+	public Horarios(DayOfWeek diaSemana, Time tramoHorarioInicio, Time tramoHorarioFin) {
 		super();
-		this.diasSemana = diasSemana;
+		this.diaSemana = diaSemana;
 		this.tramoHorarioInicio = tramoHorarioInicio;
 		this.tramoHorarioFin = tramoHorarioFin;
 	}
 
-	public Horarios(long idHorario, Set<DiaSemana> diasSemana, Time tramoHorarioInicio, Time tramoHorarioFin,
+	public Horarios(long idHorario, DayOfWeek diaSemana, Time tramoHorarioInicio, Time tramoHorarioFin,
 			List<ConsultaTurno> consultaTurnosConHorario) {
 		super();
 		this.idHorario = idHorario;
-		this.diasSemana = diasSemana;
+		this.diaSemana = diaSemana;
 		this.tramoHorarioInicio = tramoHorarioInicio;
 		this.tramoHorarioFin = tramoHorarioFin;
 		this.consultaTurnosConHorario = consultaTurnosConHorario;
@@ -118,7 +118,7 @@ public class Horarios {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(consultaTurnosConHorario, diasSemana, idHorario, tramoHorarioFin, tramoHorarioInicio);
+		return Objects.hash(consultaTurnosConHorario, diaSemana, idHorario, tramoHorarioFin, tramoHorarioInicio);
 	}
 
 	@Override
@@ -130,9 +130,8 @@ public class Horarios {
 		if (getClass() != obj.getClass())
 			return false;
 		Horarios other = (Horarios) obj;
-		return Objects.equals(consultaTurnosConHorario, other.consultaTurnosConHorario)
-				&& Objects.equals(diasSemana, other.diasSemana) && idHorario == other.idHorario
-				&& Objects.equals(tramoHorarioFin, other.tramoHorarioFin)
+		return Objects.equals(consultaTurnosConHorario, other.consultaTurnosConHorario) && diaSemana == other.diaSemana
+				&& idHorario == other.idHorario && Objects.equals(tramoHorarioFin, other.tramoHorarioFin)
 				&& Objects.equals(tramoHorarioInicio, other.tramoHorarioInicio);
 	}
 }

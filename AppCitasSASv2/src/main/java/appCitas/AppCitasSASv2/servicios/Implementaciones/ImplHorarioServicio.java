@@ -3,6 +3,7 @@ package appCitas.AppCitasSASv2.servicios.Implementaciones;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSASv2.dao.Horarios;
 import appCitas.AppCitasSASv2.dto.HorariosDTO;
@@ -10,8 +11,8 @@ import appCitas.AppCitasSASv2.repositorios.HorarioRepositorio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioToDao;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioToDto;
-import jakarta.persistence.PersistenceException;
 
+@Service
 public class ImplHorarioServicio implements IntfHorarioServicio {
 	
 	@Autowired

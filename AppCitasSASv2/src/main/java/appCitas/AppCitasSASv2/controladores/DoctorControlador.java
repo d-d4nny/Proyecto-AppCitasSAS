@@ -123,7 +123,22 @@ public class DoctorControlador {
      */
     @GetMapping("/privada/eliminar-doctor/{id}")
     public String eliminarDoctor(@PathVariable Long id, Model model, HttpServletRequest request) {
-        doctoresServicio.eliminar(id);
-        return "redirect:/privada/Administracion";
-    }
+    	try {
+            // Verificar si el doctor tiene consultasTurno asociadas
+            boolean tieneConsultasTurno = doctoresServicio.tieneConsultasTurno(id);
+            
+            // Si tiene consultasTurno asociadas, mostrar un mensaje de error
+            if (tieneConsultasTurno) {
+                model.addAttribute("mensajeError", "No se puede eliminar el doctor porque está asignado a una consultaTurno.");
+                return "redirect:/privada/Administracion";
+            }
+            
+            // Si no tiene consultasTurno asociadas, proceder con la eliminación
+            doctoresServicio.eliminar(id);
+            return "redirect:/privada/Administracion";
+        } catch (Exception e) {
+            // Manejar las excepciones según sea necesario
+            return "redirect:/privada/Administracion";
+        }
+	}
 }

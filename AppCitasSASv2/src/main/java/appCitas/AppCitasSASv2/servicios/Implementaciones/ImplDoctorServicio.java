@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
+import appCitas.AppCitasSASv2.repositorios.ConsultaTurnoRepositorio;
 import appCitas.AppCitasSASv2.repositorios.DoctorRepositorio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorToDao;
@@ -24,6 +26,9 @@ public class ImplDoctorServicio implements IntfDoctorServicio {
 
     @Autowired
     private DoctorRepositorio repositorio;
+    
+    @Autowired
+    private ConsultaTurnoRepositorio consultaTurnoRepositorio;
 
     /**
      * Registra un nuevo doctor.
@@ -79,6 +84,16 @@ public class ImplDoctorServicio implements IntfDoctorServicio {
                     "[Error DoctorServicioImpl - actualizarDoctor()] Al modificar al doctor " + pe.getMessage());
         }
     }
+    
+    @Override
+    public boolean tieneConsultasTurno(long idDoctor) {
+        // Busca las consultasTurno asociadas al doctor por su ID
+        List<ConsultaTurno> consultasTurno = consultaTurnoRepositorio.findByDoctorIdDoctor(idDoctor);
+
+        // Verifica si hay consultasTurno asociadas al doctor
+        return !consultasTurno.isEmpty();
+    }
+
 
     /**
      * Elimina un doctor por su ID.

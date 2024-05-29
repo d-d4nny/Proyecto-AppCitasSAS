@@ -15,13 +15,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
-import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
+import appCitas.AppCitasSASv2.dto.HorariosDTO;
 import appCitas.AppCitasSASv2.dto.InformeDTO;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfCitasServicio;
-import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfInformeServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,7 +33,7 @@ public class PacienteControlador {
     private IntfDoctorServicio doctoresServicio;
 
     @Autowired
-    private IntfConsultaTurnoServicio consultaTurnoServicio;
+    private IntfHorarioServicio horariosServicio;
 
     @Autowired
     private IntfCitasServicio citasServicio;
@@ -138,11 +138,11 @@ public class PacienteControlador {
         List<CitasDTO> citas = citasServicio.buscarTodos();
         List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
         List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
-        List<ConsultaTurnoDTO> consultaTurnos = consultaTurnoServicio.buscarTodos();
+        List<HorariosDTO> horarios = horariosServicio.buscarTodos();
         model.addAttribute("citas", citas);
         model.addAttribute("doctores", doctores);
         model.addAttribute("pacientes", pacientes);
-        model.addAttribute("consultaTurnos", consultaTurnos);
+        model.addAttribute("horarios", horarios);
 
         return "homeEmpleado";
     }

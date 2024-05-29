@@ -44,4 +44,7 @@ public interface IntfDoctorServicio {
      * @return Objeto Doctores eliminado.
      */
     Doctores eliminar(long id);
+    
+    
+    boolean tieneConsultasTurno(long idDoctor);
 }

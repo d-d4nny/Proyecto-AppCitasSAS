@@ -3,10 +3,13 @@ package appCitas.AppCitasSASv2.servicios.Implementaciones;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import appCitas.AppCitasSASv2.dao.Horarios;
 import appCitas.AppCitasSASv2.dto.HorariosDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioToDao;
 
+@Service
 public class ImplHorarioToDao implements IntfHorarioToDao{
 	
     @Override
@@ -16,7 +19,7 @@ public class ImplHorarioToDao implements IntfHorarioToDao{
 
         try {
         	horariosDao.setIdHorario(horariosDTO.getIdHorario());
-        	horariosDao.setDiasSemana(horariosDTO.getDiasSemana());
+        	horariosDao.setDiaSemana(horariosDTO.getDiaSemana());
 			horariosDao.setTramoHorarioInicio(horariosDTO.getTramoHorarioInicio());
 			horariosDao.setTramoHorarioFin(horariosDTO.getTramoHorarioFin());
 

@@ -1,5 +1,7 @@
 package appCitas.AppCitasSASv2.repositorios;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
@@ -24,4 +26,7 @@ public interface ConsultaTurnoRepositorio extends JpaRepository<ConsultaTurno, L
      * @return true si existe una consulta turno con el ID especificado, false de lo contrario.
      */
     public boolean existsByIdConsultaTurno(long idConsultaTurno);
+    
+    
+    List<ConsultaTurno> findByDoctorIdDoctor(long idDoctor);
 }
