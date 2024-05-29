@@ -17,7 +17,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "horarios", schema = "sch_app")
+@Table(name = "horarios", schema = "sch_sas")
 public class Horarios {	
 	
 	

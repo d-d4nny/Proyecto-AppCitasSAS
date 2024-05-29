@@ -92,7 +92,8 @@ public class ImplCitasServicio implements IntfCitasServicio {
     public List<CitasDTO> buscarTodos() {
         return toDto.listCitasToDto(repositorio.findAll());
     }
-
+    
+    
     /**
      * Cancela una cita por su ID.
      * 

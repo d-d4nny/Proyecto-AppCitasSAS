@@ -1,5 +1,6 @@
 package appCitas.AppCitasSASv2.controladores;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +11,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import appCitas.AppCitasSASv2.dao.Citas;
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
-import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
-import appCitas.AppCitasSASv2.dto.DoctoresDTO;
+import appCitas.AppCitasSASv2.dto.InformeDTO;
+import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfCitasServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
-import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfInformeServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -34,6 +37,9 @@ public class CitasControlador {
 
     @Autowired
     private IntfPacienteServicio pacienteServicio;
+    
+	@Autowired
+	private IntfInformeServicio informeServicio;
 
     /**
      * Muestra el formulario para crear una nueva cita.
@@ -76,15 +82,31 @@ public class CitasControlador {
             citaDTO.setConsultaTurno(consultaTurno);
 
             CitasDTO cita = citasServicio.registrar(citaDTO);
+            
+            if (cita != null) {
+                // Crear un nuevo informe
+                InformeDTO informeDTO = new InformeDTO();
+                informeDTO.setNombreInforme(paciente.getNombreCompletoPaciente() + " - " + cita.getFechaCita());
+                informeDTO.setDescInforme("El dia " + cita.getFechaCita() + " el paciente " + paciente.getNombreCompletoPaciente() + " asistio a la consulta numero " + consultaTurno.getNumConsulta() + " de " + consultaTurno.getNombreConsulta() + " con el doctor " + consultaTurno.getDoctor().getNombreCompletoDoctor() + " por el siguiente motivo: " + cita.getMotivoCita());
+                informeDTO.setFchInforme(Calendar.getInstance());
+                // Puedes agregar más campos al informeDTO según sea necesario
 
-            // Redirigir según el resultado
-            return cita != null ? "redirect:/privada/Pacientes" : "redirect:/privada/Pacientes";
+                // Registrar el informe
+                informeServicio.crearInforme(informeDTO);
+
+                // Redirigir al panel de pacientes
+                return "redirect:/privada/Pacientes";
+            } else {
+                // Manejar el caso en que la cita no se registró correctamente
+                return "redirect:/privada/Pacientes";
+            }
         } catch (Exception e) {
             // Manejar las excepciones según sea necesario
             return "redirect:/error";
         }
     }
-
+    
+    
     /**
      * Elimina una cita específica.
      * 
@@ -115,11 +137,22 @@ public class CitasControlador {
     @GetMapping("/privada/cancelar-cita/{id}")
     public String cancelarCita(@PathVariable Long id, Model model, HttpServletRequest request) {
         try {
-            citasServicio.cancelarCita(id);
-            return "redirect:/privada/Administracion";
+            // Obtener la cita por su ID
+            Citas cita = citasServicio.buscarPorId(id);
+            
+            // Verificar si la cita está en estado "Pendiente"
+            if ("Pendiente".equals(cita.getEstadoCita())) {
+                // Si está en estado "Pendiente", se cancela la cita
+                citasServicio.cancelarCita(id);
+                return "redirect:/privada/Administracion";
+            } else {
+                // Si no está en estado "Pendiente", se muestra un mensaje de error
+                model.addAttribute("error", "La cita no puede ser cancelada porque su estado no es 'Pendiente'.");
+                return "redirect:/privada/Administracion";
+            }
         } catch (Exception e) {
             // Manejar las excepciones según sea necesario
-            return "redirect:/error";
+            return "redirect:/privada/Administracion";
         }
     }
 
@@ -134,11 +167,34 @@ public class CitasControlador {
     @GetMapping("/privada/completar-cita/{id}")
     public String completarCita(@PathVariable Long id, Model model, HttpServletRequest request) {
         try {
-            citasServicio.completarCita(id);
+            // Obtener la cita por su ID
+            Citas cita = citasServicio.buscarPorId(id);
+            
+            // Verificar si la cita está en estado "Pendiente"
+            if ("Pendiente".equals(cita.getEstadoCita())) {
+                // Si está en estado "Pendiente", se completa la cita
+                citasServicio.completarCita(id);         
+			
+			PacienteDTO paciente = pacienteServicio.buscarPorId(cita.getPaciente().getIdPaciente());
+
+			ConsultaTurno consultaTurno = consultaTurnoServicio.buscarPorId(cita.getConsultaTurno().getIdConsultaTurno());
+                        
+            InformeDTO informeDTO = new InformeDTO();
+            informeDTO.setNombreInforme(paciente.getNombreCompletoPaciente() + " - " + cita.getFechaCita());
+            informeDTO.setDescInforme("El dia " + cita.getFechaCita() + " el paciente " + paciente.getNombreCompletoPaciente() + " asistio a la consulta numero " + consultaTurno.getNumConsulta() + " de " + consultaTurno.getNombreConsulta() + " con el doctor " + consultaTurno.getDoctor().getNombreCompletoDoctor() + " por el siguiente motivo: " + cita.getMotivoCita());
+            informeDTO.setFchInforme(Calendar.getInstance());
+
+            informeServicio.crearInforme(informeDTO);
+            
             return "redirect:/privada/Administracion";
+            } else {
+                // Si no está en estado "Pendiente", se muestra un mensaje de error
+                model.addAttribute("error", "La cita no puede ser completada porque su estado no es 'Pendiente'.");
+                return "redirect:/privada/Administracion";
+            }
         } catch (Exception e) {
             // Manejar las excepciones según sea necesario
-            return "redirect:/error";
+            return "redirect:/privada/Administracion";
         }
     }
 }
