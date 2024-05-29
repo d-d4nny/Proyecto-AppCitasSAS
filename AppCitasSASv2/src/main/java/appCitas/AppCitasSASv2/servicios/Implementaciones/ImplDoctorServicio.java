@@ -72,7 +72,6 @@ public class ImplDoctorServicio implements IntfDoctorServicio {
 
             doctorActual.setNombreCompletoDoctor(doctorModificado.getNombreCompletoDoctor());
             doctorActual.setEspecialidadDoctor(doctorModificado.getEspecialidadDoctor());
-            doctorActual.setConsultaTurno(doctorModificado.getConsultaTurno());
 
             repositorio.save(doctorActual);
         } catch (PersistenceException pe) {

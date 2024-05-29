@@ -1,11 +1,14 @@
 package appCitas.AppCitasSASv2.servicios.Implementaciones;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import appCitas.AppCitasSASv2.dao.Doctores;
+import appCitas.AppCitasSASv2.dao.Informes;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
+import appCitas.AppCitasSASv2.dto.InformeDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorToDao;
 
 @Service
@@ -26,7 +29,6 @@ public class ImplDoctorToDao implements IntfDoctorToDao {
             doctoresDao.setIdDoctor(doctoresDTO.getIdDoctor());
             doctoresDao.setNombreCompletoDoctor(doctoresDTO.getNombreCompletoDoctor());
             doctoresDao.setEspecialidadDoctor(doctoresDTO.getEspecialidadDoctor());
-            doctoresDao.setConsultaTurno(doctoresDTO.getConsultaTurno());
 
             return doctoresDao;
         } catch (Exception e) {
@@ -45,7 +47,18 @@ public class ImplDoctorToDao implements IntfDoctorToDao {
      */
     @Override
     public List<Doctores> listDoctoresToDao(List<DoctoresDTO> listaDoctoresDTO) {
-        // TODO Auto-generated method stub
+    	List<Doctores> listaDoctoresDao = new ArrayList<>();
+
+        try {
+            for (DoctoresDTO doctoresDTO : listaDoctoresDTO) {
+            	listaDoctoresDao.add(doctoresToDao(doctoresDTO));
+            }
+            return listaDoctoresDao;
+        } catch (Exception e) {
+            System.out.println(
+                    "\n[ERROR doctorToDaoImpl - listDoctorToDao()] - Error al convertir lista de doctores DTO a lista de doctores DAO (return null): "
+                            + e);
+        }
         return null;
     }
 }

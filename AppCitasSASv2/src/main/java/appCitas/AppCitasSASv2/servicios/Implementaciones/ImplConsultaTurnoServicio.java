@@ -55,8 +55,7 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
             ConsultaTurno consultaTurnoActual = repositorio.findById(consultaTurnoModificado.getIdConsultaTurno()).orElse(null);
 
             consultaTurnoActual.setNumConsulta(consultaTurnoModificado.getNumConsulta());
-            consultaTurnoActual.setTramoHoraTurnoInicio(consultaTurnoModificado.getTramoHoraTurnoInicio());
-            consultaTurnoActual.setTramoHoraTurnoFin(consultaTurnoModificado.getTramoHoraTurnoFin());
+            consultaTurnoActual.setNombreConsulta(consultaTurnoModificado.getNombreConsulta());
 
             repositorio.save(consultaTurnoActual);
         } catch (PersistenceException pe) {

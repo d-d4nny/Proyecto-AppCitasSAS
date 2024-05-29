@@ -1,9 +1,9 @@
-package appCitas.AppCitasSASv2.dto;
+ package appCitas.AppCitasSASv2.dto;
 
-import java.sql.Time;
-import java.util.Calendar;
-import java.util.List;
 import java.util.Objects;
+
+import appCitas.AppCitasSASv2.dao.Doctores;
+import appCitas.AppCitasSASv2.dao.Horarios;
 
 public class ConsultaTurnoDTO {
 	
@@ -13,10 +13,10 @@ public class ConsultaTurnoDTO {
 	
 	
 	private long idConsultaTurno;
+	private String nombreConsulta;
 	private int numConsulta;
-	private Time tramoHoraTurnoInicio;
-	private Time tramoHoraTurnoFin;
-	private List<DoctoresDTO> doctoresConConsultaTurno;
+	private Doctores doctor;
+	private Horarios horario;
 	
 	
 	
@@ -29,67 +29,59 @@ public class ConsultaTurnoDTO {
 	public void setIdConsultaTurno(long idConsultaTurno) {
 		this.idConsultaTurno = idConsultaTurno;
 	}
+	public String getNombreConsulta() {
+		return nombreConsulta;
+	}
+	public void setNombreConsulta(String nombreConsulta) {
+		this.nombreConsulta = nombreConsulta;
+	}
 	public int getNumConsulta() {
 		return numConsulta;
 	}
 	public void setNumConsulta(int numConsulta) {
 		this.numConsulta = numConsulta;
 	}
-	public Time getTramoHoraTurnoInicio() {
-		return tramoHoraTurnoInicio;
+	public Doctores getDoctor() {
+		return doctor;
 	}
-	public void setTramoHoraTurnoInicio(Time tramoHoraTurnoInicio) {
-		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
+	public void setDoctor(Doctores doctor) {
+		this.doctor = doctor;
 	}
-	public Time getTramoHoraTurnoFin() {
-		return tramoHoraTurnoFin;
+	public Horarios getHorario() {
+		return horario;
 	}
-	public void setTramoHoraTurnoFin(Time tramoHoraTurnoFin) {
-		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
+	public void setHorario(Horarios horario) {
+		this.horario = horario;
 	}
-	public List<DoctoresDTO> getDoctoresConConsultaTurno() {
-		return doctoresConConsultaTurno;
-	}
-	public void setDoctoresConConsultaTurno(List<DoctoresDTO> doctoresConConsultaTurno) {
-		this.doctoresConConsultaTurno = doctoresConConsultaTurno;
-	}
-	
 	
 	
 	// METODOS
 	
-	
 	public ConsultaTurnoDTO() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	
-	public ConsultaTurnoDTO(int numConsulta, Time tramoHoraTurnoInicio, Time tramoHoraTurnoFin) {
+	}	
+	public ConsultaTurnoDTO(String nombreConsulta, int numConsulta) {
 		super();
+		this.nombreConsulta = nombreConsulta;
 		this.numConsulta = numConsulta;
-		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
-		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
 	}
-	
-	public ConsultaTurnoDTO(long idConsultaTurno, int numConsulta, Time tramoHoraTurnoInicio,
-			Time tramoHoraTurnoFin, List<DoctoresDTO> doctoresConConsultaTurno) {
+	public ConsultaTurnoDTO(long idConsultaTurno, String nombreConsulta, int numConsulta, Doctores doctor,
+			Horarios horario) {
 		super();
 		this.idConsultaTurno = idConsultaTurno;
+		this.nombreConsulta = nombreConsulta;
 		this.numConsulta = numConsulta;
-		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
-		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
-		this.doctoresConConsultaTurno = doctoresConConsultaTurno;
+		this.doctor = doctor;
+		this.horario = horario;
 	}
-	
 	
 	
 	//CONSTRUCTORES
 
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(doctoresConConsultaTurno, idConsultaTurno, numConsulta, tramoHoraTurnoFin,
-				tramoHoraTurnoInicio);
+		return Objects.hash(doctor, horario, idConsultaTurno, nombreConsulta, numConsulta);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -100,16 +92,14 @@ public class ConsultaTurnoDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		ConsultaTurnoDTO other = (ConsultaTurnoDTO) obj;
-		return Objects.equals(doctoresConConsultaTurno, other.doctoresConConsultaTurno)
-				&& idConsultaTurno == other.idConsultaTurno && numConsulta == other.numConsulta
-				&& Objects.equals(tramoHoraTurnoFin, other.tramoHoraTurnoFin)
-				&& Objects.equals(tramoHoraTurnoInicio, other.tramoHoraTurnoInicio);
+		return Objects.equals(doctor, other.doctor) && Objects.equals(horario, other.horario)
+				&& idConsultaTurno == other.idConsultaTurno && Objects.equals(nombreConsulta, other.nombreConsulta)
+				&& numConsulta == other.numConsulta;
 	}
 	@Override
 	public String toString() {
-		return "ConsultaTurnoDTO [idConsultaTurno=" + idConsultaTurno + ", numConsulta=" + numConsulta
-				+ ", tramoHoraTurnoInicio=" + tramoHoraTurnoInicio + ", tramoHoraTurnoFin=" + tramoHoraTurnoFin
-				+ ", doctoresConConsultaTurno=" + doctoresConConsultaTurno + "]";
+		return "ConsultaTurnoDTO [idConsultaTurno=" + idConsultaTurno + ", nombreConsulta=" + nombreConsulta
+				+ ", numConsulta=" + numConsulta + ", doctor=" + doctor + ", horario=" + horario + "]";
 	}
 }
 

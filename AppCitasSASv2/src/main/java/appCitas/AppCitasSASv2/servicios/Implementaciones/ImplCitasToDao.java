@@ -30,7 +30,7 @@ public class ImplCitasToDao implements IntfCitasToDao {
             citasDao.setMotivoCita(citasDTO.getMotivoCita());
             citasDao.setEstadoCita(citasDTO.getEstadoCita());
             citasDao.setPaciente(citasDTO.getPaciente());
-            citasDao.setEmpleado(citasDTO.getDoctor());
+            citasDao.setConsultaTurno(citasDTO.getConsultaTurno());
 
             return citasDao;
         } catch (Exception e) {

@@ -1,8 +1,6 @@
 package appCitas.AppCitasSASv2.dao;
 
 import java.sql.Time;
-import java.util.Calendar;
-import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -10,7 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,17 +26,19 @@ public class ConsultaTurno {
 	@Column(name = "id_consulta_turno", nullable = false)
 	private long idConsultaTurno;
 	
+	@Column(name = "nombre_consulta", nullable = false, length = 50)
+	private String nombreConsulta;
+	
 	@Column(name = "num_consulta", nullable = false)
 	private int numConsulta;
 	
-	@Column(name = "tramo_hora_turno_inicio", nullable = true)
-	private Time tramoHoraTurnoInicio;
+	@ManyToOne
+    @JoinColumn(name="id_doctor")
+	private Doctores doctor;
 	
-	@Column(name = "tramo_hora_turno_fin", nullable = true)
-	private Time tramoHoraTurnoFin;
-	
-	@OneToMany(mappedBy="consultaTurno")
-    List<Doctores> doctoresConConsultaTurno;
+	@ManyToOne
+    @JoinColumn(name="id_horario")
+    private Horarios horario;
 
 	
 	
@@ -51,6 +52,14 @@ public class ConsultaTurno {
 	public void setIdConsultaTurno(long idConsultaTurno) {
 		this.idConsultaTurno = idConsultaTurno;
 	}
+	
+	public String getNombreConsulta() {
+		return nombreConsulta;
+	}
+
+	public void setNombreConsulta(String nombreConsulta) {
+		this.nombreConsulta = nombreConsulta;
+	}
 
 	public int getNumConsulta() {
 		return numConsulta;
@@ -60,66 +69,54 @@ public class ConsultaTurno {
 		this.numConsulta = numConsulta;
 	}
 
-	public Time getTramoHoraTurnoInicio() {
-		return tramoHoraTurnoInicio;
+	public Doctores getDoctor() {
+		return doctor;
 	}
 
-	public void setTramoHoraTurnoInicio(Time tramoHoraTurnoInicio) {
-		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
+	public void setDoctor(Doctores doctor) {
+		this.doctor = doctor;
 	}
 
-	public Time getTramoHoraTurnoFin() {
-		return tramoHoraTurnoFin;
+	public Horarios getHorario() {
+		return horario;
 	}
 
-	public void setTramoHoraTurnoFin(Time tramoHoraTurnoFin) {
-		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
-	}
-
-	public List<Doctores> getDoctoresConConsultaTurno() {
-		return doctoresConConsultaTurno;
-	}
-
-	public void setDoctoresConConsultaTurno(List<Doctores> doctoresConConsultaTurno) {
-		this.doctoresConConsultaTurno = doctoresConConsultaTurno;
+	public void setHorario(Horarios horario) {
+		this.horario = horario;
 	}
 
 		
 		
 	// CONSTRUCTORES
 	
-	
+
 	public ConsultaTurno() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ConsultaTurno(int numConsulta, Time tramoHoraTurnoInicio, Time tramoHoraTurnoFin) {
+	public ConsultaTurno(String nombreConsulta ,int numConsulta) {
 		super();
+		this.nombreConsulta = nombreConsulta;
 		this.numConsulta = numConsulta;
-		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
-		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
 	}
 
-	public ConsultaTurno(long idConsultaTurno, int numConsulta, Time tramoHoraTurnoInicio,
-			Time tramoHoraTurnoFin, List<Doctores> doctoresConConsultaTurno) {
+	public ConsultaTurno(long idConsultaTurno, String nombreConsulta ,int numConsulta, Time tramoHoraTurnoInicio,
+			Time tramoHoraTurnoFin, Doctores doctor, Horarios horario) {
 		super();
 		this.idConsultaTurno = idConsultaTurno;
+		this.nombreConsulta = nombreConsulta;
 		this.numConsulta = numConsulta;
-		this.tramoHoraTurnoInicio = tramoHoraTurnoInicio;
-		this.tramoHoraTurnoFin = tramoHoraTurnoFin;
-		this.doctoresConConsultaTurno = doctoresConConsultaTurno;
+		this.doctor = doctor;
+		this.horario = horario;
 	}
 
-	
 	
 	// METODOS
 	
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(doctoresConConsultaTurno, idConsultaTurno, numConsulta, tramoHoraTurnoFin,
-				tramoHoraTurnoInicio);
+		return Objects.hash(doctor, horario, idConsultaTurno, nombreConsulta, numConsulta);
 	}
 
 	@Override
@@ -131,10 +128,9 @@ public class ConsultaTurno {
 		if (getClass() != obj.getClass())
 			return false;
 		ConsultaTurno other = (ConsultaTurno) obj;
-		return Objects.equals(doctoresConConsultaTurno, other.doctoresConConsultaTurno)
-				&& idConsultaTurno == other.idConsultaTurno && numConsulta == other.numConsulta
-				&& Objects.equals(tramoHoraTurnoFin, other.tramoHoraTurnoFin)
-				&& Objects.equals(tramoHoraTurnoInicio, other.tramoHoraTurnoInicio);
+		return Objects.equals(doctor, other.doctor) && Objects.equals(horario, other.horario)
+				&& idConsultaTurno == other.idConsultaTurno && Objects.equals(nombreConsulta, other.nombreConsulta)
+				&& numConsulta == other.numConsulta;
 	}
 
 	//@Override

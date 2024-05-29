@@ -5,6 +5,7 @@ import java.sql.Time;
 import java.util.Calendar;
 import java.util.Objects;
 
+import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dao.Paciente;
 
@@ -17,7 +18,7 @@ public class CitasDTO {
 	private String motivoCita;
 	private String estadoCita;
 	private Paciente paciente;
-	private Doctores doctor;
+	private ConsultaTurno consultaTurno;
 	
 	
 	
@@ -60,17 +61,15 @@ public class CitasDTO {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-	public Doctores getDoctor() {
-		return doctor;
+	public ConsultaTurno getConsultaTurno() {
+		return consultaTurno;
 	}
-	public void setDoctor(Doctores doctor) {
-		this.doctor = doctor;
+	public void setConsultaTurno(ConsultaTurno consultaTurno) {
+		this.consultaTurno = consultaTurno;
 	}
-	
 	
 	
 	//CONSTRUCTORES
-	
 	
 	public CitasDTO() {
 		super();
@@ -88,7 +87,7 @@ public class CitasDTO {
 	
 	
 	public CitasDTO(long idCita, Date fechaCita, Time horaCita, String motivoCita, String estadoCita, Paciente paciente,
-			Doctores doctor) {
+			ConsultaTurno consultaTurno) {
 		super();
 		this.idCita = idCita;
 		this.fechaCita = fechaCita;
@@ -96,17 +95,15 @@ public class CitasDTO {
 		this.motivoCita = motivoCita;
 		this.estadoCita = estadoCita;
 		this.paciente = paciente;
-		this.doctor = doctor;
+		this.consultaTurno = consultaTurno;
 	}
-	
 	
 	
 	//METODOS
 	
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(doctor, estadoCita, fechaCita, horaCita, idCita, motivoCita, paciente);
+		return Objects.hash(consultaTurno, estadoCita, fechaCita, horaCita, idCita, motivoCita, paciente);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -117,13 +114,16 @@ public class CitasDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		CitasDTO other = (CitasDTO) obj;
-		return Objects.equals(doctor, other.doctor) && Objects.equals(estadoCita, other.estadoCita)
-				&& Objects.equals(fechaCita, other.fechaCita) && Objects.equals(horaCita, other.horaCita) && idCita == other.idCita
-				&& Objects.equals(motivoCita, other.motivoCita) && Objects.equals(paciente, other.paciente);
+		return Objects.equals(consultaTurno, other.consultaTurno) && Objects.equals(estadoCita, other.estadoCita)
+				&& Objects.equals(fechaCita, other.fechaCita) && Objects.equals(horaCita, other.horaCita)
+				&& idCita == other.idCita && Objects.equals(motivoCita, other.motivoCita)
+				&& Objects.equals(paciente, other.paciente);
 	}
 	@Override
 	public String toString() {
-		return "CitasDTO [idCita=" + idCita + ", fechaCita=" + fechaCita + ", horaCita=" + horaCita + ", motivoCita=" + motivoCita
-				+ ", estadoCita=" + estadoCita + ", paciente=" + paciente + ", doctor=" + doctor + "]";
+		return "CitasDTO [idCita=" + idCita + ", fechaCita=" + fechaCita + ", horaCita=" + horaCita + ", motivoCita="
+				+ motivoCita + ", estadoCita=" + estadoCita + ", paciente=" + paciente + ", consultaTurno="
+				+ consultaTurno + "]";
 	}
+	
 }

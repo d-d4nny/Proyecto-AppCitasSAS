@@ -27,7 +27,6 @@ public class ImplDoctorToDto implements IntfDoctorToDto {
             dto.setIdDoctor(u.getIdDoctor());
             dto.setNombreCompletoDoctor(u.getNombreCompletoDoctor());
             dto.setEspecialidadDoctor(u.getEspecialidadDoctor());
-            dto.setConsultaTurno(u.getConsultaTurno());
 
             return dto;
         } catch (Exception e) {

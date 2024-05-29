@@ -1,23 +1,20 @@
 package appCitas.AppCitasSASv2.dto;
 
+import java.util.List;
 import java.util.Objects;
-
-import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 
 public class DoctoresDTO {
 	
-	// ATRIBUTOS
 	
+	// ATRIBUTOS
 	
 	private long idDoctor;
 	private String nombreCompletoDoctor;
 	private String especialidadDoctor;
-	private ConsultaTurno consultaTurno;
-	
+	private List<ConsultaTurnoDTO> consultaTurnoConDoctor;
 	
 	
 	// GETTER / SETTER
-	
 	
 	public long getIdDoctor() {
 		return idDoctor;
@@ -37,17 +34,15 @@ public class DoctoresDTO {
 	public void setEspecialidadDoctor(String especialidadDoctor) {
 		this.especialidadDoctor = especialidadDoctor;
 	}
-	public ConsultaTurno getConsultaTurno() {
-		return consultaTurno;
+	public List<ConsultaTurnoDTO> getConsultaTurnoConDoctor() {
+		return consultaTurnoConDoctor;
 	}
-	public void setConsultaTurno(ConsultaTurno consultaTurno) {
-		this.consultaTurno = consultaTurno;
+	public void setConsultaTurnoConDoctor(List<ConsultaTurnoDTO> consultaTurnoConDoctor) {
+		this.consultaTurnoConDoctor = consultaTurnoConDoctor;
 	}
 	
 	
-	
-	// METODOS
-	
+	// METODOS	
 	
 	public DoctoresDTO() {
 		super();
@@ -61,22 +56,20 @@ public class DoctoresDTO {
 	}
 	
 	public DoctoresDTO(long idDoctor, String nombreCompletoDoctor, String especialidadDoctor,
-			ConsultaTurno consultaTurno) {
+			List<ConsultaTurnoDTO> consultaTurnoConDoctor) {
 		super();
 		this.idDoctor = idDoctor;
 		this.nombreCompletoDoctor = nombreCompletoDoctor;
 		this.especialidadDoctor = especialidadDoctor;
-		this.consultaTurno = consultaTurno;
+		this.consultaTurnoConDoctor = consultaTurnoConDoctor;
 	}
-	
 	
 	
 	// CONSTRUCTORES
 	
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(consultaTurno, especialidadDoctor, idDoctor, nombreCompletoDoctor);
+		return Objects.hash(consultaTurnoConDoctor, especialidadDoctor, idDoctor, nombreCompletoDoctor);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -87,13 +80,14 @@ public class DoctoresDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		DoctoresDTO other = (DoctoresDTO) obj;
-		return Objects.equals(consultaTurno, other.consultaTurno)
+		return Objects.equals(consultaTurnoConDoctor, other.consultaTurnoConDoctor)
 				&& Objects.equals(especialidadDoctor, other.especialidadDoctor) && idDoctor == other.idDoctor
 				&& Objects.equals(nombreCompletoDoctor, other.nombreCompletoDoctor);
 	}
 	@Override
 	public String toString() {
 		return "DoctoresDTO [idDoctor=" + idDoctor + ", nombreCompletoDoctor=" + nombreCompletoDoctor
-				+ ", especialidadDoctor=" + especialidadDoctor + ", consultaTurno=" + consultaTurno + "]";
+				+ ", especialidadDoctor=" + especialidadDoctor + ", consultaTurnoConDoctor=" + consultaTurnoConDoctor
+				+ "]";
 	}
 }

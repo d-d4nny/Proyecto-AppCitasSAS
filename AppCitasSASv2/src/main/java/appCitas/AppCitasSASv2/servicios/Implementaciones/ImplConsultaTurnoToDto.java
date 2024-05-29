@@ -25,9 +25,11 @@ public class ImplConsultaTurnoToDto implements IntfConsultaTurnoToDto {
             ConsultaTurnoDTO dto = new ConsultaTurnoDTO();
 
             dto.setIdConsultaTurno(u.getIdConsultaTurno());
-            dto.setTramoHoraTurnoInicio(u.getTramoHoraTurnoInicio());
-            dto.setTramoHoraTurnoFin(u.getTramoHoraTurnoFin());
+            dto.setNombreConsulta(u.getNombreConsulta());
             dto.setNumConsulta(u.getNumConsulta());
+            dto.setDoctor(u.getDoctor());
+			dto.setHorario(u.getHorario());
+
 
             return dto;
         } catch (Exception e) {

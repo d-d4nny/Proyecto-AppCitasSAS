@@ -2,7 +2,6 @@ package appCitas.AppCitasSASv2.dao;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Calendar;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -45,9 +44,8 @@ public class Citas {
     Paciente paciente;
 	
 	@ManyToOne
-    @JoinColumn(name="id_doctor")
-    Doctores doctor;
-
+    @JoinColumn(name="id_consulta_turno")
+    ConsultaTurno consultaTurno;
 	
 	
 	// GETTER / SETTER
@@ -101,12 +99,12 @@ public class Citas {
 		this.paciente = paciente;
 	}
 
-	public Doctores getEmpleado() {
-		return doctor;
+	public ConsultaTurno getConsultaTurno() {
+		return consultaTurno;
 	}
 
-	public void setEmpleado(Doctores doctor) {
-		this.doctor = doctor;
+	public void setConsultaTurno(ConsultaTurno consultaTurno) {
+		this.consultaTurno = consultaTurno;
 	}
 
 	
@@ -130,7 +128,7 @@ public class Citas {
 
 	
 	public Citas(long idCita, Date fechaCita, Time horaCita, String motivoCita, String estadoCita, Paciente paciente,
-			Doctores doctor) {
+			ConsultaTurno consultaTurno) {
 		super();
 		this.idCita = idCita;
 		this.fechaCita = fechaCita;
@@ -138,7 +136,7 @@ public class Citas {
 		this.motivoCita = motivoCita;
 		this.estadoCita = estadoCita;
 		this.paciente = paciente;
-		this.doctor = doctor;
+		this.consultaTurno = consultaTurno;
 	}
 
 	
@@ -148,7 +146,7 @@ public class Citas {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(doctor, estadoCita, fechaCita, horaCita, idCita, motivoCita, paciente);
+		return Objects.hash(consultaTurno, estadoCita, fechaCita, horaCita, idCita, motivoCita, paciente);
 	}
 
 	
@@ -161,7 +159,7 @@ public class Citas {
 		if (getClass() != obj.getClass())
 			return false;
 		Citas other = (Citas) obj;
-		return Objects.equals(doctor, other.doctor) && Objects.equals(estadoCita, other.estadoCita)
+		return Objects.equals(consultaTurno, other.consultaTurno) && Objects.equals(estadoCita, other.estadoCita)
 				&& Objects.equals(fechaCita, other.fechaCita) && Objects.equals(horaCita, other.horaCita) && idCita == other.idCita 
 				&& Objects.equals(motivoCita, other.motivoCita) && Objects.equals(paciente, other.paciente);
 	}

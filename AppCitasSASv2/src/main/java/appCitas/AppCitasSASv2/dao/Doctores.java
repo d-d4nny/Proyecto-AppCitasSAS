@@ -1,5 +1,6 @@
 package appCitas.AppCitasSASv2.dao;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -7,8 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,12 +31,10 @@ public class Doctores {
 	@Column(name = "especialidad_doctor", nullable = false, length = 50)
 	private String especialidadDoctor;
 	
-	@ManyToOne
-    @JoinColumn(name="id_consulta_turno")
-    private ConsultaTurno consultaTurno;
+	@OneToMany(mappedBy="doctor")
+    List<ConsultaTurno> consultaTurnoConDoctor;
 	
 	
-
 	// GETTER / SETTER
 	
 	
@@ -64,19 +62,17 @@ public class Doctores {
 		this.especialidadDoctor = especialidadDoctor;
 	}
 
-	public ConsultaTurno getConsultaTurno() {
-		return consultaTurno;
+	public List<ConsultaTurno> getConsultaTurnoConDoctor() {
+		return consultaTurnoConDoctor;
 	}
 
-	public void setConsultaTurno(ConsultaTurno consultaTurno) {
-		this.consultaTurno = consultaTurno;
+	public void setConsultaTurnoConDoctor(List<ConsultaTurno> consultaTurnoConDoctor) {
+		this.consultaTurnoConDoctor = consultaTurnoConDoctor;
 	}
-	
 	
 
 	// CONSTRUCTORES
 	
-
 	public Doctores() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -87,24 +83,22 @@ public class Doctores {
 		this.nombreCompletoDoctor = nombreCompletoDoctor;
 		this.especialidadDoctor = especialidadDoctor;
 	}
-	
+
 	public Doctores(long idDoctor, String nombreCompletoDoctor, String especialidadDoctor,
-			ConsultaTurno consultaTurno) {
+			List<ConsultaTurno> consultaTurnoConDoctor) {
 		super();
 		this.idDoctor = idDoctor;
 		this.nombreCompletoDoctor = nombreCompletoDoctor;
 		this.especialidadDoctor = especialidadDoctor;
-		this.consultaTurno = consultaTurno;
+		this.consultaTurnoConDoctor = consultaTurnoConDoctor;
 	}
-	
 	
 	
 	// METODOS
 
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(consultaTurno, especialidadDoctor, idDoctor, nombreCompletoDoctor);
+		return Objects.hash(consultaTurnoConDoctor, especialidadDoctor, idDoctor, nombreCompletoDoctor);
 	}
 
 	@Override
@@ -116,7 +110,7 @@ public class Doctores {
 		if (getClass() != obj.getClass())
 			return false;
 		Doctores other = (Doctores) obj;
-		return Objects.equals(consultaTurno, other.consultaTurno)
+		return Objects.equals(consultaTurnoConDoctor, other.consultaTurnoConDoctor)
 				&& Objects.equals(especialidadDoctor, other.especialidadDoctor) && idDoctor == other.idDoctor
 				&& Objects.equals(nombreCompletoDoctor, other.nombreCompletoDoctor);
 	}

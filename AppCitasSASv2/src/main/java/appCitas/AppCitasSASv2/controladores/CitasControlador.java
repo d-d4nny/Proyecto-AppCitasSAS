@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
+import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfCitasServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +30,7 @@ public class CitasControlador {
     private IntfCitasServicio citasServicio;
 
     @Autowired
-    private IntfDoctorServicio doctoresServicio;
+    private IntfConsultaTurnoServicio consultaTurnoServicio;
 
     @Autowired
     private IntfPacienteServicio pacienteServicio;
@@ -43,8 +46,8 @@ public class CitasControlador {
         model.addAttribute("citasDTO", new CitasDTO());
 
         // Obtener la lista de doctores y agregarla al modelo
-        List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
-        model.addAttribute("doctores", doctores);
+        List<ConsultaTurnoDTO> consultaTurno = consultaTurnoServicio.buscarTodos();
+        model.addAttribute("consultaTurno", consultaTurno);
 
         return "formularioCita";
     }
@@ -61,7 +64,7 @@ public class CitasControlador {
         try {
             Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
 
-            Doctores doctor = doctoresServicio.buscarPorId(citaDTO.getDoctor().getIdDoctor());
+            ConsultaTurno consultaTurno = consultaTurnoServicio.buscarPorId(citaDTO.getConsultaTurno().getIdConsultaTurno());
 
             // Establecer el paciente
             citaDTO.setPaciente(paciente);
@@ -69,8 +72,8 @@ public class CitasControlador {
             // Establecer el estado
             citaDTO.setEstadoCita("Pendiente");
 
-            // Establecer el doctor
-            citaDTO.setDoctor(doctor);
+            // Establecer l consultaTurno
+            citaDTO.setConsultaTurno(consultaTurno);
 
             CitasDTO cita = citasServicio.registrar(citaDTO);
 
