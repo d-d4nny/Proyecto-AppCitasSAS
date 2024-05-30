@@ -19,51 +19,42 @@
 	<style>
         
 		.parent {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-rows: repeat(4, 1fr);
-			grid-column-gap: 0px;
-			grid-row-gap: 0px;
-			}
-		
-		.div1 { 
-			grid-area: 1 / 1 / 3 / 3; 
-			max-width: 620px;
-			min-width: 620px;
-			min-height: 300px;
-			max-height: 300px;
-			margin-bottom: 35px;
-			margin-left: 15px;
-			}
-		.div2 { 
-			grid-area: 1 / 3 / 3 / 5;
- 			max-width: 620px;
-			min-width: 620px;
-			min-height: 300px;
-			max-height: 300px;
-			margin-bottom: 35px;
-			}
-		.div3 { 
-			grid-area: 3 / 1 / 5 / 3; 
-			max-width: 620px;
-			min-width: 620px;
-			min-height: 300px;
-			max-height: 300px;
-			margin-top: 30px;
-			margin-left: 15px;
-			}
-		.div4 { 
-			grid-area: 3 / 3 / 5 / 5; 
-			max-width: 620px;
-			min-width: 620px;
-			min-height: 300px;
-			max-height: 300px;
-			margin-top: 30px;
-			}
-			
-			.bi {
-				font-size:12.5px;
-			}
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        width: 100%; /* Ocupa el ancho completo de la pantalla */
+        justify-content: end; /* Alinea los elementos al borde derecho */
+    }
+    .div1, .div2, .div3, .div4 { 
+        max-width: 925px;
+        min-width: 620px;
+        min-height: 300px;
+        max-height: 450px;
+        background-color: lightgrey; /* Para visualización */
+    }
+    .div1 { 
+        grid-area: 1 / 1 / 3 / 3; 
+        margin-bottom: 35px;
+        margin-left: 20px;
+    }
+    .div2 { 
+        grid-area: 1 / 3 / 3 / 5;
+        margin-bottom: 35px;
+    }
+    .div3 { 
+        grid-area: 3 / 1 / 5 / 3; 
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+    .div4 { 
+        grid-area: 3 / 3 / 5 / 5; 
+        margin-top: 30px;
+    }
+    .bi {
+        font-size: 12.5px;
+    }
 		
 		
 	</style>
@@ -96,7 +87,7 @@
 				        <i class="bi bi-plus-square"></i>
 				    </button>
 				</div>
-				<div class="card-body" style="max-width: 625px;max-height: 275px;overflow: auto;">
+				<div class="card-body" style="max-width: 925px; min-width: 620px; min-height: 300px; max-height: 450px;overflow: auto;">
 	
 					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(doctores)}">No hay doctores registrados</h5>
 					
@@ -140,7 +131,7 @@
 				        <i class="bi bi-plus-square"></i>
 				    </button>
 				</div>
-				<div class="card-body" style="max-width: 625px;max-height: 275px;overflow: auto;">
+				<div class="card-body" style="max-width: 925px; min-width: 620px; min-height: 300px; max-height: 450px;overflow: auto;">
 	
 					<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(pacientes)}">No hay pacientes registrados</h5>
 					
@@ -188,21 +179,21 @@
 		</div>
 		<br>
 		<div class="div3">
-		    <div class="card bg-light">
-		        <form>
-		            <div class="form-group">
-		                <label for="estadoCita">Filtrar por estado:</label>
-		                <select id="estadoCita" class="form-control" onchange="filtrarCitas()">
-		                    <option value="Todos" selected>Todos</option>    
-		                    <option value="Pendiente">Pendiente</option>
-		                    <option value="Cancelada">Cancelada</option>
-		                    <option value="Completada">Completada</option>
-		                </select>
-		            </div>
-		        </form>
-		        <div class="card-header"><h3>Administracion Citas</h3></div>
-		        <div class="card-body" style="max-width: 625px;max-height: 275px;overflow-x: auto;">
-		            <h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(citas)}">No hay citas registradas</h5>
+		    <div class="card bg-light">		      
+		        <div class="card-header"><h3>Administracion Citas</h3></div>		     
+		        <div class="card-body" style="max-width: 925px; min-width: 620px; min-height: 300px; max-height: 450px;overflow-x: auto;">
+		        	<form>
+			            <div class="form-group">
+			                <label for="estadoCita">Filtrar por estado:</label>
+			                <select id="estadoCita" class="form-control" onchange="filtrarCitas()">
+			                    <option value="Todos" selected>Todos</option>    
+			                    <option value="Pendiente">Pendiente</option>
+			                    <option value="Cancelada">Cancelada</option>
+			                    <option value="Completada">Completada</option>
+			                </select>
+			            </div>
+			        </form>
+		            <h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(citas)}">No hay citas registradas</h5>		            
 		            <table class="table table-striped table-bordered" id="tablaCitas" th:if="${not #lists.isEmpty(citas)}">
 		                <thead class="thead-inverse">
 		                    <tr>
@@ -210,9 +201,9 @@
 		                        <th class="table-dark">Fecha</th>
 		                        <th class="table-dark">Hora</th>
 		                        <th class="table-dark">Motivo</th>
-		                        <th class="table-dark">Estado</th>
 		                        <th class="table-dark">Paciente</th>
 		                        <th class="table-dark">Doctor</th>
+		                       	<th class="table-dark">Estado</th>
 		                        <th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
 		                    </tr>
 		                </thead>
@@ -221,10 +212,10 @@
 		                        <td th:text="${cita.idCita}"></td>
 		                        <td th:text="${cita.fechaCita}"></td>
 		                        <td th:text="${cita.horaCita}"></td>
-		                        <td th:text="${cita.motivoCita}"></td>
-		                        <td class="estado" th:text="${cita.estadoCita}"></td>
+		                        <td th:text="${cita.motivoCita}"></td>		                        
 		                        <td th:text="${cita.paciente.nombreCompletoPaciente}"></td>
 		                        <td th:text="${cita.consultaTurno.doctor.nombreCompletoDoctor}"></td>
+		                        <td class="estado" th:text="${cita.estadoCita}"></td>
 		                        <td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">
 		                            <!-- Botón para Cancelar cita -->
 		                            <button class="btn btn-danger" th:attr="data-id=${cita.idCita}" id="btn-cancelar-${cita.idCita}" onclick="confirmarCancelarCita(event)">
@@ -251,7 +242,7 @@
 				        <i class="bi bi-plus-square"> Asignar Horario</i>
 				    </button>
 				</div>
-				<div class="card-body" style="max-width: 625px;max-height: 275px;overflow: auto;">					
+				<div class="card-body" style="max-width: 925px; min-width: 620px; min-height: 300px; max-height: 450px;overflow: auto;">					
 					
 					<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(horarios)}">
 						<thead class="thead-inverse">

@@ -35,9 +35,6 @@ public class DoctorControlador {
     @GetMapping("/privada/crear-doctor")
     public String registrarGet(Model model) {
         model.addAttribute("doctoresDTO", new DoctoresDTO());
-
-        List<ConsultaTurnoDTO> consultaTurno = consultaTurnoServicio.buscarTodos();
-        model.addAttribute("consultaTurno", consultaTurno);
         return "crearDoctor";
     }
 
@@ -78,8 +75,6 @@ public class DoctorControlador {
 
             Doctores doctor = doctoresServicio.buscarPorId(id);
 
-            List<ConsultaTurnoDTO> consultaTurno = consultaTurnoServicio.buscarTodos();
-            model.addAttribute("consultaTurno", consultaTurno);
             if (doctor == null) {
                 return "homeEmpleado";
             }

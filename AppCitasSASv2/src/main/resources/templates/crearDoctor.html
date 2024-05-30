@@ -41,13 +41,7 @@
 				<input type="text" id="nombreCompletoDoctor" name="nombreCompletoDoctor" class="input" placeholder="Nombre Completo Doctor" 
 					th:value="*{nombreCompletoDoctor}" required>				
 			    <input type="text" id="especialidadDoctor" name="especialidadDoctor" class="input" placeholder="Especialidad" 
-					required th:value="*{especialidadDoctor}">	
-									
-			    <select id="consultaTurno" name="consultaTurno" class="input" required>
-			        <option value="" disabled selected>Seleccione un turno</option>
-			        <option th:each="turno : ${consultaTurno}" th:value="${turno.idConsultaTurno}" th:text="${#dates.format(turno.tramoHoraTurnoInicio, 'HH:mm:ss')} + ' - ' + ${#dates.format(turno.tramoHoraTurnoFin, 'HH:mm:ss')}"></option>
-		    	</select>
-		    	
+					required th:value="*{especialidadDoctor}">			    	
 				<button type="submit" id="btnRegistro" class="form-btn">Registrar</button>
 			</form>
 		</div>

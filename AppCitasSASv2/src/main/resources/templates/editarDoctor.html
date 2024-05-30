@@ -68,13 +68,6 @@
             required
           />
         </div>
-        <div class="mb-3">
-          <label for="consultaTurno" class="form-label textoPrincipal">Turno Horario</label>
-          <select id="consultaTurno" name="consultaTurno" class="input" required>
-		        <option value="" disabled selected>Seleccione un turno</option>
-		        <option th:each="turno : ${consultaTurno}" th:value="${turno.idConsultaTurno}" th:text="${#dates.format(turno.tramoHoraTurnoInicio, 'HH:mm:ss')} + ' - ' + ${#dates.format(turno.tramoHoraTurnoFin, 'HH:mm:ss')}"></option>
-		   </select>
-        </div>
           <button type="submit" class="btn btn-primary mt-5">
             <i class="bi bi-person-fill-gear fs-5"> Guardar cambios</i>
           </button>
