@@ -285,6 +285,14 @@ public class PacienteControlador {
 		            model.addAttribute("horarios", horarios);
 					return "homeEmpleado";
 				}
+				if (paciente.getRolPaciente().equals("ROLE_USER")) {
+					model.addAttribute("elUsuarioEsPaciente", "No se puede eliminar los datos de un cliente");
+					model.addAttribute("pacientes", pacientes);
+					model.addAttribute("citas", citas);
+		            model.addAttribute("doctores", doctores);
+		            model.addAttribute("horarios", horarios);
+					return "homeEmpleado";
+				}
 				pacienteServicio.eliminar(id);
 		        model.addAttribute("eliminacionCorrecta", "El usuario se ha eliminado correctamente");
 		        model.addAttribute("pacientes", pacientes);

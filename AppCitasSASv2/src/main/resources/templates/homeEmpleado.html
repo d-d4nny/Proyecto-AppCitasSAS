@@ -19,64 +19,75 @@
 	<style>
         
 		.parent {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        width: 100%; /* Ocupa el ancho completo de la pantalla */
-        justify-content: end; /* Alinea los elementos al borde derecho */
-    }
-    .div1, .div2, .div3, .div4 { 
-        max-width: 925px;
-        min-width: 620px;
-        min-height: 300px;
-        max-height: 450px;
-        background-color: lightgrey; /* Para visualización */
-    }
-    .div1 { 
-        grid-area: 1 / 1 / 3 / 3; 
-        margin-bottom: 35px;
-        margin-left: 20px;
-    }
-    .div2 { 
-        grid-area: 1 / 3 / 3 / 5;
-        margin-bottom: 35px;
-    }
-    .div3 { 
-        grid-area: 3 / 1 / 5 / 3; 
-        margin-top: 30px;
-        margin-left: 20px;
-    }
-    .div4 { 
-        grid-area: 3 / 3 / 5 / 5; 
-        margin-top: 30px;
-    }
-    .div5{
-    }
-    .bi {
-        font-size: 12.5px;
-    }
+	        display: grid;
+	        grid-template-columns: repeat(4, 1fr);
+	        grid-template-rows: repeat(4, 1fr);
+	        grid-column-gap: 0px;
+	        grid-row-gap: 0px;
+	        width: 100%; /* Ocupa el ancho completo de la pantalla */
+	        justify-content: end; /* Alinea los elementos al borde derecho */
+    	}
+    	.div1, .div2, .div3, .div4 { 
+	        max-width: 925px;
+	        min-width: 620px;
+	        min-height: 300px;
+	        max-height: 450px;
+	    }
+	    .div1 { 
+	        grid-area: 1 / 1 / 3 / 3; 
+	        margin-bottom: 35px;
+	        margin-left: 20px;
+	    }
+	    .div2 { 
+	        grid-area: 1 / 3 / 3 / 5;
+	        margin-bottom: 35px;
+	    }
+	    .div3 { 
+	        grid-area: 3 / 1 / 5 / 3; 
+	        margin-top: 30px;
+	        margin-left: 20px;
+	    }
+	    .div4 { 
+	        grid-area: 3 / 3 / 5 / 5; 
+	        margin-top: 30px;
+	    }
+	    .div5{
+	    }
+	    .bi {
+	        font-size: 12.5px;
+	    }
+	    .botonSalir {
+		    background-color: #ff4d4d; /* Color de fondo personalizado */
+		    border-color: #ff4d4d; /* Color del borde */
+		    color: white; /* Color del texto */
+		    font-weight: bold; /* Negrita en el texto */
+		    padding: 10px 20px; /* Relleno alrededor del texto */
+		    border-radius: 5px; /* Bordes redondeados */
+		    transition: background-color 0.3s ease, transform 0.3s ease; /* Efecto de transición */
+		}
 		
-		
+		.botonSalir:hover {
+		    background-color: #e60000; /* Color de fondo al pasar el ratón */
+		    border-color: #e60000; /* Color del borde al pasar el ratón */
+		    transform: scale(1.05); /* Efecto de aumento */
+		}				
 	</style>
 </head>
 
 <body>
 	<nav>
 		<div class="menu m-2">
-            <div class="logo">
-                <i class="nav-link"><img th:src="@{/css/img/icono.png}" alt="imagen logo"></i>
-                <a style="color: white; margin-top: 5px;" >AppCitasSAS</a>
-            </div>
-			<ul class="nav-links" style="margin-top: 15px;">
-				<li>
-					<form th:action="@{/auth/logout}" method="post" id="logoutForm">
-						<button type="button" class=""
-							onclick="confirmarLogout()">Salir</button>
-					</form>
-				</li>				
-			</ul>
+		    <div class="logo">
+		        <i class="nav-link"><img th:src="@{/css/img/icono.png}" alt="imagen logo"></i>
+		        <a style="color: white; margin-top: 5px;">AppCitasSAS</a>
+		    </div>
+		    <ul class="nav-links" style="margin-top: 15px;">
+		        <li>
+		            <form th:action="@{/auth/logout}" method="post" id="logoutForm">
+		                <button type="button" class="btn btn-danger botonSalir" onclick="confirmarLogout()">Salir</button>
+		            </form>
+		        </li>                
+		    </ul>
 		</div>
 	</nav>
 	<br>
@@ -130,54 +141,55 @@
 	    </div>
 	
 	    <div class="div2">
-	        <div class="card bg-light">
-	            <div class="card-header d-flex justify-content-between align-items-center">
-	                <h3>Administración Pacientes</h3>
-	                <button class="btn btn-success" onclick="CrearPaciente(event)">
-	                    <i class="bi bi-plus-square"></i>
-	                </button>
-	            </div>
-	            <div class="card-body" style="max-width: 925px; min-width: 620px; min-height: 300px; max-height: 450px;overflow: auto;">
-	                <h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(pacientes)}">No hay pacientes registrados</h5>
-	
-	                <table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(pacientes)}">
-	                    <thead class="thead-inverse">
-	                        <tr>
-	                            <th class="table-dark">Id</th>
-	                            <th class="table-dark">Nombre</th>
-	                            <th class="table-dark">Dni</th>
-	                            <th class="table-dark">Email</th>
-	                            <th class="table-dark">Teléfono</th>
-	                            <th class="table-dark">Dirección</th>
-	                            <th class="table-dark">Cuenta activa</th>
-	                            <th class="table-dark">Rol</th>
-	                            <th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
-	                        </tr>
-	                    </thead>
-	                    <tbody>
-	                        <tr th:each="paciente : ${pacientes}">
-	                            <td th:text="${paciente.idPaciente}"></td>
-	                            <td th:text="${paciente.nombreCompletoPaciente}"></td>
-	                            <td th:text="${paciente.dniPaciente}"></td>
-	                            <td th:text="${paciente.emailPaciente}"></td>
-	                            <td th:text="${paciente.tlfPaciente}"></td>
-	                            <td th:text="${paciente.direccionPaciente}"></td>
-	                            <td th:text="${paciente.cuentaConfirmada ? 'Sí' : 'No'}"></td>
-	                            <td th:text="${paciente.rolPaciente == 'ROLE_USER' ? 'USER' : 'ADMIN'}"></td>
-	                            <td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">
-	                                <button style="margin-bottom: 5px;" class="btn btn-danger" th:attr="data-id=${paciente.idPaciente + '|' + paciente.emailPaciente}" onclick="confirmarEliminar(event)">
-	                                    <i class="bi bi-trash3-fill"></i>
-	                                </button>
-	                                <button style="margin-bottom: 5px;" class="btn btn-danger" th:attr="data-id=${paciente.idPaciente}" onclick="EditarPaciente(event)">
-	                                    <i class="bi bi-pencil-square"></i>
-	                                </button>
-	                            </td>
-	                        </tr>
-	                    </tbody>
-	                </table>
-	            </div>
-	        </div>
-	    </div>
+		    <div class="card bg-light">
+		        <div class="card-header d-flex justify-content-between align-items-center">
+		            <h3>Administración Pacientes</h3>
+		            <button class="btn btn-success" onclick="CrearPaciente(event)">
+		                <i class="bi bi-plus-square"></i>
+		            </button>
+		        </div>
+		        <div class="card-body" style="max-width: 925px; min-width: 620px; min-height: 300px; max-height: 450px;overflow: auto;">
+		            <input type="text" id="searchInput" class="form-control mb-3" placeholder="Buscar por email..." onkeyup="filtrarTabla()">
+		            <h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(pacientes)}">No hay pacientes registrados</h5>
+		
+		            <table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(pacientes)}">
+		                <thead class="thead-inverse">
+		                    <tr>
+		                        <th class="table-dark">Id</th>
+		                        <th class="table-dark">Nombre</th>
+		                        <th class="table-dark">Dni</th>
+		                        <th class="table-dark">Email</th>
+		                        <th class="table-dark">Teléfono</th>
+		                        <th class="table-dark">Dirección</th>
+		                        <th class="table-dark">Cuenta activa</th>
+		                        <th class="table-dark">Rol</th>
+		                        <th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>
+		                    </tr>
+		                </thead>
+		                <tbody id="tablaPacientes">
+		                    <tr th:each="paciente : ${pacientes}">
+		                        <td th:text="${paciente.idPaciente}"></td>
+		                        <td th:text="${paciente.nombreCompletoPaciente}"></td>
+		                        <td th:text="${paciente.dniPaciente}"></td>
+		                        <td th:text="${paciente.emailPaciente}"></td>
+		                        <td th:text="${paciente.tlfPaciente}"></td>
+		                        <td th:text="${paciente.direccionPaciente}"></td>
+		                        <td th:text="${paciente.cuentaConfirmada ? 'Sí' : 'No'}"></td>
+		                        <td th:text="${paciente.rolPaciente == 'ROLE_USER' ? 'USER' : 'ADMIN'}"></td>
+		                        <td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">
+		                            <button style="margin-bottom: 5px;" class="btn btn-danger" th:attr="data-id=${paciente.idPaciente + '|' + paciente.emailPaciente}" onclick="confirmarEliminar(event)">
+		                                <i class="bi bi-trash3-fill"></i>
+		                            </button>
+		                            <button style="margin-bottom: 5px;" class="btn btn-danger" th:attr="data-id=${paciente.idPaciente}" onclick="EditarPaciente(event)">
+		                                <i class="bi bi-pencil-square"></i>
+		                            </button>
+		                        </td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		        </div>
+		    </div>
+		</div>
 		<br>
 		<div class="div3">
 		    <div class="card bg-light">		      
@@ -435,6 +447,29 @@
 			});
 		}
 		
+		
+		function filtrarTabla() {
+		    // Obtener el valor de la barra de búsqueda
+		    var input = document.getElementById("searchInput");
+		    var filter = input.value.toLowerCase();
+		    
+		    // Obtener la tabla y las filas
+		    var table = document.getElementById("tablaPacientes");
+		    var tr = table.getElementsByTagName("tr");
+		    
+		    // Iterar sobre todas las filas de la tabla y ocultar las que no coinciden con el filtro
+		    for (var i = 0; i < tr.length; i++) {
+		        var td = tr[i].getElementsByTagName("td")[3]; // Columna de email
+		        if (td) {
+		            var txtValue = td.textContent || td.innerText;
+		            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+		                tr[i].style.display = "";
+		            } else {
+		                tr[i].style.display = "none";
+		            }
+		        }
+		    }
+		}
 	</script>
 	 <script th:if="${not #strings.isEmpty(noTePuedesEliminar)}">
         mostrarNotificacion("¡No puede eliminarse a sí mismo!","Debe ser otro administrador el que realice esta acción", 'info');
@@ -447,6 +482,15 @@
 	</script>
 	<script th:if="${not #strings.isEmpty(eliminacionCorrecta)}">
 	    mostrarNotificacion("¡Usuario eliminado!","El usuario ha sido eliminado correctamente", 'success');
+	</script>
+	<script th:if="${not #strings.isEmpty(eliminacionCorrectaDoc)}">
+	    mostrarNotificacion("¡Doctor eliminado!","El doctor ha sido eliminado correctamente", 'success');
+	</script>
+	<script th:if="${not #strings.isEmpty(elUsuarioEsPaciente)}">
+	    mostrarNotificacion("¡No se puede eliminar al usuario!","No es posible eliminar al usuario porque es un paciente activo.", 'info');
+	</script>
+	<script th:if="${not #strings.isEmpty(elDoctorTieneCitas)}">
+	    mostrarNotificacion("¡No se puede eliminar al doctor!","Dicho doctor tinene Citas registradas.", 'info');
 	</script>
 </body>
 
