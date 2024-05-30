@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
@@ -235,14 +236,66 @@ public class PacienteControlador {
      */
     @GetMapping("/privada/eliminar/{id}")
     public String eliminarPaciente(@PathVariable Long id, Model model, HttpServletRequest request) {
-        PacienteDTO paciente = pacienteServicio.buscarPorId(id);
-        List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
-        if (request.isUserInRole("ROLE_ADMIN") && paciente.getRolPaciente().equals("ROLE_ADMIN")) {
-            model.addAttribute("noSePuedeEliminar", "No se puede eliminar a un admin");
-            model.addAttribute("usuarios", pacientes);
-            return "redirect:/privada/Administracion";
-        }
-        pacienteServicio.eliminar(id);
-        return "redirect:/privada/Administracion";
+    	try {
+    		List<CitasDTO> citas = citasServicio.buscarTodos();
+            List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
+            List<HorariosDTO> horarios = horariosServicio.buscarTodos();
+    
+	    	PacienteDTO paciente = pacienteServicio.buscarPorId(id);
+	        List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
+	        
+	        String emailUsuarioActual = request.getUserPrincipal().getName();
+	
+	        
+	        if (request.isUserInRole("ROLE_USER")) {
+				model.addAttribute("noAdmin", "No tiene los permisos suficientes para acceder al recurso");
+				model.addAttribute("pacientes", pacientes);
+				model.addAttribute("citas", citas);
+	            model.addAttribute("doctores", doctores);
+	            model.addAttribute("horarios", horarios);
+				return "homeEmpleado";
+			} else if (emailUsuarioActual.equals(paciente.getEmailPaciente())) {
+				model.addAttribute("noTePuedesEliminar", "No puedes eliminarte a ti mismo como administrador");
+				model.addAttribute("pacientes", pacientes);
+				model.addAttribute("citas", citas);
+	            model.addAttribute("doctores", doctores);
+	            model.addAttribute("horarios", horarios);
+				return "homeEmpleado";
+			} else {
+				
+				if (paciente.getRolPaciente().equals("ROLE_ADMIN")) {
+		            long countAdmins = pacientes.stream()
+		                                        .filter(p -> "ROLE_ADMIN".equals(p.getRolPaciente()))
+		                                        .count();
+	
+		            if (countAdmins <= 1) {
+		            	model.addAttribute("noSePuedeEliminar", "No se puede eliminar el único admin restante");
+		            	model.addAttribute("pacientes", pacientes);
+						model.addAttribute("citas", citas);
+			            model.addAttribute("doctores", doctores);
+			            model.addAttribute("horarios", horarios);
+		                return "homeEmpleado";
+		            }
+		        }
+				if (paciente.getCitasDePaciente().size() > 0) {
+					model.addAttribute("elUsuarioTieneCitas", "No se puede eliminar un usuario con citas");
+					model.addAttribute("pacientes", pacientes);
+					model.addAttribute("citas", citas);
+		            model.addAttribute("doctores", doctores);
+		            model.addAttribute("horarios", horarios);
+					return "homeEmpleado";
+				}
+				pacienteServicio.eliminar(id);
+		        model.addAttribute("eliminacionCorrecta", "El usuario se ha eliminado correctamente");
+		        model.addAttribute("pacientes", pacientes);
+				model.addAttribute("citas", citas);
+	            model.addAttribute("doctores", doctores);
+	            model.addAttribute("horarios", horarios);
+		        return "homeEmpleado";
+			}       
+    	} catch (Exception e) {
+			model.addAttribute("Error", "Ocurrió un error al eliminar el usuario");
+			return "redirect:/privada/Administracion";
+		}
     }
 }

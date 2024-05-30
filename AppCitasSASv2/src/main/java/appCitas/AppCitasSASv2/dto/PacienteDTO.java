@@ -1,6 +1,7 @@
 package appCitas.AppCitasSASv2.dto;
 
 import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,8 +25,9 @@ public class PacienteDTO {
 	private String token;
 	private Calendar expiracionToken;
 	private boolean cuentaConfirmada;
-	private List<Informes> informesDePaciente;
-	private List<Citas> citasDePaciente;
+	private List<Informes> informesDePaciente = new ArrayList<>();
+	private List<Citas> citasDePaciente = new ArrayList<>();
+	private String mensajeError = "aaaaaa";
 	private String password;
 	private String password2;
 
@@ -203,9 +205,18 @@ public class PacienteDTO {
 	}
 	
 	
+	public String getMensajeError() {
+		return mensajeError;
+	}
+
+
+	public void setMensajeError(String mensajeError) {
+		this.mensajeError = mensajeError;
+	}
+	
+	
 	
 	//CONSTRUCTORES
-	
 
 
 	public PacienteDTO() {
@@ -293,9 +304,11 @@ public class PacienteDTO {
 	public String toString() {
 		return "PacienteDTO [idPaciente=" + idPaciente + ", nombreCompletoPaciente=" + nombreCompletoPaciente
 				+ ", dniPaciente=" + dniPaciente + ", tlfPaciente=" + tlfPaciente + ", emailPaciente=" + emailPaciente
-				+ ", contrasenaPaciente=" + contrasenaPaciente + ", generoPaciente=" + generoPaciente + ", direccionPaciente="
-				+  ", profilePicture=" + profilePicture + direccionPaciente  + ", rolPaciente=" + rolPaciente + ", token=" + token + ", expiracionToken="
-				+ expiracionToken + ", cuentaConfirmada=" + cuentaConfirmada + ", informesDePaciente=" + informesDePaciente + ", citasDePaciente="
-				+ citasDePaciente + ", password=" + password + ", password2=" + password2 + "]";
+				+ ", contrasenaPaciente=" + contrasenaPaciente + ", generoPaciente=" + generoPaciente
+				+ ", direccionPaciente=" + direccionPaciente + ", profilePicture=" + profilePicture + ", rolPaciente="
+				+ rolPaciente + ", token=" + token + ", expiracionToken=" + expiracionToken + ", cuentaConfirmada="
+				+ cuentaConfirmada + ", informesDePaciente=" + informesDePaciente + ", citasDePaciente="
+				+ citasDePaciente + ", mensajeError=" + mensajeError + ", password=" + password + ", password2="
+				+ password2 + "]";
 	}
 }
