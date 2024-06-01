@@ -24,18 +24,12 @@
                 <a style="color: white; margin-top: 5px;" >AppCitasSAS</a>
             </div>
 			<ul class="nav-links" style="margin-top: 15px;">
-				<li><a style="color: white;" th:href="@{/privada/Administracion}">Volver</a></li>
-				<li>
-					<form th:action="@{/auth/logout}" method="post" id="logoutForm">
-						<button type="button" class=""
-							onclick="confirmarLogout()">Salir</button>
-					</form>
-				</li>				
+				<li><a style="color: white;" th:href="@{/privada/Administracion}">Volver</a></li>			
 			</ul>
 		</div>
 	</nav>
 	<div class="container py-4">
-      <form
+		<form
         class="custom-form cardPrincipal"
         th:action="@{/privada/procesar-editarTurno}"
         enctype="multipart/form-data"
@@ -43,71 +37,66 @@
         th:object="${consultaTurnoDTO}"
       >
         <h2 class="text-center mb-5">
-          <i class="bi bi-person-fill-gear" style="color: #1f3c85">Editar consulta</i>
+          <i class="bi bi-person-fill-gear" style="color: #1f3c85">Editar Turno</i>
         </h2>
         <input type="hidden" th:field="*{idConsultaTurno}" />
         <div class="mb-3">
           <label for="numConsulta" class="form-label textoPrincipal">Numero Consulta</label>
           <input
             th:field="*{numConsulta}"
-            type="number"
+            type="text"
             id="numConsulta"
             name="numConsulta"
             class="form-control"
-            required
+            readonly
           />
         </div>
         <div class="mb-3">
-          <label for="tramoHoraTurnoInicio" class="form-label textoPrincipal">Hora Inicio</label>
+          <label for="nombreConsulta" class="form-label textoPrincipal">Nombre Consulta</label>
           <input
-            th:field="*{tramoHoraTurnoInicio}"
-            type="time"
-            id="tramoHoraTurnoInicio"
-            name="tramoHoraTurnoInicio"
+            th:field="*{nombreConsulta}"
+            type="text"
+            id="nombreConsulta"
+            name="nombreConsulta"
             class="form-control"
-            required
+            readonly
           />
         </div>
         <div class="mb-3">
-          <label for="tramoHoraTurnoFin" class="form-label textoPrincipal">Hora Fin</label>
-          <input
-            th:field="*{tramoHoraTurnoFin}"
-            type="time"
-            id="tramoHoraTurnoFin"
-            name="tramoHoraTurnoFin"
-            class="form-control"
-            required
-          />
-        </div>
-          <button type="submit" class="btn btn-primary mt-5">
-            <i class="bi bi-person-fill-gear fs-5"> Guardar cambios</i>
-          </button>
-          <a th:href="@{/privada/Administracion}">Volver</a>
+		    <label class="form-label textoPrincipal">Horario Turno</label>
+		    <div class="d-flex">	
+		        <input
+		            th:field="*{horario.tramoHorarioInicio}"
+		            type="text"
+		            id="tramoHorarioInicio"
+		            name="tramoHorarioInicio"
+		            class="form-control me-2"
+		            readonly
+		        />
+		        <span class="mx-2">-</span>
+		        <input		
+		            th:field="*{horario.tramoHorarioFin}"
+		            type="text"
+		            id="tramoHorarioFin"
+		            name="tramoHorarioFin"
+		            class="form-control"
+		            readonly
+		        />
+		    </div>
+		</div>
+        <div class="mb-3">
+			<label for="doctor.nombreCompletoDoctor" class="form-label textoPrincipal">Nombre Doctor</label> <br>
+			  <select id="doctor" name="doctor" class="input" required>
+		        <option value="" disabled selected>Seleccione un Doctor</option>
+		        <option th:each="doctor : ${doctores}" th:value="${doctor.idDoctor}" th:text="${doctor.nombreCompletoDoctor}"></option>
+		    </select>
+		</div>
+		
+		
+        <button type="submit" class="btn btn-primary mt-5">
+          <i class="bi bi-person-fill-gear fs-5"> Guardar cambios</i>
+        </button>
       </form>
 	</div>
-      
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var horaInicioInput = document.getElementById('tramoHoraTurnoInicio');
-        var horaFinInput = document.getElementById('tramoHoraTurnoFin');
-
-        function ajustarHora(input) {
-            var partesHora = input.value.split(":");
-            var horas = partesHora[0];
-
-            // Establecer minutos y segundos a 0
-            input.value = horas + ":00:00";
-        }
-
-        horaInicioInput.addEventListener('input', function() {
-            ajustarHora(horaInicioInput);
-        });
-
-        horaFinInput.addEventListener('input', function() {
-            ajustarHora(horaFinInput);
-        });
-    });
-</script>
-
 </body>
 </html>

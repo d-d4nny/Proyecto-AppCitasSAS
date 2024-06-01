@@ -85,10 +85,22 @@ public class DoctorControlador {
     @GetMapping("/privada/editar-doctor/{id}")
     public String mostrarFormularioEdicionDoctor(@PathVariable Long id, Model model, HttpServletRequest request) {
         try {
+        	List<CitasDTO> citas = citasServicio.buscarTodos();
+            List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
+            List<HorariosDTO> horarios = horariosServicio.buscarTodos();
+	        List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
 
             Doctores doctor = doctoresServicio.buscarPorId(id);
 
             if (doctor == null) {
+                return "homeEmpleado";
+            }
+            if (id.equals(1L)) {
+            	model.addAttribute("errorEditarDoctorTest", "No se puede eliminar la cuenta de prueba.");
+                model.addAttribute("pacientes", pacientes);
+                model.addAttribute("citas", citas);
+                model.addAttribute("doctores", doctores);
+                model.addAttribute("horarios", horarios);
                 return "homeEmpleado";
             }
             model.addAttribute("doctoresDTO", doctor);
@@ -146,6 +158,16 @@ public class DoctorControlador {
 				model.addAttribute("citas", citas);
 	            model.addAttribute("doctores", doctores);
 	            model.addAttribute("horarios", horarios);
+                return "homeEmpleado";
+            }
+            
+            // Verificar si el ID del doctor es igual a 1 (cuenta de prueba)
+            if (id.equals(1L)) {
+                model.addAttribute("errorEliminarDoctorTest", "No se puede eliminar la cuenta de prueba.");
+                model.addAttribute("pacientes", pacientes);
+                model.addAttribute("citas", citas);
+                model.addAttribute("doctores", doctores);
+                model.addAttribute("horarios", horarios);
                 return "homeEmpleado";
             }
             

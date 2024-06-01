@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
 import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.repositorios.ConsultaTurnoRepositorio;
+import appCitas.AppCitasSASv2.repositorios.DoctorRepositorio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoToDao;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoToDto;
@@ -24,6 +25,9 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
 
     @Autowired
     private ConsultaTurnoRepositorio repositorio;
+    
+    @Autowired
+    private DoctorRepositorio DocRepositorio;
 
     /**
      * Registra una nueva ConsultaTurno.
@@ -54,8 +58,7 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
         try {
             ConsultaTurno consultaTurnoActual = repositorio.findById(consultaTurnoModificado.getIdConsultaTurno()).orElse(null);
 
-            consultaTurnoActual.setNumConsulta(consultaTurnoModificado.getNumConsulta());
-            consultaTurnoActual.setNombreConsulta(consultaTurnoModificado.getNombreConsulta());
+            consultaTurnoActual.setDoctor(consultaTurnoModificado.getDoctor());
 
             repositorio.save(consultaTurnoActual);
         } catch (PersistenceException pe) {
@@ -97,5 +100,17 @@ public class ImplConsultaTurnoServicio implements IntfConsultaTurnoServicio {
     @Override
     public List<ConsultaTurnoDTO> buscarTodos() {
         return toDto.listConsultaTurnoToDto(repositorio.findAll());
+    }
+    
+    @Override
+    public void resetearDoctor() {
+        // Busca todas las instancias de ConsultaTurno
+        List<ConsultaTurno> turnos = repositorio.findAll();
+
+        // Establece el doctor con id 0 como predefinido en todas las instancias
+        for (ConsultaTurno turno : turnos) {
+            turno.setDoctor(DocRepositorio.findById(1L).orElse(null));
+            repositorio.save(turno);
+        }
     }
 }

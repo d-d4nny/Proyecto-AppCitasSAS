@@ -51,8 +51,40 @@
 	        grid-area: 3 / 3 / 5 / 5; 
 	        margin-top: 30px;
 	    }
+	    
+	    
+	    /*Estilos Calendario */
 	    .div5{
-	    }
+	     	width: 90%;
+            margin: auto;
+            padding: 20px;
+	    }	    
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1px;
+            background-color: #ccc;
+        }
+        .calendar div {
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .header {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        .turno {
+            display: none;
+        }
+	    
+	    
+	    /*Estilos boton SALIR */
+	    
 	    .bi {
 	        font-size: 12.5px;
 	    }
@@ -249,11 +281,7 @@
 		<div class="div4"> 
 			<div class="card bg-light">
 				<div class="card-header d-flex justify-content-between align-items-center">
-					<h3>Administracion Horarios</h3>
-					
-					<button class="btn btn-success" onclick="AsignarHorario(event)">
-				        <i class="bi bi-plus-square"> Asignar Horario</i>
-				    </button>
+					<h3>Administracion Horarios</h3>				
 				</div>
 				<div class="card-body" style="max-width: 925px; min-width: 620px; min-height: 300px; max-height: 450px;overflow: auto;">					
 					
@@ -281,25 +309,50 @@
 	</div>
 	<br>
 	<br>
-	<div>
-	<h1>
-		Tabla para ConsultaTurnos
-	</h1>
+	<div class="div5"> 
+		<div class="card bg-light">
+			<div class="card-header d-flex justify-content-between align-items-center">
+				<h3>Tabla De Turnos</h3>			
+			</div>
+			<div class="card-body" style="overflow: auto;">					
+				<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(consultaTurnos)}">No hay Turnos registrados</h5>		            
+				<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(consultaTurnos)}">
+					<thead class="thead-inverse">
+						<tr>
+							<th class="table-dark" >Id</th>
+							<th class="table-dark" >Numero Consulta</th>
+							<th class="table-dark" >Nombre Consulta</th>							
+							<th class="table-dark" >Doctor</th>	
+							<th class="table-dark" >Dia Semana</th>
+							<th class="table-dark" >Hora Inicio</th>	
+							<th class="table-dark" >Hora Fin</th>
+							<th class="table-dark" sec:authorize="hasRole('ROLE_ADMIN')"></th>		                    					
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="consultaTurno : ${consultaTurnos}">
+							<td th:text="${consultaTurno.idConsultaTurno}"></td>
+							<td th:text="${consultaTurno.numConsulta}"></td>
+							<td th:text="${consultaTurno.nombreConsulta}"></td>							
+							<td th:text="${consultaTurno.doctor.nombreCompletoDoctor}"></td>
+							<td th:text="${T(appCitas.AppCitasSASv2.utils.TraducirDiaSemana).getDiaSemanaEnEspanol(consultaTurno.horario.diaSemana)}"></td>
+							<td th:text="${#dates.format(consultaTurno.horario.tramoHorarioInicio, 'HH:mm:ss')}"></td>
+							<td th:text="${#dates.format(consultaTurno.horario.tramoHorarioFin, 'HH:mm:ss')}"></td>
+							<td style="text-align: center;" sec:authorize="hasRole('ROLE_ADMIN')">
+	                            <button style="margin-bottom: 5px;" class="btn btn-danger" th:attr="data-id=${consultaTurno.idConsultaTurno}" onclick="AsignarDoctor(event)">
+	                                <i class="bi bi-pencil-square">Asignar Doctor</i>
+	                            </button>
+	                        </td>								
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
+	<br>
+	<br>
 	<script>
-		function filtrarCitas() {
-	        var estadoSeleccionado = document.getElementById("estadoCita").value;
-	        var filas = document.querySelectorAll("#tablaCitas tbody tr");
-	
-	        filas.forEach(function(fila) {
-	            var estado = fila.querySelector(".estado").innerText;
-	            if (estadoSeleccionado === "Todos" || estado === estadoSeleccionado) {
-	                fila.style.display = "";
-	            } else {
-	                fila.style.display = "none";
-	            }
-	        });
-	    }
+		
 		function filtrarCitas() {
 	        const estadoSeleccionado = document.getElementById("estadoCita").value;
 	        const filas = document.querySelectorAll("#tablaCitas tbody tr");
@@ -337,17 +390,11 @@
 		    window.location.href = 'http://localhost:8080/privada/editar-paciente/' + idPaciente;
 		}
 		
-		
-		function CrearTurno(event) {
-		    window.location.href = 'http://localhost:8080/privada/crear-turno';
-		}
-		
-		function EditarTurno(event) {
+		function AsignarDoctor(event) {
 		    const idTurno = event.currentTarget.getAttribute("data-id");
 		    window.location.href = 'http://localhost:8080/privada/editar-turno/' + idTurno;
 		}
-		
-		
+			
 		function CrearDoctor(event) {
 		    window.location.href = 'http://localhost:8080/privada/crear-doctor';
 		}
@@ -491,6 +538,12 @@
 	</script>
 	<script th:if="${not #strings.isEmpty(elDoctorTieneCitas)}">
 	    mostrarNotificacion("¡No se puede eliminar al doctor!","Dicho doctor tinene Citas registradas.", 'info');
+	</script>
+	<script th:if="${not #strings.isEmpty(errorEliminarDoctorTest)}">
+	    mostrarNotificacion("¡No se puede eliminar al doctor!","Esta cuenta de doctor es una cuenta predeterminida.", 'info');
+	</script>
+	<script th:if="${not #strings.isEmpty(errorEditarDoctorTest)}">
+	    mostrarNotificacion("¡No se puede editar al doctor!","Esta cuenta de doctor es una cuenta predeterminida.", 'info');
 	</script>
 </body>
 

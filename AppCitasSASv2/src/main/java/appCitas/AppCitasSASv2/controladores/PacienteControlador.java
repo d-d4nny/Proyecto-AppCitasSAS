@@ -14,13 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import appCitas.AppCitasSASv2.dao.Informes;
 import appCitas.AppCitasSASv2.dao.Paciente;
 import appCitas.AppCitasSASv2.dto.CitasDTO;
+import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
 import appCitas.AppCitasSASv2.dto.HorariosDTO;
 import appCitas.AppCitasSASv2.dto.InformeDTO;
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfCitasServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfInformeServicio;
@@ -44,6 +47,10 @@ public class PacienteControlador {
 
     @Autowired
     private IntfPacienteServicio pacienteServicio;
+    
+    @Autowired
+    private IntfConsultaTurnoServicio consultaTurnoServicio;
+    
 
     /**
      * Muestra la página de registro para nuevos pacientes.
@@ -72,37 +79,41 @@ public class PacienteControlador {
      */
     @PostMapping("/auth/registrar")
     public String registrarPost(@ModelAttribute PacienteDTO pacienteDTO, Model model, Authentication authentication) {
-
-        PacienteDTO nuevoPaciente = pacienteServicio.registrar(pacienteDTO);
-
-        String rolDelUsuario = "";
-
-        if (authentication != null && authentication.isAuthenticated()) {
-            rolDelUsuario = authentication.getAuthorities().iterator().next().getAuthority();
-        }
-
-        if (nuevoPaciente == null) {
-            model.addAttribute("pacienteRegistradoPeroNoConfirmado",
-                    "Ya existe un paciente con ese email sin confirmar");
-            return "registro";
-        } else if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null
-                && !rolDelUsuario.equals("ROLE_USER")) {
-            model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo paciente OK");
-            return "login";
-        } else if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null
-                && !rolDelUsuario.equals("ROLE_ADMIN")) {
-            model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo usuario admin OK");
-            return "login";
-        } else {
-            // Se verifica si el DNI ya existe para mostrar error personalizado en la vista
-            if (pacienteDTO.getDniPaciente() == null) {
-                model.addAttribute("mensajeErrorDni", "Ya existe un usuario con ese DNI");
-                return "registro";
-            } else {
-                model.addAttribute("mensajeErrorMail", "Ya existe un usuario con ese email");
-                return "registro";
-            }
-        }
+    	try {
+	        PacienteDTO nuevoPaciente = pacienteServicio.registrar(pacienteDTO);
+	
+	        String rolDelUsuario = "";
+	
+	        if (authentication != null && authentication.isAuthenticated()) {
+	            rolDelUsuario = authentication.getAuthorities().iterator().next().getAuthority();
+	        }
+	
+	        if (nuevoPaciente == null) {
+	            model.addAttribute("pacienteRegistradoPeroNoConfirmado",
+	                    "Ya existe un paciente con ese email sin confirmar");
+	            return "registro";
+	        } else if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null
+	                && !rolDelUsuario.equals("ROLE_USER")) {
+	            model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo paciente OK");
+	            return "login";
+	        } else if (nuevoPaciente != null && nuevoPaciente.getDniPaciente() != null
+	                && !rolDelUsuario.equals("ROLE_ADMIN")) {
+	            model.addAttribute("mensajeRegistroExitoso", "Registro del nuevo usuario admin OK");
+	            return "login";
+	        } else {
+	            // Se verifica si el DNI ya existe para mostrar error personalizado en la vista
+	            if (pacienteDTO.getDniPaciente() == null) {
+	                model.addAttribute("mensajeErrorDni", "Ya existe un usuario con ese DNI");
+	                return "registro";
+	            } else {
+	                model.addAttribute("mensajeErrorMail", "Ya existe un usuario con ese email");
+	                return "registro";
+	            }
+	        }
+    	} catch (Exception e) {
+			model.addAttribute("error", "Error al procesar la solicitud. Por favor, inténtelo de nuevo.");
+			return "registro";
+		}
     }
 
     /**
@@ -140,10 +151,12 @@ public class PacienteControlador {
         List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
         List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
         List<HorariosDTO> horarios = horariosServicio.buscarTodos();
+        List<ConsultaTurnoDTO> consultaTurno = consultaTurnoServicio.buscarTodos();
         model.addAttribute("citas", citas);
         model.addAttribute("doctores", doctores);
         model.addAttribute("pacientes", pacientes);
         model.addAttribute("horarios", horarios);
+        model.addAttribute("consultaTurnos", consultaTurno);
 
         return "homeEmpleado";
     }
@@ -170,6 +183,15 @@ public class PacienteControlador {
             return "homePaciente";
         }
     }
+    
+    
+    @GetMapping("/privada/generarPdf/{id}")
+    public String generarPdf(@PathVariable Long id, Model model) {
+    	Informes informe = informeServicio.buscarPorId(id);
+        model.addAttribute("informe", informe);
+        return "informePacientePdf"; // Nombre de la vista
+    }
+    
 
     /**
      * Procesa el formulario de edición de datos del paciente.
@@ -240,6 +262,7 @@ public class PacienteControlador {
     		List<CitasDTO> citas = citasServicio.buscarTodos();
             List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
             List<HorariosDTO> horarios = horariosServicio.buscarTodos();
+            List<ConsultaTurnoDTO> consultaTurno = consultaTurnoServicio.buscarTodos();
     
 	    	PacienteDTO paciente = pacienteServicio.buscarPorId(id);
 	        List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();
@@ -253,6 +276,7 @@ public class PacienteControlador {
 				model.addAttribute("citas", citas);
 	            model.addAttribute("doctores", doctores);
 	            model.addAttribute("horarios", horarios);
+	            model.addAttribute("consultaTurnos", consultaTurno);
 				return "homeEmpleado";
 			} else if (emailUsuarioActual.equals(paciente.getEmailPaciente())) {
 				model.addAttribute("noTePuedesEliminar", "No puedes eliminarte a ti mismo como administrador");
@@ -260,6 +284,7 @@ public class PacienteControlador {
 				model.addAttribute("citas", citas);
 	            model.addAttribute("doctores", doctores);
 	            model.addAttribute("horarios", horarios);
+	            model.addAttribute("consultaTurnos", consultaTurno);
 				return "homeEmpleado";
 			} else {
 				
@@ -274,6 +299,7 @@ public class PacienteControlador {
 						model.addAttribute("citas", citas);
 			            model.addAttribute("doctores", doctores);
 			            model.addAttribute("horarios", horarios);
+			            model.addAttribute("consultaTurnos", consultaTurno);
 		                return "homeEmpleado";
 		            }
 		        }
@@ -283,6 +309,7 @@ public class PacienteControlador {
 					model.addAttribute("citas", citas);
 		            model.addAttribute("doctores", doctores);
 		            model.addAttribute("horarios", horarios);
+		            model.addAttribute("consultaTurnos", consultaTurno);
 					return "homeEmpleado";
 				}
 				if (paciente.getRolPaciente().equals("ROLE_USER")) {
@@ -291,6 +318,7 @@ public class PacienteControlador {
 					model.addAttribute("citas", citas);
 		            model.addAttribute("doctores", doctores);
 		            model.addAttribute("horarios", horarios);
+		            model.addAttribute("consultaTurnos", consultaTurno);
 					return "homeEmpleado";
 				}
 				pacienteServicio.eliminar(id);
@@ -299,6 +327,7 @@ public class PacienteControlador {
 				model.addAttribute("citas", citas);
 	            model.addAttribute("doctores", doctores);
 	            model.addAttribute("horarios", horarios);
+	            model.addAttribute("consultaTurnos", consultaTurno);
 		        return "homeEmpleado";
 			}       
     	} catch (Exception e) {

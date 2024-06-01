@@ -224,7 +224,7 @@ a:hover {
     text-decoration: none; /* Quita el subrayado cuando el rat�n est� sobre el enlace */
     color: inherit; /* Mantiene el color del texto del elemento padre cuando el rat�n est� sobre el enlace */
 }
-
+ /*
 .mensajeContrasenya {
     text-align: center;
     margin-top: -8px;
@@ -239,6 +239,7 @@ a:hover {
     margin-top: -8px;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-size: 14px;
-    font-weight: 700; /*valor maximo 700*/
+    font-weight: 700;
     color: #192255;
 }
+*/

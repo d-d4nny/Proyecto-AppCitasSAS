@@ -51,6 +51,26 @@
 			max-height: 325px;
 			
 		}
+		/*Estilos boton SALIR */
+	    
+	    .bi {
+	        font-size: 12.5px;
+	    }
+	    .botonSalir {
+		    background-color: #ff4d4d; /* Color de fondo personalizado */
+		    border-color: #ff4d4d; /* Color del borde */
+		    color: white; /* Color del texto */
+		    font-weight: bold; /* Negrita en el texto */
+		    padding: 10px 20px; /* Relleno alrededor del texto */
+		    border-radius: 5px; /* Bordes redondeados */
+		    transition: background-color 0.3s ease, transform 0.3s ease; /* Efecto de transición */
+		}
+		
+		.botonSalir:hover {
+		    background-color: #e60000; /* Color de fondo al pasar el ratón */
+		    border-color: #e60000; /* Color del borde al pasar el ratón */
+		    transform: scale(1.05); /* Efecto de aumento */
+		}
 	</style>
 </head>
 
@@ -62,11 +82,11 @@
                 <a style="color: white; margin-top: 5px;" >AppCitasSAS</a>
             </div>
 			<ul class="nav-links" style="margin-top: 15px;">
-				<li><a style="color: white;" th:href="@{/privada/crearCita}">Nueva Cita</a></li>
-				<li><a style="color: white;" th:href="@{/privada/editar-paciente/} + ${paciente.idPaciente}">Modificar Datos Personales</a></li>
+				<li style="margin-top: 10px;"><a style="color: white;" th:href="@{/privada/crearCita}">Nueva Cita</a></li>
+				<li style="margin-top: 10px;"><a style="color: white;" th:href="@{/privada/editar-paciente/} + ${paciente.idPaciente}">Modificar Datos Personales</a></li>
 				<li>
 					<form th:action="@{/auth/logout}" method="post" id="logoutForm">
-						<button type="button" class=""
+						<button type="button" class="btn btn-danger botonSalir" 
 							onclick="confirmarLogout()">Salir</button>
 					</form>
 				</li>				
@@ -144,10 +164,13 @@
 			                            <div class="informe-descripcion" style="display: none;">
 											<br>
 			                                <p th:text="'Descripcion del Informe: ' + ${informe.descInforme}"></p>
+			                                <div>
+				                            	<button class="btn btn-primary verInfo" th:attr="data-id=${informe.idInforme}" onclick="descargarPdf(event)">Descargar PDF</button>
+				                            </div>    
 			                            </div>
 			                        </td>
 			                        <td style="text-align: center;">
-			                            <button class="btn btn-primary verInfo" onclick="toggleDescripcion(this)">Ver Informe</button>
+			                            <button class="btn btn-primary verInfo" onclick="toggleDescripcion(this)">Ver Informe</button>                    
 			                        </td>
 			                    </tr>
 			                </tbody>
@@ -215,6 +238,11 @@
 		        }
 		    });
 		}
+	    
+	    function descargarPdf(event) {
+	    	const idInforme = event.currentTarget.getAttribute("data-id");
+	    	window.location.href = 'http://localhost:8080/privada/generarPdf/' + idInforme + '?format=pdf';
+	    }
 	</script>
 </body>
 

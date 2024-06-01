@@ -44,4 +44,9 @@ public interface IntfConsultaTurnoServicio {
      * @return Objeto ConsultaTurno eliminado, o null si no se encuentra.
      */
     ConsultaTurno eliminar(long id);
+    
+    /**
+     * Resetea el doctor asignado a todas las instancias de ConsultaTurno.
+     */
+    void resetearDoctor();
 }

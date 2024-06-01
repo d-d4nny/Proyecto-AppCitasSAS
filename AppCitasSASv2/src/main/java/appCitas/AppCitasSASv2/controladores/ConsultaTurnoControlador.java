@@ -1,5 +1,7 @@
 package appCitas.AppCitasSASv2.controladores;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
+import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
+import appCitas.AppCitasSASv2.dto.DoctoresDTO;
+import appCitas.AppCitasSASv2.dto.HorariosDTO;
+import appCitas.AppCitasSASv2.dto.PacienteDTO;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfCitasServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfInformeServicio;
+import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -18,6 +29,9 @@ public class ConsultaTurnoControlador {
 
     @Autowired
     private IntfConsultaTurnoServicio consultaTurnoServicio;
+    
+    @Autowired
+    private IntfDoctorServicio doctoresServicio;
 
     /**
      * Muestra el formulario de edición de un turno específico.
@@ -31,10 +45,12 @@ public class ConsultaTurnoControlador {
     public String mostrarFormularioEdicionTurno(@PathVariable Long id, Model model, HttpServletRequest request) {
         try {
             ConsultaTurno consultaTurno = consultaTurnoServicio.buscarPorId(id);
+            List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
             if (consultaTurno == null) {
                 return "homeEmpleado";
             }
             model.addAttribute("consultaTurnoDTO", consultaTurno);
+            model.addAttribute("doctores", doctores);
             return "editarTurno";
 
         } catch (Exception e) {
@@ -56,7 +72,7 @@ public class ConsultaTurnoControlador {
         try {
             consultaTurnoServicio.actualizarConsultaTurno(consultaTurnoDTO);
             model.addAttribute("edicionCorrecta", "El turno se ha editado correctamente");
-            model.addAttribute("turnos", consultaTurnoServicio.buscarTodos());
+            model.addAttribute("consultaTurnos", consultaTurnoServicio.buscarTodos());
             return "redirect:/privada/Administracion";
         } catch (Exception e) {
             model.addAttribute("Error", "Ocurrió un error al editar el turno" + e);

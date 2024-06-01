@@ -64,17 +64,59 @@
 			       class="custom-checkbox" 
 			    />
 			  </div>
+			  	<div class="mensajeContrasenya" id="mensajeContrasenya"></div>
 			<button type="submit" id="btnRegistro" class="form-btn">Registrarse</button>
 			<div class="mensajeContrasenya" id="mensajeContrasenya"></div>
 		</form>
 	</div>
+	
+	<script>
+	function revisarContraseña() {
+		const contraseña = document.getElementById('contrasenaPaciente').value;
+		const confContraseña = document.getElementById('confirmarClaveUsuario').value;
+		const mensajeContraseña = document.getElementById('mensajeContrasenya');
+		const contraseñaRegex = /^(?=.*\d).{8,}$/;
 
+		if (contraseña === "" && confContraseña === "") {
+			mensajeContraseña.innerHTML = '<span class="badge bg-danger">No puede dejar los campos contraseñas vacíos</span>';
+			mensajeContraseña.style.color = 'red';
+			document.getElementById("btnRegistro").disabled = true;
+			btnRegistro.style.backgroundColor = "#959595";
+		} else if (contraseña === confContraseña) {
+			if (contraseñaRegex.test(contraseña)) {
+				mensajeContraseña.innerHTML = '<span class="badge bg-success">Contraseña válida</span>';
+				mensajeContraseña.style.color = 'green';
+				document.getElementById("btnRegistro").disabled = false;
+				btnRegistro.style.backgroundColor = "#5993d3";
+			} else {
+				mensajeContraseña.innerHTML = '<span class="badge bg-danger">La contraseña debe tener al menos 8 caracteres con 1 número</span>';
+				mensajeContraseña.style.color = 'red';
+				document.getElementById("btnRegistro").disabled = true;
+				btnRegistro.style.backgroundColor = "#959595";
+			}
+		} else {
+			mensajeContraseña.innerHTML = '<span class="badge bg-danger">Las contraseñas introducidas no son iguales</span>';
+			mensajeContraseña.style.color = 'red';
+			document.getElementById("btnRegistro").disabled = true;
+			btnRegistro.style.backgroundColor = "#959595";
+		}
+	}
+	</script>
 	<script th:if="${not #strings.isEmpty(mensajeErrorDni)}">
 	    mostrarNotificacion("¡Error!", "Ya se encuentra registrado un usuario con ese DNI", 'error');
 	</script>
 	<script th:if="${not #strings.isEmpty(mensajeErrorMail)}">
 	    mostrarNotificacion("¡Error!", "El email ya se encuentra registrado en el sistema", 'error');
 	</script>
+	<script th:if="${not #strings.isEmpty(emailYaRegistrado)}">
+	    	mostrarNotificacion("¡Error al crear cuenta!", "El email introducido ya se encuentra registrado en el sistema", 'error');
+	</script>
+	<script th:if="${not #strings.isEmpty(error)}">
+	  		mostrarNotificacion("¡Error!","Ocurrio un error no esperado, intentelo de nuevo", 'error');
+	</script>
+	<script th:if="${not #strings.isEmpty(pacienteRegistradoPeroNoConfirmado)}">
+	    	mostrarNotificacion("¡Debe confirmar su cuenta!", "Tiene un email de confirmación pendiente en la bandeja de entrada", 'info');
+	</script>  
 </body>
 
 </html>
