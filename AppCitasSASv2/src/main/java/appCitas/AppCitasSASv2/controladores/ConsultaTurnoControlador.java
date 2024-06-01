@@ -11,17 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
-import appCitas.AppCitasSASv2.dto.CitasDTO;
 import appCitas.AppCitasSASv2.dto.ConsultaTurnoDTO;
 import appCitas.AppCitasSASv2.dto.DoctoresDTO;
-import appCitas.AppCitasSASv2.dto.HorariosDTO;
-import appCitas.AppCitasSASv2.dto.PacienteDTO;
-import appCitas.AppCitasSASv2.servicios.Interfaces.IntfCitasServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfConsultaTurnoServicio;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfDoctorServicio;
-import appCitas.AppCitasSASv2.servicios.Interfaces.IntfHorarioServicio;
-import appCitas.AppCitasSASv2.servicios.Interfaces.IntfInformeServicio;
-import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller

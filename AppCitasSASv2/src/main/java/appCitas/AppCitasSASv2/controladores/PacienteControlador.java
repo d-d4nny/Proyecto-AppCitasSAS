@@ -3,7 +3,9 @@ package appCitas.AppCitasSASv2.controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -124,7 +126,13 @@ public class PacienteControlador {
      * @return La vista de la página principal del paciente.
      */
     @GetMapping("/privada/Pacientes")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public String homeUser(Model model, Authentication authentication) {
+    	
+    	if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+            return "redirect:/error";
+        }
+    	
         List<CitasDTO> citas = citasServicio.buscarTodos();
         List<InformeDTO> informes = informeServicio.buscarTodos();
         Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
@@ -146,7 +154,13 @@ public class PacienteControlador {
      * @return La vista de la página principal del administrador.
      */
     @GetMapping("/privada/Administracion")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String homeEmpleado(Model model, Authentication authentication) {
+    	
+    	if (!authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+            return "redirect:/error";
+        }
+    	
         List<CitasDTO> citas = citasServicio.buscarTodos();
         List<DoctoresDTO> doctores = doctoresServicio.buscarTodos();
         List<PacienteDTO> pacientes = pacienteServicio.buscarTodos();

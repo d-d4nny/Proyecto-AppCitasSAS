@@ -61,7 +61,7 @@ function confirmarEliminar(event) {
     const idUsuario = event.currentTarget.getAttribute("data-id");
     confirmar().then(function (confirmado) {
         if (confirmado) {
-            window.location.href = 'http://localhost:8080/privada/eliminar/' + idUsuario;
+            window.location.href = 'https://appcitassas.glezmanz.eu/privada/eliminar/' + idUsuario;
         }
     });
 }
@@ -70,7 +70,7 @@ function confirmarEliminarCita(event) {
     const idCita = event.currentTarget.getAttribute("data-id");
     confirmar().then(function (confirmado) {
         if (confirmado) {
-            window.location.href = 'http://localhost:8080/privada/eliminarCita/' + idCita;
+            window.location.href = 'https://appcitassas.glezmanz.eu/privada/eliminarCita/' + idCita;
         }
     });
 }

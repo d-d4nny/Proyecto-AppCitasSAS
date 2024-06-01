@@ -2,11 +2,9 @@ package appCitas.AppCitasSASv2.dto;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Calendar;
 import java.util.Objects;
 
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
-import appCitas.AppCitasSASv2.dao.Doctores;
 import appCitas.AppCitasSASv2.dao.Paciente;
 
 public class CitasDTO {

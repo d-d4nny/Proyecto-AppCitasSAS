@@ -2,71 +2,91 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Crear Nueva Cita</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css"
-		th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-	<link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}">
-	<link rel="stylesheet" href="../static/css/menu.css" th:href="@{/css/menu.css}">
-	<link rel="icon" href="../static/css/img/icono.png" th:href="@{/css/img/icono.png}">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script th:src="@{/script/script.js}"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}">
+<link rel="stylesheet" href="../static/css/menu.css" th:href="@{/css/menu.css}">
+<link rel="icon" href="../static/css/img/icono.png" th:href="@{/css/img/icono.png}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script th:src="@{/script/script.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
 <nav>
-		<div class="menu m-2">
-            <div class="logo">
-                <i class="nav-link"><img th:src="@{/css/img/icono.png}" alt="imagen logo"></i>
-                <a style="color: white; margin-top: 5px;" >AppCitasSAS</a>
-            </div>
-			<ul class="nav-links" style="margin-top: 15px;">
-				<li sec:authorize="hasRole('ROLE_USER')" ><a style="color: white;" th:href="@{/privada/Pacientes}">Volver</a></li>				
-			</ul>
-		</div>
-	</nav>
-	
-	<div class="container py-4">
-		<div class="contenedor form-registro">
-			<p class="titulo">Crear Nueva Citar</p>
-			<form class="form" th:action="@{/privada/crearCita}" enctype="multipart/form-data" method="post" th:object="${citasDTO}">
-				
-				<select id="consultaTurnoNombre" name="consultaTurnoNombre" class="input" required>
-			        <option value="" disabled selected>Seleccione una Consulta</option>
-			        <option th:each="consultaTurno : ${consultaTurno}" th:value="${consultaTurno.idConsultaTurno}" th:text="${consultaTurno.nombreConsulta}"></option>
-		    	</select>
-				
-				<input type="date" id="fechaCita" name="fechaCita" class="input" placeholder="Fecha" 
-					required th:value="*{fechaCita}">				
-			    <input type="time" id="horaCita" name="horaCita" class="input" placeholder="Hora" 
-					required th:value="*{horaCita}" step="900">	
-				<input type="text" id="motivoCita" name="motivoCita" class="input" placeholder="Motivo" 
-		        	required th:value="*{motivoCita}">			    			     
-				<button type="submit" id="btnRegistro" class="form-btn">Registrar</button>
-			</form>
-		</div>
-	</div>
-	
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-		    var horaCitaInput = document.getElementById('horaCita');
-		
-		    horaCitaInput.addEventListener('input', function() {
-		        // Formatear el valor del input a "HH:00:00"
-		        var partesHora = horaCitaInput.value.split(":");
-		        var horas = partesHora[0];
-		        var minutos = partesHora[1];
-		
-		        // Ajustar minutos a múltiplos de 15
-		        minutos = Math.floor(minutos / 15) * 15;
-		
-		        // Convertir minutos a dos dígitos
-		        minutos = minutos < 10 ? "0" + minutos : minutos;
-		
-		        horaCitaInput.value = horas + ":" + minutos + ":00";
-		    });
-		});
-	</script>
+    <div class="menu m-2">
+        <div class="logo">
+            <i class="nav-link"><img th:src="@{/css/img/icono.png}" alt="imagen logo"></i>
+            <a style="color: white; margin-top: 5px;">AppCitasSAS</a>
+        </div>
+        <ul class="nav-links" style="margin-top: 15px;">
+            <li sec:authorize="hasRole('ROLE_USER')"><a style="color: white;" th:href="@{/privada/Pacientes}">Volver</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container py-4">
+    <div class="contenedor form-registro">
+        <p class="titulo">Crear Nueva Cita</p>
+        <form class="form" th:action="@{/privada/crearCita}" enctype="multipart/form-data" method="post" th:object="${citasDTO}">
+            
+            <select id="consultaTurnoId" name="consultaTurno.idConsultaTurno" class="input" required>
+                <option value="" disabled selected>Seleccione una Consulta</option>
+                <option th:each="consultaTurno : ${consultaTurno}" 
+                        th:value="${consultaTurno.idConsultaTurno}" 
+                        th:text="${consultaTurno.nombreConsulta}" 
+                        th:data-inicio="${consultaTurno.horario.tramoHorarioInicio}" 
+                        th:data-fin="${consultaTurno.horario.tramoHorarioFin}" 
+                        th:data-dia-semana="${consultaTurno.horario.diaSemana}">
+                </option>
+            </select>
+            
+            <!-- Eliminamos el campo de fecha -->
+            
+            <input type="time" id="horaCita" name="horaCita" class="input" placeholder="Hora" 
+                required th:value="*{horaCita}" step="900">    
+            <input type="text" id="motivoCita" name="motivoCita" class="input" placeholder="Motivo" 
+                required th:value="*{motivoCita}">                         
+            <button type="submit" id="btnRegistro" class="form-btn">Registrar</button>
+        </form>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var consultaTurnoSelect = document.getElementById('consultaTurnoId');
+    var horaCitaInput = document.getElementById('horaCita');
+    
+    consultaTurnoSelect.addEventListener('change', function() {
+        var selectedOption = consultaTurnoSelect.options[consultaTurnoSelect.selectedIndex];
+        var horaInicio = selectedOption.getAttribute('data-inicio');
+        var horaFin = selectedOption.getAttribute('data-fin');
+        
+        var horaInicioDate = new Date('1970-01-01T' + horaInicio);
+        var horaFinDate = new Date('1970-01-01T' + horaFin);
+        
+        horaCitaInput.addEventListener('input', function() {
+            var partesHora = horaCitaInput.value.split(":");
+            var horas = partesHora[0];
+            var minutos = partesHora[1];
+            
+            minutos = Math.floor(minutos / 15) * 15;
+            minutos = minutos < 10 ? "0" + minutos : minutos;
+            
+            var horaFormateada = horas + ":" + minutos + ":00";
+            var horaFormateadaDate = new Date('1970-01-01T' + horaFormateada);
+            
+            if (horaFormateadaDate < horaInicioDate || horaFormateadaDate > horaFinDate) {
+                horaCitaInput.setCustomValidity("La hora debe estar dentro del rango " + horaInicio + " - " + horaFin);
+            } else {
+                horaCitaInput.setCustomValidity("");
+            }
+            
+            horaCitaInput.value = horaFormateada;
+        });
+    });
+});
+</script>
 </body>
 </html>

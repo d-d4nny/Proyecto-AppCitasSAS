@@ -97,48 +97,58 @@
 	<div class="parent">
 		<div class="divMain">
 			<div class="div1">
-				<div class="card bg-light">
-					<div class="card-header"><h3>Proximas Citas</h3></div>
-					<div class="card-body" style="max-width: 950px;max-height: 225px;overflow: auto;">
-		
-						<h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(citas)}">No hay citas pendientes</h5>
-						
-						<table class="table table-striped table-bordered" th:if="${not #lists.isEmpty(citas)}">
-							<thead class="thead-inverse">
-								<tr>
-									<th class="table-dark" style="width: 20%;">Fecha</th>
-									<th class="table-dark" style="width: 20%;">Hora</th>
-									<th class="table-dark" style="width: 25%;">Motivo</th>
-									<th class="table-dark" style="width: 15%;">Estado</th>
-									<th class="table-dark" style="width: 15%;" sec:authorize="hasRole('ROLE_USER')"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="cita : ${citas}" th:if="${cita.estadoCita == 'Pendiente' or cita.estadoCita == 'Completada'}">
-									<td th:text="${cita.fechaCita}"></td>
-									<td th:text="${cita.horaCita}"></td>
-									<td th:text="${cita.motivoCita}"></td>
-									<td th:text="${cita.estadoCita}"></td>
-									<td sec:authorize="hasRole('ROLE_USER')"  style="text-align: center;">
-		    							<button class="btn btn-danger" th:attr="data-id=${cita.idCita}" onclick="cancelarCita(event)">
-						                	<i class="bi bi-x-square"></i>
-						            	</button>
-									</td>
-		
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
-					<div class="card-body">
-						<h4 class="card-title" style="text-align: center;">
-							<a sec:authorize="hasRole('ROLE_USER')" th:href="@{/privada/crearCita}" class="btn btn-dark">
-								crear cita
-							</a>
-						</h4>
-					</div>
-				</div>
-			</div>
+    <div class="card bg-light">
+        <div class="card-header"><h3>Proximas Citas</h3></div>
+        <div class="card-body" style="max-width: 950px; max-height: 225px; overflow: auto;">
+            <form>
+                <div class="form-group">
+                    <label for="estadoCitaUsuario">Filtrar por estado:</label>
+                    <select id="estadoCitaUsuario" class="form-control" onchange="filtrarCitasUsuario()">
+                        <option value="Todos" selected>Todos</option>    
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Cancelada">Cancelada</option>
+                        <option value="Completada">Completada</option>
+                    </select>
+                </div>
+            </form>
+
+            <h5 class="card-title text-center text-danger" th:if="${#lists.isEmpty(citas)}">No hay citas pendientes</h5>
+            
+            <table class="table table-striped table-bordered" id="tablaCitasUsuario" th:if="${not #lists.isEmpty(citas)}">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th class="table-dark" style="width: 20%;">Fecha</th>
+                        <th class="table-dark" style="width: 20%;">Hora</th>
+                        <th class="table-dark" style="width: 25%;">Motivo</th>
+                        <th class="table-dark" style="width: 15%;">Estado</th>
+                        <th class="table-dark" style="width: 15%;" sec:authorize="hasRole('ROLE_USER')"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cita : ${citas}">
+                        <td th:text="${cita.fechaCita}"></td>
+                        <td th:text="${cita.horaCita}"></td>
+                        <td th:text="${cita.motivoCita}"></td>
+                        <td class="estado" th:text="${cita.estadoCita}"></td>
+                        <td sec:authorize="hasRole('ROLE_USER')" style="text-align: center;">
+                            <button class="btn btn-danger" th:attr="data-id=${cita.idCita}" onclick="cancelarCita(event)">
+                                <i class="bi bi-x-square"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card-body">
+            <h4 class="card-title" style="text-align: center;">
+                <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/privada/crearCita}" class="btn btn-dark">
+                    Crear Cita
+                </a>
+            </h4>
+        </div>
+    </div>
+</div>
 		
 			<div class="div2">
 			    <div class="card bg-light">
@@ -224,6 +234,34 @@
 	</div>
 
 	<script>
+	
+	function filtrarCitasUsuario() {
+	    const estadoSeleccionado = document.getElementById("estadoCitaUsuario").value;
+	    const filas = document.querySelectorAll("#tablaCitasUsuario tbody tr");
+
+	    filas.forEach(fila => {
+	        const estadoCita = fila.querySelector(".estado").innerText;
+
+	        if (estadoSeleccionado === "Todos" || estadoCita === estadoSeleccionado) {
+	            fila.style.display = ""; // Mostrar fila
+	        } else {
+	            fila.style.display = "none"; // Ocultar fila
+	        }
+
+	        const btnCancelar = fila.querySelector(".btn-danger");
+
+	        if (estadoCita !== "Pendiente") {
+	            btnCancelar.style.display = "none";
+	        } else {
+	            btnCancelar.style.display = "";
+	        }
+	    });
+	}
+
+	document.addEventListener("DOMContentLoaded", function() {
+	    filtrarCitasUsuario(); // Aplicar el filtro al cargar la página
+	});
+	
 	    function toggleDescripcion(button) {
 	        var informeItem = button.closest('tr');
 	        var descripcion = informeItem.querySelector('.informe-descripcion');
@@ -234,14 +272,14 @@
 		    const idCita = event.currentTarget.getAttribute("data-id");
 		    confirmar().then(function (confirmado) {
 		        if (confirmado) {
-		            window.location.href = 'http://localhost:8080/privada/eliminar-cita/' + idCita;
+		            window.location.href = 'https://appcitassas.glezmanz.eu/privada/eliminar-cita/' + idCita;
 		        }
 		    });
 		}
 	    
 	    function descargarPdf(event) {
 	    	const idInforme = event.currentTarget.getAttribute("data-id");
-	    	window.location.href = 'http://localhost:8080/privada/generarPdf/' + idInforme + '?format=pdf';
+	    	window.location.href = 'https://appcitassas.glezmanz.eu/privada/generarPdf/' + idInforme + '?format=pdf';
 	    }
 	</script>
 </body>

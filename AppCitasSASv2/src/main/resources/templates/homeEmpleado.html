@@ -383,32 +383,32 @@
 	        filtrarCitas(); // Aplicar el filtro al cargar la página
 	    });
 	    function CrearPaciente(event) {
-            window.location.href = 'http://localhost:8080/auth/registrar';
+            window.location.href = 'https://appcitassas.glezmanz.eu/auth/registrar';
         }
 		function EditarPaciente(event) {
 		    const idPaciente = event.currentTarget.getAttribute("data-id");
-		    window.location.href = 'http://localhost:8080/privada/editar-paciente/' + idPaciente;
+		    window.location.href = 'https://appcitassas.glezmanz.eu/privada/editar-paciente/' + idPaciente;
 		}
 		
 		function AsignarDoctor(event) {
 		    const idTurno = event.currentTarget.getAttribute("data-id");
-		    window.location.href = 'http://localhost:8080/privada/editar-turno/' + idTurno;
+		    window.location.href = 'https://appcitassas.glezmanz.eu/privada/editar-turno/' + idTurno;
 		}
 			
 		function CrearDoctor(event) {
-		    window.location.href = 'http://localhost:8080/privada/crear-doctor';
+		    window.location.href = 'https://appcitassas.glezmanz.eu/privada/crear-doctor';
 		}
 		
 		function EditarDoctor(event) {
 		    const idDoctor = event.currentTarget.getAttribute("data-id");
-		    window.location.href = 'http://localhost:8080/privada/editar-doctor/' + idDoctor;
+		    window.location.href = 'https://appcitassas.glezmanz.eu/privada/editar-doctor/' + idDoctor;
 		}
 		
 		function EliminarDoctor(event) {
 		    const idDoctor = event.currentTarget.getAttribute("data-id");
 		    confirmar().then(function (confirmado) {
 		        if (confirmado) {
-		            window.location.href = 'http://localhost:8080/privada/eliminar-doctor/' + idDoctor;
+		            window.location.href = 'https://appcitassas.glezmanz.eu/privada/eliminar-doctor/' + idDoctor;
 		        }
 		    });
 		}
@@ -417,12 +417,12 @@
 		
 		function confirmarCancelarCita(event) {
 		    const idCita = event.currentTarget.getAttribute("data-id");
-		    window.location.href = 'http://localhost:8080/privada/cancelar-cita/' + idCita;
+		    window.location.href = 'https://appcitassas.glezmanz.eu/privada/cancelar-cita/' + idCita;
 		}
 		
 		function confirmarCompletarCita(event) {
 		    const idCita = event.currentTarget.getAttribute("data-id");
-		    window.location.href = 'http://localhost:8080/privada/completar-cita/' + idCita;
+		    window.location.href = 'https://appcitassas.glezmanz.eu/privada/completar-cita/' + idCita;
 		}
 		
 		
@@ -466,7 +466,7 @@
 				if (result.isConfirmed) {
 					const inputValue = result.value;
 					if (inputValue.trim().toLowerCase() === emailUsuario.toLowerCase()) {
-						window.location.href = 'http://localhost:8080/privada/eliminar/' + idUsuario;
+						window.location.href = 'https://appcitassas.glezmanz.eu/privada/eliminar/' + idUsuario;
 					} else {
 						Swal.fire({
 							icon: "error",
@@ -489,7 +489,7 @@
 				}
 			}).then((result) => {
 				if (result.isConfirmed) {
-					window.location.href = 'http://localhost:8080/privada/Administracion';
+					window.location.href = 'https://appcitassas.glezmanz.eu/privada/Administracion';
 				}
 			});
 		}

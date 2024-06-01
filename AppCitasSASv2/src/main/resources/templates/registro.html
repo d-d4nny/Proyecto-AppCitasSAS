@@ -20,6 +20,7 @@
 			<ul class="nav-links">
 				<li><a th:href="@{/auth/login}" sec:authorize='!isAuthenticated()'>Volver</a></li>
 			 	<li sec:authorize="hasRole('ROLE_ADMIN')" ><a style="color: white;" th:href="@{/privada/Administracion}">Volver</a></li>
+			 	<li sec:authorize="hasRole('ROLE_USER')" ><a style="color: white;" th:href="@{/privada/Administracion}">Volver</a></li>
 			</ul>
 		</div>
 	</nav>

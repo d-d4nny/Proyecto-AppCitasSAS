@@ -1,6 +1,9 @@
 package appCitas.AppCitasSASv2.controladores;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Calendar;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import appCitas.AppCitasSASv2.dao.Citas;
 import appCitas.AppCitasSASv2.dao.ConsultaTurno;
@@ -48,13 +50,12 @@ public class CitasControlador {
      * @return La vista del formulario de cita.
      */
     @GetMapping("/privada/crearCita")
-    public String mostrarFormularioCita(Model model) {
-        model.addAttribute("citasDTO", new CitasDTO());
+    public String mostrarFormularioCita(Model model) {        
 
         // Obtener la lista de doctores y agregarla al modelo
         List<ConsultaTurnoDTO> consultaTurno = consultaTurnoServicio.buscarTodos();
         model.addAttribute("consultaTurno", consultaTurno);
-
+        model.addAttribute("citasDTO", new CitasDTO());
         return "formularioCita";
     }
 
@@ -68,32 +69,39 @@ public class CitasControlador {
     @PostMapping("/privada/crearCita")
     public String crearCitaPost(@ModelAttribute CitasDTO citaDTO, Authentication authentication) {
         try {
-            Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
+        	 Paciente paciente = pacienteServicio.buscarPorEmail(authentication.getName());
 
-            ConsultaTurno consultaTurno = consultaTurnoServicio.buscarPorId(citaDTO.getConsultaTurno().getIdConsultaTurno());
+             ConsultaTurno consultaTurno = consultaTurnoServicio.buscarPorId(citaDTO.getConsultaTurno().getIdConsultaTurno());
 
-            // Establecer el paciente
-            citaDTO.setPaciente(paciente);
+             // Establecer el paciente
+             citaDTO.setPaciente(paciente);
 
-            // Establecer el estado
-            citaDTO.setEstadoCita("Pendiente");
+             // Establecer el estado
+             citaDTO.setEstadoCita("Pendiente");
 
-            // Establecer l consultaTurno
-            citaDTO.setConsultaTurno(consultaTurno);
+             // Obtener el día de la semana de la consulta
+             DayOfWeek diaSemanaConsulta = consultaTurno.getHorario().getDiaSemana();
+
+             // Obtener el día de la semana actual
+             DayOfWeek diaSemanaActual = LocalDate.now().getDayOfWeek();
+
+             // Calcular la diferencia de días para llegar al próximo día de la semana de la consulta
+             int diasHastaProximoDia = (diaSemanaConsulta.getValue() - diaSemanaActual.getValue() + 7) % 7;
+             LocalDate proximoDiaSemana = LocalDate.now().plusDays(diasHastaProximoDia);
+
+             // Convertir LocalDate a Date
+             Date fechaCita = Date.valueOf(proximoDiaSemana);
+
+             // Establecer la fecha de la cita como el próximo día de la semana de la consulta
+             citaDTO.setFechaCita(fechaCita);
+
+             // Establecer la consultaTurno
+             citaDTO.setConsultaTurno(consultaTurno);
+
 
             CitasDTO cita = citasServicio.registrar(citaDTO);
             
             if (cita != null) {
-                // Crear un nuevo informe
-                InformeDTO informeDTO = new InformeDTO();
-                informeDTO.setNombreInforme(paciente.getNombreCompletoPaciente() + " - " + cita.getFechaCita());
-                informeDTO.setDescInforme("El dia " + cita.getFechaCita() + " el paciente " + paciente.getNombreCompletoPaciente() + " asistio a la consulta numero " + consultaTurno.getNumConsulta() + " de " + consultaTurno.getNombreConsulta() + " con el doctor " + consultaTurno.getDoctor().getNombreCompletoDoctor() + " por el siguiente motivo: " + cita.getMotivoCita());
-                informeDTO.setFchInforme(Calendar.getInstance());
-                // Puedes agregar más campos al informeDTO según sea necesario
-
-                // Registrar el informe
-                informeServicio.crearInforme(informeDTO);
-
                 // Redirigir al panel de pacientes
                 return "redirect:/privada/Pacientes";
             } else {
@@ -183,6 +191,7 @@ public class CitasControlador {
             informeDTO.setNombreInforme(paciente.getNombreCompletoPaciente() + " - " + cita.getFechaCita());
             informeDTO.setDescInforme("El dia " + cita.getFechaCita() + " el paciente " + paciente.getNombreCompletoPaciente() + " asistio a la consulta numero " + consultaTurno.getNumConsulta() + " de " + consultaTurno.getNombreConsulta() + " con el doctor " + consultaTurno.getDoctor().getNombreCompletoDoctor() + " por el siguiente motivo: " + cita.getMotivoCita());
             informeDTO.setFchInforme(Calendar.getInstance());
+            informeDTO.setPaciente(cita.getPaciente());
 
             informeServicio.crearInforme(informeDTO);
             

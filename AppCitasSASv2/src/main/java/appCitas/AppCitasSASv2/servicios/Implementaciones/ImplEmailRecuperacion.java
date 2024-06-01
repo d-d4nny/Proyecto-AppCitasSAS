@@ -30,12 +30,12 @@ public class ImplEmailRecuperacion implements IntfEmailRecuperacion {
             MimeMessageHelper helper = new MimeMessageHelper(mensaje, true, "UTF-8");
 
             // Configuración del correo electrónico
-            helper.setFrom("danitbp12@gmail.com"); // AQUÍ VA EL EMAIL DEL .PROPERTIES
+            helper.setFrom("digitalhealthresponse@gmail.com"); // AQUÍ VA EL EMAIL DEL .PROPERTIES
             helper.setTo(emailDestino);
             helper.setSubject("RESTABLECER CONTRASEÑA");
 
             // Construcción del cuerpo del mensaje
-            String urlDominio = "http://localhost:8080";
+            String urlDominio = "https://appcitassas.glezmanz.eu";
             String urlDeRecuperacion = String.format("%s/auth/recuperar?token=%s", urlDominio, token);
             String cuerpoMensaje = String.format(
     				"﻿<!DOCTYPE html> <html lang='es'> <body> <div style='width: 600px; padding: 20px; border: 2px solid #ff9900; border-radius: 12px;"
@@ -73,12 +73,12 @@ public class ImplEmailRecuperacion implements IntfEmailRecuperacion {
             MimeMessageHelper helper = new MimeMessageHelper(mensaje, true, "UTF-8");
 
             // Configuración del correo electrónico
-            helper.setFrom("danitbp12@gmail.com");
+            helper.setFrom("digitalhealthresponse@gmail.com");
             helper.setTo(emailDestino);
             helper.setSubject("Confirmación de cuenta AppCitasSAS");
 
             // Construcción del cuerpo del mensaje
-            String urlDominio = "http://localhost:8080";
+            String urlDominio = "https://appcitassas.glezmanz.eu";
             String urlDeConfirmacion = String.format("%s/auth/confirmar-cuenta?token=%s", urlDominio, token);
             String cuerpoMensaje = String.format(
                     "﻿<!DOCTYPE html> <html lang='es'> <body> <div style='width: 600px; padding: 20px; border: 2px solid black; border-radius: 13px; background-color: #DEDEDE; font-family: Sans-serif'> <h1 style='color:#1f3c85'>Confirmar cuenta<b style='color:#5993d3'> App Citas SAS</b></h1>"
