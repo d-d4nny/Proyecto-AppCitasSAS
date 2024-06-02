@@ -8,14 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import appCitas.AppCitasSASv2.dto.PacienteDTO;
 import appCitas.AppCitasSASv2.servicios.Interfaces.IntfPacienteServicio;
 
 @Controller
-@RequestMapping("/auth")
 public class RecuperarPasswordControlador {
 
     @Autowired
@@ -27,7 +25,7 @@ public class RecuperarPasswordControlador {
      * @param model El modelo utilizado por la vista.
      * @return La vista de iniciar recuperación.
      */
-    @GetMapping("/iniciarRecuperacion")
+    @GetMapping("/auth/iniciarRecuperacion")
     public String mostrarVistainiciarRecuperacion(Model model) {
         model.addAttribute("pacienteDTO", new PacienteDTO());
         return "iniciarRecuperacion";
@@ -41,7 +39,7 @@ public class RecuperarPasswordControlador {
      * @return La vista de inicio de sesión o de inicio de recuperación con mensajes
      *         de resultado.
      */
-    @PostMapping("/iniciarRecuperacion")
+    @PostMapping("/auth/iniciarRecuperacion")
     public String procesarInicioRecuperacion(@ModelAttribute PacienteDTO pacienteDTO, Model model) {
 
         boolean envioConExito = pacienteServicio.iniciarResetPassConEmail(pacienteDTO.getEmailPaciente());
@@ -62,7 +60,7 @@ public class RecuperarPasswordControlador {
      * @param model El modelo utilizado por la vista.
      * @return La vista de recuperación de contraseña con el formulario.
      */
-    @GetMapping("/recuperar")
+    @GetMapping("/auth/recuperar")
     public String mostrarVistaRecuperar(@RequestParam(name = "token") String token, Model model) {
         PacienteDTO paciente = pacienteServicio.obtenerUsuarioPorToken(token);
         if (paciente != null) {
@@ -84,7 +82,7 @@ public class RecuperarPasswordControlador {
      * @return La vista de inicio de sesión o de recuperación con mensajes de
      *         resultado.
      */
-    @PostMapping("/recuperar")
+    @PostMapping("/auth/recuperar")
     public String procesarRecuperacionContraseña(@ModelAttribute PacienteDTO pacienteDTO, Model model) {
 
         PacienteDTO pacienteExistente = pacienteServicio.obtenerUsuarioPorToken(pacienteDTO.getToken());
